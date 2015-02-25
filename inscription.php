@@ -1,84 +1,48 @@
-<!DOCTYPE html >
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
 
-<html xml:lang="fr" lang="fr">
+    <!-- DEBUT DESCRIPTION PAGE -->
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-        <title>
-            Inscription
-        </title>
-        <!-- La feuille de styles "base.css" doit être appelée en premier. -->
-        <link rel="stylesheet" type="text/css" href="styles/base.css" media="all" />
-        <link rel="stylesheet" type="text/css" href="styles/modele08.css" media="screen" />
+        <title>MATCH'UP_ACCUEIL</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style/style.css" media="screen" />
     </head>
-
+    <!-- FIN DESCRIPTION PAGE -->
+ 
+    <!-- DEBUT PAGE -->
     <body>
+        <div class="content">
+            <!-- DEBUT HEADER -->
+            <?php include_once("include/head.php") ?>
+            <!-- FIN HEADER -->
 
-        <div id="global">
+            <!-- DEBUT CONTENT -->
+            
+            <?php include_once("include/menu.php") ?>
+            
+    <form name="Formulaire_Inscription">
+      Nom : <input type="text" placeholder="Ex : Boissise" maxlength="20" name="case1" onKeyUp="suivantLimite(this,'case2', 20)" onkeypress="suivantEnter(event, 'case2')"><br/>
+      Prénom :<input type="text" maxlength="20" placeholder="Ex : Remi" name="case2" onKeyUp="suivantLimite(this,'case3', 20)" onkeypress="suivantEnter(event, 'case3')"><br/>
+      Age : <input type="number" maxlength="3" placeholder="Ex : 22" name="case3" onKeyUp="suivantLimite(this,'case4', 3)" onkeypress="suivantEnter(event,'case4')"><br/>
+      Pseudo : <input type="text" maxlength="3" placeholder="Ex : 22" name="case4" onKeyUp="suivantLimite(this,'case5', 30)" onkeypress="suivantEnter(event,'case4')"><br/>
+      Mot de passe : <input type="password" maxlength="20" placeholder="Ex : 22" name="case3" onKeyUp="suivantLimite(this,'case4', 30)" onkeypress="suivantEnter(event,'case4')"><br/>
+      Vérification Mot de passe : <input type="password" maxlength="20" placeholder="Ex : 22" name="case3" onKeyUp="suivantLimite(this,'case4', 30)" onkeypress="suivantEnter(event,'case4')"><br/>
+      Vous êtes : <input type="checkbox" name="Fonction" value="Rugby"> Artiste<br/>
+                  <input type="checkbox" name="Fonction" value="Rugby">Gérant<br/>
+    </form>
+            
+        <!-- FIN CONTENT-->
+        </div>
 
-            <div id="entete">
-                <h1 >
-                    <a href='Accueil.html'><img alt="" src="picto/08.png" />
-                    <span>Match'up</span>
-                    </a>
-                </h1>
-                <!--   <p class="sous-titre">
-                        <strong>Caractéristiques:</strong>
-              '          menu de navigation horizontal,
-                        colonnes factices,
-                        largeur fixe 900px
-                </p>   -->
-            </div><!-- #entete -->
+        <!--DEBUT FOOTER-->
+        <?php include_once("include/foot.php") ?>
 
-            <div id="navigation">
-                <ul>
-                    <li class="gauche"><a href="Quefaire.html">Que faire ?</a></li>
-                    <li class="gauche"><a href="Salle.html">Salles</a></li>
-                    <li class="gauche"><a href="Artiste.html">Artistes</a></li>			
-                    <li class="gauche"><a href="Annonce.html">Annonces</a></li>
-                    <li class="gauche"><a href="Recherche.html">Recherche</a></li>
-                    <li class="droite"><a>Connexion</a></li>
-                    <li class="droite"><a href="Inscription.html">Inscription Musicien</a></li>
-                    <li class="droite"><a href="Inscription.html">Inscription Salle</a></li>		
-                </ul>
-                <div id="centre">
-
-                    <div id="principal">
-                        <h2>Inscriptions</h2>
-
-
-                        <form method="post" action="traitement.php" >
-                            <table>
-                                <tr><td> <label for="email">Email :</label></td>
-                                    <td><input type="email" name="email" id="email" placeholder="monaddresse@hotmail.fr" size="30" maxlength="30"/>
-                                    </td></tr>
-
-                                <tr><td><label for="pass">Mot de passe :</label></td>
-                                    <td><input type="password" name="pass" id="pass" placeholder="Minimun 6 caractères" size="30" minlength="6"/>
-                                    </td></tr>
-
-                                <tr><td><label for="pass">Confirmation mot de passe :</label></td>
-                                    <td>  <input type="password" name="pass" id="pass"  size="30" minlength="6"/> </td>
-                            </tr>
-                            <tr>
-                                <td> <label for="pass">Pseudo :</label></td>
-                                <td>     <input type="password" name="pass" id="pass"  size="30" /></td>
-                            </tr>
-                            <tr> 
-                                <td><input type="submit" value="Envoyer" /></td>
-                            </tr>
-                            </table> 
-                        </form>
-
-                    </div><!-- #principal -->               
-
-                </div>
-                <footer> 
-                    <p id="copyright">
-                        Mise en page &copy; 2014 SimonDesign
-                        <a href="Accueil.html">Match'up</a> et
-                        <a href="A_propos_du_site">A propos du site</a>
-                    </p>
-                </footer>
-            </div>
+        <!--FIN FOOTER-->
     </body>
 </html>
