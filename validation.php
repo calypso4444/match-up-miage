@@ -8,17 +8,13 @@ and open the template in the editor.
 
     <!-- DEBUT DESCRIPTION PAGE -->
     <head>
-        <title>MATCH'UP_INSCRIPTION2</title>
+        <title>MATCH'UP_TOUS_LES_ARTISTES</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style/style.css" media="screen" />
     </head>
     <!-- FIN DESCRIPTION PAGE -->
-    <!-- SCRIPT -->
 
-    <script type="text/javascript" src="../js/verifInscription.js"></script>
-
-    <!-- FIN SCRIPT-->
     <!-- DEBUT PAGE -->
     <body>
         <div class="content">
@@ -27,13 +23,17 @@ and open the template in the editor.
             <!-- FIN HEADER -->
 
             <!-- DEBUT CONTENT -->
-
             <?php include_once("include/menu.php") ?>
-
+            
             <section>
-                <p>Votre demande a bien été prise en compte, vous allez recevoir un mail de confirmation dans les minutes qui suivent. Merci de cliquer sur le mail de validation pour finaliser votre inscription</p>
+                <p>Inscription valid&eacute;e</p
+                <p><a href="info_perso.php">Cliquez ici pour compl&egrave;ter votre profil</a></p>
+                <p>Vous pouvez aussi vous cr&eacute;er un profil : </br>
+                    <input type="checkbox" name="Fonction" value="Rugby"> Artiste
+                    <input type="checkbox" name="Fonction" value="Rugby">G&eacute;rant<br/>
+                    <input type="button" name="nouveau profil" value="C'est parti !"></button>
             </section>
-
+            
             <!-- FIN CONTENT-->
         </div>
 
