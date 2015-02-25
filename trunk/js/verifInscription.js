@@ -53,6 +53,6 @@ function suivantLimite(enCours, suivant, limite)
 */
 
 function suivantEnter(event, suivant){
-	if(event.which ==13){
+	if(event.which == 13){
 		document.forms["fInscription"].elements[suivant].focus();
 	}
