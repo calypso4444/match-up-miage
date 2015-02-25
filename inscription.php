@@ -31,13 +31,15 @@ and open the template in the editor.
             <?php include_once("include/menu.php") ?>
 
             <section>
-                <form name="Formulaire_Inscription">
+                <form name="fInscription">
                 
-                    Pseudo : <input type="text" maxlength="30" placeholder="lhommedu13100" name="case4" onKeyUp="suivantLimite(this, 'case5', 30)" onkeypress="suivantEnter(event, 'case5')"><br/>
+                    Pseudo : <input type="text" maxlength="30" placeholder="lhommedu13100" name="case1" onKeyUp="suivantLimite(this, 'case2', 30)" onkeypress="suivantEnter(event, 'case2')" onblur="verifPseudo(this)"><br/>
 
-                    Mot de passe : <input type="password" maxlength="20" name="case5" onKeyUp="suivantLimite(this, 'case6', 30)" onkeypress="suivantEnter(event, 'case6')"><br/>
+                    Mot de passe : <input type="password" maxlength="20" name="case2" onKeyUp="suivantLimite(this, 'case3', 30)" onkeypress="suivantEnter(event, 'case3')"><br/>
 
-                    Vérification Mot de passe : <input type="password" maxlength="20" name="case6" onKeyUp="suivantLimite(this, 'case7', 30)"><br/>
+                    Vérification Mot de passe : <input type="password" maxlength="20" name="case3"><br/>
+                    
+                   <input button="submit" value="valider"/>
 
                     Vous êtes :<Select name"Fonction">
                   <option>------</option>
