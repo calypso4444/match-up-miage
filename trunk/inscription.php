@@ -14,7 +14,12 @@ and open the template in the editor.
         <link rel="stylesheet" href="style/style.css" media="screen" />
     </head>
     <!-- FIN DESCRIPTION PAGE -->
+    <!-- SCRIPT -->
+    
+    <script type="text/javascript" src="../js/verifInscription.js">
+    </script>
  
+    <!-- FIN SCRIPT-->
     <!-- DEBUT PAGE -->
     <body>
         <div class="content">
@@ -27,7 +32,7 @@ and open the template in the editor.
             <?php include_once("include/menu.php") ?>
             
     <form name="Formulaire_Inscription">
-      Nom : <input type="text" placeholder="Ex : Boissise" maxlength="20" name="case1" onKeyUp="suivantLimite(this,'case2', 20)" onkeypress="suivantEnter(event, 'case2')"><br/>
+      Nom : <input type="text" placeholder="Ex : Boissise" maxlength="20" name="case1" onKeyUp="suivantLimite(this,'case2', 20) onblur="onblur="verifLastname(this)" onkeypress="suivantEnter(event, 'case2')"><br/>
       Prénom :<input type="text" maxlength="20" placeholder="Ex : Remi" name="case2" onKeyUp="suivantLimite(this,'case3', 20)" onkeypress="suivantEnter(event, 'case3')"><br/>
       Age : <input type="number" maxlength="3" placeholder="Ex : 22" name="case3" onKeyUp="suivantLimite(this,'case4', 3)" onkeypress="suivantEnter(event,'case4')"><br/>
       Pseudo : <input type="text" maxlength="3" placeholder="Ex : 22" name="case4" onKeyUp="suivantLimite(this,'case5', 30)" onkeypress="suivantEnter(event,'case4')"><br/>
