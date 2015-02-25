@@ -1,5 +1,3 @@
-<SCRIPT language="Javascript">
-
 /*
 	Fonction permettant de surligner en rouge ou vert le champ s'il est bien remplit ou non
 */
@@ -90,4 +88,3 @@ function suivantEnter(event, suivant){
 	if(event.which ==13){
 		document.forms["Formulaire_Inscription"].elements[suivant].focus();
 	}
-</SCRIPT>
