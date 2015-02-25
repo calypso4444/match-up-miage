@@ -44,7 +44,7 @@ function verifForm(f){
 function suivantLimite(enCours, suivant, limite) 
   { 
   if (enCours.value.length == limite){
-    document.forms["Formulaire_Inscription"].elements[suivant].focus();
+    document.forms["fInscription"].elements[suivant].focus();
   }
 }
 
@@ -54,5 +54,5 @@ function suivantLimite(enCours, suivant, limite)
 
 function suivantEnter(event, suivant){
 	if(event.which ==13){
-		document.forms["Formulaire_Inscription"].elements[suivant].focus();
+		document.forms["fInscription"].elements[suivant].focus();
 	}
