@@ -10,41 +10,11 @@ function surligne(champ, erreur){
 }
 
 /*
-	Fonction permettant de vérifier le champ correspondant au prénom.
+	Fonction permettant de vérifier le champ correspondant au pseudo.
 */
 
-function verifFirstname(champ){
-   if(champ.value.length < 2 || champ.value.length > 35){
-      surligne(champ, true);
-      return false;
-   }else{
-      surligne(champ, false);
-      return true;
-   }
-}
-
-/*
-	Fonction permettant de vérifier le champ correspondant au nom.
-*/
-
-function verifLastname(champ){
-   if(champ.value.length < 2 || champ.value.length > 35)
-   {
-      surligne(champ, true);
-      return false;
-   }else{
-      surligne(champ, false);
-      return true;
-   }
-}
-
-/*
-	Fonction permettant de vérifier le champ correspondant au mail.
-*/
-
-function verifMail(champ){
-   var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
-   if(!regex.test(champ.value)){
+function verifPseudo(champ){
+   if(champ.value.length < 2 || champ.value.length >= 20){ //Il ne peut pas faire moins de 2 caractère et plus de 20 caractères
       surligne(champ, true);
       return false;
    }else{
@@ -58,10 +28,8 @@ function verifMail(champ){
 */
 
 function verifForm(f){
-   var lastnameOk = verifLastname(f.lastname);
-   var firstnameOK = verifFirstname(f.firstname);
-   var mailOk = verifMail(f.email);
-   if(lastnameOk && mailOk && firstnameOK)
+   var pseudoOK = verifPseudo(f.email);
+   if(pseudoOK)
       return true;
    else{
       alert("Les champs surligne en rouge doivent etre remplie correctement !!!");
