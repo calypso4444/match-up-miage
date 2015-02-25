@@ -29,7 +29,7 @@ and open the template in the editor.
             <section>
                 <p><h1>Ce soir &agrave; Paris</h1></p>
                 <div id='map'>
-                  <img src="../image/map.png" alt="map" />
+                  <img src="image/map.png" alt="map" />
                 </div>
                 <input type="range" />
             </section>
