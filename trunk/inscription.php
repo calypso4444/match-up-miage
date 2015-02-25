@@ -40,11 +40,11 @@ and open the template in the editor.
       
       Pseudo : <input type="text" maxlength="30" placeholder="lhommedu13100" name="case4" onKeyUp="suivantLimite(this,'case5', 30)" onkeypress="suivantEnter(event,'case5')"><br/>
       
-      Mot de passe : <input type="password" maxlength="20" placeholder="Ex : 22" name="case5" onKeyUp="suivantLimite(this,'case6', 30)" onkeypress="suivantEnter(event,'case6')"><br/>
+      Mot de passe : <input type="password" maxlength="20" name="case5" onKeyUp="suivantLimite(this,'case6', 30)" onkeypress="suivantEnter(event,'case6')"><br/>
       
-      Vérification Mot de passe : <input type="password" maxlength="20" placeholder="Ex : 22" name="case6" onKeyUp="suivantLimite(this,'case7', 30)"><br/>
+      Vérification Mot de passe : <input type="password" maxlength="20" name="case6" onKeyUp="suivantLimite(this,'case7', 30)"><br/>
       
-      Vous êtes : 
+      Vous êtes :<br/>
       <input type="checkbox" name="Fonction" value="Rugby"> Artiste<br/>
       <input type="checkbox" name="Fonction" value="Rugby">Gérant<br/>
       
