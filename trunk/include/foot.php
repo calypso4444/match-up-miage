@@ -1,10 +1,10 @@
 <footer>
-  <p>Publié par l'équipe de L3-MIAGE Sorbonne composé de :</p>
+  <p>Publi&eacute; par l'&eacute;quipe de L3-MIAGE Sorbonne compos&eacute; de :</p>
     <ul>
       <li> Jihane Jomni </li>
-      <li> Rémi Boissise </li>
+      <li> R&eacute;mi Boissise </li>
       <li> Simon Zerdoun </li>
     </ul>
-  <p> Nous contacter : <a href="mailto:l3équipeMatchup@sorbonne.com">l3équipeMatchup@sorbonne.com</a></p>
+  <p> Nous contacter : <a href="mailto:l3&eacute;quipeMatchup@sorbonne.com">l3&eacute;quipeMatchup@sorbonne.com</a></p>
 </footer>
     
