@@ -13,3 +13,22 @@ ul.menu a{
     color: black;
     margin: 0 4%;
 }
+
+section{
+    border:solid black;
+    box-shadow: 0px 5px 10px grey;
+    width: 65%;
+}
+
+aside{
+    width: 30%;
+    float: right;
+    border:solid black;
+    box-shadow: 0px 5px 10px grey;
+    vertical-align: top;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
