@@ -16,7 +16,7 @@ and open the template in the editor.
     <!-- FIN DESCRIPTION PAGE -->
     <!-- SCRIPT -->
 
-    <script type="text/javascript" src="../js/verifInscription.js"></script>
+    <script language="Javascript" src="../js/verifInscription.js"></script>
 
     <!-- FIN SCRIPT-->
     <!-- DEBUT PAGE -->
