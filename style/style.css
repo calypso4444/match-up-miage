@@ -1,20 +1,16 @@
-nav#menu_horizontal li { 
+ul.menu li { 
 display : inline;
 padding : 0 40 0; /* Pour espacer les boutons entre eux */
-color: white;
-border-right:solid white;
-
+color: black;
 }
-nav#menu_horizontal {
+ul.menu {
 list-style-type : none; /* Car sinon les puces se placent n'importe où */
-background: url(images/bg_menu.gif) /*repeat-x*/;
 box-shadow: 0px 5px 10px grey;
-margin:0px;
-padding : 0px
-width : 100%;
+border:solid black;
 }
 
-nav#menu_horizontal a{
+ul.menu a{
 	text-decoration: none;
-	color: white;
+	color: black;
+        margin: 0 30px;
 }
