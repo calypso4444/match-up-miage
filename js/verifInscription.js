@@ -28,31 +28,12 @@ function verifPseudo(champ){
 */
 
 function verifForm(f){
-   var pseudoOK = verifPseudo(f.email);
-   if(pseudoOK)
+   var pseudoOK = verifPseudo(f.pseudo);
+   var mailOk = verifMail(f.mail);
+   if(pseudoOK && mailOK)
       return true;
    else{
       alert("Les champs surligne en rouge doivent etre remplie correctement !!!");
       return false;
    }
 }
-
-/*
-	Cette fonction va nous permettre de passer au champ suivant lorsque la taille maximale est atteinte
-*/
-
-function suivantLimite(enCours, suivant, limite) 
-  { 
-  if (enCours.value.length == limite){
-    document.forms["fInscription"].elements[suivant].focus();
-  }
-}
-
-/*
-	Cette fonction va nous permettre de passer au champ suivant si l'on clique sur la touche ENTER 
-*/
-
-function suivantEnter(event, suivant){
-	if(event.which == 13){
-		document.forms["fInscription"].elements[suivant].focus();
-	}
