@@ -18,11 +18,12 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style/style.css" media="screen" />
+            
     </head>
     <!-- FIN DESCRIPTION PAGE -->
     <!-- SCRIPT -->
 
-    <script language="Javascript" src="../js/verifInscription.js"></script>
+
 
     <!-- FIN SCRIPT-->
 
@@ -38,6 +39,7 @@ and open the template in the editor.
             <?php include_once("include/menu.php") ?>
 
             <section>
+	            <script type="text/javascript" src="js/verificationInscription1.js"></script>
                 <form method="post" name="verificationInscription1">
 	                <label>Adresse e-mail: <input type="text" name="email" placeholder="test@miage.com"/></label><br/>
                     <label>Pseudo: <input type="text" name="pseudo" placeholder="lhommedu13" onblur="verifPseudo(this)"/></label><br/>
