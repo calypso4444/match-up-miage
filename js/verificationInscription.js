@@ -24,11 +24,13 @@ $(function(){
 			}
 			});
 			
-			$("#passe2").keyup(function(){
+			$("#passe2").keyup(function (){
 			if($("#passe2").val() != $("passe").val()){
 				$("#passe2").next(".error-message").show().text("Mot de passe différent")
 				}else{
 				$("#passe2").next(".error-message").hide().text("");	
 			}
 			});
-}); 	
+}); 
+
+
