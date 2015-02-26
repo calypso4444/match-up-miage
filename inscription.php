@@ -8,7 +8,7 @@ and open the template in the editor.
 
     <!-- CONNEXION A LA BDD -->
     <?php
-    $link = mysqli_connect("localhost","root","") ;
+    $link = mysqli_connect("localhost","root","root") ;
     mysqli_select_db($link, "mu_db");
     ?>
 
