@@ -33,12 +33,13 @@ and open the template in the editor.
       }
 
      function verifPseudo(champ){
-        if(champ.value.length < 2 || champ.value.length >= 20){
-           surligne(champ, true);
-           return false;
-        }else{
-          surligne(champ, false);
-          return true;
+	    var pseudo = /^[a-zA-Z0-9]{2,25}$/;
+        if(!pseudo.test(champ.value)){
+				surligne(champ, true);
+				return false;
+        	}else{
+				surligne(champ, false);
+				return true;
    		}
      }
 
@@ -80,10 +81,11 @@ and open the template in the editor.
 
             <section>
                 <form method="post" name="verificationInscription1" onsubmit="return verifForm(this)">
-	                <label>Adresse e-mail: <input type="text" name="email" placeholder="test@miage.com" onblur="verifMail(this)"/>										<label><br/>
-                    <label>Pseudo: <input type="text" name="pseudo" placeholder="lhommedu13" onblur="verifPseudo(this)"/></label><br/>
-                    <label>Mot de passe: <input type="password" name="passe"/></label><br/>
-                    <label>Confirmation du mot de passe: <input type="password" name="passe2"/></label><br/>
+	                <p>Veuillez remplir tout les champs ayant le label suivant (*)</p>
+	                <label> Adresse e-mail : *<input type="text" name="email" placeholder="test@miage.com" onblur="verifMail(this)"/>										<label><br/>
+                    <label> Pseudo : *<input type="text" name="pseudo" placeholder="lhommedu13" onblur="verifPseudo(this)"/></label>(max. 25 caractères) <br/>
+                    <label> Mot de passe : *<input type="password" name="passe"/></label><br/>
+                    <label> Confirmation du mot de passe : *<input type="password" name="passe2"/></label><br/>
                     <input type="submit" value="M'inscrire"/>
                 </form>
             </section>
