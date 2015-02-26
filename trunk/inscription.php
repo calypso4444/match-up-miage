@@ -46,13 +46,23 @@ and open the template in the editor.
      var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
         if(!regex.test(champ.value)){
            surligne(champ, true);
-           alert("Attention votre adresse mail n'est pas valide");
            return false;
    		}else{
    			surligne(champ, false);
    			return true;
    		}
      }	
+     
+    function verifForm(f){
+	var pseudoOk = verifPseudo(f.pseudo);
+	var mailOk = verifMail(f.email);
+		if(pseudoOk && mailOk)
+			return true;
+		else{
+			alert("Veuillez remplir correctement tous les champs (Rouge)");
+			return false;
+		}
+	}
 	</script>
 
     <!-- FIN SCRIPT-->
@@ -69,8 +79,8 @@ and open the template in the editor.
             <?php include_once("include/menu.php") ?>
 
             <section>
-                <form method="post" name="verificationInscription1">
-	                <label>Adresse e-mail: <input type="text" name="mail" placeholder="test@miage.com" onblur="verifMail(this)"/>							<label><br/>
+                <form method="post" name="verificationInscription1" onsubmit="return verifForm(this)">
+	                <label>Adresse e-mail: <input type="text" name="email" placeholder="test@miage.com" onblur="verifMail(this)"/>							<label><br/>
                     <label>Pseudo: <input type="text" name="pseudo" placeholder="lhommedu13" onblur="verifPseudo(this)"/></label><br/>
                     <label>Mot de passe: <input type="password" name="passe"/></label><br/>
                     <label>Confirmation du mot de passe: <input type="password" name="passe2"/></label><br/>
@@ -79,26 +89,15 @@ and open the template in the editor.
             </section>
             
             <?php
-                //on verifie d'abord que les champs ne sont pas vides
                 if (empty($_POST['pseudo'])) {
-                    //on encadre l'emplacement en rouge avec un message
                 }
-
                 if (empty($_POST['passe'])) {
-                    //on encadre l'emplacement en rouge avec un message
                 }
-
                 if (!empty($_POST['passe2'])) {
-                    //on encadre l'emplacement en rouge avec un message
                 }
-
                 if (!empty($_POST['email'])) {
-                    //on encadre l'emplacement en rouge avec un message
                 }
-
-                //on verifie que l'adresse mail a un format valide
                 if (!filter_var('email', FILTER_VALIDATE_EMAIL)) {
-                    //on encadre l'emplacement en rouge avec un message
                 }
                 if ((!empty($_POST['pseudo']))and ( !empty($_POST['email'])) and ( !empty($_POST['passe']))) {
                     // Je mets aussi certaines sécurités
