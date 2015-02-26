@@ -19,26 +19,14 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style/style.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="style/inscription.css" media="screen"/>
-        <script type="text/javascript" language="Javascript" src="js/jquery.js"></script>
-		<script type="text/javascript">
-		$(function(){
-			$("#envoyer").click(function(){
-				valid = true;
-				if($("#pseudo").val() == ""){
-					$("#pseudo").next(".error-message").fadeIn().text("Veuillez entrer votre nom");
-					valid = false;
-				}
-				return valid;
-			});
-			
-		}); 	
-	</script>
+
     </head>
     <!-- FIN DESCRIPTION PAGE -->
     
     <!-- SCRIPT -->
-
-
+    
+    <script type="text/javascript" language="Javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" language="Javascript" src="js/verificationInscription.js"></script>
 
     <!-- FIN SCRIPT-->
 
@@ -54,10 +42,23 @@ and open the template in the editor.
             <?php include_once("include/menu.php") ?>
 
             <section>
-                <form method="post" name="verificationInscription1">
+                <form id="formulaireInscription" method ="post" name="verificationInscription1">
+				
+					Votre mail : * 
+                    <input id="email" type="text" name="email" placeholder="test@sorbonne.fr" value=""/>
+                    <span class="error-message"></span><br/>
 
-                    <label>Pseudo: <input id="pseudo" type="text" name="pseudo" placeholder="lhommedu13"/></label>
-                    <span class="error-message">erreur</span><br/>
+                    Pseudo : *
+                    <input id="pseudo" type="text" name="pseudo" placeholder="lhommedu13" value=""/>
+                    <span class="error-message"></span><br/>
+                    
+                    Mot de passe : * 
+                    <input id="passe" type="password" name="passe" value=""/>
+                    <span class="error-message"></span><br/>
+                    
+                    Vérification de votre Mot de passe : * 
+                    <input id="passe2" type="password" name="passe2"/>
+                    <span class="error-message"></span><br/>
 
                     <input type="submit" value="M'inscrire" id="envoyer"/>
                 </form>
