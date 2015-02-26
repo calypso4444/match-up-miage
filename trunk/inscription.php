@@ -23,7 +23,7 @@ and open the template in the editor.
     <!-- FIN DESCRIPTION PAGE -->
     <!-- SCRIPT -->
 
-
+	<script type="text/javascript" src="js/verificationInscription1.js"></script>
 
     <!-- FIN SCRIPT-->
 
@@ -39,9 +39,8 @@ and open the template in the editor.
             <?php include_once("include/menu.php") ?>
 
             <section>
-	            <script type="text/javascript" src="js/verificationInscription1.js"></script>
                 <form method="post" name="verificationInscription1">
-	                <label>Adresse e-mail: <input type="text" name="email" placeholder="test@miage.com"/></label><br/>
+	                <label>Adresse e-mail: <input type="text" name="email" placeholder="test@miage.com" onblur="verifMail(this)"/></label><br/>
                     <label>Pseudo: <input type="text" name="pseudo" placeholder="lhommedu13" onblur="verifPseudo(this)"/></label><br/>
                     <label>Mot de passe: <input type="password" name="passe"/></label><br/>
                     <label>Confirmation du mot de passe: <input type="password" name="passe2"/></label><br/>
