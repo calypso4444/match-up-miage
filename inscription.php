@@ -38,9 +38,9 @@ and open the template in the editor.
             <?php include_once("include/menu.php") ?>
 
             <section>
-                <form method="post">
-	                <label>Adresse e-mail: <input type="text" name="email"/></label><br/>
-                    <label>Pseudo: <input type="text" name="pseudo"/></label><br/>
+                <form method="post" name="verificationInscription1">
+	                <label>Adresse e-mail: <input type="text" name="email" placeholder="test@miage.com"/></label><br/>
+                    <label>Pseudo: <input type="text" name="pseudo" placeholder="lhommedu13" onblur="verifPseudo(this)"/></label><br/>
                     <label>Mot de passe: <input type="password" name="passe"/></label><br/>
                     <label>Confirmation du mot de passe: <input type="password" name="passe2"/></label><br/>
                     <input type="submit" value="M'inscrire"/>
