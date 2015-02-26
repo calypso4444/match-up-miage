@@ -33,21 +33,21 @@ and open the template in the editor.
             <section>
                 <form name="Formulaire_Inscription">
 
-                    Nom : <input type="text" placeholder="Ex : Boissise" maxlength="20" name="case1" onKeyUp="suivantLimite(this, 'case2', 20) onblur ="onblur="verifLastname(this)" onkeypress="suivantEnter(event, 'case2')"><br/>
+                    Nom : <input type="text" placeholder="Boissise" maxlength="20" name="case1" onKeyUp="suivantLimite(this, 'case2', 20) onblur ="onblur="verifLastname(this)" onkeypress="suivantEnter(event, 'case2')"><br/>
 
                     Pr&eacute;nom :<input type="text" maxlength="20" placeholder="Rémi" name="case2" onKeyUp="suivantLimite(this, 'case3', 20)" onkeypress="suivantEnter(event, 'case3')"><br/>
 
-                    &Acirc;ge : <input type="text" maxlength="3" size="3" placeholder="22" name="case3" onKeyUp="suivantLimite(this, 'case4', 3)" onkeypress="suivantEnter(event, 'case4')"> ans<br/>
+                    &Acirc;ge : <input type="text" maxlength="3" size="3" placeholder="22" name="case3" onKeyUp="suivantLimite(this, 'case4', 3)" onkeypress="suivantEnter(event, 'case4')">ans<br/>
 
                     Pseudo : <input type="text" maxlength="30" placeholder="lhommedu13100" name="case4" onKeyUp="suivantLimite(this, 'case5', 30)" onkeypress="suivantEnter(event, 'case5')"><br/>
 
                     Mot de passe : <input type="password" maxlength="20" name="case5" onKeyUp="suivantLimite(this, 'case6', 30)" onkeypress="suivantEnter(event, 'case6')"><br/>
 
-                    V&eacute;rification Mot de passe : <input type="password" maxlength="20" name="case6" onKeyUp="suivantLimite(this, 'case7', 30)"><br/>
+                    V&eacute;rification Mot de passe : <input type="password" maxlength="20" name="case6"><br/>
 
                     Vous &ecirc;tes :<br/>
-                    <input type="checkbox" name="Fonction" value="Rugby"> Artiste<br/>
-                    <input type="checkbox" name="Fonction" value="Rugby">G&eacute;rant<br/>
+                    <input type="checkbox" name="Fonction" value="Artiste"> Artiste<br/>
+                    <input type="checkbox" name="Fonction" value="Gérant">G&eacute;rant<br/>
 
                 </form>
             </section>
