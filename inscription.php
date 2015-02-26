@@ -44,7 +44,7 @@ and open the template in the editor.
                     <label>Pseudo: <input type="text" name="pseudo" placeholder="lhommedu13" onblur="verifPseudo(this)"/></label><br/>
                     <label>Mot de passe: <input type="password" name="passe"/></label><br/>
                     <label>Confirmation du mot de passe: <input type="password" name="passe2"/></label><br/>
-                    <input type="submit" value="M'inscrire"/>
+                    <input type="submit" value="M'inscrire" onblur="return verifForm(this)"/>
                 </form>
             </section>
             
