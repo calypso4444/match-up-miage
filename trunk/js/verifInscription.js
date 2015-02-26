@@ -1,5 +1,7 @@
 /*
+	Bonjour ceci est un test pour voir si cela marche
 	Fonction permettant de surligner en rouge ou vert le champ s'il est bien remplit ou non
+	s
 */
 
 function surligne(champ, erreur){
