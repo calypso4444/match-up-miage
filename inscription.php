@@ -17,54 +17,28 @@ and open the template in the editor.
         <title>MATCH'UP_INSCRIPTION</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style/style.css" media="screen" />
-            
+        <link rel="stylesheet" type="text/css" href="style/style.css" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="style/inscription.css" media="screen"/>
+        <script type="text/javascript" language="Javascript" src="js/jquery.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			$("#envoyer").click(function(){
+				valid = true;
+				if($("#pseudo").val() == ""){
+					$("#pseudo").next(".error-message").fadeIn().text("Veuillez entrer votre nom");
+					valid = false;
+				}
+				return valid;
+			});
+			
+		}); 	
+	</script>
     </head>
     <!-- FIN DESCRIPTION PAGE -->
     
     <!-- SCRIPT -->
 
-	<script>
-			function surligne(champ, erreur){
-         if(erreur)
-          champ.style.backgroundColor = "#fba";
-         else
-          champ.style.backgroundColor = "#54F98D";
-      }
 
-     function verifPseudo(champ){
-	    var pseudo = /^[a-zA-Z0-9]{2,25}$/;
-        if(!pseudo.test(champ.value)){
-				surligne(champ, true);
-				return false;
-        	}else{
-				surligne(champ, false);
-				return true;
-   		}
-     }
-
-     function verifMail(champ){
-     var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
-        if(!regex.test(champ.value)){
-           surligne(champ, true);
-           return false;
-   		}else{
-   			surligne(champ, false);
-   			return true;
-   		}
-     }	
-     
-    function verifForm(f){
-	var pseudoOk = verifPseudo(f.pseudo);
-	var mailOk = verifMail(f.email);
-		if(pseudoOk && mailOk)
-			return true;
-		else{
-			alert("Veuillez remplir correctement tous les champs");
-			return false;
-		}
-	}
-	</script>
 
     <!-- FIN SCRIPT-->
 
@@ -80,13 +54,12 @@ and open the template in the editor.
             <?php include_once("include/menu.php") ?>
 
             <section>
-                <form method="post" name="verificationInscription1" onsubmit="return verifForm(this)">
-	                <p>Veuillez remplir tout les champs ayant le label suivant (*)</p>
-	                <label> Adresse e-mail : *<input type="text" name="email" placeholder="test@miage.com" onblur="verifMail(this)"/>										<label><br/>
-                    <label> Pseudo : *<input type="text" name="pseudo" placeholder="lhommedu13" onblur="verifPseudo(this)"/></label>(max. 25 caractères) <br/>
-                    <label> Mot de passe : *<input type="password" name="passe"/></label><br/>
-                    <label> Confirmation du mot de passe : *<input type="password" name="passe2"/></label><br/>
-                    <input type="submit" value="M'inscrire"/>
+                <form method="post" name="verificationInscription1">
+
+                    <label>Pseudo: <input id="pseudo" type="text" name="pseudo" placeholder="lhommedu13"/></label>
+                    <span class="error-message">erreur</span><br/>
+
+                    <input type="submit" value="M'inscrire" id="envoyer"/>
                 </form>
             </section>
             
