@@ -22,7 +22,7 @@ and open the template in the editor.
     <!-- FIN DESCRIPTION PAGE -->
     <!-- SCRIPT -->
 
-    <script language="Javascript" src="../js/verifInscription.js"></script>
+    <script language="Javascript" src="js/verifInscription.js"></script>
 
     <!-- FIN SCRIPT-->
 
