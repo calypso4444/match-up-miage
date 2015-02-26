@@ -26,33 +26,33 @@ and open the template in the editor.
 
 	<script>
 			function surligne(champ, erreur){
-	if(erreur)
-      champ.style.backgroundColor = "#fba";
-	else
-      champ.style.backgroundColor = "#54F98D";
-	}
+         if(erreur)
+          champ.style.backgroundColor = "#fba";
+         else
+          champ.style.backgroundColor = "#54F98D";
+      }
 
-	function verifPseudo(champ){
-		if(champ.value.length < 2 || champ.value.length >= 20){
-			surligne(champ, true);
-			return false;
-   		}else{
-      surligne(champ, false);
-      return true;
+     function verifPseudo(champ){
+        if(champ.value.length < 2 || champ.value.length >= 20){
+           surligne(champ, true);
+           return false;
+        }else{
+          surligne(champ, false);
+          return true;
    		}
-	}
+     }
 
-	function verifMail(champ){
-	var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
-		if(!regex.test(champ.value)){
-			surligne(champ, true);
-			alert("Attention votre adresse mail n'est pas valide");
-			return false;
+     function verifMail(champ){
+     var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+        if(!regex.test(champ.value)){
+           surligne(champ, true);
+           alert("Attention votre adresse mail n'est pas valide");
+           return false;
    		}else{
    			surligne(champ, false);
    			return true;
    		}
-	}	
+     }	
 	</script>
 
     <!-- FIN SCRIPT-->
@@ -101,7 +101,7 @@ and open the template in the editor.
                     //on encadre l'emplacement en rouge avec un message
                 }
                 if ((!empty($_POST['pseudo']))and ( !empty($_POST['email'])) and ( !empty($_POST['passe']))) {
-                    // Je mets aussi certaines sécurités
+                    // Je mets aussi certaines sÃ©curitÃ©s
                     $passe = mysqli_real_escape_string($link, htmlspecialchars($_POST['passe']));
                     $passe2 = mysqli_real_escape_string($link, htmlspecialchars($_POST['passe2']));
                     if ($passe == $passe2) {
@@ -112,7 +112,7 @@ and open the template in the editor.
 
                         mysqli_query($link, "INSERT INTO validation VALUES('', '$pseudo', '$passe', '$email')");
                     } else {
-                        echo 'Les deux mots de passe que vous avez rentrÃ©s ne correspondent pasâ?¦';
+                        echo 'Les deux mots de passe que vous avez rentrÃƒÂ©s ne correspondent pasÃ¢?Â¦';
                     }
                 }
                 ?>
