@@ -54,10 +54,10 @@ and open the template in the editor.
                     
                     Mot de passe : * 
                     <input id="passe" type="password" name="passe" value=""/>
-                    <span class="error-message"></span><br/>
+                    <span class="error-message" ></span><br/>
                     
                     Vérification de votre Mot de passe : * 
-                    <input id="passe2" type="password" name="passe2"/>
+                    <input id="passe2" type="password" name="passe2" value=""/>
                     <span class="error-message"></span><br/>
 
                     <input type="submit" value="M'inscrire" id="envoyer"/>
