@@ -59,7 +59,7 @@ and open the template in the editor.
 		if(pseudoOk && mailOk)
 			return true;
 		else{
-			alert("Veuillez remplir correctement tous les champs (Rouge)");
+			alert("Veuillez remplir correctement tous les champs");
 			return false;
 		}
 	}
@@ -80,7 +80,7 @@ and open the template in the editor.
 
             <section>
                 <form method="post" name="verificationInscription1" onsubmit="return verifForm(this)">
-	                <label>Adresse e-mail: <input type="text" name="email" placeholder="test@miage.com" onblur="verifMail(this)"/>							<label><br/>
+	                <label>Adresse e-mail: <input type="text" name="email" placeholder="test@miage.com" onblur="verifMail(this)"/>										<label><br/>
                     <label>Pseudo: <input type="text" name="pseudo" placeholder="lhommedu13" onblur="verifPseudo(this)"/></label><br/>
                     <label>Mot de passe: <input type="password" name="passe"/></label><br/>
                     <label>Confirmation du mot de passe: <input type="password" name="passe2"/></label><br/>
@@ -108,16 +108,15 @@ and open the template in the editor.
                         $email = mysqli_real_escape_string($link, htmlspecialchars($_POST['email']));
                         // Je vais crypter le mot de passe.
                         $passe = sha1($passe);
-
                         mysqli_query($link, "INSERT INTO validation VALUES('', '$pseudo', '$passe', '$email')");
                     } else {
-                        echo 'Les deux mots de passe que vous avez rentrÃ©s ne correspondent pasâ?¦';
+                        echo('Les deux mots de passe que vous avez rentré ne correspondent pas?');
                     }
                 }
                 ?>
 
             <!-- FIN CONTENT-->
-        </div>
+        </div>	
 
         <!--DEBUT FOOTER-->
         <?php include_once("include/foot.php") ?>
