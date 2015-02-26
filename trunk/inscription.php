@@ -21,9 +21,40 @@ and open the template in the editor.
             
     </head>
     <!-- FIN DESCRIPTION PAGE -->
+    
     <!-- SCRIPT -->
 
-	<script type="text/javascript" src="js/verificationInscription1.js"></script>
+	<script>
+	function surligne(champ, erreur){
+	if(erreur)
+      champ.style.backgroundColor = "#fba";
+	else
+      champ.style.backgroundColor = "#54F98D";
+	}
+
+	function verifPseudo(champ){
+		if(champ.value.length < 2 || champ.value.length >= 20){
+			surligne(champ, true);
+			return false;
+   		}else{
+      surligne(champ, false);
+      return true;
+   		}
+	}
+
+	function verifMail(champ){
+	var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+		if(!regex.test(champ.value)){
+			surligne(champ, true);
+			alert("Attention votre adresse mail n'est pas valide");
+			return false;
+   		}else{
+   			surligne(champ, false);
+   			return true;
+   		}
+	}	
+	
+	</script>
 
     <!-- FIN SCRIPT-->
 
@@ -40,11 +71,11 @@ and open the template in the editor.
 
             <section>
                 <form method="post" name="verificationInscription1">
-	                <label>Adresse e-mail: <input type="text" name="email" placeholder="test@miage.com" onblur="verifMail(this)"/></label><br/>
+	                <label>Adresse e-mail: <input type="text" name="mail" placeholder="test@miage.com" onblur="verifMail(this)"/>							<label><br/>
                     <label>Pseudo: <input type="text" name="pseudo" placeholder="lhommedu13" onblur="verifPseudo(this)"/></label><br/>
                     <label>Mot de passe: <input type="password" name="passe"/></label><br/>
                     <label>Confirmation du mot de passe: <input type="password" name="passe2"/></label><br/>
-                    <input type="submit" value="M'inscrire" onblur="return verifForm(this)"/>
+                    <input type="submit" value="M'inscrire"/>
                 </form>
             </section>
             
