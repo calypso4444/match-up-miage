@@ -46,48 +46,6 @@ and open the template in the editor.
                     <input type="submit" value="M'inscrire"/>
                 </form>
 
-                <?php
-                //on verifie d'abord que les champs ne sont pas vides
-                if (empty($_POST['pseudo'])) {
-                    //on encadre l'emplacement en rouge avec un message
-                }
-
-                if (empty($_POST['passe'])) {
-                    //on encadre l'emplacement en rouge avec un message
-                }
-
-                if (!empty($_POST['passe2'])) {
-                    //on encadre l'emplacement en rouge avec un message
-                }
-
-                if (!empty($_POST['email'])) {
-                    //on encadre l'emplacement en rouge avec un message
-                }
-
-                //on verifie que l'adresse mail a un format valide
-                if (!filter_var('email', FILTER_VALIDATE_EMAIL)) {
-                    //on encadre l'emplacement en rouge avec un message
-                }
-                if ((!empty($_POST['pseudo']))and ( !empty($_POST['email'])) and ( !empty($_POST['passe']))) {
-                    // Je mets aussi certaines sécurités
-                    $passe = mysqli_real_escape_string($link, htmlspecialchars($_POST['passe']));
-                    $passe2 = mysqli_real_escape_string($link, htmlspecialchars($_POST['passe2']));
-                    if ($passe == $passe2) {
-                        $pseudo = mysqli_real_escape_string($link, htmlspecialchars($_POST['pseudo']));
-                        $email = mysqli_real_escape_string($link, htmlspecialchars($_POST['email']));
-                        // Je vais crypter le mot de passe.
-                        $passe = sha1($passe);
-
-                        mysqli_query($link, "INSERT INTO validation VALUES('', '$pseudo', '$passe', '$email')");
-                    } else {
-                        echo 'Les deux mots de passe que vous avez rentrÃ©s ne correspondent pasâ€¦';
-                    }
-                }
-                ?>
-
-                
-
-                
             </section>
 
             <!-- FIN CONTENT-->
