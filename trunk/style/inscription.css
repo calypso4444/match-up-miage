@@ -1,7 +1,12 @@
 .error-message{
-	background: url(image/false.png) 10px center no-repeat;
+	background: url(http://localhost:8888/match-up-miage/image/false1.png) 10px center no-repeat;
 	padding: 0 0 0 30px;
 	display: inline;
 	color: #ff5b5b;
 	display: none;
+}
+
+#formulaireInscription{
+	border : 3px solid #a7b85a;
+	width: 1024px;
 }
