@@ -10,10 +10,13 @@ and open the template in the editor.
     <?php
     //connexion au serveur mySQL
     $link = mysqli_connect("localhost", "root", "");
+<<<<<<< .mine
+=======
     if (!$link) {
         die('Could not connect: ' . mysql_error());
     }
 
+>>>>>>> .r109
     // choix de la base de données
     mysqli_select_db($link, "mu_db");
     ?>
@@ -52,20 +55,20 @@ and open the template in the editor.
 
                     Votre mail : * 
                     <input id="email" type="text" name="email" placeholder="test@sorbonne.fr" value=""/>
-                    <span class="error-message"></span><br/>
-
+                    <span class="error-message valid-message"></span><br/>
+                   
                     Pseudo : *
                     <input id="pseudo" type="text" name="pseudo" placeholder="lhommedu13" value=""/>
-                    <span class="error-message"></span><br/>
-
+					<span class="error-message valid-message"></span><br/>
+                   
                     Mot de passe : * 
                     <input id="passe" type="password" name="passe" value=""/>
-                    <span class="error-message" ></span><br/>
-
+                    <span class="error-message valid-message" ></span><br/>
+                    
                     V&eacute;rification de votre Mot de passe : * 
                     <input id="passe2" type="password" name="passe2" value=""/>
-                    <span class="error-message"></span><br/>
-
+                    <span class="error-message valid-message"></span><br/>
+                
                     <input type="submit" value="M'inscrire" id="envoyer"/>
                 </form>
             </section>
