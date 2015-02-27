@@ -66,7 +66,7 @@ and open the template in the editor.
             </section>
 
             <?php
-            if ((!empty($_POST['pseudo']))and ( !empty($_POST['email'])) and ( !empty($_POST['passe']))) {
+            if ((!empty (filter_input(INPUT_POST, 'pseudo')))and ( !empty(filter_input(INPUT_POST, 'email'))) and ( !empty(filter_input(INPUT_POST, 'passe')))) {
                 // Je mets aussi certaines sécurités
                 $passe = mysqli_real_escape_string($link, htmlspecialchars($_POST['passe']));
                 $passe2 = mysqli_real_escape_string($link, htmlspecialchars($_POST['passe2']));
@@ -77,7 +77,7 @@ and open the template in the editor.
                     $passe = sha1($passe);
                     mysqli_query($link, "INSERT INTO validation VALUES('', '$pseudo', '$passe', '$email')");
                 } else {
-                    echo 'Les deux mots de passe que vous avez rentr&eacute;s ne correspondent pas';
+                    echo 'Les deux mots de passe que vous avez rentr&eacute;s ne correspondent pas</br>';
                 }
             }
             
