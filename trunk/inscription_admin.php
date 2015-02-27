@@ -26,38 +26,49 @@ and open the template in the editor.
             <?php include_once("include/menu.php") ?>
 
             <?php
+            //connexion au serveur mySQL
             $link = mysqli_connect("localhost", "root", "");
-            mysqli_select_db($link, "mu_db");
+            if (!$link) {
+                die('Could not connect: ' . mysql_error());
+            }
 
+            // choix de la base de données
+            mysqli_select_db($link, "mu_db");
+            
+
+            //on recupere et on affiche tous les tuples de la table validation avec un lien pour accepter ou refuser
             $quete = mysqli_query($link, "SELECT * FROM validation");
             while ($validation = mysqli_fetch_array($quete)) {
-                echo 'Pseudo: ';
-                echo $validation['pseudo'];
-                echo ' Mot de passe: ';
-                echo $validation['passe'];
-                echo ' E-mail: ';
-                echo $validation['email'];
-                echo '<a href="validation.php?action=accepter&id=' . $validation['id'] . '"></br> Accepter </a>';
-                echo '<a href="refus.php?action=refuser&id=' . $validation['id'] . '"> Refuser </a>';
-                echo '<br/>';
+            echo 'Pseudo: ';
+            echo $validation['pseudo'];
+            echo ' Mot de passe: ';
+            echo $validation['passe'];
+            echo ' E-mail: ';
+            echo $validation['email'];
+            echo '<a href="inscription_admin.php?action=accepter&id=' . $validation['id'] . '"></br> Accepter </a>';
+            echo '<a href="inscription_admin.php?action=refuser&id=' . $validation['id'] . '"> Refuser </a>';
+            echo '<br/>';
             }
 
             if (null!==filter_input(INPUT_GET, 'action') AND null!==filter_input(INPUT_GET, 'id')) {
-                $action = filter_input(INPUT_GET, 'action');
-                if ($action == "accepter") {
-                    $id = filter_input(INPUT_GET, 'id');
-                    $quete2 = mysqli_query($link,"SELECT * FROM validation WHERE id='$id'");
-                    $connexion = mysqli_fetch_array($quete2);
-                    $pseudo = $connexion['pseudo'];
-                    $passe = $connexion['passe'];
-                    $email = $connexion['email'];
-                    mysqli_query($link,"INSERT INTO connexion VALUES('$id', '$pseudo', '$passe', '$email')");
-                    mysqli_query($link,"DELETE FROM validation WHERE id='$id'");
-                } elseif ($action === "refuser") {
-                    $id = filter_input(INPUT_GET, 'id');
-                    mysqli_query($link,"DELETE FROM validation WHERE id='$id'");
-                }
+            $action = filter_input(INPUT_GET, 'action');
+            if ($action == "accepter") {
+            $id = filter_input(INPUT_GET, 'id');
+            $quete2 = mysqli_query($link,"SELECT * FROM validation WHERE id='$id'");
+            $connexion = mysqli_fetch_array($quete2);
+            $pseudo = $connexion['pseudo'];
+            $passe = $connexion['passe'];
+            $email = $connexion['email'];
+            mysqli_query($link,"INSERT INTO connexion VALUES('$id', '$pseudo', '$passe', '$email')");
+            mysqli_query($link,"DELETE FROM validation WHERE id='$id'");
+            } elseif ($action === "refuser") {
+            $id = filter_input(INPUT_GET, 'id');
+            mysqli_query($link,"DELETE FROM validation WHERE id='$id'");
             }
+            }
+
+            // Fin de connection
+            mysqli_close($link);
             ?>
 
             <!-- FIN CONTENT-->
