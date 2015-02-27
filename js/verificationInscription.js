@@ -1,3 +1,7 @@
+/*
+Cette fonction va nous permettre de vérifier si l'ensemble des champs sont respectés, autrement on affichera l'erreur.	
+*/	
+
 $(function(){
 	
 			$("#pseudo").keyup(function(){
@@ -33,4 +37,31 @@ $(function(){
 			});
 }); 
 
+/*
+Cette fonction va nous permettre de vérifier si l'ensemble des champs sont respesctés, autrement on ne pourra pas envoyer le formulaire	
+*/
+
+$(function(){
+	$("#envoyer").click(function(){
+		var valid = false;
+
+		if(!$("#pseudo").val().match(/^[a-zA-Z0-9]{2,20}$/i)){
+			valid = false;
+		}else{
+			valid = true;
+		}
+		if(!$("#email").val().match(/^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/i)){
+			valid = false;
+		}else{
+			valid = true;
+		}
+		if(!$("#passe").val().match(/^[a-zA-Z0-9]{8,}$/i)){
+			valid = false;
+		}else{
+			valid=true;
+		}
+
+		return valid;
+	});
+});
 
