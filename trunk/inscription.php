@@ -8,7 +8,8 @@ and open the template in the editor.
 
     <!-- CONNEXION A LA BDD -->
     <?php
-    $link = mysqli_connect("localhost","root","root") ;
+    $link = mysqli_connect("localhost", "root", "");
+
     mysqli_select_db($link, "mu_db");
     ?>
 
@@ -17,16 +18,16 @@ and open the template in the editor.
         <title>MATCH'UP_INSCRIPTION</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="style/style.css" media="screen"/>
-        <link rel="stylesheet" type="text/css" href="style/inscription.css" media="screen"/>
+        <link rel="stylesheet" href="style/style.css" media="screen" />
+        <link rel="stylesheet" href="style/inscription.css" media="screen"/>
 
     </head>
     <!-- FIN DESCRIPTION PAGE -->
-    
+
     <!-- SCRIPT -->
-    
+
     <script type="text/javascript" language="Javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" language="Javascript" src="js/verificationInscription.js"></script>
+    <script type="text/javascript" language="Javascript" src="js/verificationInscription.js"></script>
 
     <!-- FIN SCRIPT-->
 
@@ -43,59 +44,82 @@ and open the template in the editor.
 
             <section>
                 <form id="formulaireInscription" method ="post" name="verificationInscription1">
-				
-					Votre mail : * 
+
+                    Votre mail : * 
                     <input id="email" type="text" name="email" placeholder="test@sorbonne.fr" value=""/>
                     <span class="error-message"></span><br/>
 
                     Pseudo : *
                     <input id="pseudo" type="text" name="pseudo" placeholder="lhommedu13" value=""/>
                     <span class="error-message"></span><br/>
-                    
+
                     Mot de passe : * 
                     <input id="passe" type="password" name="passe" value=""/>
                     <span class="error-message" ></span><br/>
-                    
-                    Vérification de votre Mot de passe : * 
+
+                    V&eacute;rification de votre Mot de passe : * 
                     <input id="passe2" type="password" name="passe2" value=""/>
                     <span class="error-message"></span><br/>
 
                     <input type="submit" value="M'inscrire" id="envoyer"/>
                 </form>
             </section>
-            
+
             <?php
-                if (empty($_POST['pseudo'])) {
+        
+            if ((!empty($_POST['pseudo']))and ( !empty($_POST['email'])) and ( !empty($_POST['passe']))) {
+                // Je mets aussi certaines sécurités
+                $passe = mysqli_real_escape_string($link, htmlspecialchars($_POST['passe']));
+                $passe2 = mysqli_real_escape_string($link, htmlspecialchars($_POST['passe2']));
+                if ($passe == $passe2) {
+                    $pseudo = mysqli_real_escape_string($link, htmlspecialchars($_POST['pseudo']));
+                    $email = mysqli_real_escape_string($link, htmlspecialchars($_POST['email']));
+                    // Je vais crypter le mot de passe.
+                    $passe = sha1($passe);
+                    mysqli_query($link, "INSERT INTO validation VALUES('', '$pseudo', '$passe', '$email')");
+                } else {
+                    echo 'Les deux mots de passe que vous avez rentr&eacute;s ne correspondent pas';
                 }
-                if (empty($_POST['passe'])) {
+            }
+
+
+            $quete = mysqli_query($link, "SELECT * FROM validation");
+            while ($validation = mysqli_fetch_array($quete)) {
+                echo 'Pseudo: ';
+                echo $validation['pseudo'];
+                echo ' Mot de passe: ';
+                echo $validation['passe'];
+                echo ' E-mail: ';
+                echo $validation['email'];
+                echo '<a href="validation.php?action=accepter&id=' . $validation['id'] . '">Accepter</a>';
+                echo '<a href="validation.php?action=refuser&id=' . $validation['id'] . '">Refuser</a>';
+                echo '<br/>';
+            }
+
+            if (isset($_GET['action']) AND isset($_GET['id'])) {
+                $action = $_GET['action'];
+                if ($action == "accepter") {
+                    $id = $_GET['id'];
+                    $quete2 = mysqli_query("SELECT * FROM validation WHERE id='$id'");
+                    $connexion = mysqli_fetch_array($quete2);
+                    $pseudo = $connexion['pseudo'];
+                    $passe = $connexion['passe'];
+                    $email = $connexion['email'];
+                    mysqli_query("INSERT INTO connexion VALUES('$id', '$pseudo', '$passe', '$email')");
+                    mysqli_query("DELETE FROM validation WHERE id='$id'");
+                } elseif ($action == "refuser") {
+                    $id = $_GET['id'];
+                    mysql_query("DELETE FROM validation WHERE id='$id'");
                 }
-                if (!empty($_POST['passe2'])) {
-                }
-                if (!empty($_POST['email'])) {
-                }
-                if (!filter_var('email', FILTER_VALIDATE_EMAIL)) {
-                }
-                if ((!empty($_POST['pseudo']))and ( !empty($_POST['email'])) and ( !empty($_POST['passe']))) {
-                    // Je mets aussi certaines sécurités
-                    $passe = mysqli_real_escape_string($link, htmlspecialchars($_POST['passe']));
-                    $passe2 = mysqli_real_escape_string($link, htmlspecialchars($_POST['passe2']));
-                    if ($passe == $passe2) {
-                        $pseudo = mysqli_real_escape_string($link, htmlspecialchars($_POST['pseudo']));
-                        $email = mysqli_real_escape_string($link, htmlspecialchars($_POST['email']));
-                        // Je vais crypter le mot de passe.
-                        $passe = sha1($passe);
-                        mysqli_query($link, "INSERT INTO validation VALUES('', '$pseudo', '$passe', '$email')");
-                    } else {
-                        echo('Les deux mots de passe que vous avez rentré ne correspondent pas?');
-                    }
-                }
-                ?>
+            }
+            ?>
+
 
             <!-- FIN CONTENT-->
-        </div>	
+        </div>
 
         <!--DEBUT FOOTER-->
-        <?php include_once("include/foot.php") ?>
+<?php include_once("include/foot.php") ?>
 
         <!--FIN FOOTER-->
     </body>
