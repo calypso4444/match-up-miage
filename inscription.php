@@ -66,9 +66,8 @@ and open the template in the editor.
             </section>
 
             <?php
-        
             if ((!empty($_POST['pseudo']))and ( !empty($_POST['email'])) and ( !empty($_POST['passe']))) {
-                // Je mets aussi certaines sÃ©curitÃ©s
+                // Je mets aussi certaines sécurités
                 $passe = mysqli_real_escape_string($link, htmlspecialchars($_POST['passe']));
                 $passe2 = mysqli_real_escape_string($link, htmlspecialchars($_POST['passe2']));
                 if ($passe == $passe2) {
@@ -81,8 +80,7 @@ and open the template in the editor.
                     echo 'Les deux mots de passe que vous avez rentr&eacute;s ne correspondent pas';
                 }
             }
-
-
+            
             $quete = mysqli_query($link, "SELECT * FROM validation");
             while ($validation = mysqli_fetch_array($quete)) {
                 echo 'Pseudo: ';
@@ -91,25 +89,25 @@ and open the template in the editor.
                 echo $validation['passe'];
                 echo ' E-mail: ';
                 echo $validation['email'];
-                echo '<a href="validation.php?action=accepter&id=' . $validation['id'] . '">Accepter</a>';
-                echo '<a href="validation.php?action=refuser&id=' . $validation['id'] . '">Refuser</a>';
+                echo '<a href="validation.php?action=accepter&id=' . $validation['id'] . '"></br> Accepter </a>';
+                echo '<a href="inscription_admin.php?action=refuser&id=' . $validation['id'] . '"> Refuser </a>';
                 echo '<br/>';
             }
 
-            if (isset($_GET['action']) AND isset($_GET['id'])) {
-                $action = $_GET['action'];
+            if (null!==filter_input(INPUT_GET, 'action') AND null!==filter_input(INPUT_GET, 'id')) {
+                $action = filter_input(INPUT_GET, 'action');
                 if ($action == "accepter") {
-                    $id = $_GET['id'];
-                    $quete2 = mysqli_query("SELECT * FROM validation WHERE id='$id'");
+                    $id = filter_input(INPUT_GET, 'id');
+                    $quete2 = mysqli_query($link,"SELECT * FROM validation WHERE id='$id'");
                     $connexion = mysqli_fetch_array($quete2);
                     $pseudo = $connexion['pseudo'];
                     $passe = $connexion['passe'];
                     $email = $connexion['email'];
-                    mysqli_query("INSERT INTO connexion VALUES('$id', '$pseudo', '$passe', '$email')");
-                    mysqli_query("DELETE FROM validation WHERE id='$id'");
-                } elseif ($action == "refuser") {
-                    $id = $_GET['id'];
-                    mysql_query("DELETE FROM validation WHERE id='$id'");
+                    mysqli_query($link,"INSERT INTO connexion VALUES('$id', '$pseudo', '$passe', '$email')");
+                    mysqli_query($link,"DELETE FROM validation WHERE id='$id'");
+                } elseif ($action === "refuser") {
+                    $id = filter_input(INPUT_GET, 'id');
+                    mysqli_query($link,"DELETE FROM validation WHERE id='$id'");
                 }
             }
             ?>

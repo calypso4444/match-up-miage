@@ -37,7 +37,7 @@ and open the template in the editor.
                 echo $validation['passe'];
                 echo ' E-mail: ';
                 echo $validation['email'];
-                echo '<a href="inscription_admin.php?action=accepter&id=' . $validation['id'] . '"></br> Accepter </a>';
+                echo '<a href="validation.php?action=accepter&id=' . $validation['id'] . '"></br> Accepter </a>';
                 echo '<a href="inscription_admin.php?action=refuser&id=' . $validation['id'] . '"> Refuser </a>';
                 echo '<br/>';
             }
