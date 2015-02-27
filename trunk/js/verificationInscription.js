@@ -1,14 +1,10 @@
-/*
-Cette fonction va nous permettre de vérifier si l'ensemble des champs sont respectés, autrement on affichera l'erreur.	
-*/	
-
-$(function(){
+$(document).ready(function(){
 	
 			$("#pseudo").keyup(function(){
 			if(!$("#pseudo").val().match(/^[a-zA-Z0-9]{2,20}$/i)){
 				$("#pseudo").next(".error-message").show().text("Veuillez entrer un pseudo valide entre 2 et 20 caractères")
-				}else{
-				$("#pseudo").next(".error-message").hide().text("");	
+			}else{
+				$("#pseudo").next(".error-message").hide().text("");
 			}
 			});
 			
@@ -36,7 +32,7 @@ $(function(){
 			}
 			});
 }); 
-
+ 
 /*
 Cette fonction va nous permettre de vérifier si l'ensemble des champs sont respesctés, autrement on ne pourra pas envoyer le formulaire	
 */
