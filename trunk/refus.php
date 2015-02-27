@@ -26,7 +26,7 @@ and open the template in the editor.
             <?php include_once("include/menu.php") ?>
             
             <section>
-                <p>Inscription avort&eacute;, merci de réessayer plus tard.</p>
+                <p>Inscription avort&eacute;, merci de r&eacute;essayer plus tard.</p>
             </section>
             
             <!-- FIN CONTENT-->
