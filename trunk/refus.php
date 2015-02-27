@@ -27,6 +27,7 @@ and open the template in the editor.
             
             <section>
                 <p>Inscription avort&eacute;, merci de r&eacute;essayer plus tard.</p>
+                <a href="inscription.php"><input type="button" value="Réésayer"/></a>
             </section>
             
             <!-- FIN CONTENT-->
