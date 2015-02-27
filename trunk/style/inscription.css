@@ -2,11 +2,19 @@
 	background: url(../image/false1.gif) 10px center no-repeat;
 	padding: 0 0 0 30px;
 	display: inline;
-	color: #ff5b5b;
+	color: #FF0000;
 	display: none;
 }
 
 #formulaireInscription{
 	border : 3px solid #a7b85a;
 	width: 1024px;
+}
+
+.valid-message{
+	background: url(../image/valid.gif) 10px center no-repeat;
+	padding: 0 0 0 30px;
+	display: inline;
+	color: #32CD32;
+	display: none;
 }
