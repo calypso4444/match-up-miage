@@ -11,6 +11,10 @@ h1{
 	color: #d40f0f;
 }
 
+.good{
+	color: #21e738;
+}
+
 #formulaireInscription div span{
 	margin-left: 10px;
 	color: #f30303;
@@ -26,8 +30,12 @@ h1{
 	color: #e46c6e;	
 }
 
+#formulaireInscription div span.good{
+	color: #21e738;	
+}
+
 #formulaireInscription textarea.error{
-	background: #fd1c04;
+	background: #fd1d05;
 	border-color: #15d746;	
 }
 
