@@ -25,7 +25,7 @@ $(document).ready(function(){
 			alert("CONGRATULATION");
 			return true;
 		} else {
-			alert("FAILED")
+			alert("FAILED");
 			return false;
 		}
 	});
@@ -82,7 +82,7 @@ $(document).ready(function(){
 			passe2Info.text("Le mot de passe ci-dessus ne respecte pas les conditions");
 			passe2Info.addClass("error");	
 			return false;
-		} else if(passe.val() != passe2.val()){
+		} else if(passe.val() !== passe2.val()){
 			passe2.addClass("error");
 			passe2Info.removeClass("good");
 			passe2Info.text("Ne correspond pas au mot de passe");
