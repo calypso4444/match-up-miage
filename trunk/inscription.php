@@ -9,14 +9,7 @@ and open the template in the editor.
     <!-- CONNEXION A LA BDD -->
     <?php
     //connexion au serveur mySQL
-    $link = mysqli_connect("localhost", "root", "");
-    if (!$link) {
-        die('Could not connect: ' . mysql_error());
-    }
-
-
-    //choix de la base de données
-    mysqli_select_db($link, "mu_db");
+    include_once 'connexion.php';
     ?>
 
     <!-- DEBUT DESCRIPTION PAGE -->
@@ -86,17 +79,22 @@ and open the template in the editor.
             <?php
             $pseudo = filter_input(INPUT_POST, 'pseudo');
             $email = filter_input(INPUT_POST, 'email');
-            if ((!empty(filter_input(INPUT_POST, 'pseudo')))and ( !empty(filter_input(INPUT_POST, 'email'))) and ( !empty(filter_input(INPUT_POST, 'passe')))and ( !empty(filter_input(INPUT_POST, 'passe2')))) {
+            $passe = filter_input(INPUT_POST, 'passe');
+            $passe2 = filter_input(INPUT_POST, 'passe2');
+            if ((!empty($pseudo)) and 
+                    ( !empty($email)) and 
+                    ( !empty($passe)) and 
+                    ( !empty($passe2))) { 
                 //on verifie qu'on est pas en train de creer un doublon (mail ou pseudo)
-                $reqp = mysqli_query($link, "SELECT COUNT(*) AS nbp FROM `connexion` WHERE pseudo='$pseudo'");
-                $reqm = mysqli_query($link, "SELECT COUNT(*) AS nbm FROM `connexion` WHERE email='$email'");
+                $reqp = mysqli_query($link, "SELECT COUNT(*) AS nbp FROM $tableConnexion WHERE pseudo='$pseudo'");
+                $reqm = mysqli_query($link, "SELECT COUNT(*) AS nbm FROM $tableConnexion WHERE email='$email'");
                 $row = mysqli_fetch_assoc($reqp);
                 $nbp = $row['nbp'];
                 $row = mysqli_fetch_assoc($reqm);
                 $nbm = $row['nbm'];
                 if ($nbp == 0) {
                     if ($nbm == 0) {
-// Je mets aussi certaines sécurités
+// Je mets aussi certaines sï¿½curitï¿½s
                         $passe = mysqli_real_escape_string($link, htmlspecialchars($_POST['passe']));
                         $passe2 = mysqli_real_escape_string($link, htmlspecialchars($_POST['passe2']));
                         if ($passe == $passe2) {
@@ -104,7 +102,7 @@ and open the template in the editor.
                             $email = mysqli_real_escape_string($link, htmlspecialchars($_POST['email']));
                             // Je vais crypter le mot de passe.
                             $passe = sha1($passe);
-                            mysqli_query($link, "INSERT INTO validation VALUES('', '$pseudo', '$passe', '$email')");
+                            mysqli_query($link, "INSERT INTO $tableValidation VALUES('', '$pseudo', '$passe', '$email')");
                         } else {
                             echo 'Les deux mots de passe que vous avez rentr&eacute;s ne correspondent pas</br>';
                         }
@@ -115,38 +113,6 @@ and open the template in the editor.
                     echo 'pseudo d&eacute;j&agrave; pris';
                 }
             }
-
-
-//            $quete = mysqli_query($link, "SELECT * FROM validation");
-//            while ($validation = mysqli_fetch_array($quete)) {
-//                echo 'Pseudo: ';
-//                echo $validation['pseudo'];
-//                echo ' Mot de passe: ';
-//                echo $validation['passe'];
-//                echo ' E-mail: ';
-//                echo $validation['email'];
-//                echo '<a href="validation.php?action=accepter&id=' . $validation['id'] . '"></br> Accepter </a>';
-//                echo '<a href="refus.php?action=refuser&id=' . $validation['id'] . '"> Refuser </a>';
-//                echo '<br/>';
-//            }
-//
-//            if (null !== filter_input(INPUT_GET, 'action') AND null !== filter_input(INPUT_GET, 'id')) {
-//                $action = filter_input(INPUT_GET, 'action');
-//                if ($action == "accepter") {
-//                    $id = filter_input(INPUT_GET, 'id');
-//                    $quete2 = mysqli_query($link, "SELECT * FROM validation WHERE id='$id'");
-//                    $connexion = mysqli_fetch_array($quete2);
-//                    $pseudo = $connexion['pseudo'];
-//                    $passe = $connexion['passe'];
-//                    $email = $connexion['email'];
-//                    mysqli_query($link, "INSERT INTO connexion VALUES('$id', '$pseudo', '$passe', '$email')");
-//                    mysqli_query($link, "DELETE FROM validation WHERE id='$id'");
-//                } elseif ($action === "refuser") {
-//                    $id = filter_input(INPUT_GET, 'id');
-//                    mysqli_query($link, "DELETE FROM validation WHERE id='$id'");
-//                }
-//            }
-            // Fin de connection
             mysqli_close($link);
             ?>
 
