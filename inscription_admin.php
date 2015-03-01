@@ -59,8 +59,8 @@ and open the template in the editor.
             $pseudo = $connexion['pseudo'];
             $passe = $connexion['passe'];
             $email = $connexion['email'];
-            mysqli_query($link,"INSERT INTO connexion VALUES('$id', '$pseudo', '$passe', '$email')");
-            mysqli_query($link,"DELETE FROM validation WHERE id='$id'");
+            mysqli_query($link,"INSERT INTO connexion VALUES('', '$pseudo', '$passe', '$email')");
+            mysqli_query($link,"DELETE FROM validation WHERE pseudo='$pseudo'");
             } elseif ($action === "refuser") {
             $id = filter_input(INPUT_GET, 'id');
             mysqli_query($link,"DELETE FROM validation WHERE id='$id'");
@@ -80,5 +80,3 @@ and open the template in the editor.
         <!--FIN FOOTER-->
     </body>
 </html>
-
-
