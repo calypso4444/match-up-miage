@@ -85,18 +85,34 @@ and open the template in the editor.
 
             <?php
             $pseudo = filter_input(INPUT_POST, 'pseudo');
+            $email = filter_input(INPUT_POST, 'email');
             if ((!empty(filter_input(INPUT_POST, 'pseudo')))and ( !empty(filter_input(INPUT_POST, 'email'))) and ( !empty(filter_input(INPUT_POST, 'passe')))and ( !empty(filter_input(INPUT_POST, 'passe2')))) {
-                // Je mets aussi certaines sécurités
-                $passe = mysqli_real_escape_string($link, htmlspecialchars($_POST['passe']));
-                $passe2 = mysqli_real_escape_string($link, htmlspecialchars($_POST['passe2']));
-                if ($passe == $passe2) {
-                    $pseudo = mysqli_real_escape_string($link, htmlspecialchars($_POST['pseudo']));
-                    $email = mysqli_real_escape_string($link, htmlspecialchars($_POST['email']));
-                    // Je vais crypter le mot de passe.
-                    $passe = sha1($passe);
-                    mysqli_query($link, "INSERT INTO validation VALUES('', '$pseudo', '$passe', '$email')");
+                //on verifie qu'on est pas en train de creer un doublon (mail ou pseudo)
+                $reqp = mysqli_query($link, "SELECT COUNT(*) AS nbp FROM `connexion` WHERE pseudo='$pseudo'");
+                $reqm = mysqli_query($link, "SELECT COUNT(*) AS nbm FROM `connexion` WHERE email='$email'");
+                $row = mysqli_fetch_assoc($reqp);
+                $nbp = $row['nbp'];
+                $row = mysqli_fetch_assoc($reqm);
+                $nbm = $row['nbm'];
+                if ($nbp == 0) {
+                    if ($nbm == 0) {
+// Je mets aussi certaines sécurités
+                        $passe = mysqli_real_escape_string($link, htmlspecialchars($_POST['passe']));
+                        $passe2 = mysqli_real_escape_string($link, htmlspecialchars($_POST['passe2']));
+                        if ($passe == $passe2) {
+                            $pseudo = mysqli_real_escape_string($link, htmlspecialchars($_POST['pseudo']));
+                            $email = mysqli_real_escape_string($link, htmlspecialchars($_POST['email']));
+                            // Je vais crypter le mot de passe.
+                            $passe = sha1($passe);
+                            mysqli_query($link, "INSERT INTO validation VALUES('', '$pseudo', '$passe', '$email')");
+                        } else {
+                            echo 'Les deux mots de passe que vous avez rentr&eacute;s ne correspondent pas</br>';
+                        }
+                    } else {
+                        echo 'mail d&eacute;j&agrave; pris';
+                    }
                 } else {
-                    echo 'Les deux mots de passe que vous avez rentr&eacute;s ne correspondent pas</br>';
+                    echo 'pseudo d&eacute;j&agrave; pris';
                 }
             }
 
