@@ -2,7 +2,7 @@
 
     <ul class="menu">
 
-        <li><a href="accueil.php">Accueil</a></li>
+        <li><a href="index.php">Accueil</a></li>
 
         <li><a href="que_faire.php">Que faire ?</a></li>
 
