@@ -1,14 +1,14 @@
 <?php
 
 $GLOBALS['DATABASE_CONNEXION'] = array(
-    'HOST' => '',
-    'USER' => '',
+    'HOST' => 'localhost',
+    'USER' => 'root',
     'PASS' => '',
-    'DB_NAME' => ''
+    'DB_NAME' => 'mu_db'
 );
 
 $GLOBALS['DB_TABLE'] = array(
-    'CONNEXION' => '',
-    'VALIDATION' => ''
+    'CONNEXION' => 'connexion',
+    'VALIDATION' => 'validation'
 );
 ?>
