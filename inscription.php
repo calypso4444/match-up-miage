@@ -12,7 +12,8 @@ $pseudo = filter_input(INPUT_POST, 'pseudo');
 $email = filter_input(INPUT_POST, 'email');
 $passe = filter_input(INPUT_POST, 'passe');
 $passe2 = filter_input(INPUT_POST, 'passe2');
-
+$existeDeja = false;
+$problemeMdp = false;
 if ((!empty($pseudo)) and
         (!empty($email)) and
         (!empty($passe)) and
