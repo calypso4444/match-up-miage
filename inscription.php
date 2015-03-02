@@ -19,6 +19,8 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style/style.css" media="screen" />
         <link rel="stylesheet" href="style/inscription.css" media="screen"/>
+        
+        <link rel="stylesheet" href="css/bootstrap.css" />
 
     </head>
     <!-- FIN DESCRIPTION PAGE -->
