@@ -72,7 +72,7 @@ and open the template in the editor.
                     </div>
 
                     <div>
-                        <input type="submit" value="M'inscrire" id="envoyer"/>
+                        <input  type="submit" value="M'inscrire" id="envoyer"/>
                     </div>
 
                 </form>
