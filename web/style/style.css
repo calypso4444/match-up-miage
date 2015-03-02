@@ -1,9 +1,9 @@
-ul.menu li { 
+/*ul.menu li { 
     display : inline;
     color: black;
 }
 ul.menu {
-    list-style-type : none; /* Car sinon les puces se placent n'importe où */
+    list-style-type : none;  Car sinon les puces se placent n'importe oï¿½ 
     box-shadow: 0px 5px 10px grey;
     border:solid black;
 }
@@ -55,4 +55,8 @@ body{
 	margin: auto;
 }
 
+*/
 
+body {
+    background-color: #fff0d9;
+}
