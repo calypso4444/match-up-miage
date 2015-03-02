@@ -14,7 +14,7 @@
             </form>
 
             <a href="inscription.php">Pas encore inscrit?</a></br>
-            <a href="mot_de_passe_oublie.php">Mot de passe oubli&eacute;?</a><br/>
+            <a href="mot_de_passe_oublie.php">Mot de passe oubli&eacute;?</a><br/> 
         <?php endif ?>
     </div>
 

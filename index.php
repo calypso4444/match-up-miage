@@ -15,7 +15,7 @@ include_once 'config/includeGlobal.php';
 /* affichage de la vue */
 
 $vue = array();
-$view->render('index', $vue);
+$view->render('index', $vue); 
 
 /* fin de l'affichage de la vue */
 

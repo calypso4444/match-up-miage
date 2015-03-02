@@ -14,5 +14,5 @@ $_SESSION['user'] = null;
 
 /* redirection */
 
-include 'test.php';
+include 'index.php';
 ?>
