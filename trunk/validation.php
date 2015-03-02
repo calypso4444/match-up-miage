@@ -27,10 +27,10 @@ and open the template in the editor.
             
             <section>
                 <p>Inscription valid&eacute;e</p
-                <p><a href="info_perso.php">Cliquez ici pour compl&egrave;ter votre profil</a></p>
+                <p><a href="f_info_perso.php">Cliquez ici pour compl&egrave;ter votre profil</a></p>
                 <p>Vous pouvez aussi vous cr&eacute;er un profil : </br>
-                    <input type="checkbox" name="Fonction" value="Rugby"> Artiste
-                    <input type="checkbox" name="Fonction" value="Rugby">G&eacute;rant<br/>
+                    <input type="checkbox" name="Fonction" value="Artiste"> Artiste
+                    <input type="checkbox" name="Fonction" value="Gérant">G&eacute;rant<br/>
                     <input type="button" name="nouveau profil" value="C'est parti !"></button>
             </section>
             
