@@ -6,7 +6,7 @@
  * @author Quang Kiet
  */
 class GestionnaireUtilisateur extends Gestionnaire {
-    
+
     public function inscription($mail, $login, $motDePasse) {
         $mail = mysqli_real_escape_string($this->link, $mail);
         $login = mysqli_real_escape_string($this->link, $login);
@@ -40,8 +40,28 @@ class GestionnaireUtilisateur extends Gestionnaire {
         
     }
 
-    public function validation($mail) {
-        
+    public function validation($id) {
+        $quete2 = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['VALIDATION'] . " WHERE id=$id");
+        $connexion = mysqli_fetch_array($quete2);
+        $pseudo = $connexion['pseudo'];
+        $passe = $connexion['passe'];
+        $email = $connexion['email'];
+        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['CONNEXION'] . " VALUES('', '$pseudo', '$passe', '$email')");
+        $this->refuser($id);
+    }
+
+    public function refuser($id) {
+        mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['VALIDATION'] . " WHERE id=$id");
+    }
+
+    public function getUsersEnValidation() {
+        //on recupere tous les tuples de la table validation
+        $quete = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['VALIDATION'] . "");
+        $usersValidation = array();
+        while ($validation = mysqli_fetch_array($quete)) {
+            $usersValidation[] = $validation;
+        }
+        return $usersValidation;
     }
 
     public function test() {
