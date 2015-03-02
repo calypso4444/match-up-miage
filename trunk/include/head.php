@@ -2,7 +2,7 @@
     
 <div id="banner">
 
-    <img src="image/banner.jpg" alt="banner" />
+    <img src="image/banner.png" alt="banner" />
 
 </div>
 
