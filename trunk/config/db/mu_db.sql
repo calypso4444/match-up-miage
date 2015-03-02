@@ -1,5 +1,5 @@
-/* pour l'instant nous avons deux tables dans la base de données afin de gérer l'inscription et la connexion des utilisateur */
-/* il suffit de créer une bdd mu_db sur phpMyAdmin puis de copier ces deux scripts et de les executer */
+/* pour l'instant nous avons deux tables dans la base de donnï¿½es afin de gï¿½rer l'inscription et la connexion des utilisateur */
+/* il suffit de crï¿½er une bdd mu_db sur phpMyAdmin puis de copier ces deux scripts et de les executer */
 
 CREATE TABLE`connexion` (
   `id` int(255) NOT NULL AUTO_INCREMENT ,

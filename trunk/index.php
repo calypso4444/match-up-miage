@@ -1,79 +1,26 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<?php
 
-    <!-- DEBUT DESCRIPTION PAGE -->
-    <head>
-        <title>MATCH'UP_ACCUEIL</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style/style.css" media="screen" />
-        <link rel="stykesheet" href="css/bootstrap.css" />
-    </head>
-    <!-- FIN DESCRIPTION PAGE -->
+/* instanciation des fichiers de config + modele */
 
-    <!-- DEBUT PAGE -->
-    <body>
-        <div class="content">
-            <!-- DEBUT HEADER -->
-            <?php include_once("include/head.php") ?>
-            <!-- FIN HEADER -->
+include_once 'config/includeGlobal.php';
 
-            <!-- DEBUT CONTENT -->
+/* fin de l'instanciation */
 
-            <?php include_once("include/menu.php") ?>
-            
-            <aside>
-                <p><h1>Dernier commentaire mis en ligne</h1> <p>
-                <div id='comment'>
-                </div>
-            </aside>
+/* séquence du controleur */
 
-            <section>
-                <p><h1>Ce soir &agrave; Paris</h1></p>
-                <div id='map'>
-                    <img src="image/map.png" alt="map" />
-                </div>
-                <input type="range" />
-            </section>
-            
-            </br>
-            
-            <section>
-                <p><h1>&Eacute;v&egrave;nements les plus attendus</h1> <p>
-                    <input type="submit" value="+" />
-            </section>
+$testTime = time();
+$testTime += $testTime;
+$testAppel = $model['GestionnaireUtilisateur']->test();
+/* fin de séquence */
 
-            </br>
-            
-            <section>
-                <p><h1>S&eacute;lection random</h1> <p>
-                <div id='player'>
-                </div>
-            </section>
-            
-            </br>
-            
-            <section>
-                <p><h1>Artiste de la semaine</h1> <p>
-            </section>
+/* affichage de la vue */
 
-            </br>
-            
-            <section>
-                <p><h1>Salle de la semaine</h1> <p>
-            </section>
+$vue = array();
+$vue['testTime'] = $testTime;
+$vue['testAppel'] = $testAppel;
 
-            <!-- FIN CONTENT-->
-        </div>
+$view->render('test', $vue);
 
-        <!--DEBUT FOOTER-->
-        <?php include_once("include/foot.php") ?>
+/* fin de l'affichage de la vue */
 
-        <!--FIN FOOTER-->
-    </body>
-</html>
+?>
