@@ -9,7 +9,7 @@
             <p>Connexion :</p>
             <form action="connexion.php" method="POST">
                 <input type="text" name="login" placeholder='Votre login' /></br>
-                <input type="text" name="passe" placeholder='Votre mot de passe' /></br>
+                <input type="password" name="passe" placeholder='Votre mot de passe' /></br>
                 <input type="submit" value="OK" />
             </form>
 
