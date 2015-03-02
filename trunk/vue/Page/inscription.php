@@ -1,3 +1,5 @@
+<!-- vue/page -->
+
 <div class="container" id="formulaireI">
     <h1> Formulaire d'inscription </h1>
     <form id="formulaireInscription" method ="post" name="verificationInscription1">
@@ -31,7 +33,7 @@
         </div>
 
     </form>
-</section>
+</div>
 
 <div class="container">
     <?php echo $vars['existeDeja'] ? 'Votre email ou login est deja présent' : ''; ?>
