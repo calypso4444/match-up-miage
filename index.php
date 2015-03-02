@@ -10,7 +10,6 @@ include_once 'config/includeGlobal.php';
 
 /* séquence du controleur */
 
-
 /* fin de séquence */
 
 /* affichage de la vue */
