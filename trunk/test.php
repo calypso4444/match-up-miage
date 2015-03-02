@@ -8,17 +8,17 @@ include_once 'config/includeGlobal.php';
 
 /* séquence du controleur */
 
-$testTime = time();
-$testTime += $testTime;
-$testAppel = $model['GestionnaireUtilisateur']->test();
+$user = null;
+if($_SESSION['user'] != null) {
+    $user = $_SESSION['user']; 
+}
+
 /* fin de séquence */
 
 /* affichage de la vue */
 
 $vue = array();
-$vue['testTime'] = $testTime;
-$vue['testAppel'] = $testAppel;
-
+$vue['user'] = $user;
 $view->render('test', $vue);
 
 /* fin de l'affichage de la vue */

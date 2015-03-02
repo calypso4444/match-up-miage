@@ -1,1 +1,1 @@
-<?php echo $vars['testAppel']; ?>
+<?php var_dump($vars['user']); ?>
