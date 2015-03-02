@@ -21,7 +21,24 @@ class GestionnaireUtilisateur extends Gestionnaire {
      * @param type $motDePasse
      */
     public function connexion($identifiant, $motDePasse) {
-        
+        $motDePasse = sha1($motDePasse);
+        $user = $this->getUserByMail($identifiant, $motDePasse);
+        if($user != null) {
+            return $user;
+        }
+        return $this->getUserByPseudo($identifiant, $motDePasse);
+    }
+    
+    private function getUserByMail($mail, $motDePasse) {
+        $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE email='$mail' AND passe='$motDePasse'");
+        $row = mysqli_fetch_assoc($reqm);
+        return $row['id'] != null ? $row : null;
+    }
+    
+    private function getUserByPseudo($pseudo, $motDePasse) {
+        $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE pseudo='$pseudo' AND passe='$motDePasse'");
+        $row = mysqli_fetch_assoc($reqm); 
+        return $row['id'] != null ? $row : null;
     }
 
     public function existeDejaMail($mail) {
