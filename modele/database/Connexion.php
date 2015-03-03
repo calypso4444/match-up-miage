@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Description of connexion
- *
- * @author Quang Kiet
- */
 class Connexion {
     
     public static function getConnexion($hostname, $username, $password, $database) {
