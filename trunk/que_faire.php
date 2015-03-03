@@ -1,35 +1,22 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<!-- web -->
 
-    <!-- DEBUT DESCRIPTION PAGE -->
-    <head>
-        <title>MATCH'UP_QUE_FAIRE</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style/style.css" media="screen" />
-    </head>
-    <!-- FIN DESCRIPTION PAGE -->
+<?php
 
-    <!-- DEBUT PAGE -->
-    <body>
-        <div class="content">
-            <!-- DEBUT HEADER -->
-            <?php include_once("include/head.php") ?>
-            <!-- FIN HEADER -->
+/* instanciation des fichiers de config + modele */
 
-            <!-- DEBUT CONTENT -->
-            <?php include_once("include/menu.php") ?>
-        <!-- FIN CONTENT-->
-        </div>
+include_once 'config/includeGlobal.php';
 
-        <!--DEBUT FOOTER-->
-        <?php include_once("include/foot.php") ?>
+/* fin de l'instanciation */
 
-        <!--FIN FOOTER-->
-    </body>
-</html>
+/* séquence du controleur */
+
+
+/* fin de séquence */
+
+/* affichage de la vue */
+
+$vue = array();
+$view->render('que_faire', $vue);
+
+/* fin de l'affichage de la vue */
+?>
