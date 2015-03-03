@@ -11,9 +11,6 @@
     
     <?php echo $vars['mailVide'] ? 'Mail vide' : ''; ?>
     <?php echo $vars['mailInconnu'] ? 'Mail inconnu' : '';?> 
-    
-    <p> Voici votre mot de passe provisoire, merci de le changer dès votre prochaine connexion : </p>
-    
     <?php echo $vars['mdpProvisoire'];?>
     
 </div>
