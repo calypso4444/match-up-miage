@@ -1,9 +1,9 @@
 <header class="container-fluid">
     
-    <div id="banner"  class="col-lg-8 text-center">
+    <div id="banner"  class="col-lg-10 text-center">
         <img src="web/image/banner.png" alt="banner" />
     </div>
-    <div id='menuConnexion' class="col-lg-4">
+    <div id='menuConnexion' class="col-lg-2">
         <?php if (isset($_SESSION['user'])) : ?>
             <a href="f_mes_profils.php" class="glyphicon glyphicon-user"> mes profils </a></br>
             <a href="f_info_perso.php" class="glyphicon glyphicon-cog"> mes infos perso </a></br>
@@ -24,3 +24,4 @@
     </div>
 
 </header>
+
