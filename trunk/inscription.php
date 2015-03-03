@@ -33,7 +33,7 @@ if ((!empty($pseudo)) and
             $pseudo = htmlspecialchars($pseudo);
             $email = htmlspecialchars($email);
            
-            mysqli_query($link, "INSERT INTO $tableValidation VALUES('', '$pseudo', '$passe', '$email')");
+           $model['GestionnaireUtilisateur']->inscription($email, $pseudo, $passe);
             $problemeMdp = false;
         } 
     }
