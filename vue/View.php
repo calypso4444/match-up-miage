@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Description of View
- *
- * @author Quang Kiet
- */
 class View {
     
     public function render($nomPage, $vars) {
