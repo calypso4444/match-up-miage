@@ -24,17 +24,17 @@ class GestionnaireUtilisateur extends Gestionnaire {
         return $this->getUserByPseudo($identifiant, $motDePasse);
     }
 
-//    private function getUserByMail($mail, $motDePasse) {
-//        $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE email='$mail' AND passe='$motDePasse'");
-//        $row = mysqli_fetch_assoc($reqm);
-//        return $row['id'] != null ? $row : null;
-//    }
-//
-//    private function getUserByPseudo($pseudo, $motDePasse) {
-//        $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE pseudo='$pseudo' AND passe='$motDePasse'");
-//        $row = mysqli_fetch_assoc($reqm);
-//        return $row['id'] != null ? $row : null;
-//    }
+    private function getUserByMail($mail, $motDePasse) {
+        $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE email='$mail' AND passe='$motDePasse'");
+        $row = mysqli_fetch_assoc($reqm);
+        return $row['id'] != null ? $row : null;
+    }
+
+    private function getUserByPseudo($pseudo, $motDePasse) {
+        $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE pseudo='$pseudo' AND passe='$motDePasse'");
+        $row = mysqli_fetch_assoc($reqm);
+        return $row['id'] != null ? $row : null;
+    }
 
     public function existeDejaMail($mail) {
         $reqm = mysqli_query($this->link, "SELECT COUNT(*) AS nbm FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE email='$mail'");
@@ -42,16 +42,16 @@ class GestionnaireUtilisateur extends Gestionnaire {
         return $row['nbm'] > 0 ? true : false;
     }
 
-    public function getUserPseudo($id) {
-        $userPseudo = mysqli_query($this->link, "SELECT pseudo FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE id=$id ");
-        return $userPseudo;
-    }
-
-    public function getUserMail($id) {
-        $userMail = mysqli_query($this->link, "SELECT email FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE id=$id ");
-        return $userMail;
-    }
-    
+//    public function getUserPseudo($id) {
+//        $userPseudo = mysqli_query($this->link, "SELECT pseudo FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE id=$id ");
+//        return $userPseudo;
+//    }
+//
+//    public function getUserMail($id) {
+//        $userMail = mysqli_query($this->link, "SELECT email FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE id=$id ");
+//        return $userMail;
+//    }
+//    
     public function existeDejaPseudo($pseudo) {
         $reqp = mysqli_query($this->link, "SELECT COUNT(*) AS nbp FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE pseudo='$pseudo'");
         $row = mysqli_fetch_assoc($reqp);
