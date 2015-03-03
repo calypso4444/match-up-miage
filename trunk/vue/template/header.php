@@ -1,6 +1,6 @@
 <header class="container-fluid">
     
-    <div id="banner"  class="col-lg-10 text-center">
+    <div id="banner"  class="col-lg-10 ">
         <img src="web/image/banner.png" alt="banner" />
     </div>
     <div id='menuConnexion' class="col-lg-2">
