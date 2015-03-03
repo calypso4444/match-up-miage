@@ -23,21 +23,21 @@ class GestionnaireUtilisateur extends Gestionnaire {
     public function connexion($identifiant, $motDePasse) {
         $motDePasse = sha1($motDePasse);
         $user = $this->getUserByMail($identifiant, $motDePasse);
-        if($user != null) {
+        if ($user != null) {
             return $user;
         }
         return $this->getUserByPseudo($identifiant, $motDePasse);
     }
-    
+
     private function getUserByMail($mail, $motDePasse) {
         $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE email='$mail' AND passe='$motDePasse'");
         $row = mysqli_fetch_assoc($reqm);
         return $row['id'] != null ? $row : null;
     }
-    
+
     private function getUserByPseudo($pseudo, $motDePasse) {
         $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE pseudo='$pseudo' AND passe='$motDePasse'");
-        $row = mysqli_fetch_assoc($reqm); 
+        $row = mysqli_fetch_assoc($reqm);
         return $row['id'] != null ? $row : null;
     }
 
@@ -51,6 +51,13 @@ class GestionnaireUtilisateur extends Gestionnaire {
         $reqp = mysqli_query($this->link, "SELECT COUNT(*) AS nbp FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE pseudo='$pseudo'");
         $row = mysqli_fetch_assoc($reqp);
         return $row['nbp'] > 0 ? true : false;
+    }
+
+    public function motDePasseProvisioire($mail) {
+        $mdpP = 12345678;
+        $mdpCrypt = sha1($mdpP);
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['CONNEXION'] . " SET passe='$mdpCrypt' WHERE email = '" . $mail . "' ");
+        return $mdpP;
     }
 
     public function desinscription($mail) {

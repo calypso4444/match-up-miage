@@ -59,4 +59,6 @@ body{
 
 body {
     background-color: #fff0d9;
+    margin :auto; /*a virer des que possible (bootstrap)*/
+    width: 80%; /*a virer des que possible (bootstrap)*/
 }
