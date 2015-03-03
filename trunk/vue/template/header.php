@@ -4,7 +4,11 @@
     </div>
     <div id='menuConnexion' class="col-lg-4">
         <?php if (isset($_SESSION['user'])) : ?>
-            <a href="deconnexion.php" class="btn btn-danger">deconnexion</a>
+            <a href="f_mes_profils.php" class="glyphicon glyphicon-user"> mes profils </a></br>
+            <a href="f_info_perso.php" class="glyphicon glyphicon-cog"> mes infos perso </a></br>
+            <a href="f_mes_favoris.php" class="glyphicon glyphicon-heart"> mes favoris </a></br>
+            <a href="f_mes_participations.php" class="glyphicon glyphicon-thumbs-up"> mes participations </a></br>
+            <a href="deconnexion.php" class="glyphicon glyphicon-off"> deconnexion </a>
         <?php else: ?>
             <p>Connexion :</p>
             <form action="connexion.php" method="POST">
