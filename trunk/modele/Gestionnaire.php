@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Description of Gestionnaire
- *
- * @author Quang Kiet
- */
 class Gestionnaire {
     
     protected $link;

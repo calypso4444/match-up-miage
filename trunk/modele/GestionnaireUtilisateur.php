@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Description of GestionnaireUtilisateur
- *
- * @author Quang Kiet
- */
 class GestionnaireUtilisateur extends Gestionnaire {
 
     public function inscription($mail, $login, $motDePasse) {

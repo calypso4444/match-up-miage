@@ -1,4 +1,5 @@
 <header class="container-fluid">
+    
     <div id="banner"  class="col-lg-8 text-center">
         <img src="web/image/banner.png" alt="banner" />
     </div>

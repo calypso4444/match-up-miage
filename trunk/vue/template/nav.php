@@ -1,4 +1,5 @@
 <nav>
+    
     <ul class="menu navbar nav-tabs nav">
         <li><a href="index.php">Accueil</a></li>
         <li><a href="que_faire.php">Que faire ?</a></li>
@@ -11,6 +12,7 @@
             <input type="submit" value="+" />
         </li>
     </ul>
+    
 </nav>
 
 <div class="container">
