@@ -42,23 +42,6 @@ class GestionnaireUtilisateur extends Gestionnaire {
         return $row['nbm'] > 0 ? true : false;
     }
 
-    public function getUserPseudo($id) {
-        $tmp=implode($id);
-        echo $tmp;
-        $quete = mysqli_query($this->link, "SELECT pseudo AS p FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE id=2 ");
-        $userPseudo=array();
-        while ($result = mysqli_fetch_assoc($quete)) {
-            $userPseudo[]= $result['p'];
-        }
-   $u=implode($userPseudo);
-   return $u;
-    }
-
-//    public function getUserMail($id) {
-//        $userMail = mysqli_query($this->link, "SELECT email FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE id=$id ");
-//        return $userMail;
-//    }
-//    
     public function existeDejaPseudo($pseudo) {
         $reqp = mysqli_query($this->link, "SELECT COUNT(*) AS nbp FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE pseudo='$pseudo'");
         $row = mysqli_fetch_assoc($reqp);
