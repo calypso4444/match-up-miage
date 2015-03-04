@@ -14,5 +14,6 @@ CREATE TABLE `validation` (
   `pseudo` varchar(255) NOT NULL,
   `passe` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `dateValidation` timestamp NULL DEFAULT NULL,
   KEY `id` (`id`)
 );
