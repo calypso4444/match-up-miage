@@ -10,8 +10,11 @@
         <link rel="stylesheet" href="web/style/style.css" media="screen" />
         <link rel="stylesheet" href="web/style/inscription.css" media="screen"/>
         
+        
         <script type="text/javascript" language="Javascript" src="web/js/jquery.js"></script>
         <script type="text/javascript" language="Javascript" src="web/js/verificationInscription.js"></script>
+        <script type="text/javascript" language="Javascript" src="web/js/modificationProfil.js"></script>
+        
     </head>
 
     <body>
