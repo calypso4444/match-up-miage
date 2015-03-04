@@ -10,17 +10,15 @@ include_once 'config/includeGlobal.php';
 
 /* séquence du controleur */
 
-//$user=$_SESSION['user'];
-//$userPseudo=$model['GestionnaireUtilisateur']->getUserPseudo($user);
-//$userMail=$model['GestionnaireUtilisateur']->getUserMail($user);
+$user=$_SESSION['user'];
 
 /* fin de séquence */
 
 /* affichage de la vue */
 
 $vue = array();
-//$vue['userPseudo']=$userPseudo;
-//$vue['userMail']=$userPseudo;
+$vue['userPseudo']=$user['pseudo'];
+$vue['userMail']=$user['email'];
 $view->render('f_info_perso', $vue);
 
 /* fin de l'affichage de la vue */

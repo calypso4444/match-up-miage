@@ -8,10 +8,10 @@
 
         <div class="col-lg-6 text-right">
             <label for="email"> Votre mail </label> 
-            <input id="email" type="text" name="email" placeholder="" value=""/></br>
+            <input id="email" type="text" name="email" placeholder="<?php echo $vars['userMail']; ?>" value="<?php echo $vars['userMail']; ?>"/></br>
 
             <label for="pseudo"> Pseudo </label>
-            <input id="pseudo" type="text" name="pseudo" placeholder="" value=""/></br>
+            <input id="pseudo" type="text" name="pseudo" placeholder="<?php echo $vars['userPseudo']; ?>" value=" <?php echo $vars['userPseudo']; ?>"/></br>
 
             <label for="passe"> Mot de passe actuel </label>
             <input id="passe" type="password" name="passe" value=""/></br>
@@ -42,8 +42,5 @@
         </div>
 
     </form>
-
-    <?php //echo $vars['userPseudo']; ?>
-    <?php //echo $vars['userMail']; ?>
 
 </div>
