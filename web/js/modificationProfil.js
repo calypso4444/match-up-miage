@@ -47,11 +47,7 @@ $(document).ready(function(){
 	}
 	
 		function validateCPasse(){
-			if(!cpasse.val()){
-			cpasseInfo.removeClass("glyphicon glyphicon-ok");
-			cpasseInfo.addClass("glyphicon glyphicon-remove");
-			return false;
-		} else if(!cpasse.val().match(/^[a-zA-Z0-9]{8,}$/i)){ 
+		if(!npasse.val().match(/^[a-zA-Z0-9]{8,}$/i)){
 			cpasseInfo.removeClass("glyphicon glyphicon-ok");
 			cpasseInfo.addClass("glyphicon glyphicon-remove");
 			return false;
