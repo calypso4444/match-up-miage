@@ -10,6 +10,7 @@ $(document).ready(function(){
 	var adresse = $('#adresse');
 	var nom = $('#nom');
 	var prenom = $('#prenom');
+	var ville = $('#ville');
 	
 	var adresseInfo = $('#adresseInfo');
 	var cpInfo = $('#cpInfo');
@@ -21,6 +22,7 @@ $(document).ready(function(){
 	var adresseInfo = $('#adresseInfo');
 	var nomInfo = $('#nomInfo');
 	var prenomInfo = $('#prenomInfo');
+	var villeInfo = $('#villeInfo');
 	
 	email.blur(validateEmail);
 	cpasse.blur(validateCPasse);
@@ -30,6 +32,7 @@ $(document).ready(function(){
 	adresse.blur(validateAdresse);
 	nom.blur(validateNom);
 	prenom.blur(validatePrenom);
+	ville.keyup(validateVille);
 	
 	email.keyup(validateEmail);
 	cpasse.keyup(validateCPasse);
@@ -39,6 +42,7 @@ $(document).ready(function(){
 	adresse.keyup(validateAdresse);
 	nom.keyup(validateNom);
 	prenom.keyup(validatePrenom);
+	ville.keyup(validateVille);
 	
 	form.submit(function(){
 		if (validateEmail() & validateNouveau() & validateNouveau2() & validateCPasse()){
@@ -146,6 +150,18 @@ $(document).ready(function(){
 		} else {
 			nomInfo.removeClass("glyphicon glyphicon-remove");
 			nomInfo.addClass("glyphicon glyphicon-ok");
+			return true;
+		}	
+	}	
+	
+		function validateVille(){
+		if(!ville.val().match(/^[A-Z][a-zàéèêëîïôöûüùç.]+([ -][A-Z][a-zàéèêëîïôöûüùç.]{1,})*$/i)){
+			villeInfo.removeClass("glyphicon glyphicon-ok");
+			villeInfo.addClass("glyphicon glyphicon-remove");
+			return false;
+		} else {
+			villeInfo.removeClass("glyphicon glyphicon-remove");
+			villeInfo.addClass("glyphicon glyphicon-ok");
 			return true;
 		}	
 	}	
