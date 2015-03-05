@@ -6,30 +6,46 @@ $(document).ready(function(){
 	var npasse = $('#npasse');
 	var npasse2 = $('#npasse2');
 	var email = $('#email');
+	var cp = $('#CP');
+	var adresse = $('#adresse');
+	var nom = $('#nom');
+	var prenom = $('#prenom');
 	
 	var adresseInfo = $('#adresseInfo');
 	var cpInfo = $('#cpInfo');
 	var cpasseInfo = $('#cpasseInfo');
-	var npasseInfo = $('#passeInfo');
-	var npasse2Info = $('#passe2Info');
+	var npasseInfo = $('#npasseInfo');
+	var npasse2Info = $('#npasse2Info');
 	var emailInfo = $('#emailInfo');
+	var cpInfo = $('#cpInfo');
+	var adresseInfo = $('#adresseInfo');
+	var nomInfo = $('#nomInfo');
+	var prenomInfo = $('#prenomInfo');
 	
 	email.blur(validateEmail);
-	npasse.blur(validateNPasse);
-	npasse2.blur(validateNPasse2);
 	cpasse.blur(validateCPasse);
+	npasse.blur(validateNouveau);
+	npasse2.blur(validateNouveau2);
+	cp.blur(validateCP);
+	adresse.blur(validateAdresse);
+	nom.blur(validateNom);
+	prenom.blur(validatePrenom);
 	
 	email.keyup(validateEmail);
-	npasse.keyup(validateNPasse);
-	npasse2.keyup(validateNPasse2);
 	cpasse.keyup(validateCPasse);
+	npasse.keyup(validateNouveau);
+	npasse2.keyup(validateNouveau2);
+	cp.keyup(validateCP);
+	adresse.keyup(validateAdresse);
+	nom.keyup(validateNom);
+	prenom.keyup(validatePrenom);
 	
 	form.submit(function(){
-		if (validateEmail() & validateNPasse() & validateNPasse2() & validateCPasse()){
-			alert('HEYYYYYY');
+		if (validateEmail() & validateNouveau() & validateNouveau2() & validateCPasse()){
+			alert('Vos modification ont été prises en compte');
 			return true;
 		} else {
-			alert("NOOOOOOOOON");
+			alert("Pensez à bien remplir tout les champs et inscrire votre mail actuel pour valider les changements ! Merci :)");
 			return false;
 		}
 	});
@@ -45,9 +61,9 @@ $(document).ready(function(){
 			return true;
 		}	
 	}
-	
+
 	function validateCPasse(){
-		if(!npasse.val().match(/^[a-zA-Z0-9]{8,}$/i)){
+		if(cpasse.val() == ""){
 			cpasseInfo.removeClass("glyphicon glyphicon-ok");
 			cpasseInfo.addClass("glyphicon glyphicon-remove");
 			return false;
@@ -58,8 +74,11 @@ $(document).ready(function(){
 		}	
 	}
 
-	function validateNPasse(){
-		if(!npasse.val().match(/^[a-zA-Z0-9]{8,}$/i)){
+	function validateNouveau(){
+		if (npasse.val() == ""){
+			return true;
+		}
+		else if(!npasse.val().match(/^[a-zA-Z0-9]{8,}$/i)){
 			npasseInfo.removeClass("glyphicon glyphicon-ok");
 			npasseInfo.addClass("glyphicon glyphicon-remove");
 			return false;
@@ -70,8 +89,11 @@ $(document).ready(function(){
 		}	
 	}
 	
-	function validateNPasse2(){
-		if(!npasse.val().match(/^[a-zA-Z0-9]{8,}$/i)){
+	function validateNouveau2(){
+		if((npasse.val() == "") && (npasse2.val() == "")){
+			return true;
+		}
+		else if(!npasse.val().match(/^[a-zA-Z0-9]{8,}$/i)){
 			npasse2Info.removeClass("glyphicon glyphicon-ok");
 			npasse2Info.addClass("glyphicon glyphicon-remove");	
 			return false;
@@ -85,6 +107,53 @@ $(document).ready(function(){
 			return true;
 		}	
 	}
-
-		
+	
+	function validateCP(){
+		if(!cp.val().match(/^[0-9]{5,5}$/i)){
+			cpInfo.removeClass("glyphicon glyphicon-ok");
+			cpInfo.addClass("glyphicon glyphicon-remove");
+			return false;
+		} else {
+			cpInfo.removeClass("glyphicon glyphicon-remove");
+			cpInfo.addClass("glyphicon glyphicon-ok");
+			return true;
+		}	
+	}		
+	
+		function validateAdresse(){
+		if(!adresse.val().match(/^[0-9]{1,3}(?:(?:[,. ]){1}[-a-zA-Zàâäéèêëïîôöùûüç]+)+$/i)){
+			adresseInfo.removeClass("glyphicon glyphicon-ok");
+			adresseInfo.addClass("glyphicon glyphicon-remove");
+			return false;
+		} else {
+			adresseInfo.removeClass("glyphicon glyphicon-remove");
+			adresseInfo.addClass("glyphicon glyphicon-ok");
+			return true;
+		}	
+	}
+	
+		function validatePrenom(){
+		if(!prenom.val().match(/^[A-Z][a-zàéèêëîïôöûüùç.]+([ -][A-Z][a-zàéèêëîïôöûüùç.]{1,})*$/i)){
+			prenomInfo.removeClass("glyphicon glyphicon-ok");
+			prenomInfo.addClass("glyphicon glyphicon-remove");
+			return false;
+		} else {
+			prenomInfo.removeClass("glyphicon glyphicon-remove");
+			prenomInfo.addClass("glyphicon glyphicon-ok");
+			return true;
+		}	
+	}
+	
+		function validateNom(){
+		if(!nom.val().match(/^[A-Z][a-zàéèêëîïôöûüùç.]+([ -][A-Z][a-zàéèêëîïôöûüùç.]{1,})*$/i)){
+			nomInfo.removeClass("glyphicon glyphicon-ok");
+			nomInfo.addClass("glyphicon glyphicon-remove");
+			return false;
+		} else {
+			nomInfo.removeClass("glyphicon glyphicon-remove");
+			nomInfo.addClass("glyphicon glyphicon-ok");
+			return true;
+		}	
+	}	
+	
 });
