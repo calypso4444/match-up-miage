@@ -2,6 +2,8 @@
 
 <div class="container">
 
+	<script type="text/javascript" language="Javascript" src="web/js/modificationProfil.js"></script>
+    
     <h1>mes infos persos</h1>
 
     <form id="formulaireGestionProfil" method ="post" name="formulaireGestionProfil">
@@ -12,8 +14,7 @@
             <span id="emailInfo"></span></br>
             
             <label for="pseudo"> Pseudo </label>
-            <input id="pseudo" type="text" name="pseudo" placeholder="<?php echo $vars['userPseudo']; ?>" value=" <?php echo $vars['userPseudo']; ?>"/>
-            <span id="pseudoInfo"></span></br>
+            <input id="pseudo" type="text" name="pseudo" placeholder="<?php echo $vars['userPseudo']; ?>" value=" <?php echo $vars['userPseudo']; ?>"/></br>
 
             <label for="cpasse"> Mot de passe actuel </label>
             <input id="cpasse" type="password" name="passe" value=""/>
@@ -24,7 +25,7 @@
             <span id="npasseInfo"></span></br>
 
             <label for="npasse2"> V&eacute;rification de votre nouveau mot de passe </label>
-            <input id="npasse" type="password" name="npasse2" value=""/>
+            <input id="npasse2" type="password" name="npasse2" value=""/>
             <span id="npasse2Info"></span></br>
         </div>
 
