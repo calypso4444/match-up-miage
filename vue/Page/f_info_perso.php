@@ -12,8 +12,9 @@
             <span id="emailInfo"></span></br>
 
             <label for="pseudo"> Pseudo </label>
-            <input id="pseudo" type="text" name="pseudo" placeholder="<?php echo $vars['userPseudo']; ?>" value=" <?php echo $vars['userPseudo']; ?>"/></br>
-
+            <input id="pseudo" type="text" name="pseudo" placeholder="<?php echo $vars['userPseudo']; ?>" value=" <?php echo $vars['userPseudo']; ?>"/>
+			<span id="pseudoInfo"></span></br>
+			
             <label for="cpasse"> Mot de passe actuel </label>
             <input id="cpasse" type="password" name="cpasse" value=""/>
             <span id="cpasseInfo"></span></br>
