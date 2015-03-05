@@ -44,7 +44,7 @@
             <input id="CP" type="text" name="CP" placeholder="<?php echo $vars['userCP']; ?>" value="<?php echo $vars['userCP']; ?>"/>
             <label for="CP"> Votre code postal </label>
             <span id="cpInfo"></span></br>
-            
+
             <input id="ville" class="input-sm form-control" type="text" name="ville" placeholder="<?php echo $vars['userVille']; ?>" value="<?php echo $vars['userVille']; ?>"/>
             <label for="ville"> Votre ville </label>
             <span id="villeInfo"></span></br>
@@ -56,10 +56,17 @@
 
     </form>
 
+    <form method="post" action="f_info_perso.php" enctype="multipart/form-data">
+        <label for="mon_fichier">Fichier (tous formats | max. 1 Mo) :</label><br />
+        <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+        <input type="file" name="mon_fichier" id="mon_fichier" /><br />
+        <input type="submit" name="submit" value="Envoyer" />
+    </form>
+
     <?php
     echo $vars['mailDejaPris'] ? 'Ce mail est deja pris' : '';
     echo $vars['problemeMdp'] ? 'les deux mots de passe ne correspondent pas' : '';
-    echo $vars['mdpVideOuIncorrect'] ? 'le champ mot de passe actuel a mal été rempli' : '';
+    echo $vars['mdpVideOuIncorrect'] ? "<script> alert('le champ mot de passe actuel a mal été rempli');</script>" : '';
     ?>
     
     <script 

@@ -12,7 +12,7 @@ CREATE TABLE`utilisateur` (
 `adresse` varchar(50),
 `CP` varchar(5),
 `ville` varchar(30) DEFAULT NULL,
-`avatar` longblob,
+`avatar` varchar(255),
   KEY `id` (`id`)
 );
 
