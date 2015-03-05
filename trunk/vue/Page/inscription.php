@@ -1,39 +1,90 @@
 <!-- vue/page -->
 
+
+
 <div class="container col-lg-12" id="formulaireI">
     <h1> Formulaire d'inscription </h1>
-    <form id="formulaireInscription" method ="post" name="verificationInscription1">
+    <form class="form-horizontal" id="formulaireInscription" method ="post" name="verificationInscription1">
 
-        <div>
-            <label for="email"> Votre mail : * </label> 
-            <input id="email" type="text" name="email" placeholder="test@sorbonne.fr" value=""/>
-            <span id="emailInfo"></span><br/>
-        </div>
+<!-- Début champs pour entrer son email -->
 
-        <div>   
-            <label for="pseudo"> Pseudo : * </label>
-            <input id="pseudo" type="text" name="pseudo" placeholder="lhommedu13" value=""/>
-            <span id="pseudoInfo"></span><br/>
-        </div>
+	<div class="row">
+		<div class="col-xs-1"></div>
+	    <div class="form-group">
+	            <label class="control-label col-xs-2" for="email">Votre mail : *</label> 
+	            	<div class="col-xs-6">
+	            		<input class="form-control" id="email" type="text" name="email" placeholder="test@sorbonne.fr" value=""/>
+	            	</div>		
+							<div class="col-xs-1">	
+								<span id="emailInfo"></span>
+							</div>
+								<div class="col-lg-2"></div>
+		</div>
+	</div>
+	
+<!-- Fin champs pour entrer son email -->
 
-        <div>   
-            <label for="passe"> Mot de passe : * </label>
-            <input id="passe" type="password" name="passe" value=""/>
-            <span id="passeInfo"></span><br/>
-        </div>
+<!-- Début champs pour entrer son pseudo -->
 
-        <div>    
-            <label for="passe2"> V&eacute;rification de votre mot de passe : * </label>
-            <input id="passe2" type="password" name="passe2" value=""/>
-            <span id="passe2Info"></span><br/>
-        </div>
+	<div class="row">
+        <div class="col-xs-1"></div>
+		<div class="form-group">   
+            	<label class="control-label col-xs-2" for="pseudo">Pseudo : *</label>
+            		<div class="col-xs-6">
+						<input class="form-control" id="pseudo" type="text" name="pseudo" placeholder="lhommedu13" value=""/>
+            		</div>
+            				<div class="col-xs-1">
+								<span id="pseudoInfo"></span>
+            				</div>
+            					<div class="col-lg-2"></div>
+		</div>
+    </div>
 
-        <div>
-            <input  type="submit" value="M'inscrire" id="envoyer"/>
-        </div>
+<!-- Fin champs pour entrer son pseudo -->
 
+<!-- Début champs pour entrer son mot de passe -->
+
+	<div class="row">
+        <div class="col-xs-1"></div>
+		<div class="form-group">   
+            	<label class="control-label col-xs-2" for="passe">Mot de passe : *</label>
+            		<div class="col-xs-6">
+						<input class="form-control" id="passe" type="password" name="passe" value=""/>
+            		</div>
+            				<div class="col-xs-1">
+								<span id="passeInfo"></span>
+            				</div>
+            					<div class="col-lg-2"></div>
+		</div>
+    </div>
+        
+<!-- Fin champs pour entrer son mot de passe -->
+
+<!-- Début champs pour vérifier son mot de passe -->
+
+	<div class="row">
+        <div class="col-xs-1"></div>
+		<div class="form-group">   
+            	<label class="control-label col-xs-2" for="passe2">V&eacute;rification de votre mot de passe : *</label>
+            		<div class="col-xs-6">
+						<input class="form-control" id="passe2" type="password" name="passe" value=""/>
+            		</div>
+            				<div class="col-xs-1">
+								<span id="passe2Info"></span>
+            				</div>
+            					<div class="col-lg-2"></div>
+		</div>
+    </div>
+    
+<!-- Fin champs pour vérifier son mot de passe -->
+
+    <div>
+        <input class="btn btn-default" type="submit" value="M'inscrire" id="envoyer"/>
+    </div>
+    
     </form>
 </div>
+
 
 <div class="container col-lg-6">
     <?php echo $vars['existeDeja'] ? 'Votre email ou login est deja présent' : ''; ?>
