@@ -6,7 +6,7 @@
 
     <form id="formulaireGestionProfil" method ="post" name="formulaireGestionProfil" class="inline-form">
 
-        <div class="col-lg-6 text-right">
+        <div class="col-lg-12">
             <label for="email"> Votre mail </label> 
             <input id="email" type="text" name="email" placeholder="<?php echo $vars['userMail']; ?>" value="<?php echo $vars['userMail']; ?>"/>
             <span id="emailInfo"></span></br>
@@ -28,25 +28,25 @@
             <span id="npasse2Info"></span></br>
         </div>
 
-        <div class="col-lg-6 text-left">
+        <div class="col-lg-12">
+	        <label for="nom"> Votre nom </label>
             <input id="nom" type="text" name="nom" placeholder="<?php echo $vars['userNom']; ?>" value="<?php echo $vars['userNom']; ?>"/>
-            <label for="nom"> Votre nom </label>
             <span id="nomInfo"></span></br>
 
+			<label for="prenom"> Votre prénom </label>
             <input id="prenom" type="text" name="prenom" placeholder="<?php echo $vars['userPrenom']; ?>" value="<?php echo $vars['userPrenom']; ?>"/>
-            <label for="prenom"> Votre prénom </label>
             <span id="prenomInfo"></span></br>
 
+			<label for="adresse"> Votre adresse </label>
             <input id="adresse" type="text" name="adresse" placeholder="<?php echo $vars['userAdresse']; ?>" value="<?php echo $vars['userAdresse']; ?>"/>
-            <label for="adresse"> Votre adresse </label>
             <span id="adresseInfo"></span></br>
 
+			<label for="CP"> Votre code postal </label>
             <input id="CP" type="text" name="CP" placeholder="<?php echo $vars['userCP']; ?>" value="<?php echo $vars['userCP']; ?>"/>
-            <label for="CP"> Votre code postal </label>
             <span id="cpInfo"></span></br>
 
+			<label for="ville"> Votre ville </label>
             <input id="ville" class="input-sm form-control" type="text" name="ville" placeholder="<?php echo $vars['userVille']; ?>" value="<?php echo $vars['userVille']; ?>"/>
-            <label for="ville"> Votre ville </label>
             <span id="villeInfo"></span></br>
         </div>
 
@@ -69,7 +69,6 @@
     echo $vars['mdpVideOuIncorrect'] ? "<script> alert('le champ mot de passe actuel a mal été rempli');</script>" : '';
     ?>
     
-    <script 
 
 </div>
 
