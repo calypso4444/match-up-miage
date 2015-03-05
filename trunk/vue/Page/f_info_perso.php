@@ -16,7 +16,7 @@
             <span id="pseudoInfo"></span></br>
 
             <label for="cpasse"> Mot de passe actuel </label>
-            <input id="cpasse" type="password" name="passe" value="<?php echo $vars['userCPasse']; ?>"/>
+            <input id="cpasse" type="password" name="passe" value=""/>
             <span id="cpasseInfo"></span></br>
 
             <label for="npasse"> Nouveau mot de passe </label>
