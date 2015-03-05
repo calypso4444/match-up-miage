@@ -12,8 +12,8 @@
         echo $user['passe'];
         echo ' E-mail: ';
         echo $user['email'];
-        echo '<a href="inscription_admin.php?action=accepter&id=' . $user['id'] . '"></br> Accepter </a>';
-        echo '<a href="inscription_admin.php?action=refuser&id=' . $user['id'] . '"> Refuser </a>';
+        echo '<a href="inscription_admin.php?action=accepter&id=' . $user['idValidation'] . '"></br> Accepter </a>';
+        echo '<a href="inscription_admin.php?action=refuser&id=' . $user['idValidation'] . '"> Refuser </a>';
         echo '<br/>';
     endforeach;
     ?>
