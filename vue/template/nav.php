@@ -18,4 +18,4 @@
 
 </nav>
 
-<div id="main" class="container-fluid text-center">
+<div id="main" class="container-fluid text-center col-lg-12">
