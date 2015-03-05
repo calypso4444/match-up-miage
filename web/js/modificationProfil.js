@@ -44,7 +44,7 @@ $(document).ready(function(){
 	prenom.keyup(validatePrenom);
 	ville.keyup(validateVille);
 	
-	form.submit(function(){
+	form.('#envoyer').(function(){
 		if (validateEmail() & validateNouveau() & validateNouveau2() & validateCPasse()){
 			return true;
 		} else {
