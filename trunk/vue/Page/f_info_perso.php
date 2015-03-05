@@ -30,19 +30,19 @@
         </div>
 
         <div class="col-lg-6 text-left">
-            <input id="nom" type="text" name="nom" placeholder="" value=""/>
+            <input id="nom" type="text" name="nom" placeholder="<?php echo $vars['userNom']; ?>" value="<?php echo $vars['userNom']; ?>"/>
             <label for="nom"> Votre nom </label>
             <span id="nomInfo"></span></br>
 
-            <input id="prenom" type="text" name="prenom" placeholder="" value=""/>
+            <input id="prenom" type="text" name="prenom" placeholder="<?php echo $vars['userPrenom']; ?>" value="<?php echo $vars['userPrenom']; ?>"/>
             <label for="prenom"> Votre prénom </label>
             <span id="prenomInfo"></span></br>
 
-            <input id="adresse" type="text" name="adresse" placeholder="" value=""/>
+            <input id="adresse" type="text" name="adresse" placeholder="<?php echo $vars['userAdresse']; ?>" value="<?php echo $vars['userAdresse']; ?>"/>
             <label for="adresse"> Votre adresse </label>
             <span id="adresseInfo"></span></br>
 
-            <input id="CP" type="text" name="CP" placeholder="" value=""/>
+            <input id="CP" type="text" name="CP" placeholder="<?php echo $vars['userCP']; ?>" value="<?php echo $vars['userCP']; ?>"/>
             <label for="CP"> Votre code postal </label>
             <span id="cpInfo"></span></br>
         </div>
