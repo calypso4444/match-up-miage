@@ -46,7 +46,7 @@ $(document).ready(function(){
 		}	
 	}
 	
-		function validateCPasse(){
+	function validateCPasse(){
 		if(!npasse.val().match(/^[a-zA-Z0-9]{8,}$/i)){
 			cpasseInfo.removeClass("glyphicon glyphicon-ok");
 			cpasseInfo.addClass("glyphicon glyphicon-remove");
@@ -58,32 +58,24 @@ $(document).ready(function(){
 		}	
 	}
 
-		function validateNPasse(){
-			if(!npasse.val().match(/^[a-zA-Z0-9]{8,}$/i)){
+	function validateNPasse(){
+		if(!npasse.val().match(/^[a-zA-Z0-9]{8,}$/i)){
 			npasseInfo.removeClass("glyphicon glyphicon-ok");
 			npasseInfo.addClass("glyphicon glyphicon-remove");
 			return false;
-		} else if(validateCPasse() == false) {
-			npasseInfo.removeClass("glyphicon glyphicon-ok");
-			npasseInfo.addClass("glyphicon glyphicon-remove");
-			return false;
-		} else {	
+		} else {
 			npasseInfo.removeClass("glyphicon glyphicon-remove");
 			npasseInfo.addClass("glyphicon glyphicon-ok");
 			return true;
 		}	
 	}
 	
-		function validateNPasse2(){
-			if(!passe.val().match(/^[a-zA-Z0-9]{8,}$/i)){
+	function validateNPasse2(){
+		if(!npasse.val().match(/^[a-zA-Z0-9]{8,}$/i)){
 			npasse2Info.removeClass("glyphicon glyphicon-ok");
 			npasse2Info.addClass("glyphicon glyphicon-remove");	
 			return false;
-		}else if (validateNPasse()==false) {
-			npasse2Info.removeClass("glyphicon glyphicon-ok");
-			npasse2Info.addClass("glyphicon glyphicon-remove");	
-			return false;
-		}else if(passe.val() !== passe2.val()){
+		} else if(npasse.val() !== npasse2.val()){
 			npasse2Info.removeClass("glyphicon glyphicon-ok");
 			npasse2Info.addClass("glyphicon glyphicon-remove");
 			return false;
@@ -93,5 +85,6 @@ $(document).ready(function(){
 			return true;
 		}	
 	}
+
 		
 });
