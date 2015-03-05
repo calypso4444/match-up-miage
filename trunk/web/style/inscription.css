@@ -12,3 +12,7 @@
 	color: #d40f0f;
 }
 
+.inline-form input{
+	display: inline-block;
+	width: 200px;	
+}
