@@ -60,17 +60,17 @@ class GestionnaireUtilisateur extends Gestionnaire {
     }
 
     public function validation($id) {
-        $quete2 = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['VALIDATION'] . " WHERE id=$id");
+        $quete2 = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['VALIDATION'] . " WHERE idValidation=$id;");
         $connexion = mysqli_fetch_array($quete2);
         $pseudo = $connexion['pseudo'];
         $passe = $connexion['passe'];
         $email = $connexion['email'];
-        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['CONNEXION'] . " VALUES('', '$pseudo', '$passe', '$email')");
+        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['CONNEXION'] . " (id,pseudo,passe,email,dateInscription) VALUES('', '$pseudo', '$passe', '$email',NOW());");
         $this->refuser($id);
     }
 
     public function refuser($id) {
-        mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['VALIDATION'] . " WHERE id=$id");
+        mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['VALIDATION'] . " WHERE idValidation=$id");
     }
 
     public function getUsersEnValidation() {
