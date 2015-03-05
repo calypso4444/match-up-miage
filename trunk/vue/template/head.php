@@ -13,7 +13,7 @@
         
         <script type="text/javascript" language="Javascript" src="web/js/jquery.js"></script>
         <script type="text/javascript" language="Javascript" src="web/js/verificationInscription.js"></script>
-        
+        <script type="text/javascript" language="Javascript" src="web/js/modificationProfil.js"></script>
         
     </head>
 
