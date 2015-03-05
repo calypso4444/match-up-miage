@@ -11,6 +11,7 @@ CREATE TABLE`utilisateur` (
 `prenom` varchar(50),
 `adresse` varchar(50),
 `CP` varchar(5),
+`ville` varchar(30) DEFAULT NULL,
 `avatar` longblob,
   KEY `id` (`id`)
 );

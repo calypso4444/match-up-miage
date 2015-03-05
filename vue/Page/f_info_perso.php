@@ -13,8 +13,8 @@
 
             <label for="pseudo"> Pseudo </label>
             <input id="pseudo" type="text" name="pseudo" placeholder="<?php echo $vars['userPseudo']; ?>" value=" <?php echo $vars['userPseudo']; ?>"/>
-			<span id="pseudoInfo"></span></br>
-			
+            <span id="pseudoInfo"></span></br>
+
             <label for="cpasse"> Mot de passe actuel </label>
             <input id="cpasse" type="password" name="cpasse" value=""/>
             <span id="cpasseInfo"></span></br>
@@ -44,6 +44,10 @@
             <input id="CP" type="text" name="CP" placeholder="<?php echo $vars['userCP']; ?>" value="<?php echo $vars['userCP']; ?>"/>
             <label for="CP"> Votre code postal </label>
             <span id="cpInfo"></span></br>
+            
+            <input id="ville" type="text" name="ville" placeholder="<?php echo $vars['userVille']; ?>" value="<?php echo $vars['userVille']; ?>"/>
+            <label for="ville"> Votre ville </label>
+            <span id="villeInfo"></span></br>
         </div>
 
         <div class="col-lg-12 text-center">

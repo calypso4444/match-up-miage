@@ -11,7 +11,7 @@ include_once 'config/includeGlobal.php';
 
 $user = $_SESSION['user'];
 
-$id=$user['id'];
+$id = $user['id'];
 
 $pseudo = filter_input(INPUT_POST, 'pseudo');
 $email = filter_input(INPUT_POST, 'email');
@@ -22,6 +22,7 @@ $nom = filter_input(INPUT_POST, 'nom');
 $prenom = filter_input(INPUT_POST, 'prenom');
 $adresse = filter_input(INPUT_POST, 'adresse');
 $cp = filter_input(INPUT_POST, 'CP');
+$ville = filter_input(INPUT_POST, 'ville');
 
 $mailDejaPris = false;
 $mdpVideOuIncorrect = false;
@@ -45,7 +46,7 @@ if (!empty($cpasse)and ( sha1($cpasse) === $user['passe'])) {
         $npasse = htmlspecialchars($npasse);
         $npasse2 = htmlspecialchars($npasse2);
         if ($npasse == $npasse2) {
-            $npasse=sha1($npasse);
+            $npasse = sha1($npasse);
             $model['GestionnaireUtilisateur']->setMdp($id, $npasse);
         } else {
             $problemeMdp = true;
@@ -64,16 +65,22 @@ if (!empty($cpasse)and ( sha1($cpasse) === $user['passe'])) {
     //changement d'adresse
     $adresse = htmlspecialchars($adresse);
     if (!empty($adresse)and ( $adresse !== $user['adresse'])) {
-        $model['GestionnaireUtilisateur']->setAdresse($id, $adresse); 
+        $model['GestionnaireUtilisateur']->setAdresse($id, $adresse);
     }
     //changement de CP
     $cp = htmlspecialchars($cp);
     if (!empty($cp)and ( $cp !== $user['CP'])) {
         $model['GestionnaireUtilisateur']->setCP($id, $cp);
     }
+    //changement de ville
+    $ville = htmlspecialchars($ville);
+    if (!empty($ville)and ( $ville !== $user['ville'])) {
+        $model['GestionnaireUtilisateur']->setVille($id, $ville);
+    }
 } else {
     $mdpVideOuIncorrect = true;
 }
+
 
 /* fin de séquence */
 
@@ -86,6 +93,7 @@ $vue['userNom'] = $user['nom'];
 $vue['userPrenom'] = $user['prenom'];
 $vue['userAdresse'] = $user['adresse'];
 $vue['userCP'] = $user['CP'];
+$vue['userVille'] = $user['ville'];
 $vue['userAvatar'] = $user['avatar'];
 $vue['mdpVideOuIncorrect'] = $mdpVideOuIncorrect;
 $vue['problemeMdp'] = $problemeMdp;
