@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	
+		
 	var form = $('#formulaireGestionProfil');
 	
 	var cpasse = $('#cpasse');
@@ -42,10 +42,8 @@ $(document).ready(function(){
 	
 	form.submit(function(){
 		if (validateEmail() & validateNouveau() & validateNouveau2() & validateCPasse()){
-			alert('Vos modification ont été prises en compte');
 			return true;
 		} else {
-			alert("Pensez à bien remplir tout les champs et inscrire votre mail actuel pour valider les changements ! Merci :)");
 			return false;
 		}
 	});
@@ -67,7 +65,7 @@ $(document).ready(function(){
 			return false;
 		} else {
 			return true;
-		}	
+		}
 	}
 
 	function validateNouveau(){
