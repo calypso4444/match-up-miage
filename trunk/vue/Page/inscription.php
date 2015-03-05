@@ -1,6 +1,6 @@
 <!-- vue/page -->
 
-<div class="container" id="formulaireI">
+<div class="container col-lg-12" id="formulaireI">
     <h1> Formulaire d'inscription </h1>
     <form id="formulaireInscription" method ="post" name="verificationInscription1">
 
@@ -35,7 +35,7 @@
     </form>
 </div>
 
-<div class="container">
+<div class="container col-lg-6">
     <?php echo $vars['existeDeja'] ? 'Votre email ou login est deja présent' : ''; ?>
     <?php echo $vars['problemeMdp'] ? 'les deux mots de passe ne correspondent pas' : ''; ?>
 </div>

@@ -1,6 +1,6 @@
 <!-- vue/page -->
 
-<div class="container">
+<div class="container col-lg-12">
     
     <h1>mes profils</h1>
     <form action="f_mes_profils.php" method="post">
