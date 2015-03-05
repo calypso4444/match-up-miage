@@ -1,6 +1,6 @@
 <!-- vue/page -->
 
-<div class="container">
+<div class="container col-lg-12">
     
     <form id="formulaireMdpOublie" method ="post" name="mot_de_passe_oublie">
     Veuillez entrer votre adresse mail : <input type="text" name="email"/><br/>

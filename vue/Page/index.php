@@ -1,6 +1,6 @@
 <!-- vue/page -->
 
-<div>
+<div class="container col-lg-12">
     <aside>
                 <p><h1>Dernier commentaire mis en ligne</h1> <p>
                 <div id='comment'>
