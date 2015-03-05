@@ -64,12 +64,8 @@ $(document).ready(function(){
 
 	function validateCPasse(){
 		if(cpasse.val() == ""){
-			cpasseInfo.removeClass("glyphicon glyphicon-ok");
-			cpasseInfo.addClass("glyphicon glyphicon-remove");
 			return false;
 		} else {
-			cpasseInfo.removeClass("glyphicon glyphicon-remove");
-			cpasseInfo.addClass("glyphicon glyphicon-ok");
 			return true;
 		}	
 	}
