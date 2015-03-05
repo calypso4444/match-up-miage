@@ -39,14 +39,17 @@
 
 			<label for="adresse"> Votre adresse </label>
             <input id="adresse" type="text" name="adresse" placeholder="<?php echo $vars['userAdresse']; ?>" value="<?php echo $vars['userAdresse']; ?>"/>
+
             <span id="adresseInfo"></span></br>
 
 			<label for="CP"> Votre code postal </label>
             <input id="CP" type="text" name="CP" placeholder="<?php echo $vars['userCP']; ?>" value="<?php echo $vars['userCP']; ?>"/>
+
             <span id="cpInfo"></span></br>
 
 			<label for="ville"> Votre ville </label>
             <input id="ville" class="input-sm form-control" type="text" name="ville" placeholder="<?php echo $vars['userVille']; ?>" value="<?php echo $vars['userVille']; ?>"/>
+
             <span id="villeInfo"></span></br>
         </div>
 
@@ -69,6 +72,8 @@
     echo $vars['mdpVideOuIncorrect'] ? "<script> alert('le champ mot de passe actuel a mal été rempli');</script>" : '';
     ?>
     
+
+ 
 
 </div>
 
