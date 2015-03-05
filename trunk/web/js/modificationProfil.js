@@ -32,7 +32,7 @@ $(document).ready(function(){
 	adresse.blur(validateAdresse);
 	nom.blur(validateNom);
 	prenom.blur(validatePrenom);
-	ville.keyup(validateVille);
+	ville.keyup(validateE);
 	
 	email.keyup(validateEmail);
 	cpasse.keyup(validateCPasse);
@@ -44,7 +44,7 @@ $(document).ready(function(){
 	prenom.keyup(validatePrenom);
 	ville.keyup(validateVille);
 	
-	form.('#envoyer').(function(){
+	form.submit(function(){
 		if (validateEmail() & validateNouveau() & validateNouveau2() & validateCPasse()){
 			return true;
 		} else {
