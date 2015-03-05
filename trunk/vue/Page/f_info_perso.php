@@ -2,8 +2,12 @@
 
 <div class="container">
 
+<<<<<<< .mine
+    
+=======
     <script type="text/javascript" language="Javascript" src="web/js/modificationProfil.js"></script>
 
+>>>>>>> .r179
     <h1>mes infos persos</h1>
 
     <form id="formulaireGestionProfil" method ="post" name="formulaireGestionProfil">
