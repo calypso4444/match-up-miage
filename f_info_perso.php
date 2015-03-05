@@ -19,6 +19,7 @@ $user=$_SESSION['user'];
 $vue = array();
 $vue['userPseudo']=$user['pseudo'];
 $vue['userMail']=$user['email'];
+$vue['userCPasse']=$user['passe'];
 $view->render('f_info_perso', $vue);
 
 /* fin de l'affichage de la vue */
