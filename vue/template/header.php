@@ -1,11 +1,18 @@
 <header class="container-fluid">
-    
+
     <div id="banner"  class="col-lg-10 ">
         <img src="web/image/banner.png" alt="banner" />
     </div>
     <div id='menuConnexion' class="col-lg-2">
         <?php if (isset($_SESSION['user'])) : ?>
-            <img src="<?php echo $_SESSION['user']['avatar']?>" alt="avatar"/>
+            <img src="
+            <?php
+            if ($_SESSION['user']['avatar'] !== null) {
+                echo $_SESSION['user']['avatar'];
+            } else {
+                echo'web/image/avatar.png';
+            }
+            ?>" alt="avatar"/>
             <a href="f_mes_profils.php" class="glyphicon glyphicon-user"> mes profils </a></br>
             <a href="f_info_perso.php" class="glyphicon glyphicon-cog"> mes infos perso </a></br>
             <a href="f_mes_favoris.php" class="glyphicon glyphicon-heart"> mes favoris </a></br>

@@ -84,12 +84,6 @@ if (!empty($cpasse)and ( sha1($cpasse) === $user['passe'])) {
 //traitement de l'avatar
 if (isset($_FILES['mon_fichier'])) {
     $tab_img = $_FILES['mon_fichier'];
-    echo $tab_img['name'] . "name</br>";
-    echo $tab_img['type'] . "type</br>";
-    echo $tab_img['size'] . "size</br>";
-    echo $tab_img['tmp_name'] . "tmp_name</br>";
-    echo $tab_img['error'] . "error</br>";
-    echo implode($_FILES['mon_fichier']);
     if ($_FILES['mon_fichier']['error'] > 0) {
         $erreur = "Erreur lors du transfert";
     }
@@ -114,11 +108,6 @@ if (isset($_FILES['mon_fichier'])) {
         echo "Transfert réussi";
     }
 }
-//$_FILES['mon-fichier']['name'];     //Le nom original du fichier, comme sur le disque du visiteur (exemple : mon_icone.png).
-//$_FILES['mon_fichier']['type'];     //Le type du fichier. Par exemple, cela peut être « image/png ».
-//$_FILES['mon_fichier']['size'];     //La taille du fichier en octets.
-//$_FILES['mon_fichier']['tmp_name']; //L'adresse vers le fichier uploadé dans le répertoire temporaire.
-//$_FILES['mon_fichier']['error'];
 
 /* fin de séquence */
 
