@@ -11,6 +11,70 @@ include_once 'config/includeGlobal.php';
 
 $user = $_SESSION['user'];
 
+$id=$user['id'];
+
+$pseudo = filter_input(INPUT_POST, 'pseudo');
+$email = filter_input(INPUT_POST, 'email');
+$cpasse = filter_input(INPUT_POST, 'cpasse');
+$npasse = filter_input(INPUT_POST, 'npasse');
+$npasse2 = filter_input(INPUT_POST, 'npasse2');
+$nom = filter_input(INPUT_POST, 'nom');
+$prenom = filter_input(INPUT_POST, 'prenom');
+$adresse = filter_input(INPUT_POST, 'adresse');
+$cp = filter_input(INPUT_POST, 'CP');
+
+$mailDejaPris = false;
+$mdpVideOuIncorrect = false;
+$problemeMdp = false;
+
+//on verifie d'abord que le champ mot de passe actuel n'est ni vide ni rempli avec un mot de passe incorrect
+//sans le mot de passe courant correct on ne fait rien dans la bdd
+if (!empty($cpasse)and ( sha1($cpasse) === $user['passe'])) {
+    //changement de mail
+    $email = htmlspecialchars($email);
+    if (!empty($email)and ( $email !== $user['email'])) {
+        //on verifie que le mail n'est pas deja pris
+        if ($model['GestionnaireUtilisateur']->existeDejaMail($email)) {
+            $mailDejaPris = true;
+        } else {
+            $model['GestionnaireUtilisateur']->setMail($id, $email);
+        }
+    }
+    //changement de mot de passe
+    if (!empty($npasse)and ! empty($npasse2)) {
+        $npasse = htmlspecialchars($npasse);
+        $npasse2 = htmlspecialchars($npasse2);
+        if ($npasse == $npasse2) {
+            $npasse=sha1($npasse);
+            $model['GestionnaireUtilisateur']->setMdp($id, $npasse);
+        } else {
+            $problemeMdp = true;
+        }
+    }
+    //changement de nom
+    $nom = htmlspecialchars($nom);
+    if (!empty($nom)and ( $nom !== $user['nom'])) {
+        $model['GestionnaireUtilisateur']->setNom($id, $nom);
+    }
+    //changement de prenom
+    $prenom = htmlspecialchars($prenom);
+    if (!empty($prenom)and ( $prenom !== $user['prenom'])) {
+        $model['GestionnaireUtilisateur']->setPrenom($id, $prenom);
+    }
+    //changement d'adresse
+    $adresse = htmlspecialchars($adresse);
+    if (!empty($adresse)and ( $adresse !== $user['adresse'])) {
+        $model['GestionnaireUtilisateur']->setAdresse($id, $adresse); 
+    }
+    //changement de CP
+    $cp = htmlspecialchars($cp);
+    if (!empty($cp)and ( $cp !== $user['CP'])) {
+        $model['GestionnaireUtilisateur']->setCP($id, $cp);
+    }
+} else {
+    $mdpVideOuIncorrect = true;
+}
+
 /* fin de séquence */
 
 /* affichage de la vue */
@@ -22,7 +86,10 @@ $vue['userNom'] = $user['nom'];
 $vue['userPrenom'] = $user['prenom'];
 $vue['userAdresse'] = $user['adresse'];
 $vue['userCP'] = $user['CP'];
-$vue['userAvatar']=$user['avatar'];
+$vue['userAvatar'] = $user['avatar'];
+$vue['mdpVideOuIncorrect'] = $mdpVideOuIncorrect;
+$vue['problemeMdp'] = $problemeMdp;
+$vue['mailDejaPris'] = $mailDejaPris;
 $view->render('f_info_perso', $vue);
 
 /* fin de l'affichage de la vue */

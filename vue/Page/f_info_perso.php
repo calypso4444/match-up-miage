@@ -2,8 +2,8 @@
 
 <div class="container">
 
-	<script type="text/javascript" language="Javascript" src="web/js/modificationProfil.js"></script>
-    
+    <script type="text/javascript" language="Javascript" src="web/js/modificationProfil.js"></script>
+
     <h1>mes infos persos</h1>
 
     <form id="formulaireGestionProfil" method ="post" name="formulaireGestionProfil">
@@ -12,12 +12,12 @@
             <label for="email"> Votre mail </label> 
             <input id="email" type="text" name="email" placeholder="<?php echo $vars['userMail']; ?>" value="<?php echo $vars['userMail']; ?>"/>
             <span id="emailInfo"></span></br>
-            
+
             <label for="pseudo"> Pseudo </label>
             <input id="pseudo" type="text" name="pseudo" placeholder="<?php echo $vars['userPseudo']; ?>" value=" <?php echo $vars['userPseudo']; ?>"/></br>
 
             <label for="cpasse"> Mot de passe actuel </label>
-            <input id="cpasse" type="password" name="passe" value=""/>
+            <input id="cpasse" type="password" name="cpasse" value=""/>
             <span id="cpasseInfo"></span></br>
 
             <label for="npasse"> Nouveau mot de passe </label>
@@ -53,4 +53,12 @@
 
     </form>
 
+    <?php
+    echo $vars['mailDejaPris'] ? 'Ce mail est deja pris' : '';
+    echo $vars['problemeMdp'] ? 'les deux mots de passe ne correspondent pas' : '';
+    echo $vars['mdpVideOuIncorrect'] ? 'le champ mot de passe actuel a mal été rempli' : '';
+    ?>
+
 </div>
+
+<!--!inclure une fonction reload_once est js-->
