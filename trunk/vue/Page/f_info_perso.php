@@ -10,11 +10,11 @@
             <label for="email"> Votre mail </label> 
             <input id="email" type="text" name="email" placeholder="<?php echo $vars['userMail']; ?>" value="<?php echo $vars['userMail']; ?>"/>
             <span id="emailInfo"></span></br>
-
+        <fieldset disabled="disabled">
             <label for="pseudo"> Pseudo </label>
             <input id="pseudo" type="text" name="pseudo" placeholder="<?php echo $vars['userPseudo']; ?>" value=" <?php echo $vars['userPseudo']; ?>"/>
             <span id="pseudoInfo"></span></br>
-
+        </fieldset>
             <label for="cpasse"> Mot de passe actuel </label>
             <input id="cpasse" type="password" name="cpasse" value=""/>
             <span id="cpasseInfo"></span></br>
