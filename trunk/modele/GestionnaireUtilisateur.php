@@ -118,6 +118,16 @@ class GestionnaireUtilisateur extends Gestionnaire {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['CONNEXION'] . " SET CP='$cp' WHERE id = $id;");
         $this->actualisationUserSession();
     }
+    
+    public function setVille($id,$ville) {
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['CONNEXION'] . " SET ville='$ville' WHERE id = $id;");
+        $this->actualisationUserSession();
+    }
+    
+    public function setAvatar($id,$img) {
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['CONNEXION'] . " SET avatar='$img' WHERE id = $id;");
+        $this->actualisationUserSession();
+    }
 
     private function actualisationUserSession(){
         $user=$_SESSION['user'];
