@@ -4,7 +4,7 @@
 
     <h1>mes infos persos</h1>
 
-    <form id="formulaireGestionProfil" method ="post" name="formulaireGestionProfil">
+    <form id="formulaireGestionProfil" method ="post" name="formulaireGestionProfil" class="inline-form">
 
         <div class="col-lg-6 text-right">
             <label for="email"> Votre mail </label> 
@@ -45,7 +45,7 @@
             <label for="CP"> Votre code postal </label>
             <span id="cpInfo"></span></br>
             
-            <input id="ville" type="text" name="ville" placeholder="<?php echo $vars['userVille']; ?>" value="<?php echo $vars['userVille']; ?>"/>
+            <input id="ville" class="input-sm form-control" type="text" name="ville" placeholder="<?php echo $vars['userVille']; ?>" value="<?php echo $vars['userVille']; ?>"/>
             <label for="ville"> Votre ville </label>
             <span id="villeInfo"></span></br>
         </div>
@@ -61,6 +61,8 @@
     echo $vars['problemeMdp'] ? 'les deux mots de passe ne correspondent pas' : '';
     echo $vars['mdpVideOuIncorrect'] ? 'le champ mot de passe actuel a mal été rempli' : '';
     ?>
+    
+    <script 
 
 </div>
 
