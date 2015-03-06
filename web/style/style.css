@@ -91,3 +91,7 @@ div#commentaire,#albumPhoto,#agenda,#acces{
 #banner{
 border-bottom: solid 4px black;
 }
+
+img{
+    width :100%;
+}
