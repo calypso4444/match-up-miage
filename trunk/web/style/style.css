@@ -83,3 +83,11 @@ div#commentaire,#albumPhoto,#agenda,#acces{
     border: solid black 1px;
     min-height: 200px;
 }
+
+#menuConnexion{
+	border-left: solid 1px black;
+}
+
+#banner{
+border-bottom: solid 4px black;
+}
