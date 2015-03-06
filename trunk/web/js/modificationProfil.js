@@ -32,7 +32,7 @@ $(document).ready(function(){
 	adresse.blur(validateAdresse);
 	nom.blur(validateNom);
 	prenom.blur(validatePrenom);
-	ville.keyup(validateE);
+	ville.keyup(validateVille);
 	
 	email.keyup(validateEmail);
 	cpasse.keyup(validateCPasse);
