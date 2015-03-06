@@ -5,7 +5,7 @@
     <h1>artiste</h1>
 
     <div id="photoProfil" class="col-lg-12">
-        <img src="web/image/artiste.png" style="width: 100%">
+        <img src="web/image/artiste.png">
     </div>
 
     <div id="description" class="col-lg-9">
