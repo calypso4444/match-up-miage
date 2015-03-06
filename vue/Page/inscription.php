@@ -1,7 +1,5 @@
 <!-- vue/page -->
 
-
-
 <div class="container col-lg-12" id="formulaireI">
     <h1> Formulaire d'inscription </h1>
     <form class="form-horizontal" id="formulaireInscription" method ="post" name="verificationInscription1">
@@ -67,7 +65,7 @@
 		<div class="form-group">   
             	<label class="control-label col-xs-2" for="passe2">V&eacute;rification de votre mot de passe : *</label>
             		<div class="col-xs-6">
-						<input class="form-control" id="passe2" type="password" name="passe" value=""/>
+						<input class="form-control" id="passe2" type="password" name="passe2" value=""/>
             		</div>
             				<div class="col-xs-1">
 								<span id="passe2Info"></span>
