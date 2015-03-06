@@ -1,6 +1,6 @@
-<nav>
+<nav >
 
-    <ul class="menu navbar nav-tabs nav">
+    <ul class="menu navbar nav-tabs nav col-lg-12">
         <li class="text-center"><a href="index.php">Accueil</a></li>
         <li class="text-center"><a href="que_faire.php">Que faire ?</a></li>
         <li class="text-center"><a href="tous_les_artistes.php">Artistes</a></li>
