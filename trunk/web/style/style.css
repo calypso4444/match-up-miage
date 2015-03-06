@@ -62,3 +62,24 @@ body {
     margin :auto; /*a virer des que possible (bootstrap)*/
     width: 80%; /*a virer des que possible (bootstrap)*/
 }
+
+div#photoProfil{
+    border: solid black 1px;
+    min-height: 300px;
+    
+}
+div#description{
+    border: solid black 1px;
+    height: 100px;
+}
+div#interaction{
+    border: solid black 1px;
+    min-height: 100px;
+}
+div#contenu{
+    border: solid black 1px;
+}
+div#commentaire,#albumPhoto,#agenda,#acces{
+    border: solid black 1px;
+    min-height: 200px;
+}

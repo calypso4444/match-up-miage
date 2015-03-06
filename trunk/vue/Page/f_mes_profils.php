@@ -6,7 +6,7 @@
     <form action="f_mes_profils.php" method="post">
         <p>Créer un nouveau profil : </p>
         <input type="submit" name="choixProfil" value="artiste">
-        <input type="submit" name="choixProfil" value="gérant">
+        <input type="submit" name="choixProfil" value="salle">
     </form>
     <a href="<?php echo $vars['choix'];?>.php"><input type=button value='GO!'></a>
     
