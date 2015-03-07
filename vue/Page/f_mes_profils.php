@@ -9,6 +9,9 @@
         <input  type="submit" name="choixProfil" value="artiste">
         <input  type="submit" name="choixProfil" value="salle">
     </form>
-    <a href="<?php echo $vars['choix'];?>.php"><input type=button value='GO!'></a>
+<!--    on injecte dans le lien de redirection deux variables php, 
+la variable choix qui correspond au bouton sur lequel l'utilisateur a cliqué
+la variable tmp qui correspond au numero de profil qui vient d'etre crée par l'utilisateur dans la bdd-->
+    <a href="<?php echo $vars['choix'];?>.php?tmp=<?php echo $vars['noprofil'];?>"><input type=button value='GO!'></a>
     
 </div>
