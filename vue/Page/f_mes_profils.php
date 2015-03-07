@@ -9,7 +9,6 @@
         <?php
         foreach ($vars['mesSalles'] as $salle):
             echo "<a href=salle.php?tmp=".$salle['nSalle']."><img src=\"".$salle['photoProfilSalle']."\"></a>";
-            echo 'Nom : ';
             echo $salle['nomSalle'];
             echo '</br>';
         endforeach;
@@ -20,7 +19,6 @@
         <?php
         foreach ($vars['mesArtistes'] as $artiste):
             echo "<a href=artiste.php?tmp=".$artiste['nArtiste']."><img src=\"".$artiste['photoProfilArtiste']."\"></a>";
-            echo 'Nom : ';
             echo $artiste['nomArtiste'];
             echo '</br>';
         endforeach;
