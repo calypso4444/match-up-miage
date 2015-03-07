@@ -5,7 +5,7 @@
     <h1><?php echo $vars['nomProfil']; ?></h1>
 
     <div id="photoProfil" class="col-lg-12">
-        <img src="<?php echo $vars['photoProfil']; ?>">
+        <img src="<?php echo ($vars['photoProfil']!==null)? $vars['photoProfil']: "web/image/artiste.png"; ?>">
     </div>
 
     <div id="description" class="col-lg-9">

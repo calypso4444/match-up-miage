@@ -2,15 +2,15 @@
 
 <div class="container col-lg-12">
 
-    <h1>salle</h1>
+    <h1><?php echo $vars['nomProfil']; ?></h1>
 
     <div id="photoProfil" class="col-lg-12">
-        <img src="web/image/salle.png">
+        <img src="<?php echo ($vars['photoProfil']!==null)? $vars['photoProfil']: "web/image/salle.png"; ?>">
     </div>
 
     <div id="description" class="col-lg-9">
         <h4>Description : </h4>
-        <p>Eminuit autem inter humilia supergressa iam impotentia fines mediocrium delictorum nefanda Clematii cuiusdam Alexandrini nobilis mors repentina; cuius socrus cum misceri sibi generum, flagrans eius amore, non </p>
+        <p><?php echo $vars['descProfil']; ?></p>
     </div>
 
     <div id="interaction" class="col-lg-3">

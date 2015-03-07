@@ -10,7 +10,7 @@ include_once 'config/includeGlobal.php';
 
 /* séquence du controleur */
 $noProfil=filter_input(INPUT_GET, 'tmp');
-$infoProfil=$model['GestionnaireProfil']->getAll($noProfil);
+$infoProfil=$model['GestionnaireProfil']->getAllInfo_Artiste($noProfil);
 $nomProfil=$infoProfil['nomArtiste'];
 $photoProfil=$infoProfil['photoProfilArtiste'];
 $descProfil=$infoProfil['descriptionArtiste'];
