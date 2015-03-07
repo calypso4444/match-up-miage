@@ -9,6 +9,11 @@ include_once 'config/includeGlobal.php';
 /* fin de l'instanciation */
 
 /* séquence du controleur */
+$noProfil=filter_input(INPUT_GET, 'tmp');
+$infoProfil=$model['GestionnaireProfil']->getAll($noProfil);
+$nomProfil=$infoProfil['nomArtiste'];
+$photoProfil=$infoProfil['photoProfilArtiste'];
+$descProfil=$infoProfil['descriptionArtiste'];
 
 
 /* fin de séquence */
@@ -16,6 +21,9 @@ include_once 'config/includeGlobal.php';
 /* affichage de la vue */
 
 $vue = array();
+$vue['nomProfil']=$nomProfil;
+$vue['photoProfil']=$photoProfil;
+$vue['descProfil']=$descProfil;
 $view->render('artiste', $vue);
 
 /* fin de l'affichage de la vue */

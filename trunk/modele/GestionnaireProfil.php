@@ -7,6 +7,12 @@ class GestionnaireProfil extends Gestionnaire {
         $row = mysqli_fetch_assoc($tmp);
         return $row['idmax'];
     }
+    
+    public function getAll($noProfil) {
+        $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['ARTISTE'] . " WHERE nArtiste='$noProfil'");
+        $row = mysqli_fetch_assoc($reqm);
+        return $row['nArtiste'] != null ? $row : null;
+    }
 }
 
 ?>
