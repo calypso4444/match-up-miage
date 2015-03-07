@@ -11,7 +11,7 @@
                 <label for="recherche"></label> 
                 <input id="recherche" type="text" name="recherche" placeholder="Tapez votre recherche ici" value=""/>
                 <input  type="submit" value="GO" id="envoyer"/>
-                <a href="f_recherche_avancee.php" class="glyphicon glyphicon-plus"> d'options...</a>
+                <a href="f_recherche_avancee.php" class="glyphicon glyphicon-plus"></a>
             </form>
         </li>
     </ul>
