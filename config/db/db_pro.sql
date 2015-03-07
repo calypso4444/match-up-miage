@@ -26,6 +26,7 @@ CREATE TABLE `validation` (
 
 CREATE TABLE `artiste` (
 `nArtiste` int(255) NOT NULL AUTO_INCREMENT,
+`photoProfilArtiste`varchar(255),
 `nomArtiste` varchar(30) NOT NULL,
 `descriptionArtiste` varchar(255),
 `genreMusicalArtiste` varchar(255),
@@ -36,6 +37,7 @@ FOREIGN KEY(proprietaireArtiste) REFERENCES utilisateur(id)
 
 CREATE TABLE `salle` (
 `nSalle` int(255) NOT NULL AUTO_INCREMENT,
+`photoProfilSalle`varchar(255),
 `nomSalle` varchar(30) NOT NULL,
 `descriptionSalle` varchar(255),
 `genreMusicalSalle` varchar(255),
