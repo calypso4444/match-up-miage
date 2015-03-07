@@ -29,7 +29,7 @@ class GestionnaireUtilisateur extends Gestionnaire {
         $row = mysqli_fetch_assoc($reqm);
         return $row['id'] != null ? $row : null;
     }
-    
+
     private function getUserById($id) {
         $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE id='$id'");
         $row = mysqli_fetch_assoc($reqm);
@@ -88,53 +88,57 @@ class GestionnaireUtilisateur extends Gestionnaire {
         }
         return $usersValidation;
     }
-    
-    public function setMail($id,$mail) {
+
+    public function setMail($id, $mail) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['CONNEXION'] . " SET email='$mail' WHERE id = $id;");
         $this->actualisationUserSession();
     }
-    
-    public function setMdp($id,$mdp) {
+
+    public function setMdp($id, $mdp) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['CONNEXION'] . " SET passe='$mdp' WHERE id = $id;");
         $this->actualisationUserSession();
     }
-    
-    public function setNom($id,$nom) {
+
+    public function setNom($id, $nom) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['CONNEXION'] . " SET nom='$nom' WHERE id = $id;");
         $this->actualisationUserSession();
     }
-    
-    public function setPrenom($id,$prenom) {
+
+    public function setPrenom($id, $prenom) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['CONNEXION'] . " SET prenom='$prenom' WHERE id = $id;");
         $this->actualisationUserSession();
     }
-    
-    public function setAdresse($id,$adresse) {
+
+    public function setAdresse($id, $adresse) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['CONNEXION'] . " SET adresse='$adresse' WHERE id = $id;");
         $this->actualisationUserSession();
     }
-    
-    public function setCP($id,$cp) {
+
+    public function setCP($id, $cp) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['CONNEXION'] . " SET CP='$cp' WHERE id = $id;");
         $this->actualisationUserSession();
     }
-    
-    public function setVille($id,$ville) {
+
+    public function setVille($id, $ville) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['CONNEXION'] . " SET ville='$ville' WHERE id = $id;");
         $this->actualisationUserSession();
     }
-    
-    public function setAvatar($id,$path) {
+
+    public function setAvatar($id, $path) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['CONNEXION'] . " SET avatar='$path' WHERE id = $id;");
         $this->actualisationUserSession();
     }
 
-    private function actualisationUserSession(){
-        $user=$_SESSION['user'];
-        $id=$user['id'];
-        $_SESSION['user']=$this->getUserById($id);
+    private function actualisationUserSession() {
+        $user = $_SESSION['user'];
+        $id = $user['id'];
+        $_SESSION['user'] = $this->getUserById($id);
     }
-    
+
+    public function ajouterEnFavoriArtiste($noprofil, $id) {
+        mysqli_query($this->link, "INSERT IF NOT EXISTS INTO " . $GLOBALS['DB_TABLE']['FAVORI_A'] . "  (proprietaire,cible) VALUES('$id','$noprofil'); ");
+    }
+
     public function test() {
         return 'caca';
     }
