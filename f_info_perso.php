@@ -106,7 +106,10 @@ if (isset($_FILES['mon_fichier'])) {
     if ($resultat) {
         $model['GestionnaireUtilisateur']->setAvatar($id, $chemin);
         echo "Transfert réussi";
+    } else{
+	    echo("Image trop grande");
     }
+    
 }
 
 /* fin de séquence */
