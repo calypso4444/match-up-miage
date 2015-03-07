@@ -27,7 +27,6 @@ CREATE TABLE `validation` (
 CREATE TABLE `artiste` (
 `nArtiste` int(255) NOT NULL AUTO_INCREMENT,
 `nomArtiste` varchar(30) NOT NULL,
-`noteArtiste` float(3),
 `descriptionArtiste` varchar(255),
 `genreMusicalArtiste` varchar(255),
 `proprietaireArtiste` int(255),
@@ -38,10 +37,11 @@ FOREIGN KEY(proprietaireArtiste) REFERENCES utilisateur(id)
 CREATE TABLE `salle` (
 `nSalle` int(255) NOT NULL AUTO_INCREMENT,
 `nomSalle` varchar(30) NOT NULL,
-`noteSalle` float(3),
 `descriptionSalle` varchar(255),
 `genreMusicalSalle` varchar(255),
 `adresseSalle` varchar(255),
+`latitude` varchar(255),
+`longitude` varchar(255),
 `proprietaireSalle` int(255),
 `telSalle` varchar(12),
 `nomGerant` varchar (50),
@@ -52,88 +52,113 @@ FOREIGN KEY(proprietaireSalle) REFERENCES utilisateur(id)
 );
 
 CREATE TABLE `concert` (
+`nConcert` int(255) NOT NULL,
 `nSalle` int(255) NOT NULL,
 `nArtiste` int(255) NOT NULL,
 `dateConcert` date NOT NULL,
-nConcert int(255) NOT NULL,
-KEY (`nSalle`,`nArtiste`,`dateConcert`),
+KEY `nConcert`(`nConcert`),
 FOREIGN KEY(nSalle) REFERENCES salle (nSalle),
 FOREIGN KEY(nArtiste) REFERENCES artiste (nArtiste)
 );
 
 CREATE TABLE `petiteAnnonce` (
-`nSalle` int(255) NOT NULL,
 `nPetiteAnnonce` int(255) NOT NULL,
+`auteur` int(255) NOT NULL,
 `textePetiteAnnonce` varchar(255),
 `dateDeb` DATE NOT NULL,
 `dateFin` DATE,
 `dateEditionPetiteAnnonce` timestamp,
-KEY (`nSalle`,`nPetiteAnnonce`),
-FOREIGN KEY(nSalle) REFERENCES salle (nSalle)
+KEY `nPetiteAnnonce`(`nPetiteAnnonce`),
+FOREIGN KEY(auteur) REFERENCES salle (nSalle)
 );
 
 CREATE TABLE `annonceEvenementSalle` (
-`nSalle` int(255) NOT NULL,
 `nAnnonceEvenementSalle` int(255) NOT NULL,
+`auteur` int(255) NOT NULL,
 `texteAnnonceEvenementSalle` varchar(255),
 `dateEditionAnnonceEvenementSalle` timestamp,
-KEY (`nSalle`,`nAnnonceEvenementSalle`),
-FOREIGN KEY(nSalle) REFERENCES salle (nSalle)
+KEY `nAnnonceEvenementSalle`(`nAnnonceEvenementSalle`),
+FOREIGN KEY(auteur) REFERENCES salle (nSalle)
 );
 
 CREATE TABLE `annonceEvenementArtiste` (
-`nSalle` int(255) NOT NULL,
+`auteur` int(255) NOT NULL,
 `nAnnonceEvenementArtiste` int(255) NOT NULL,
 `texteAnnonceEvenementArtiste` varchar(255),
 `dateEditionAnnonceEvenementArtiste` timestamp,
-KEY (`nSalle`,`nAnnonceEvenementArtiste`),
-FOREIGN KEY(nSalle) REFERENCES salle (nSalle)
+KEY `nAnnonceEvenementArtiste`(`nAnnonceEvenementArtiste`),
+FOREIGN KEY(auteur) REFERENCES salle (nSalle)
 );
 
 CREATE TABLE `commentaireSalle` (
-`cible` int(255) NOT NULL,
 `nCommentaireSalle` int(255) NOT NULL,
+`cible` int(255) NOT NULL,
 `texteCommentaireSalle` varchar(255),
 `dateEditionCommentaireSalle` timestamp,
 `auteur` int(255)NOT NULL,
-KEY (`cible`,`nCommentaireSalle`),
+KEY `nCommentaireSalle`(`nCommentaireSalle`),
 FOREIGN KEY(cible) REFERENCES salle (nSalle),
 FOREIGN KEY(auteur) REFERENCES utilisateur (id)
 );
 
 CREATE TABLE `commentaireArtiste` (
-`cible` int(255) NOT NULL,
 `nCommentaireArtiste` int(255) NOT NULL,
+`cible` int(255) NOT NULL,
 `texteCommentaireArtiste` varchar(255),
 `dateEditionCommentaireArtiste` timestamp,
 `auteur` int(255) NOT NULL,
-KEY (`cible`,`nCommentaireArtiste`),
+KEY `nCommentaireArtiste`(`nCommentaireArtiste`),
 FOREIGN KEY(cible) REFERENCES artiste (nArtiste),
 FOREIGN KEY(auteur) REFERENCES utilisateur (id)
 );
 
 CREATE TABLE `albumPhotoArtiste` (
-`proprietaire` int(255) NOT NULL,
 `nPhotoArtiste` int(255) NOT NULL,
+`proprietaire` int(255) NOT NULL,
 `photoArtiste` varchar(255),
-KEY (`proprietaire`,`nPhotoArtiste`),
+KEY `nPhotoArtiste`(`nPhotoArtiste`),
 FOREIGN KEY(proprietaire) REFERENCES artiste (nArtiste)
 );
 
 CREATE TABLE `albumPhotoSalle` (
-`proprietaire` int(255) NOT NULL,
 `nPhotoSalle` int(255) NOT NULL,
+`proprietaire` int(255) NOT NULL,
 `photoSalle` varchar(255),
-KEY (`proprietaire`,`nPhotoSalle`),
+KEY `nPhotoSalle`(`nPhotoSalle`),
 FOREIGN KEY(proprietaire) REFERENCES salle (nSalle)
 );
 
 CREATE TABLE `bibliothequeMusicale` (
-`proprietaire` int(255) NOT NULL,
 `nMorceau` int(255) NOT NULL,
+`proprietaire` int(255) NOT NULL,
 `morceau` varchar(255),
-KEY (`proprietaire`,`nMorceau`),
+KEY `nMorceau`(`nMorceau`),
 FOREIGN KEY(proprietaire) REFERENCES artiste (nArtiste)
 );
 
--- mq les tables commentaireSalle, commentaireArtiste, celle pour la gestion d'adresse et la generation des coordonnées gps , les tables pour la gestion des favoris et des evenements suivis
+CREATE TABLE `favoriArtiste`(
+`proprietaire` int(255) NOT NULL,
+`cible` int(255) NOT NULL,
+KEY(`proprietaire`,`cible`),
+FOREIGN KEY(cible) REFERENCES artiste (nArtiste),
+FOREIGN KEY(proprietaire) REFERENCES utilisateur (id)
+);
+
+CREATE TABLE `favoriSalle`(
+`proprietaire` int(255) NOT NULL,
+`cible` int(255) NOT NULL,
+KEY(`proprietaire`,`cible`),
+FOREIGN KEY(cible) REFERENCES salle (nSalle),
+FOREIGN KEY(proprietaire) REFERENCES utilisateur (id)
+);
+
+CREATE TABLE `evenementSuivi`(
+`proprietaire` int(255) NOT NULL,
+`cible` int(255) NOT NULL,
+KEY(`proprietaire`,`cible`),
+FOREIGN KEY(cible) REFERENCES concert (nConcert),
+FOREIGN KEY(proprietaire) REFERENCES utilisateur (id)
+);
+
+
+-- mq table gestion des notes salle et artiste
