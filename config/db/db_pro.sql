@@ -161,4 +161,4 @@ FOREIGN KEY(proprietaire) REFERENCES utilisateur (id)
 );
 
 
--- mq table gestion des notes salle et artiste
+-- mq table gestion des notes salle et artiste, table bibliotheque à revoir (ajouter le detail des attributs pour le morceau)
