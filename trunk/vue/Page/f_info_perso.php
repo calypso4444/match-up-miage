@@ -1,80 +1,219 @@
 <!-- vue/page -->
 
 <div class="container col-lg-12">
+    <h1> Mes Infos Perso </h1>
+    <div class="row">
+    <form class="form-horizontal" id="formulaireGestionProfil" method ="post" name="formulaireGestionProfil" enctype="multipart/form-data">
 
-    <h1>mes infos persos</h1>
+<!-- Début champs pour entrer son email -->
 
-    <form id="formulaireGestionProfil" method ="post" name="formulaireGestionProfil" class="inline-form">
+	
+		<div class="col-xs-1"></div>
+	    <div class="form-group">
+	            <label class="control-label col-xs-2" for="email">Votre mail :</label> 
+	            	<div class="col-xs-6">
+	            		<input class="form-control" id="email" type="text" name="email" placeholder="<?php echo $vars['userMail']; ?>" value="<?php echo $vars['userMail']; ?>"/>
+	            	</div>		
+							<div class="col-xs-1">	
+								<span id="emailInfo"></span>
+							</div>
+								<div class="col-lg-2"></div>
+		</div>
+	
+	
+<!-- Fin champs pour entrer son email -->
 
-        <div class="col-lg-12">
-            <label for="email"> Votre mail </label> 
-            <input id="email" type="text" name="email" placeholder="<?php echo $vars['userMail']; ?>" value="<?php echo $vars['userMail']; ?>"/>
-            <span id="emailInfo"></span></br>
-        <fieldset disabled="disabled">
-            <label for="pseudo"> Pseudo </label>
-            <input id="pseudo" type="text" name="pseudo" placeholder="<?php echo $vars['userPseudo']; ?>" value=" <?php echo $vars['userPseudo']; ?>"/>
-            <span id="pseudoInfo"></span></br>
-        </fieldset>
-            <label for="cpasse"> Mot de passe actuel </label>
-            <input id="cpasse" type="password" name="cpasse" value=""/>
-            <span id="cpasseInfo"></span></br>
+<!-- Début champs affichant son pseudo -->
 
-            <label for="npasse"> Nouveau mot de passe </label>
-            <input id="npasse" type="password" name="npasse" value=""/>
-            <span id="npasseInfo"></span></br>
+	<fieldset disabled="disabled">
+        <div class="col-xs-1"></div>
+		<div class="form-group">   
+            	<label class="control-label col-xs-2" for="pseudo">Votre Pseudo :</label>
+            		<div class="col-xs-6">
+						<input class="form-control" id="pseudo" type="text" name="pseudo" placeholder="<?php echo $vars['userPseudo']; ?>" value=" <?php echo $vars['userPseudo']; ?>"/>
+            		</div>
+            				<div class="col-xs-1">
+								<span id="pseudoInfo"></span>
+            				</div>
+            					<div class="col-lg-2"></div>
+		</div>
+	</fieldset>
 
-            <label for="npasse2"> V&eacute;rification de votre nouveau mot de passe </label>
-            <input id="npasse2" type="password" name="npasse2" value=""/>
-            <span id="npasse2Info"></span></br>
-        </div>
+<!-- Fin champs du pseudo -->
 
-        <div class="col-lg-12">
-	        <label for="nom"> Votre nom </label>
-            <input id="nom" type="text" name="nom" placeholder="<?php echo $vars['userNom']; ?>" value="<?php echo $vars['userNom']; ?>"/>
-            <span id="nomInfo"></span></br>
 
-			<label for="prenom"> Votre prénom </label>
-            <input id="prenom" type="text" name="prenom" placeholder="<?php echo $vars['userPrenom']; ?>" value="<?php echo $vars['userPrenom']; ?>"/>
-            <span id="prenomInfo"></span></br>
+<!-- Début champs pour modifier son nom -->
 
-			<label for="adresse"> Votre adresse </label>
-            <input id="adresse" type="text" name="adresse" placeholder="<?php echo $vars['userAdresse']; ?>" value="<?php echo $vars['userAdresse']; ?>"/>
+	
+        <div class="col-xs-1"></div>
+		<div class="form-group">   
+            	<label class="control-label col-xs-2" for="nom">Votre nom :</label>
+            		<div class="col-xs-6">
+						<input class="form-control" id="nom" type="text" name="nom" placeholder="<?php echo $vars['userNom']; ?>" value="<?php echo $vars['userNom']; ?>"/>
+            		</div>
+            				<div class="col-xs-1">
+								<span id="nomInfo"></span>
+            				</div>
+            					<div class="col-lg-2"></div>
+		</div>
+   
+    
+<!-- Fin champs pour modifier son nom -->
 
-            <span id="adresseInfo"></span></br>
+<!-- Début champs pour modifier son prénom -->
 
-			<label for="CP"> Votre code postal </label>
-            <input id="CP" type="text" name="CP" placeholder="<?php echo $vars['userCP']; ?>" value="<?php echo $vars['userCP']; ?>"/>
+	
+        <div class="col-xs-1"></div>
+		<div class="form-group">   
+            	<label class="control-label col-xs-2" for="prenom">Votre prenom :</label>
+            		<div class="col-xs-6">
+						<input class="form-control" id="prenom" type="text" name="prenom" placeholder="<?php echo $vars['userPrenom']; ?>" value="<?php echo $vars['userPrenom']; ?>"/>
+            		</div>
+            				<div class="col-xs-1">
+								<span id="prenomInfo"></span>
+            				</div>
+            					<div class="col-lg-2"></div>
+		</div>
+   
+    
+<!-- Fin champs pour modifier son prénom -->
 
-            <span id="cpInfo"></span></br>
+<!-- Début champs pour modifier votre adresse -->
 
-			<label for="ville"> Votre ville </label>
-            <input id="ville" class="input-sm form-control" type="text" name="ville" placeholder="<?php echo $vars['userVille']; ?>" value="<?php echo $vars['userVille']; ?>"/>
+	
+        <div class="col-xs-1"></div>
+		<div class="form-group">   
+            	<label class="control-label col-xs-2" for="adresse">Votre adresse :</label>
+            		<div class="col-xs-6">
+						<input class="form-control" id="adresse" type="text" name="adresse" placeholder="<?php echo $vars['userAdresse']; ?>" value="<?php echo $vars['userAdresse']; ?>"/>
+            		</div>
+            				<div class="col-xs-1">
+								<span id="adresseInfo"></span>
+            				</div>
+            					<div class="col-lg-2"></div>
+		</div>
+   
+    
+<!-- Fin champs pour modifier votre adresse -->
 
-            <span id="villeInfo"></span></br>
-        </div>
+<!-- Début champs pour modifier son code postal -->
 
-        <div class="col-lg-12 text-center">
-            <input  type="submit" value="Valider modifications" id="envoyer"/>
-        </div>
+	
+        <div class="col-xs-1"></div>
+		<div class="form-group">   
+            	<label class="control-label col-xs-2" for="CP">Votre code postal :</label>
+            		<div class="col-xs-6">
+						<input class="form-control" id="CP" type="text" name="CP" placeholder="<?php echo $vars['userCP']; ?>" value="<?php echo $vars['userCP']; ?>"/>
+            		</div>
+            				<div class="col-xs-1">
+								<span id="cpInfo"></span>
+            				</div>
+            					<div class="col-lg-2"></div>
+		</div>
+   
+    
+<!-- Fin champs pour modifier son code postal -->
 
-    </form>
+<!-- Début champs pour modifier votre ville -->
 
-    <form method="post" action="f_info_perso.php" enctype="multipart/form-data">
+	
+        <div class="col-xs-1"></div>
+		<div class="form-group">   
+            	<label class="control-label col-xs-2" for="ville">Votre ville :</label>
+            		<div class="col-xs-6">
+						<input class="form-control" id="ville" type="text" name="ville" placeholder="<?php echo $vars['userVille']; ?>" value="<?php echo $vars['userVille']; ?>"/>
+            		</div>
+            				<div class="col-xs-1">
+								<span id="villeInfo"></span>
+            				</div>
+            					<div class="col-lg-2"></div>
+		</div>
+   
+    
+<!-- Fin champs pour modifier votre ville -->
+
+<!-- Début champs pour entrer son mot de passe actuel (Nécessaire pour la validation des modifications) -->
+
+	
+        <div class="col-xs-1"></div>
+		<div class="form-group">   
+            	<label class="control-label col-xs-2" for="cpasse">Mot de passe : *</label>
+            		<div class="col-xs-6">
+						<input class="form-control" id="cpasse" type="password" name="cpasse" value=""/>
+            		</div>
+            				<div class="col-xs-1">
+								<span id="cpasseInfo"></span>
+            				</div>
+            					<div class="col-lg-2"></div>
+		</div>
+    
+        
+<!-- Fin champs pour entrer son mot de passe actuel -->
+
+<!-- Début champs pour changer son mot de passe (nouveau mot de passe)-->
+
+	
+        <div class="col-xs-1"></div>
+		<div class="form-group">   
+            	<label class="control-label col-xs-2" for="npasse">Nouveau mot de passe :</label>
+            		<div class="col-xs-6">
+						<input class="form-control" id="npasse" type="password" name="npasse" value=""/>
+            		</div>
+            				<div class="col-xs-1">
+								<span id="npasseInfo"></span>
+            				</div>
+            					<div class="col-lg-2"></div>
+		</div>
+   
+    
+<!-- Fin champs pour changer son mot de passe -->
+
+<!-- Début champs pour vérifier son nouveau mot de passe -->
+
+	
+        <div class="col-xs-1"></div>
+		<div class="form-group">   
+            	<label class="control-label col-xs-2" for="npasse2">V&eacute;rification de votre nouveau mot de passe :</label>
+            		<div class="col-xs-6">
+						<input class="form-control" id="npasse2" type="password" name="npasse2" value=""/>
+            		</div>
+            				<div class="col-xs-1">
+								<span id="npasse2Info"></span>
+            				</div>
+            					<div class="col-lg-2"></div>
+		</div>
+   
+    
+<!-- Fin champs pour vérifier son nouveau mot de passe -->
+
+   
+<!-- Début champs pour modifier votre photo de profil -->
+	    
+	    
         <label for="mon_fichier">Fichier (tous formats | max. 1 Mo) :</label><br />
-        <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
-        <input type="file" name="mon_fichier" id="mon_fichier" /><br />
-        <input type="submit" name="submit" value="Envoyer" />
-    </form>
+		<input type="hidden" name="MAX_FILE_SIZE" value="1048576" />	
+		<input type="file" name="mon_fichier" id="mon_fichier" /><br />
+			       
 
-    <?php
+<!-- Fin champs pour modifier votre photo de profil -->
+    
+<!-- Début du bouton -->
+
+    	<div>
+        	<input class="btn btn-default" type="submit" value="Valider " id="envoyer"/>
+		</div>
+
+<!-- Fin du bouton -->
+    
+    </form>
+    </div>   
+</div>
+
+
+<div class="container col-lg-6">
+	<?php
     echo $vars['mailDejaPris'] ? 'Ce mail est deja pris' : '';
     echo $vars['problemeMdp'] ? 'les deux mots de passe ne correspondent pas' : '';
     echo $vars['mdpVideOuIncorrect'] ? "<script> alert('le champ mot de passe actuel a mal été rempli');</script>" : '';
     ?>
-    
-
- 
-
 </div>
-
-<!--!inclure une fonction reload_once est js-->
