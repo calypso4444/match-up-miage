@@ -15,6 +15,9 @@
 
     <div id="interaction" class="col-lg-3">
         </br>
+        <form action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" method="post">
+        <button type="submit" name="favori" value="true" class="glyphicon glyphicon-heart"> Ajouter en favori </button>
+        </br>
         <a href="" class="glyphicon glyphicon-envelope"> Contacter l'artiste </a>
         </br>
         <a href="" class="glyphicon glyphicon-star-empty"> Noter l'artiste </a>
