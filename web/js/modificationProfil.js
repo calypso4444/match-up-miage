@@ -48,6 +48,7 @@ $(document).ready(function(){
 		if (validateEmail() & validateNouveau() & validateNouveau2() & validateCPasse()){
 			return true;
 		} else {
+			alert('Veuillez bien remplir votre mot de passe actuel pour valider vos modifications');
 			return false;
 		}
 	});
