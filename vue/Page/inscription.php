@@ -2,11 +2,12 @@
 
 <div class="container col-lg-12" id="formulaireI">
     <h1> Formulaire d'inscription </h1>
+    <div class="row">
     <form class="form-horizontal" id="formulaireInscription" method ="post" name="verificationInscription1">
 
 <!-- Début champs pour entrer son email -->
 
-	<div class="row">
+	
 		<div class="col-xs-1"></div>
 	    <div class="form-group">
 	            <label class="control-label col-xs-2" for="email">Votre mail : *</label> 
@@ -18,13 +19,13 @@
 							</div>
 								<div class="col-lg-2"></div>
 		</div>
-	</div>
+	
 	
 <!-- Fin champs pour entrer son email -->
 
 <!-- Début champs pour entrer son pseudo -->
 
-	<div class="row">
+	
         <div class="col-xs-1"></div>
 		<div class="form-group">   
             	<label class="control-label col-xs-2" for="pseudo">Pseudo : *</label>
@@ -36,13 +37,13 @@
             				</div>
             					<div class="col-lg-2"></div>
 		</div>
-    </div>
+   
 
 <!-- Fin champs pour entrer son pseudo -->
 
 <!-- Début champs pour entrer son mot de passe -->
 
-	<div class="row">
+	
         <div class="col-xs-1"></div>
 		<div class="form-group">   
             	<label class="control-label col-xs-2" for="passe">Mot de passe : *</label>
@@ -54,13 +55,13 @@
             				</div>
             					<div class="col-lg-2"></div>
 		</div>
-    </div>
+    
         
 <!-- Fin champs pour entrer son mot de passe -->
 
 <!-- Début champs pour vérifier son mot de passe -->
 
-	<div class="row">
+	
         <div class="col-xs-1"></div>
 		<div class="form-group">   
             	<label class="control-label col-xs-2" for="passe2">V&eacute;rification de votre mot de passe : *</label>
@@ -72,7 +73,7 @@
             				</div>
             					<div class="col-lg-2"></div>
 		</div>
-    </div>
+   
     
 <!-- Fin champs pour vérifier son mot de passe -->
 
@@ -81,6 +82,7 @@
     </div>
     
     </form>
+    </div>
 </div>
 
 
