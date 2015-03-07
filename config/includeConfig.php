@@ -9,6 +9,8 @@ $GLOBALS['DATABASE_CONNEXION'] = array(
 
 $GLOBALS['DB_TABLE'] = array(
     'CONNEXION' => 'utilisateur',
-    'VALIDATION' => 'validation'
+    'VALIDATION' => 'validation',
+    'ARTISTE' => 'artiste',
+    'SALLE' => 'salle'
 );
 ?>
