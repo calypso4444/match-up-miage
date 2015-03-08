@@ -88,10 +88,25 @@ class GestionnaireProfil extends Gestionnaire {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['ARTISTE'] . " SET photoProfilArtiste='$path' WHERE nArtiste = $noprofil;");
     }
     
-    public function setGenreMusical($noprofil,$genre){
+    public function setGenreMusicalArtiste($noprofil,$genre){
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['ARTISTE'] . " SET genreMusicalArtiste='$genre' WHERE nArtiste = $noprofil;");
     }
     
+    public function setNomSalle($noprofil,$nom){
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET nomSalle='$nom' WHERE nSalle = $noprofil;");
+    }
+    
+    public function setDescriptionSalle($noprofil,$desc){
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET descriptionSalle='$desc' WHERE nSalle = $noprofil;");
+    }
+    
+    public function setphotoProfilSalle($noprofil,$path){
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET photoProfilSalle='$path' WHERE nSalle = $noprofil;");
+    }
+    
+    public function setGenreMusicalSalle($noprofil,$genre){
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET genreMusicalSalle='$genre' WHERE nSalle = $noprofil;");
+    }
 }
 
 ?>
