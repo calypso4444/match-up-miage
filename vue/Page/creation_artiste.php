@@ -1,7 +1,7 @@
 <!-- vue/page -->
 
 <div class="container col-lg-12">
-    <form id="formulaireModificationProfil" method ="post" name="formulaireModificationProfil" enctype="multipart/form-data">
+    <form id="formulaireModificationProfilArtiste" method ="post" name="formulaireModificationProfilArtiste" enctype="multipart/form-data">
         
          <!-- Début champs pour entrer son nom d'artiste -->
         
