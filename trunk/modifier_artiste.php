@@ -23,7 +23,7 @@ if (!empty($descArtiste)and $descArtiste !== $infoProfil['descriptionArtiste']) 
     $model['GestionnaireProfil']->setDescriptionArtiste($noProfil, $descArtiste);
 }
 if (!empty($genreArtiste)and $genreArtiste !== $infoProfil['genreMusicalArtiste']) {
-    $model['GestionnaireProfil']->setGenreMusical($noProfil, $genreArtiste);
+    $model['GestionnaireProfil']->setGenreMusicalArtiste($noProfil, $genreArtiste);
 }
 if (isset($_FILES['mon_fichier'])) {
     $tab_img = $_FILES['mon_fichier'];
