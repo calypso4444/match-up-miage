@@ -107,6 +107,26 @@ class GestionnaireProfil extends Gestionnaire {
     public function setGenreMusicalSalle($noprofil,$genre){
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET genreMusicalSalle='$genre' WHERE nSalle = $noprofil;");
     }
+    
+    public function setAdresseSalle($noprofil,$adresse){
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET adresseSalle='$adresse' WHERE nSalle = $noprofil;");
+    }
+    
+    public function settelSalle($noprofil,$tel){
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET telSalle='$tel' WHERE nSalle = $noprofil;");
+    }
+    
+    public function setNomGerant($noprofil,$nom){
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET nomGerant='$nom' WHERE nSalle = $noprofil;");
+    }
+    
+    public function setPrenomGerant($noprofil,$prenom){
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET prenomGerant='$prenom' WHERE nSalle = $noprofil;");
+    }
+    
+    public function setContactGerant($noprofil,$contact){
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET contactGerant='$contact' WHERE nSalle = $noprofil;");
+    }
 }
 
 ?>
