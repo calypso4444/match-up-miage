@@ -12,6 +12,14 @@
 	color: #d40f0f;
 }
 
+#formulaireModificationProfil div span.glyphicon.glyphicon-ok{
+	color: #21e738;
+}
+#formulaireModificationProfil div span.glyphicon.glyphicon-remove{
+	color: #d40f0f;
+}
+
+
 .inline-form input{
 	display: inline-block;
 	width: 200px;	
