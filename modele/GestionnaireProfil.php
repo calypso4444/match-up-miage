@@ -27,6 +27,12 @@ class GestionnaireProfil extends Gestionnaire {
             mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['FAVORI_A'] . " WHERE cible='$nArtiste'");
         }
     }
+    
+    public function supprimerSalle($nSalle, $idProprietaire) {
+        if(mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " WHERE nArtiste=$nSalle AND proprietaireSalle=$idProprietaire")) {
+            mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['FAVORI_S'] . " WHERE cible='$nSalle'");
+        }
+    }
 
     public function getAllInfo_Salle($noProfil) {
         $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " WHERE nSalle='$noProfil'");

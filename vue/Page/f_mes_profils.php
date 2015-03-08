@@ -4,13 +4,29 @@
     <h1>mes profils</h1>
     <div id="mesSalles">
         <h2>salles</h2>
-        <?php
-        foreach ($vars['mesSalles'] as $salle):
-            echo "<a href=salle.php?tmp=" . $salle['nSalle'] . "><img src=\"" . $salle['photoProfilSalle'] . "\"></a>";
-            echo $salle['nomSalle'];
-            echo '</br>';
-        endforeach;
-        ?>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Snapshot</th>
+                    <th>Nom de la salle</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($vars['mesSalles'] as $salle):
+                    echo '<tr>';
+                    echo "<td class='col-lg-3'><a href=salle.php?tmp=" . $salle['nSalle'] . "><img src=\"" . $salle['photoProfilSalle'] . "\"></a></td>";
+                    echo '<td>' . $salle['nomSalle'] . '</td>';
+                    echo '<td>'
+                        . '<a class="btn" href="modifier_salle.php?nSalle=' . $salle['nSalle'] . '">Modifier</a>'
+                        . '<a class="btn btn-danger" href="supprimer_salle.php?nSalle=' . $salle['nSalle'] . '">Supprimer</a>'
+                        . '</td>';
+                    echo '</tr>';
+                endforeach;
+                ?>
+            </tbody>
+        </table>
     </div>
     <div id="mesArtistes">
         <h2>artistes</h2>
