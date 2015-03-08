@@ -14,7 +14,7 @@
         <div class="form-group">   
             <label class="control-label col-xs-4" for="descriptionArtiste">Description :</label>
             <div class="col-xs-6">
-                <input class="form-control" id="descriptionArtiste" type="text" name="descriptionArtiste" placeholder="<?php echo $vars['descriptionArtiste']; ?>" value=" <?php echo $vars['descriptionArtiste']; ?>"/>
+                <input class="form-control" id="descriptionArtiste" type="text" name="descriptionArtiste" placeholder="<?php echo $vars['descriptionArtiste']; ?>" value="<?php echo $vars['descriptionArtiste']; ?>"/>
             </div>
             <div class="col-xs-1">
                 <span id="descriptionArtisteInfo"></span>
