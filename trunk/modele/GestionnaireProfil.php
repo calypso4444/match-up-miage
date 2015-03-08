@@ -64,6 +64,22 @@ class GestionnaireProfil extends Gestionnaire {
         return $profils;
     }
 
+    public function setNomArtiste($noprofil,$nom){
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['ARTISTE'] . " SET nomArtiste='$nom' WHERE nArtiste = $noprofil;");
+    }
+    
+    public function setDescriptionArtiste($noprofil,$desc){
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['ARTISTE'] . " SET descriptionArtiste='$desc' WHERE nArtiste = $noprofil;");
+    }
+    
+    public function setphotoProfilArtiste($noprofil,$path){
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['ARTISTE'] . " SET photoProfilArtiste='$path' WHERE nArtiste = $noprofil;");
+    }
+    
+    public function setGenreMusical($noprofil,$genre){
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['ARTISTE'] . " SET genreMusical='$genre' WHERE nArtiste = $noprofil;");
+    }
+    
 }
 
 ?>

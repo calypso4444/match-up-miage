@@ -176,7 +176,7 @@ class GestionnaireUtilisateur extends Gestionnaire {
         }
         return $suivis;
     }
-    
+
 //    SELECT nArtiste, nSalle, dateConcert 
 //                FROM evenementSuivi E
 //                INNER JOIN concert C  ON E.cible=C.nConcert 
