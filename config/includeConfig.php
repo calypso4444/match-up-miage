@@ -4,7 +4,7 @@ $GLOBALS['DATABASE_CONNEXION'] = array(
     'HOST' => 'localhost',
     'USER' => 'root',
     'PASS' => '',
-    'DB_NAME' => 'mu_db'
+    'DB_NAME' => 'mu_db2'
 );
 
 $GLOBALS['DB_TABLE'] = array(
