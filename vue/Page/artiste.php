@@ -5,7 +5,7 @@
     <h1><?php echo $vars['nomProfil']; ?></h1>
 
     <div id="photoProfil" class="col-lg-12">
-        <img src="<?php echo ($vars['photoProfil']!==null)? $vars['photoProfil']: "web/image/artiste.png"; ?>">
+        <img src="<?php echo ($vars['photoProfil'] !== null) ? $vars['photoProfil'] : "web/image/artiste.png"; ?>">
     </div>
 
     <div id="description" class="col-lg-9">
@@ -16,8 +16,8 @@
     <div id="interaction" class="col-lg-3">
         </br>
         <form action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" method="post">
-        <button type="submit" name="favori" value="true" class="glyphicon glyphicon-heart"> Ajouter en favori </button>
-        </br>
+            <button type="submit" name="favori" value="true" class="glyphicon glyphicon-heart"> Ajouter en favori </button>
+        </form>
         <a href="" class="glyphicon glyphicon-envelope"> Contacter l'artiste </a>
         </br>
         <a href="" class="glyphicon glyphicon-star-empty"> Noter l'artiste </a>
@@ -37,20 +37,20 @@
         </aside>
         <section class="col-lg-9">
             <h4>Le fil d'actualité : </h4>
-<!--            à supprimer-->
+            <!--            à supprimer-->
             <audio controls
-	data-info-album-art="http://farm5.staticflickr.com/4050/4353986539_ec89b52698_d.jpg"
-	data-info-album-title="8874"
-	data-info-artist="Billy Murray"
-	data-info-title="Come, take a trip in my air-ship"
-	data-info-label="Edison Gold Moulded Record"
-	data-info-year="1905"
-	data-info-att="University of California, Santa Barbara Library."
-	data-info-att-link="http://cylinders.library.ucsb.edu/search.php?query=8874">
-	<source src="/bootstrap-player/media/cusb-cyl2985d.ogg" type="audio/ogg" />
-	<source src="/bootstrap-player/media/cusb-cyl2985d.mp3" type="audio/mpeg" />
-	<a href="/bootstrap-player/media/cusb-cyl2985d.mp3">cusb_cyl2985d</a>
-</audio>
+                   data-info-album-art="http://farm5.staticflickr.com/4050/4353986539_ec89b52698_d.jpg"
+                   data-info-album-title="8874"
+                   data-info-artist="Billy Murray"
+                   data-info-title="Come, take a trip in my air-ship"
+                   data-info-label="Edison Gold Moulded Record"
+                   data-info-year="1905"
+                   data-info-att="University of California, Santa Barbara Library."
+                   data-info-att-link="http://cylinders.library.ucsb.edu/search.php?query=8874">
+                <source src="/bootstrap-player/media/cusb-cyl2985d.ogg" type="audio/ogg" />
+                <source src="/bootstrap-player/media/cusb-cyl2985d.mp3" type="audio/mpeg" />
+                <a href="/bootstrap-player/media/cusb-cyl2985d.mp3">cusb_cyl2985d</a>
+            </audio>
         </section>
     </div>
 

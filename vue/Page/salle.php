@@ -5,7 +5,7 @@
     <h1><?php echo $vars['nomProfil']; ?></h1>
 
     <div id="photoProfil" class="col-lg-12">
-        <img src="<?php echo ($vars['photoProfil']!==null)? $vars['photoProfil']: "web/image/salle.png"; ?>">
+        <img src="<?php echo ($vars['photoProfil'] !== null) ? $vars['photoProfil'] : "web/image/salle.png"; ?>">
     </div>
 
     <div id="description" class="col-lg-9">
@@ -15,6 +15,9 @@
 
     <div id="interaction" class="col-lg-3">
         </br>
+        <form action="salle.php?tmp=<?php echo $vars['noProfil']; ?>" method="post">
+            <button type="submit" name="favori" value="true" class="glyphicon glyphicon-heart"> Ajouter en favori </button>
+        </form>
         <a href="" class="glyphicon glyphicon-envelope"> Contacter la salle </a>
         </br>
         <a href="" class="glyphicon glyphicon-star-empty"> Noter la salle </a>

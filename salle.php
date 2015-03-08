@@ -16,11 +16,19 @@ $nomProfil=$infoProfil['nomSalle'];
 $photoProfil=$infoProfil['photoProfilSalle'];
 $descProfil=$infoProfil['descriptionSalle'];
 
+$id=$_SESSION['user']['id'];
+
+$favori=filter_input(INPUT_POST, 'favori');
+    if($favori==="true"){
+        $model['GestionnaireUtilisateur']->ajouterEnFavoriSalle($noProfil, $id);
+    }
+
 /* fin de séquence */
 
 /* affichage de la vue */
 
 $vue = array();
+$vue['noProfil']=$noProfil;
 $vue['nomProfil']=$nomProfil;
 $vue['photoProfil']=$photoProfil;
 $vue['descProfil']=$descProfil;
