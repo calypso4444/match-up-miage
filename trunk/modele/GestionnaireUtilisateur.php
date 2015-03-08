@@ -135,8 +135,31 @@ class GestionnaireUtilisateur extends Gestionnaire {
         $_SESSION['user'] = $this->getUserById($id);
     }
 
+    //reflechir a la gestion des doublons, insert if not exists into n'a pas l'air de marcher
     public function ajouterEnFavoriArtiste($noprofil, $id) {
-        mysqli_query($this->link, "INSERT IF NOT EXISTS INTO " . $GLOBALS['DB_TABLE']['FAVORI_A'] . "  (proprietaire,cible) VALUES('$id','$noprofil'); ");
+        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['FAVORI_A'] . "  (proprietaire,cible) VALUES('$id','$noprofil'); ");
+    }
+
+    public function ajouterEnFavoriSalle($noprofil, $id) {
+        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['FAVORI_S'] . "  (proprietaire,cible) VALUES('$id','$noprofil'); ");
+    }
+
+    public function getAllFavoris_Artiste($id) {
+        $req = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['FAVORI_A'] . " F INNER JOIN " . $GLOBALS['DB_TABLE']['ARTISTE'] . " A  ON A.nArtiste=F.cible WHERE F.proprietaire=$id ; ");
+        $favoris = array();
+        while ($row = mysqli_fetch_assoc($req)) {
+            $favoris[] = $row;
+        }
+        return $favoris;
+    }
+
+    public function getAllFavoris_Salle($id) {
+        $req = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['FAVORI_S'] . " F INNER JOIN " . $GLOBALS['DB_TABLE']['SALLE'] . " S  ON S.nSalle=F.cible WHERE F.proprietaire=$id ; ");
+        $favoris = array();
+        while ($row = mysqli_fetch_assoc($req)) {
+            $favoris[] = $row;
+        }
+        return $favoris;
     }
 
     public function test() {
