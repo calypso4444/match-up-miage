@@ -21,6 +21,12 @@ class GestionnaireProfil extends Gestionnaire {
         $row = mysqli_fetch_assoc($reqm);
         return $row != null ? $row : null;
     }
+    
+    public function supprimerArtiste($nArtiste, $idProprietaire) {
+        if(mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['ARTISTE'] . " WHERE nArtiste=$nArtiste AND proprietaireArtiste=$idProprietaire")) {
+            mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['FAVORI_A'] . " WHERE cible='$nArtiste'");
+        }
+    }
 
     public function getAllInfo_Salle($noProfil) {
         $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " WHERE nSalle='$noProfil'");
@@ -77,7 +83,7 @@ class GestionnaireProfil extends Gestionnaire {
     }
     
     public function setGenreMusical($noprofil,$genre){
-        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['ARTISTE'] . " SET genreMusical='$genre' WHERE nArtiste = $noprofil;");
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['ARTISTE'] . " SET genreMusicalArtiste='$genre' WHERE nArtiste = $noprofil;");
     }
     
 }
