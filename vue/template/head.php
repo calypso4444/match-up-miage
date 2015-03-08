@@ -15,6 +15,7 @@
         <script type="text/javascript" language="Javascript" src="web/js/verificationInscription.js"></script>
         <script type="text/javascript" language="Javascript" src="web/js/modificationProfil.js"></script>
         <script type="text/javascript" language="Javascript" src="web/js/verificationArtiste.js"></script>
+        <script type="text/javascript" language="Javascript" src="web/js/verificationSalle.js"></script>
         
     </head>
 
