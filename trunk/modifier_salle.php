@@ -15,6 +15,11 @@ $infoProfil = $model['GestionnaireProfil']->getAllInfo_Salle($noProfil);
 $nomSalle = filter_input(INPUT_POST, 'nomSalle');
 $descSalle = filter_input(INPUT_POST, 'descriptionSalle');
 $genreSalle = filter_input(INPUT_POST, 'genreMusical');
+$adresseSalle = filter_input(INPUT_POST, 'adresseSalle');
+$telSalle = filter_input(INPUT_POST, 'telSalle');
+$nomGerant = filter_input(INPUT_POST, 'nomGerant');
+$prenomGerant = filter_input(INPUT_POST, 'prenomGerant');
+$contactGerant = filter_input(INPUT_POST, 'contactGerant');
 
 if (!empty($nomSalle)and $nomSalle !== $infoProfil['nomSalle']) {
     $model['GestionnaireProfil']->setNomSalle($noProfil, $nomSalle);
@@ -47,6 +52,21 @@ if (isset($_FILES['mon_fichier'])) {
         $model['GestionnaireProfil']->setphotoProfilArtiste($noProfil, $chemin);
     }
 }
+if (!empty($adresseSalle)and $adresseSalle !== $infoProfil['adresseSalle']) {
+    $model['GestionnaireProfil']->setAdresseSalle($noProfil, $adresseSalle);
+}
+if (!empty($telSalle)and $telSalle !== $infoProfil['telSalle']) {
+    $model['GestionnaireProfil']->setTelSalle($noProfil, $telSalle);
+}
+if (!empty($nomGerant)and $nomGerant !== $infoProfil['nomGerant']) {
+    $model['GestionnaireProfil']->setNomGerant($noProfil, $nomGerant);
+}
+if (!empty($prenomGerant)and $prenomGerant !== $infoProfil['prenomGerant']) {
+    $model['GestionnaireProfil']->setPrenomGerant($noProfil, $prenomGerant);
+}
+if (!empty($contactGerant)and $contactGerant !== $infoProfil['contactGerant']) {
+    $model['GestionnaireProfil']->setContactGerant($noProfil, $contactGerant);
+}
 
 /* fin de séquence */
 
@@ -57,6 +77,11 @@ $vue['nomSalle'] = $infoProfil['nomSalle'];
 $vue['photoSalle'] = $infoProfil['photoProfilSalle'];
 $vue['descriptionSalle'] = $infoProfil['descriptionSalle'];
 $vue['genreSalle'] = $infoProfil['genreMusicalSalle'];
+$vue['adresseSalle'] = $infoProfil['adresseSalle'];
+$vue['telSalle'] = $infoProfil['telSalle'];
+$vue['nomGerant'] = $infoProfil['nomGerant'];
+$vue['prenomGerant'] = $infoProfil['prenomGerant'];
+$vue['contactGerant'] = $infoProfil['contactGerant'];
 $view->render('modifier_salle', $vue);
 
 /* fin de l'affichage de la vue */
