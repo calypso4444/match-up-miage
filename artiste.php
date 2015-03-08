@@ -8,7 +8,7 @@ include_once 'config/includeGlobal.php';
 
 /* fin de l'instanciation */
 
-/* séquence du controleur */
+/* séquence du controleur */ 
 $noProfil=filter_input(INPUT_GET, 'tmp');
 $infoProfil=$model['GestionnaireProfil']->getAllInfo_Artiste($noProfil);
 $nomProfil=$infoProfil['nomArtiste'];

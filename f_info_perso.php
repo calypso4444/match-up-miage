@@ -28,12 +28,17 @@ $mailDejaPris = false;
 $mdpVideOuIncorrect = false;
 $problemeMdp = false;
 
+// si la requete est de type POST et que le mot de passe est incorrect
+if(!empty($email) && !empty($cpasse) and ( sha1($cpasse) !== $user['passe'])) {
+    $mdpVideOuIncorrect = true; 
+}
+
 //on verifie d'abord que le champ mot de passe actuel n'est ni vide ni rempli avec un mot de passe incorrect
 //sans le mot de passe courant correct on ne fait rien dans la bdd
-if (!empty($cpasse)and ( sha1($cpasse) === $user['passe'])) {
+if (!empty($cpasse) and ( sha1($cpasse) === $user['passe'])) {
     //changement de mail
     $email = htmlspecialchars($email);
-    if (!empty($email)and ( $email !== $user['email'])) {
+    if (!empty($email) and ( $email !== $user['email'])) {
         //on verifie que le mail n'est pas deja pris
         if ($model['GestionnaireUtilisateur']->existeDejaMail($email)) {
             $mailDejaPris = true;
@@ -42,7 +47,7 @@ if (!empty($cpasse)and ( sha1($cpasse) === $user['passe'])) {
         }
     }
     //changement de mot de passe
-    if (!empty($npasse)and ! empty($npasse2)) {
+    if (!empty($npasse) and !empty($npasse2)) {
         $npasse = htmlspecialchars($npasse);
         $npasse2 = htmlspecialchars($npasse2);
         if ($npasse == $npasse2) {
@@ -54,32 +59,30 @@ if (!empty($cpasse)and ( sha1($cpasse) === $user['passe'])) {
     }
     //changement de nom
     $nom = htmlspecialchars($nom);
-    if (!empty($nom)and ( $nom !== $user['nom'])) {
+    if (!empty($nom) and ( $nom !== $user['nom'])) {
         $model['GestionnaireUtilisateur']->setNom($id, $nom);
     }
     //changement de prenom
     $prenom = htmlspecialchars($prenom);
-    if (!empty($prenom)and ( $prenom !== $user['prenom'])) {
+    if (!empty($prenom) and ( $prenom !== $user['prenom'])) {
         $model['GestionnaireUtilisateur']->setPrenom($id, $prenom);
     }
     //changement d'adresse
     $adresse = htmlspecialchars($adresse);
-    if (!empty($adresse)and ( $adresse !== $user['adresse'])) {
+    if (!empty($adresse) and ( $adresse !== $user['adresse'])) {
         $model['GestionnaireUtilisateur']->setAdresse($id, $adresse);
     }
     //changement de CP
     $cp = htmlspecialchars($cp);
-    if (!empty($cp)and ( $cp !== $user['CP'])) {
+    if (!empty($cp) and ( $cp !== $user['CP'])) {
         $model['GestionnaireUtilisateur']->setCP($id, $cp);
     }
     //changement de ville
     $ville = htmlspecialchars($ville);
-    if (!empty($ville)and ( $ville !== $user['ville'])) {
+    if (!empty($ville) and ( $ville !== $user['ville'])) {
         $model['GestionnaireUtilisateur']->setVille($id, $ville);
     }
-} else {
-    $mdpVideOuIncorrect = true;
-}
+} 
 
 //traitement de l'avatar
 if (isset($_FILES['mon_fichier'])) {
@@ -102,8 +105,7 @@ if (isset($_FILES['mon_fichier'])) {
     $resultat = move_uploaded_file($tab_img['tmp_name'], $chemin);
     if ($resultat) {
         $model['GestionnaireUtilisateur']->setAvatar($id, $chemin);
-    } 
-    
+    }
 }
 
 /* fin de séquence */
