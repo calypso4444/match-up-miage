@@ -26,10 +26,10 @@ if (isset($choix)) {
 }
 
 //recuperation des profils salles
-$profilsSalle=$model['GestionnaireProfil']->getAllProfil_Salle($id);
+$profilsSalle=$model['GestionnaireProfil']->getAllProfil_SalleById($id);
 
 //recuperation des profils artistes
-$profilsArtiste=$model['GestionnaireProfil']->getAllProfil_Artiste($id);
+$profilsArtiste=$model['GestionnaireProfil']->getAllProfil_ArtisteById($id);
 
 /* fin de séquence */
 

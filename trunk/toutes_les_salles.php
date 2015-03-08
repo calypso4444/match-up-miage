@@ -10,12 +10,15 @@ include_once 'config/includeGlobal.php';
 
 /* séquence du controleur */
 
+//recuperation des profils salles
+$profilsSalle=$model['GestionnaireProfil']->getAllProfil_Salle();
 
 /* fin de séquence */
 
 /* affichage de la vue */
 
 $vue = array();
+$vue['profils_S']=$profilsSalle;
 $view->render('toutes_les_salles', $vue);
 
 /* fin de l'affichage de la vue */

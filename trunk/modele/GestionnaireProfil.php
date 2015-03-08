@@ -28,7 +28,7 @@ class GestionnaireProfil extends Gestionnaire {
         return $row != null ? $row : null;
     }
 
-    public function getAllProfil_Artiste($id) {
+    public function getAllProfil_ArtisteById($id) {
         $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['ARTISTE'] . " WHERE proprietaireArtiste=$id");
         $profils = array();
         while ($row = mysqli_fetch_assoc($reqm)) {
@@ -37,8 +37,26 @@ class GestionnaireProfil extends Gestionnaire {
         return $profils;
     }
 
-    public function getAllProfil_Salle($id) {
+    public function getAllProfil_SalleById($id) {
         $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " WHERE proprietaireSalle=$id");
+        $profils = array();
+        while ($row = mysqli_fetch_assoc($reqm)) {
+            $profils[] = $row;
+        }
+        return $profils;
+    }
+
+    public function getAllProfil_Artiste() {
+        $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['ARTISTE'] . "");
+        $profils = array();
+        while ($row = mysqli_fetch_assoc($reqm)) {
+            $profils[] = $row;
+        }
+        return $profils;
+    }
+
+    public function getAllProfil_Salle() {
+        $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['SALLE'] . "");
         $profils = array();
         while ($row = mysqli_fetch_assoc($reqm)) {
             $profils[] = $row;
