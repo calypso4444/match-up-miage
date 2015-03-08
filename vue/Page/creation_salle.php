@@ -1,26 +1,24 @@
 <!-- vue/page -->
 <div class="container col-lg-12">
-    <form id="formulaireModificationProfil" method ="post" name="formulaireModificationProfil" enctype="multipart/form-data">
+    <form id="formulaireModificationProfilSalle" method ="post" name="formulaireModificationProfilSalle" enctype="multipart/form-data">
+	    
+	     <!-- Début champs pour entrer son nom de salle -->
+	     
         <div class="form-group">
             <label class="control-label col-xs-4" for="nomSalle">Votre nom de salle :</label> 
             <div class="col-xs-6">
-                <input class="form-control" id="nomArtiste" type="text" name="nomSalle" placeholder="" value=""/>
+                <input class="form-control" id="nomSalle" type="text" name="nomSalle" placeholder="" value=""/>
             </div>		
             <div class="col-xs-1">	
                 <span id="nomSalleInfo"></span>
             </div>
             <div class="col-lg-2"></div>
         </div>
-        <div class="form-group">   
-            <label class="control-label col-xs-4" for="descriptionSalle">Description :</label>
-            <div class="col-xs-6">
-                <input class="form-control" id="descriptionSalle" type="text" name="descriptionSalle" placeholder="" value=""/>
-            </div>
-            <div class="col-xs-1">
-                <span id="descriptionSalleInfo"></span>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
+        
+        <!-- Fin champs pour entrer son nom de salle -->
+        
+        <!-- Début champs pour entrer son genre musical -->
+        
         <div class="form-group">   
             <label class="control-label col-xs-4" for="genreMusical">Votre genre musical :</label>
             <div class="col-xs-6">
@@ -31,6 +29,11 @@
             </div>
             <div class="col-lg-2"></div>
         </div>
+        
+        <!-- Fin champs pour entrer son genre musical -->
+        
+        <!-- Début champs pour entrer l'adresse de la salle -->
+                
         <div class="form-group">   
             <label class="control-label col-xs-4" for="adresseSalle">Adresse de la salle :</label>
             <div class="col-xs-6">
@@ -41,6 +44,41 @@
             </div>
             <div class="col-lg-2"></div>
         </div>
+        
+        <!-- Fin champs pour entrer l'adresse de la salle -->
+                       
+        <!-- Début champs pour modifier son code postal -->
+<!--        <div class="form-group">   
+            <label class="control-label col-xs-4" for="CP">Votre code postal :</label>
+            <div class="col-xs-6">
+                <input class="form-control" id="CP" type="text" name="CP" placeholder="" value=""/>
+            </div>
+            <div class="col-xs-1">
+                <span id="cpInfo"></span>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+     
+        <!-- Fin champs pour modifier son code postal -->
+
+        <!-- Début champs pour modifier votre ville -->
+       
+<!--        
+        <div class="form-group">   
+            <label class="control-label col-xs-4" for="ville">Votre ville :</label>
+            <div class="col-xs-6">
+                <input class="form-control" id="ville" type="text" name="ville" placeholder="" value=""/>
+            </div>
+            <div class="col-xs-1">
+                <span id="villeInfo"></span>
+            </div>
+            <div class="col-lg-2"></div>
+		</div>
+		
+        <!-- Fin champs pour modifier votre ville -->
+        
+        <!-- Début champs pour entrer le numéro de téléphone de la salle -->
+        
         <div class="form-group">   
             <label class="control-label col-xs-4" for="telSalle">Numéro de téléphone de la salle :</label>
             <div class="col-xs-6">
@@ -50,7 +88,12 @@
                 <span id="telSalleInfo"></span>
             </div>
             <div class="col-lg-2"></div>
-        </div>
+        </div>        
+        
+        <!-- Fin champs pour entrer le numéro de téléphone de la salle -->
+        
+        <!-- Début champs pour entrer le nom du gérant -->
+        
         <div class="form-group">   
             <label class="control-label col-xs-4" for="nomGerant">Nom du gérant de la salle :</label>
             <div class="col-xs-6">
@@ -60,9 +103,14 @@
                 <span id="nomGerantInfo"></span>
             </div>
             <div class="col-lg-2"></div>
-        </div>
+        </div>        
+        
+        <!-- Fin champs pour entrer le nom du gérant -->
+        
+        <!-- Début champs pour entrer le prénom du gérant -->
+                
         <div class="form-group">   
-            <label class="control-label col-xs-4" for="nomGerant">Prénom du gérant de la salle :</label>
+            <label class="control-label col-xs-4" for="prenomGerant">Prénom du gérant de la salle :</label>
             <div class="col-xs-6">
                 <input class="form-control" id="prenomGerant" type="text" name="prenomGerant" placeholder="" value=""/>
             </div>
@@ -71,6 +119,11 @@
             </div>
             <div class="col-lg-2"></div>
         </div>
+        
+        <!-- Fin champs pour entrer le prénom du gérant -->
+        
+        <!-- Début champs pour entrer le contact gérant -->
+              
         <div class="form-group">   
             <label class="control-label col-xs-4" for="contactGerant">Comment contacter le gérant de la salle :</label>
             <div class="col-xs-6">
@@ -80,7 +133,27 @@
                 <span id="contactGerantInfo"></span>
             </div>
             <div class="col-lg-2"></div>
+        </div>       
+        
+        <!-- Fin champs pour entrer le contact gérant -->
+                   
+        <!-- Début champs pour entrer la description -->
+        
+        <div class="form-group">   
+            <label class="control-label col-xs-4" for="descriptionSalle">Description :</label>
+            <div class="col-xs-6">
+                <textarea class="form-control" rows="5" id="descriptionSalle" type="text" name="descriptionSalle" placeholder="" value=""/></textarea>
+            </div>
+            <div class="col-xs-1">
+                <span id="descriptionSalleInfo"></span>
+            </div>
+            <div class="col-lg-2"></div>
         </div>
+        
+        <!-- Fin champs pour entrer la description -->
+        
+        <!-- Début champs pour ajouter une photo de profil -->        
+        
         <div class='form-group'>
             <label class="control-label col-xs-4" for="photoSalle">Votre photo de profil :</label> 
             <div class="col-xs-6">
@@ -88,6 +161,9 @@
                 <input class="col-lg-offset-3" type="file" name="mon_fichier" id="mon_fichier" /><br/>
             </div>
         </div>
+        
+        <!-- Fin champs pour ajouter une photo de profil -->
+               
         <div class='form-group'>
             <div class="col-xs-6">
             </div>
