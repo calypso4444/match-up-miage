@@ -16,7 +16,7 @@
     <div id="interaction" class="col-lg-3">
         </br>
         <form action="salle.php?tmp=<?php echo $vars['noProfil']; ?>" method="post">
-            <button type="submit" name="favori" value="true" class="glyphicon glyphicon-heart"> Ajouter en favori </button>
+            <button type="submit" name="favori" value="true" class="btn glyphicon glyphicon-heart"> Ajouter en favori </button>
         </form>
         <a href="" class="glyphicon glyphicon-envelope"> Contacter la salle </a>
         </br>
