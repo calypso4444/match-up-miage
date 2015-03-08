@@ -1,9 +1,5 @@
 <!-- vue/page -->
 
-<!-- Script qui permet de vérifier si l'utilisateur a bien inscrit son nom de scène -->
-
-<!-- Fin Script -->
-
 <div class="container col-lg-12">
     <form id="formulaireModificationProfil" method ="post" name="formulaireModificationProfil" enctype="multipart/form-data">
         
