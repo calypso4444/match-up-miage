@@ -92,9 +92,6 @@ if (isset($_FILES['mon_fichier'])) {
     //2. substr(chaine,1) ignore le premier caractère de chaine.
     //3. strtolower met l'extension en minuscules.
     $extension_upload = strtolower(substr(strrchr($tab_img['name'], '.'), 1));
-    if (in_array($extension_upload, $extensions_valides)) {
-        echo "Extension correcte";
-    }
 //    $maxwidth = 0;
 //    $maxheight = 0;
 //    $image_sizes = getimagesize($tab_img['tmp_name']);
@@ -105,10 +102,7 @@ if (isset($_FILES['mon_fichier'])) {
     $resultat = move_uploaded_file($tab_img['tmp_name'], $chemin);
     if ($resultat) {
         $model['GestionnaireUtilisateur']->setAvatar($id, $chemin);
-        echo "Transfert réussi";
-    } else{
-	    echo("Image trop grande");
-    }
+    } 
     
 }
 
