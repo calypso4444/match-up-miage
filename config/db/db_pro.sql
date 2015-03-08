@@ -54,7 +54,7 @@ FOREIGN KEY(proprietaireSalle) REFERENCES utilisateur(id)
 );
 
 CREATE TABLE `concert` (
-`nConcert` int(255) NOT NULL,
+`nConcert` int(255) NOT NULL AUTO_INCREMENT,
 `nSalle` int(255) NOT NULL,
 `nArtiste` int(255) NOT NULL,
 `dateConcert` date NOT NULL,
