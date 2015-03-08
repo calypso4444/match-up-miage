@@ -1,0 +1,45 @@
+<!-- vue/page -->
+<div class="container col-lg-12">
+    <form id="formulaireModificationProfil" method ="post" name="formulaireModificationProfil" enctype="multipart/form-data">
+        <div class="form-group">
+            <label class="control-label col-xs-4" for="nomSalle">Votre nom de salle :</label> 
+            <div class="col-xs-6">
+                <input class="form-control" id="nomArtiste" type="text" name="nomSalle" placeholder="<?php echo $vars['nomSalle']; ?>" value="<?php echo $vars['nomSalle']; ?>"/>
+            </div>		
+            <div class="col-xs-1">	
+                <span id="nomSalleInfo"></span>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        <div class="form-group">   
+            <label class="control-label col-xs-4" for="descriptionSalle">Description :</label>
+            <div class="col-xs-6">
+                <input class="form-control" id="descriptionArtiste" type="text" name="descriptionSalle" placeholder="<?php echo $vars['descriptionSalle']; ?>" value="<?php echo $vars['descriptionSalle']; ?>"/>
+            </div>
+            <div class="col-xs-1">
+                <span id="descriptionSalleInfo"></span>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        <div class="form-group">   
+            <label class="control-label col-xs-4" for="genreMusical">Votre genre musical :</label>
+            <div class="col-xs-6">
+                <input class="form-control" id="genreMusical" type="text" name="genreMusical" placeholder="<?php echo $vars['genreSalle']; ?>" value="<?php echo $vars['genreSalle']; ?>"/>
+            </div>
+            <div class="col-xs-1">
+                <span id="genreMusicalInfo"></span>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        <label class="control-label col-xs-4" for="photoSalle">Votre photo de profil :</label> 
+        <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />	
+        <input class="col-lg-offset-3" type="file" name="mon_fichier" id="mon_fichier" /><br/>
+        <div>
+            <input class="btn btn-default" type="submit" value="Valider" id="envoyer"/>
+        </div>
+    </form>  
+</div>
+
+
+<div class="container col-lg-6">
+</div>
