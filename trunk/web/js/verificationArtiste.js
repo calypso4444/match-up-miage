@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	
-	var form = $('#formulaireModificationProfil');
+	var form = $('#formulaireModificationProfilArtiste');
 	
 	var nomArtiste = $('#nomArtiste');
 	var descriptionArtiste = $('#descriptionArtiste');
