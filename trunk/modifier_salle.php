@@ -46,10 +46,10 @@ if (isset($_FILES['mon_fichier'])) {
 //    if ($image_sizes[0] > $maxwidth OR $image_sizes[1] > $maxheight) {
 //        $erreur = "Image trop grande";
 //    }
-    $chemin = "web/image/photoProfilArtiste/{$noProfil}.{$extension_upload}";
+    $chemin = "web/image/photoProfilSalle/{$noProfil}.{$extension_upload}";
     $resultat = move_uploaded_file($tab_img['tmp_name'], $chemin);
     if ($resultat) {
-        $model['GestionnaireProfil']->setphotoProfilArtiste($noProfil, $chemin);
+        $model['GestionnaireProfil']->setphotoProfilSalle($noProfil, $chemin);
     }
 }
 if (!empty($adresseSalle)and $adresseSalle !== $infoProfil['adresseSalle']) {
