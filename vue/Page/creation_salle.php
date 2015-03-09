@@ -48,6 +48,7 @@
         <!-- Fin champs pour entrer l'adresse de la salle -->
                        
         <!-- Début champs pour modifier son code postal -->
+        
         <div class="form-group">   
             <label class="control-label col-xs-4" for="CP">Votre code postal :</label>
             <div class="col-xs-6">
