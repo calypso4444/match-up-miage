@@ -6,6 +6,7 @@ $(document).ready(function(){
 	var descriptionSalle = $('#descriptionSalle');
 	var adresseSalle = $('#adresseSalle');
 	var cp = $('#CP');
+	var ville = $('#ville');
 	
 	
 	
@@ -13,20 +14,23 @@ $(document).ready(function(){
 	var descriptionSalleInfo = $('#descriptionSalleInfo');
 	var adresseSalleInfo = $('#adresseSalleInfo');
 	var cpInfo = $('#cpInfo');
+	var villeInfo = $('#villeInfo');
 
 	
 	nomSalle.blur(validateNomSalle);
 	descriptionSalle.blur(validateDescription);
 	cp.blur(validateCP);
 	adresseSalle.blur(validateAdresse);
+	ville.blur(validateVille);
 		
 	nomSalle.keyup(validateNomSalle);
 	descriptionSalle.keyup(validateDescription);
 	cp.keyup(validateCP);
 	adresseSalle.keyup(validateAdresse);
+	ville.keyup(validateVille);
 	
 	form.submit(function(){
-		if(validateNomSalle() & validateAdresse()){
+		if(validateNomSalle() & validateAdresse() & validateCP()){
 			return true;
 		} else {
 			alert("Veuillez remplir les champs suivant correctement ");
@@ -66,6 +70,18 @@ $(document).ready(function(){
         } else {
             adresseSalleInfo.removeClass("glyphicon glyphicon-remove");
             adresseSalleInfo.addClass("glyphicon glyphicon-ok");
+            return true;
+        }
+    }
+    
+    function validateVille() {
+        if (!ville.val().match(/^[A-Z][a-zàéèêëîïôöûüùç.]+([ -][A-Z][a-zàéèêëîïôöûüùç.]{1,})*$/i)) {
+            villeInfo.removeClass("glyphicon glyphicon-ok");
+            villeInfo.addClass("glyphicon glyphicon-remove");
+            return false;
+        } else {
+            villeInfo.removeClass("glyphicon glyphicon-remove");
+            villeInfo.addClass("glyphicon glyphicon-ok");
             return true;
         }
     }
