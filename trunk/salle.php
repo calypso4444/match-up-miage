@@ -15,6 +15,10 @@ $infoProfil=$model['GestionnaireProfil']->getAllInfo_Salle($noProfil);
 $nomProfil=$infoProfil['nomSalle'];
 $photoProfil=$infoProfil['photoProfilSalle'];
 $descProfil=$infoProfil['descriptionSalle'];
+$adresse=$infoProfil['adresseSalle'];
+$cp=$infoProfil['cpSalle'];
+$ville=$infoProfil['villeSalle'];
+
 
 $id=$_SESSION['user']['id'];
 
@@ -37,6 +41,9 @@ $vue['photoProfil']=$photoProfil;
 $vue['descProfil']=$descProfil;
 $vue['petiteAnnonce']=$petiteAnnonces;
 $vue['commentaire']=$commentaires;
+$vue['adresse']=$adresse;
+$vue['cp']=$cp;
+$vue['ville']=$ville;
 $view->render('salle', $vue);
 
 /* fin de l'affichage de la vue */
