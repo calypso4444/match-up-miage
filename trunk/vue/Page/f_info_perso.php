@@ -94,7 +94,7 @@
             <div class="col-lg-6"> <!-- Début de notre nouvealle colonne (mot de passe) -->
                 <!-- Début champs pour entrer son mot de passe actuel (Nécessaire pour la validation des modifications) -->
                 <div class="form-group">   
-                    <label class="control-label col-xs-5" for="cpasse">Mot de passe : *</label>
+                    <label class="control-label col-xs-4" for="cpasse">Mot de passe : *</label>
                     <div class="col-xs-6">
                         <input class="form-control" id="cpasse" type="password" name="cpasse" value=""/>
                     </div>
@@ -109,7 +109,7 @@
                 <!-- Début champs pour changer son mot de passe (nouveau mot de passe)-->
                 
                 <div class="form-group">   
-                    <label class="control-label col-xs-5" for="npasse">Nouveau mot de passe :</label>
+                    <label class="control-label col-xs-4" for="npasse">Nouveau mdp :</label>
                     <div class="col-xs-6">
                         <input class="form-control" id="npasse" type="password" name="npasse" value=""/>
                     </div>
@@ -124,7 +124,7 @@
                 <!-- Début champs pour vérifier son nouveau mot de passe -->
                 
                 <div class="form-group">   
-                    <label class="control-label col-xs-5" for="npasse2">V&eacute;rification de votre nouveau mot de passe :</label>
+                    <label class="control-label col-xs-4" for="npasse2">V&eacute;rification mdp :</label>
                     <div class="col-xs-6">
                         <input class="form-control" id="npasse2" type="password" name="npasse2" value=""/>
                     </div>
