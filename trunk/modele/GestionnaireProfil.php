@@ -127,6 +127,14 @@ class GestionnaireProfil extends Gestionnaire {
     public function setContactGerant($noprofil,$contact){
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET contactGerant='$contact' WHERE nSalle = $noprofil;");
     }
+    
+    public function setCpSalle($noprofil,$cpSalle){
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET contactGerant='$cpSalle' WHERE nSalle = $noprofil;");
+    }
+    
+    public function setVilleSalle($noprofil,$villeSalle){
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET contactGerant='$villeSalle' WHERE nSalle = $noprofil;");
+    }
 }
 
 ?>
