@@ -3,7 +3,7 @@
 class GestionnaireCommentaire extends Gestionnaire {
     public function getAllCommentairesByIdSalle($noProfil){
         $reqm = mysqli_query($this->link, 
-                "SELECT nCommentaireSalle,cible,texteCommentaireSalle,dateEditionCommentaireSalle, auteur, pseudo "
+                "SELECT nCommentaireSalle,cible,texteCommentaireSalle,dateEditionCommentaireSalle, auteur, pseudo, avatar "
                 . " FROM " . $GLOBALS['DB_TABLE']['COMMENTAIRE_S'] . " "
                 . " INNER JOIN ". $GLOBALS['DB_TABLE']['CONNEXION'] . " "
                 . " ON auteur=id "
@@ -13,6 +13,10 @@ class GestionnaireCommentaire extends Gestionnaire {
             $commentaires[] = $row;
         }
         return $commentaires;
+    }
+    
+    public function getLastCommentaire(){
+        
     }
 }
 
