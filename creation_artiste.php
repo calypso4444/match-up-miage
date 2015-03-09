@@ -24,7 +24,7 @@ if (!empty($nomArtiste)) {
 if (!empty($descArtiste)) {
     $model['GestionnaireProfil']->setDescriptionArtiste($noProfil, $descArtiste);
 }
-if (!empty($genreArtiste)and $genreArtiste !== $infoProfil['genreMusicalArtiste']) {
+if (!empty($genreArtiste)) {
     $model['GestionnaireProfil']->setGenreMusicalArtiste($noProfil, $genreArtiste);
 }
 if (isset($_FILES['mon_fichier'])) {
