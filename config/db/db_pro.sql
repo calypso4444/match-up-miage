@@ -42,6 +42,8 @@ CREATE TABLE `salle` (
 `descriptionSalle` varchar(255),
 `genreMusicalSalle` varchar(255),
 `adresseSalle` varchar(255),
+`cpSalle` varchar(5),
+`villeSalle`varchar (30),
 `latitude` varchar(255),
 `longitude` varchar(255),
 `proprietaireSalle` int(255),

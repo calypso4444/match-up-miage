@@ -24,7 +24,8 @@ $favori=filter_input(INPUT_POST, 'favori');
     }
 
     
-$petiteAnnonce=$model['GestionnaireAnnonce']->getAllPetiteAnnonce($noProfil);
+$petiteAnnonces=$model['GestionnaireAnnonce']->getAllPetiteAnnonceByIdSalle($noProfil);
+$commentaires=$model['GestionnaireCommentaires']->getAllCommentairesByIdSalle($noProfil);
 /* fin de séquence */
 
 /* affichage de la vue */
@@ -34,7 +35,8 @@ $vue['noProfil']=$noProfil;
 $vue['nomProfil']=$nomProfil;
 $vue['photoProfil']=$photoProfil;
 $vue['descProfil']=$descProfil;
-$vue['petiteAnnonce']=$petiteAnnonce;
+$vue['petiteAnnonce']=$petiteAnnonces;
+$vue['commentaire']=$commentaires;
 $view->render('salle', $vue);
 
 /* fin de l'affichage de la vue */
