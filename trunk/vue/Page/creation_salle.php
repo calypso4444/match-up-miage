@@ -50,12 +50,12 @@
         <!-- Début champs pour modifier son code postal -->
         
         <div class="form-group">   
-            <label class="control-label col-xs-4" for="CP">Votre code postal :</label>
+            <label class="control-label col-xs-4" for="cpSalle">Votre code postal :</label>
             <div class="col-xs-6">
-                <input class="form-control" id="CP" type="text" name="cpSalle" placeholder="" value=""/>
+                <input class="form-control" id="cpSalle" type="text" name="cpSalle" placeholder="" value=""/>
             </div>
             <div class="col-xs-1">
-                <span id="cpInfo"></span>
+                <span id="cpSalleInfo"></span>
             </div>
             <div class="col-lg-2"></div>
         </div>
@@ -65,12 +65,12 @@
         <!-- Début champs pour modifier votre ville -->
              
         <div class="form-group">   
-            <label class="control-label col-xs-4" for="ville">Votre ville :</label>
+            <label class="control-label col-xs-4" for="villeSalle">Votre ville :</label>
             <div class="col-xs-6">
-                <input class="form-control" id="ville" type="text" name="villeSalle" placeholder="" value=""/>
+                <input class="form-control" id="villeSalle" type="text" name="villeSalle" placeholder="" value=""/>
             </div>
             <div class="col-xs-1">
-                <span id="villeInfo"></span>
+                <span id="villeSalleInfo"></span>
             </div>
             <div class="col-lg-2"></div>
 		</div>
