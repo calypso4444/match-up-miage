@@ -5,7 +5,7 @@
 	     <!-- Début champs pour entrer son nom de salle -->
 	     
         <div class="form-group">
-            <label class="control-label col-xs-4" for="nomSalle">Votre nom de salle :</label> 
+            <label class="control-label col-xs-4" for="nomSalle">Votre nom de salle : *</label> 
             <div class="col-xs-6">
                 <input class="form-control" id="nomSalle" type="text" name="nomSalle" placeholder="" value=""/>
             </div>		
@@ -16,26 +16,11 @@
         </div>
         
         <!-- Fin champs pour entrer son nom de salle -->
-        
-        <!-- Début champs pour entrer son genre musical -->
-        
-        <div class="form-group">   
-            <label class="control-label col-xs-4" for="genreMusical">Votre genre musical :</label>
-            <div class="col-xs-6">
-                <input class="form-control" id="genreMusical" type="text" name="genreMusical" placeholder="" value=""/>
-            </div>
-            <div class="col-xs-1">
-                <span id="genreMusicalInfo"></span>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
-        
-        <!-- Fin champs pour entrer son genre musical -->
-        
+                
         <!-- Début champs pour entrer l'adresse de la salle -->
                 
         <div class="form-group">   
-            <label class="control-label col-xs-4" for="adresseSalle">Adresse de la salle :</label>
+            <label class="control-label col-xs-4" for="adresseSalle">Adresse de la salle : *</label>
             <div class="col-xs-6">
                 <input class="form-control" id="adresseSalle" type="text" name="adresseSalle" placeholder="" value=""/>
             </div>
@@ -45,12 +30,27 @@
             <div class="col-lg-2"></div>
         </div>
         
-        <!-- Fin champs pour entrer l'adresse de la salle -->
-                       
+        <!-- Fin champs pour entrer l'adresse de la salle -->   
+
+        <!-- Début champs pour modifier votre ville -->
+             
+        <div class="form-group">   
+            <label class="control-label col-xs-4" for="villeSalle">Votre ville : *</label>
+            <div class="col-xs-6">
+                <input class="form-control" id="villeSalle" type="text" name="villeSalle" placeholder="" value=""/>
+            </div>
+            <div class="col-xs-1">
+                <span id="villeSalleInfo"></span>
+            </div>
+            <div class="col-lg-2"></div>
+		</div>
+		
+        <!-- Fin champs pour modifier votre ville --> 
+                               
         <!-- Début champs pour modifier son code postal -->
         
         <div class="form-group">   
-            <label class="control-label col-xs-4" for="cpSalle">Votre code postal :</label>
+            <label class="control-label col-xs-4" for="cpSalle">Votre code postal : *</label>
             <div class="col-xs-6">
                 <input class="form-control" id="cpSalle" type="text" name="cpSalle" placeholder="" value=""/>
             </div>
@@ -61,21 +61,6 @@
         </div>
      
         <!-- Fin champs pour modifier son code postal -->
-
-        <!-- Début champs pour modifier votre ville -->
-             
-        <div class="form-group">   
-            <label class="control-label col-xs-4" for="villeSalle">Votre ville :</label>
-            <div class="col-xs-6">
-                <input class="form-control" id="villeSalle" type="text" name="villeSalle" placeholder="" value=""/>
-            </div>
-            <div class="col-xs-1">
-                <span id="villeSalleInfo"></span>
-            </div>
-            <div class="col-lg-2"></div>
-		</div>
-		
-        <!-- Fin champs pour modifier votre ville -->
         
         <!-- Début champs pour entrer le numéro de téléphone de la salle -->
         
@@ -135,7 +120,22 @@
             <div class="col-lg-2"></div>
         </div>       
         
-        <!-- Fin champs pour entrer le contact gérant -->
+        <!-- Fin champs pour entrer le contact gérant -->      
+                
+        <!-- Début champs pour entrer son genre musical -->
+        
+        <div class="form-group">   
+            <label class="control-label col-xs-4" for="genreMusical">Votre genre musical :</label>
+            <div class="col-xs-6">
+                <input class="form-control" id="genreMusical" type="text" name="genreMusical" placeholder="" value=""/>
+            </div>
+            <div class="col-xs-1">
+                <span id="genreMusicalInfo"></span>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        
+        <!-- Fin champs pour entrer son genre musical -->
                    
         <!-- Début champs pour entrer la description -->
         
