@@ -19,7 +19,6 @@
         </form>
         <a href="" class="glyphicon glyphicon-envelope"> Contacter la salle </a>
         <a href="" class="glyphicon glyphicon-star-empty"> Noter la salle </a>
-        <a href="" class="btn glyphicon glyphicon-pencil"> Commenter la salle </a>
     </div>
 
     <div id="contenu" class="col-lg-12">
@@ -29,35 +28,46 @@
             </div>
             <div id="commentaire">
                 <h4>Les derniers commentaires : </h4></br>
+                <div>
+                    <?php
+                    foreach ($vars['commentaire'] as $commentaires):
+                        echo $commentaires['pseudo'] . "</br>";
+                        echo $commentaires['texteCommentaireSalle'] . "</br>";
+                        echo $commentaires['dateEditionCommentaireSalle'] . "</br>";
+                    endforeach;
+                    ?>
+                </div>
+                <a href="" class="btn glyphicon glyphicon-pencil"> Commenter la salle </a>
             </div>
             <div id="acces">
-                <h4>L'accès : </h4></br>
+                <h4>L'accès : </h4>
+                <?php echo $vars['adresse'] . " " . $vars['cp'] . " " . $vars['ville']; ?>
             </div>
         </aside>
         <section class="col-lg-9">
             <h4>Le fil d'actualité : </h4></br>
             <div id="annonceEvenement">
-                
+
             </div>
             <div id="petiteAnnonce" style="border : solid 1px">
                 <p>petites annonces</p>
                 <table class="table">
-            <thead>
-            </thead>
-            <tbody>
-                <?php
-                foreach ($vars['petiteAnnonce'] as $petiteAnnonce):
-                    echo '<tr>';
-                    echo "<td class='col-lg-3'>". $petiteAnnonce['textePetiteAnnonce']. "</td>";
-                    echo '<td>'
-                    . '<a class="btn" href="supprimer_petiteAnnonce.php?nPetiteAnnonce=' . $petiteAnnonce['nPetiteAnnonce'] . '">Supprimer</a>'
-                    . '<a class="btn btn-danger" href="repondre.php?nPetiteAnnonce=' . $petiteAnnonce['nPetiteAnnonce'] . '">Répondre à cette annonce</a>'
-                    . '</td>';
-                    echo '</tr>';
-                endforeach;
-                ?>
-            </tbody>
-        </table>
+                    <thead>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach ($vars['petiteAnnonce'] as $petiteAnnonce):
+                            echo '<tr>';
+                            echo "<td class='col-lg-3'>" . $petiteAnnonce['textePetiteAnnonce'] . "</td>";
+                            echo '<td>'
+                            . '<a class="btn" href="supprimer_petiteAnnonce.php?nPetiteAnnonce=' . $petiteAnnonce['nPetiteAnnonce'] . '">Supprimer</a>'
+                            . '<a class="btn btn-danger" href="repondre.php?nPetiteAnnonce=' . $petiteAnnonce['nPetiteAnnonce'] . '">Répondre à cette annonce</a>'
+                            . '</td>';
+                            echo '</tr>';
+                        endforeach;
+                        ?>
+                    </tbody>
+                </table>
             </div>
         </section>
     </div>
