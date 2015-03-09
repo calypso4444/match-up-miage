@@ -44,6 +44,7 @@ if (!empty($cpasse) and ( sha1($cpasse) === $user['passe'])) {
             $mailDejaPris = true;
         } else {
             $model['GestionnaireUtilisateur']->setMail($id, $email);
+            $user['email'] = $email;
         }
     }
     //changement de mot de passe
@@ -53,6 +54,7 @@ if (!empty($cpasse) and ( sha1($cpasse) === $user['passe'])) {
         if ($npasse == $npasse2) {
             $npasse = sha1($npasse);
             $model['GestionnaireUtilisateur']->setMdp($id, $npasse);
+            $user['npasse'] = $npasse;
         } else {
             $problemeMdp = true;
         }
@@ -61,26 +63,31 @@ if (!empty($cpasse) and ( sha1($cpasse) === $user['passe'])) {
     $nom = htmlspecialchars($nom);
     if (!empty($nom) and ( $nom !== $user['nom'])) {
         $model['GestionnaireUtilisateur']->setNom($id, $nom);
+        $user['nom'] = $nom;
     }
     //changement de prenom
     $prenom = htmlspecialchars($prenom);
     if (!empty($prenom) and ( $prenom !== $user['prenom'])) {
         $model['GestionnaireUtilisateur']->setPrenom($id, $prenom);
+        $user['prenom'] = $prenom;
     }
     //changement d'adresse
     $adresse = htmlspecialchars($adresse);
     if (!empty($adresse) and ( $adresse !== $user['adresse'])) {
         $model['GestionnaireUtilisateur']->setAdresse($id, $adresse);
+        $user['adresse'] = $adresse;
     }
     //changement de CP
     $cp = htmlspecialchars($cp);
     if (!empty($cp) and ( $cp !== $user['CP'])) {
         $model['GestionnaireUtilisateur']->setCP($id, $cp);
+        $user['cp'] = $cp;
     }
     //changement de ville
     $ville = htmlspecialchars($ville);
     if (!empty($ville) and ( $ville !== $user['ville'])) {
         $model['GestionnaireUtilisateur']->setVille($id, $ville);
+        $user['ville'] = $ville;
     }
 } 
 
@@ -105,6 +112,7 @@ if (isset($_FILES['mon_fichier'])) {
     $resultat = move_uploaded_file($tab_img['tmp_name'], $chemin);
     if ($resultat) {
         $model['GestionnaireUtilisateur']->setAvatar($id, $chemin);
+        $user['chemin'] = $chemin;
     }
 }
 
