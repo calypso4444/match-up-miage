@@ -12,6 +12,7 @@ include_once 'config/includeGlobal.php';
 $nSalle = filter_input(INPUT_GET, 'nSalle');
 
 $id = $_SESSION['user']['id'];
+echo'suppression';
 $model['GestionnaireProfil']->supprimerSalle($nSalle, $id);
  
 /* fin de séquence */
