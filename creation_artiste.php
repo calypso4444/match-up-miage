@@ -9,16 +9,16 @@ include_once 'config/includeGlobal.php';
 
 /* séquence du controleur */
 
-$id=$_SESSION['user']['id'];
+$id = $_SESSION['user']['id'];
 
-$noProfil=0;
+$noProfil = 0;
 
 $nomArtiste = filter_input(INPUT_POST, 'nomArtiste');
 $descArtiste = filter_input(INPUT_POST, 'descriptionArtiste');
 $genreArtiste = filter_input(INPUT_POST, 'genreMusical');
 
 if (!empty($nomArtiste)) {
-    $noProfil=$model['GestionnaireProfil']->newProfilArtiste($id);
+    $noProfil = $model['GestionnaireProfil']->newProfilArtiste($id);
     $model['GestionnaireProfil']->setNomArtiste($noProfil, $nomArtiste);
 }
 if (!empty($descArtiste)) {
@@ -27,6 +27,10 @@ if (!empty($descArtiste)) {
 if (!empty($genreArtiste)) {
     $model['GestionnaireProfil']->setGenreMusicalArtiste($noProfil, $genreArtiste);
 }
+
+//on insere une image par defaut
+$img_default = "web/image/artiste.png";
+$model['GestionnaireProfil']->setphotoProfilArtiste($noProfil, $img_default);
 if (isset($_FILES['mon_fichier'])) {
     $tab_img = $_FILES['mon_fichier'];
     if ($_FILES['mon_fichier']['error'] > 0) {
@@ -48,10 +52,6 @@ if (isset($_FILES['mon_fichier'])) {
     if ($resultat) {
         $model['GestionnaireProfil']->setphotoProfilArtiste($noProfil, $chemin);
     }
-}else{
-    //on insere une image par defaut
-    $img_default="web/image/artiste.png";
-    $model['GestionnaireProfil']->setphotoProfilArtiste($noProfil, $img_default);
 }
 
 /* fin de séquence */

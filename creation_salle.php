@@ -32,6 +32,10 @@ if (!empty($descSalle)) {
 if (!empty($genreSalle)) {
     $model['GestionnaireProfil']->setGenreMusicalSalle($noProfil, $genreSalle);
 }
+
+//on insere une image par defaut
+$img_default = "web/image/salle.png";
+$model['GestionnaireProfil']->setphotoProfilSalle($noProfil, $img_default);
 if (isset($_FILES['mon_fichier'])) {
     $tab_img = $_FILES['mon_fichier'];
     if ($_FILES['mon_fichier']['error'] > 0) {
@@ -53,10 +57,6 @@ if (isset($_FILES['mon_fichier'])) {
     if ($resultat) {
         $model['GestionnaireProfil']->setphotoProfilSalle($noProfil, $chemin);
     }
-}else{
-    //on insere une image par defaut
-    $img_default="web/image/salle.png";
-    $model['GestionnaireProfil']->setphotoProfilSalle($noProfil, $img_default);
 }
 
 if (!empty($adresseSalle)) {
