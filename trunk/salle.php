@@ -25,7 +25,7 @@ $favori=filter_input(INPUT_POST, 'favori');
 
     
 $petiteAnnonces=$model['GestionnaireAnnonce']->getAllPetiteAnnonceByIdSalle($noProfil);
-$commentaires=$model['GestionnaireCommentaires']->getAllCommentairesByIdSalle($noProfil);
+$commentaires=$model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($noProfil);
 /* fin de séquence */
 
 /* affichage de la vue */
