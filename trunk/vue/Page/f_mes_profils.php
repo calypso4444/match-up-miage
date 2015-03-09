@@ -8,9 +8,9 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Snapshot</th>
-                    <th>Nom de la salle</th>
-                    <th>Action</th>
+                    <th class="text-center">Snapshot</th>
+                    <th class="text-center">Nom de la salle</th>
+                    <th class="text-center">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,9 +35,9 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Snapshot</th>
-                    <th>Nom de l'artiste</th>
-                    <th>Action</th>
+                    <th class="text-center">Snapshot</th>
+                    <th class="text-center">Nom de l'artiste</th>
+                    <th class="text-center">Action</th>
                 </tr>
             </thead>
             <tbody>
