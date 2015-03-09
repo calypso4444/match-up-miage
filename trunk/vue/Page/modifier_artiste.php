@@ -34,8 +34,11 @@
         <label class="control-label col-xs-4" for="photoArtiste">Votre photo de profil :</label> 
         <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />	
         <input class="col-lg-offset-3" type="file" name="mon_fichier" id="mon_fichier" /><br/>
-        <div>
+        <div class="col-xs-1">
             <input class="btn btn-default" type="submit" value="Valider" id="envoyer"/>
+        </div>
+        <div class="col-xs-1">
+            <a class="btn btn-default" href="f_mes_profils.php">Retour à mes profils</a>
         </div>
     </form>  
 </div>

@@ -93,7 +93,10 @@
             <div class="col-xs-6">
             </div>
             <div class="col-xs-1">
-                <input class="btn btn-default" type="submit" value="Valider" id="envoyer"/>
+                <input class="btn btn-default" type="submit" value="Valider"/>
+            </div>
+            <div class="col-xs-1">
+                <a class="btn btn-default" href="f_mes_profils.php">Retour à mes profils</a>
             </div>
             <div class="col-lg-2"></div>
         </div>
