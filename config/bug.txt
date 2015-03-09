@@ -1,5 +1,5 @@
 9/03
--l'image sort du cadre dans la page tous les artistes (et toutes les salles) lorsqu'on retreci la fenetre
--insertion des images tout format dans la bdd
+-l'image sort du cadre dans la page tous les artistes (et toutes les salles) lorsqu'on retreci la fenetre [resolu]
+-insertion des images tout format dans la bdd[resolu]
 -fixation taille nav et avatar?
 -redimensionnement des images insérées
