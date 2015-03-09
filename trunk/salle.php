@@ -23,6 +23,8 @@ $favori=filter_input(INPUT_POST, 'favori');
         $model['GestionnaireUtilisateur']->ajouterEnFavoriSalle($noProfil, $id);
     }
 
+    
+$petiteAnnonce=$model['GestionnaireAnnonce']->getAllPetiteAnnonce($noProfil);
 /* fin de séquence */
 
 /* affichage de la vue */
@@ -32,6 +34,7 @@ $vue['noProfil']=$noProfil;
 $vue['nomProfil']=$nomProfil;
 $vue['photoProfil']=$photoProfil;
 $vue['descProfil']=$descProfil;
+$vue['petiteAnnonce']=$petiteAnnonce;
 $view->render('salle', $vue);
 
 /* fin de l'affichage de la vue */
