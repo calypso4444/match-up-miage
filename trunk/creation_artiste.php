@@ -48,6 +48,10 @@ if (isset($_FILES['mon_fichier'])) {
     if ($resultat) {
         $model['GestionnaireProfil']->setphotoProfilArtiste($noProfil, $chemin);
     }
+}else{
+    //on insere une image par defaut
+    $img_default="web/image/artiste.png";
+    $model['GestionnaireProfil']->setphotoProfilArtiste($noProfil, $img_default);
 }
 
 /* fin de séquence */
