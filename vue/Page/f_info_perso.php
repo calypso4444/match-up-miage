@@ -135,7 +135,7 @@
                 </div>
                 <!-- Fin champs pour vérifier son nouveau mot de passe -->
                 <!-- Début champs pour modifier votre photo de profil -->
-                <label for="mon_fichier">Fichier (tous formats | max. 1 Mo) :</label><br />
+                <label for="mon_fichier">Avatar (tous formats | max. 1 Mo) :</label><br />
                 <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />	
                 <input class="col-lg-offset-3" type="file" name="mon_fichier" id="mon_fichier" /><br/>
                 <!-- Fin champs pour modifier votre photo de profil -->
