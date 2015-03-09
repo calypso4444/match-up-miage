@@ -10,10 +10,12 @@ include_once 'modele/GestionnaireUtilisateur.php';
 include_once 'modele/GestionnaireProfil.php';
 include_once 'modele/GestionnaireCarte.php';
 include_once 'modele/GestionnaireCommentaire.php';
+include_once 'modele/GestionnaireAnnonce.php';
 
 $model = array();
 $model['GestionnaireUtilisateur'] = new GestionnaireUtilisateur();
 $model['GestionnaireProfil'] = new GestionnaireProfil();
+$model['GestionnaireAnnonce'] = new GestionnaireAnnonce();
 
 /* view File */
 

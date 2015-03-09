@@ -14,13 +14,12 @@
     </div>
 
     <div id="interaction" class="col-lg-3">
-        </br>
         <form action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" method="post">
             <button type="submit" name="favori" value="true" class="btn glyphicon glyphicon-heart"> Ajouter en favori </button>
         </form>
         <a href="" class="btn glyphicon glyphicon-envelope"> Contacter l'artiste </a>
-        </br>
         <a href="" class="btn glyphicon glyphicon-star-empty"> Noter l'artiste </a>
+        <a href="" class="btn glyphicon glyphicon-pencil"> Commenter l'artiste </a>
     </div>
 
     <div id="contenu" class="col-lg-12">
