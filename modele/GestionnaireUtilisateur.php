@@ -125,7 +125,6 @@ class GestionnaireUtilisateur extends Gestionnaire {
     }
 
     public function setAvatar($id, $path) {
-        echo"UPDATE " . $GLOBALS['DB_TABLE']['CONNEXION'] . " SET avatar='$path' WHERE id = $id;";
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['CONNEXION'] . " SET avatar='$path' WHERE id = $id;");
         $this->actualisationUserSession();
     }
