@@ -5,32 +5,32 @@ $(document).ready(function(){
 	var nomSalle = $('#nomSalle');
 	var descriptionSalle = $('#descriptionSalle');
 	var adresseSalle = $('#adresseSalle');
-	var cp = $('#CP');
-	var ville = $('#ville');
+	var cpSalle = $('#cpSalle');
+	var villeSalle = $('#villeSalle');
 	
 	
 	
 	var nomSalleInfo = $('#nomSalleInfo');
 	var descriptionSalleInfo = $('#descriptionSalleInfo');
 	var adresseSalleInfo = $('#adresseSalleInfo');
-	var cpInfo = $('#cpInfo');
-	var villeInfo = $('#villeInfo');
+	var cpSalleInfo = $('#cpSalleInfo');
+	var villeSalleInfo = $('#villeSalleInfo');
 
 	
 	nomSalle.blur(validateNomSalle);
 	descriptionSalle.blur(validateDescription);
-	cp.blur(validateCP);
+	cpSalle.blur(validateCpSalle);
 	adresseSalle.blur(validateAdresse);
-	ville.blur(validateVille);
+	villeSalle.blur(validateVilleSalle);
 		
 	nomSalle.keyup(validateNomSalle);
 	descriptionSalle.keyup(validateDescription);
-	cp.keyup(validateCP);
+	cpSalle.keyup(validateCpSalle);
 	adresseSalle.keyup(validateAdresse);
-	ville.keyup(validateVille);
+	villeSalle.keyup(validateVilleSalle);
 	
 	form.submit(function(){
-		if(validateNomSalle() & validateAdresse() & validateCP()){
+		if(validateNomSalle() & validateAdresse() & validateCpSalle() & validateVilleSalle()){
 			return true;
 		} else {
 			alert("Veuillez remplir les champs suivant correctement ");
@@ -39,7 +39,7 @@ $(document).ready(function(){
 	});
 
 	function validateNomSalle(){
-		if(!nomSalle.val().match(/^[a-zA-Z0-9]{2,30}$/i)){
+		if(!nomSalle.val().match(/^[A-Z][a-zàéèêëîïôöûüùç.]+([ -][A-Z][a-zàéèêëîïôöûüùç.]{1,})*$/i)){
 			nomSalleInfo.removeClass("glyphicon glyphicon-ok");
 			nomSalleInfo.addClass("glyphicon glyphicon-remove");
 			return false;
@@ -50,14 +50,14 @@ $(document).ready(function(){
 		}
 	}
 	
-	function validateCP() {
-        if (!cp.val().match(/^[0-9]{5,5}$/i)) {
-            cpInfo.removeClass("glyphicon glyphicon-ok");
-            cpInfo.addClass("glyphicon glyphicon-remove");
+	function validateCpSalle() {
+        if (!cpSalle.val().match(/^[0-9]{5,5}$/i)) {
+            cpSalleInfo.removeClass("glyphicon glyphicon-ok");
+            cpSalleInfo.addClass("glyphicon glyphicon-remove");
             return false;
         } else {
-            cpInfo.removeClass("glyphicon glyphicon-remove");
-            cpInfo.addClass("glyphicon glyphicon-ok");
+            cpSalleInfo.removeClass("glyphicon glyphicon-remove");
+            cpSalleInfo.addClass("glyphicon glyphicon-ok");
             return true;
         }
     }
@@ -74,14 +74,14 @@ $(document).ready(function(){
         }
     }
     
-    function validateVille() {
-        if (!ville.val().match(/^[A-Z][a-zàéèêëîïôöûüùç.]+([ -][A-Z][a-zàéèêëîïôöûüùç.]{1,})*$/i)) {
-            villeInfo.removeClass("glyphicon glyphicon-ok");
-            villeInfo.addClass("glyphicon glyphicon-remove");
+    function validateVilleSalle() {
+        if (!villeSalle.val().match(/^[A-Z][a-zàéèêëîïôöûüùç.]+([ -][A-Z][a-zàéèêëîïôöûüùç.]{1,})*$/i)) {
+            villeSalleInfo.removeClass("glyphicon glyphicon-ok");
+            villeSalleInfo.addClass("glyphicon glyphicon-remove");
             return false;
         } else {
-            villeInfo.removeClass("glyphicon glyphicon-remove");
-            villeInfo.addClass("glyphicon glyphicon-ok");
+            villeSalleInfo.removeClass("glyphicon glyphicon-remove");
+            villeSalleInfo.addClass("glyphicon glyphicon-ok");
             return true;
         }
     }
