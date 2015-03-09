@@ -142,7 +142,7 @@
         <div class="form-group">   
             <label class="control-label col-xs-4" for="descriptionSalle">Description :</label>
             <div class="col-xs-6">
-                <textarea class="form-control" id="descriptionSalle" rows="5" type="text" name="descriptionSalle" placeholder="<?php echo $vars['descriptionSalle']; ?>" value="<?php echo $vars['descriptionSalle']; ?>"/></textarea>
+                <textarea class="form-control" id="descriptionSalle" rows="5" type="text" name="descriptionSalle" placeholder="<?php echo $vars['descriptionSalle']; ?>" value="<?php echo $vars['descriptionSalle']; ?>"></textarea>
             </div>
             <div class="col-xs-1">
                 <span id="descriptionSalleInfo"></span>
