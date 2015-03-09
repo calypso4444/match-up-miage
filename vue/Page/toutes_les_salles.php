@@ -1,11 +1,11 @@
 <!-- vue/page -->
 
-<div class="container col-lg-12">
+<div class="col-lg-12">
     
     <h1>toutes les salles</h1>
     
     <div id="lesSalles">
-        <table class="table">
+        <table class="table col-lg-12">
             <tbody>
                 <?php
                 $cmpt=0;
