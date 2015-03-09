@@ -177,13 +177,6 @@ class GestionnaireUtilisateur extends Gestionnaire {
         return $suivis;
     }
 
-//    SELECT nArtiste, nSalle, dateConcert 
-//                FROM evenementSuivi E
-//                INNER JOIN concert C  ON E.cible=C.nConcert 
-//                INNER JOIN salle S  ON S.nSalle=C.nSalle
-//                INNER JOIN artiste A  ON A.nArtiste=C.nArtiste
-//                WHERE E.proprietaire=5 ;
-
     public function test() {
         return 'caca';
     }
