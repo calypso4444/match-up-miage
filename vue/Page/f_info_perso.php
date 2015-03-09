@@ -103,8 +103,11 @@
                     </div>
                     <div class="col-lg-2"></div>
                 </div>
+                
                 <!-- Fin champs pour entrer son mot de passe actuel -->
+                
                 <!-- Début champs pour changer son mot de passe (nouveau mot de passe)-->
+                
                 <div class="form-group">   
                     <label class="control-label col-xs-5" for="npasse">Nouveau mot de passe :</label>
                     <div class="col-xs-6">
@@ -115,8 +118,11 @@
                     </div>
                     <div class="col-lg-2"></div>
                 </div>
+                
                 <!-- Fin champs pour changer son mot de passe -->
+                
                 <!-- Début champs pour vérifier son nouveau mot de passe -->
+                
                 <div class="form-group">   
                     <label class="control-label col-xs-5" for="npasse2">V&eacute;rification de votre nouveau mot de passe :</label>
                     <div class="col-xs-6">
