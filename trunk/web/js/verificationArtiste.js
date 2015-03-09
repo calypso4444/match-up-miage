@@ -26,7 +26,7 @@ $(document).ready(function(){
 	});
 
 	function validateNomArtiste(){
-		if(!nomArtiste.val().match(/^[a-zA-Z0-9]{2,30}$/i)){
+		if(!nomArtiste.val().match(/^[A-Z][a-zàéèêëîïôöûüùç.]+([ -][A-Z][a-zàéèêëîïôöûüùç.]{1,})*$/i)){
 			nomArtisteInfo.removeClass("glyphicon glyphicon-ok");
 			nomArtisteInfo.addClass("glyphicon glyphicon-remove");
 			return false;
