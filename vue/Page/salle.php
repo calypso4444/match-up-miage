@@ -31,6 +31,9 @@
                 <div>
                     <?php
                     foreach ($vars['commentaire'] as $commentaires):
+                        echo "<img src=\"" ;
+                        echo $commentaires['avatar'];
+                        echo "\"></br>";
                         echo $commentaires['pseudo'] . "</br>";
                         echo $commentaires['texteCommentaireSalle'] . "</br>";
                         echo $commentaires['dateEditionCommentaireSalle'] . "</br>";
