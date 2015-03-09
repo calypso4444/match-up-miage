@@ -1,6 +1,6 @@
 <!-- vue/page -->
 <div class="container col-lg-12">
-    <form id="formulaireModificationProfil" method ="post" name="formulaireModificationProfil" enctype="multipart/form-data">
+    <form id="formulaireModificationProfilSalle" method ="post" name="formulaireModificationProfilSalle" enctype="multipart/form-data">
         <div class="form-group">
             <label class="control-label col-xs-4" for="nomSalle">Votre nom de salle :</label> 
             <div class="col-xs-6">
@@ -121,7 +121,7 @@
             <div class="col-xs-6">
             </div>
             <div class="col-xs-1">
-                <input class="btn btn-default" type="submit" value="Valider"/>
+                <input id="envoyer" class="btn btn-default" type="submit" value="Valider"/>
             </div>
             <div class="col-xs-1">
                 <a class="btn btn-default" href="f_mes_profils.php">Retour à mes profils</a>
