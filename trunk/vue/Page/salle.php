@@ -36,6 +36,29 @@
         </aside>
         <section class="col-lg-9">
             <h4>Le fil d'actualité : </h4></br>
+            <div id="annonceEvenement">
+                
+            </div>
+            <div id="petiteAnnonce" style="border : solid 1px">
+                <p>petites annonces</p>
+                <table class="table">
+            <thead>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($vars['petiteAnnonce'] as $petiteAnnonce):
+                    echo '<tr>';
+                    echo "<td class='col-lg-3'>". $petiteAnnonce['textePetiteAnnonce']. "</td>";
+                    echo '<td>'
+                    . '<a class="btn" href="supprimer_petiteAnnonce.php?nPetiteAnnonce=' . $petiteAnnonce['nPetiteAnnonce'] . '">Supprimer</a>'
+                    . '<a class="btn btn-danger" href="repondre.php?nPetiteAnnonce=' . $petiteAnnonce['nPetiteAnnonce'] . '">Répondre à cette annonce</a>'
+                    . '</td>';
+                    echo '</tr>';
+                endforeach;
+                ?>
+            </tbody>
+        </table>
+            </div>
         </section>
     </div>
 

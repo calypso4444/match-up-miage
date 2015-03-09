@@ -16,6 +16,7 @@ $model = array();
 $model['GestionnaireUtilisateur'] = new GestionnaireUtilisateur();
 $model['GestionnaireProfil'] = new GestionnaireProfil();
 $model['GestionnaireAnnonce'] = new GestionnaireAnnonce();
+$model['GestionnaireCommentaire'] = new GestionnaireCommentaire();
 
 /* view File */
 

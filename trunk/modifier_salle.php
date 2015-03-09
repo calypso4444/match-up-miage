@@ -67,6 +67,12 @@ if (!empty($prenomGerant)and $prenomGerant !== $infoProfil['prenomGerant']) {
 if (!empty($contactGerant)and $contactGerant !== $infoProfil['contactGerant']) {
     $model['GestionnaireProfil']->setContactGerant($noProfil, $contactGerant);
 }
+if (!empty($cpSalle)and $cpSalle!== $infoProfil['cpSalle']) {
+    $model['GestionnaireProfil']->setCpSalle($noProfil, $cpSalle);
+}
+if (!empty($villeSalle)and $villeSalle!==$infoProfil['villeSalle']) {
+    $model['GestionnaireProfil']->setVilleSalle($noProfil, $villeSalle);
+}
 
 /* fin de séquence */
 
@@ -78,6 +84,8 @@ $vue['photoSalle'] = $infoProfil['photoProfilSalle'];
 $vue['descriptionSalle'] = $infoProfil['descriptionSalle'];
 $vue['genreSalle'] = $infoProfil['genreMusicalSalle'];
 $vue['adresseSalle'] = $infoProfil['adresseSalle'];
+$vue['cpSalle'] = $infoProfil['cpSalle'];
+$vue['villeSalle'] = $infoProfil['villeSalle'];
 $vue['telSalle'] = $infoProfil['telSalle'];
 $vue['nomGerant'] = $infoProfil['nomGerant'];
 $vue['prenomGerant'] = $infoProfil['prenomGerant'];
