@@ -52,7 +52,7 @@
         <div class="form-group">   
             <label class="control-label col-xs-4" for="CP">Votre code postal :</label>
             <div class="col-xs-6">
-                <input class="form-control" id="CP" type="text" name="CP" placeholder="" value=""/>
+                <input class="form-control" id="CP" type="text" name="cpSalle" placeholder="" value=""/>
             </div>
             <div class="col-xs-1">
                 <span id="cpInfo"></span>
@@ -67,7 +67,7 @@
         <div class="form-group">   
             <label class="control-label col-xs-4" for="ville">Votre ville :</label>
             <div class="col-xs-6">
-                <input class="form-control" id="ville" type="text" name="ville" placeholder="" value=""/>
+                <input class="form-control" id="ville" type="text" name="villeSalle" placeholder="" value=""/>
             </div>
             <div class="col-xs-1">
                 <span id="villeInfo"></span>
