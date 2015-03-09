@@ -29,7 +29,6 @@ class GestionnaireProfil extends Gestionnaire {
     }
     
     public function supprimerSalle($nSalle, $idProprietaire) {
-        echo 'gestionnaire';
         if(mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " WHERE nSalle=$nSalle AND proprietaireSalle=$idProprietaire")) {
             mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['FAVORI_S'] . " WHERE cible='$nSalle'");
         }

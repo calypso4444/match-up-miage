@@ -57,7 +57,7 @@ class GestionnaireUtilisateur extends Gestionnaire {
     public function motDePasseProvisioire($mail) {
         $mdpP = 12345678;
         $mdpCrypt = sha1($mdpP);
-        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['CONNEXION'] . " SET passe='$mdpCrypt' WHERE email =$mail;");
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['CONNEXION'] . " SET passe='$mdpCrypt' WHERE email ='$mail';");
         return $mdpP;
     }
 
