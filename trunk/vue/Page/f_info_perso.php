@@ -1,5 +1,5 @@
 <!-- vue/page -->
-<div class="container col-lg-12">
+<div class="col-lg-12">
     <h1> Mes Infos Perso </h1>
     <form class="form-horizontal" id="formulaireGestionProfil" method ="post" name="formulaireGestionProfil" enctype="multipart/form-data">
         <div class="row">
