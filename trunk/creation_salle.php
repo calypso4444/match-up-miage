@@ -21,6 +21,8 @@ $telSalle = filter_input(INPUT_POST, 'telSalle');
 $nomGerant = filter_input(INPUT_POST, 'nomGerant');
 $prenomGerant = filter_input(INPUT_POST, 'prenomGerant');
 $contactGerant = filter_input(INPUT_POST, 'contactGerant');
+$cpSalle = filter_input(INPUT_POST, 'cpSalle');
+$villeSalle = filter_input(INPUT_POST, 'villeSalle');
 
 if (!empty($nomSalle)) {
     $noProfil=$model['GestionnaireProfil']->newProfilSalle($id);
@@ -73,6 +75,12 @@ if (!empty($prenomGerant)) {
 }
 if (!empty($contactGerant)) {
     $model['GestionnaireProfil']->setContactGerant($noProfil, $contactGerant);
+}
+if (!empty($cpSalle)) {
+    $model['GestionnaireProfil']->setCpSalle($noProfil, $cpSalle);
+}
+if (!empty($villeSalle)) {
+    $model['GestionnaireProfil']->setVilleSalle($noProfil, $villeSalle);
 }
 
 /* fin de séquence */
