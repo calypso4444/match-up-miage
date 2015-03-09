@@ -31,6 +31,34 @@
             </div>
             <div class="col-lg-2"></div>
         </div>
+        
+        
+        <div class="form-group">   
+            <label class="control-label col-xs-4" for="cpSalle">CP Salle :</label>
+            <div class="col-xs-6">
+                <input class="form-control" id="cpSalle" type="text" name="cpSalle" placeholder="<?php echo $vars['cpSalle']; ?>" value="<?php echo $vars['cpSalle']; ?>"/>
+            </div>
+            <div class="col-xs-1">
+                <span id="cpSalleInfo"></span>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        
+        
+        
+		<div class="form-group">   
+            <label class="control-label col-xs-4" for="villeSalle">Ville :</label>
+            <div class="col-xs-6">
+                <input class="form-control" id="villeSalle" type="text" name="villeSalle" placeholder="<?php echo $vars['villeSalle']; ?>" value="<?php echo $vars['villeSalle']; ?>"/>
+            </div>
+            <div class="col-xs-1">
+                <span id="villeSalleInfo"></span>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        
+        
+        
         <div class="form-group">   
             <label class="control-label col-xs-4" for="telSalle">Numéro de téléphone de la salle :</label>
             <div class="col-xs-6">
