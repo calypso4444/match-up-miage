@@ -12,16 +12,6 @@
             <div class="col-lg-2"></div>
         </div>
         <div class="form-group">   
-            <label class="control-label col-xs-4" for="descriptionSalle">Description :</label>
-            <div class="col-xs-6">
-                <input class="form-control" id="descriptionSalle" type="text" name="descriptionSalle" placeholder="<?php echo $vars['descriptionSalle']; ?>" value="<?php echo $vars['descriptionSalle']; ?>"/>
-            </div>
-            <div class="col-xs-1">
-                <span id="descriptionSalleInfo"></span>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
-        <div class="form-group">   
             <label class="control-label col-xs-4" for="genreMusical">Votre genre musical :</label>
             <div class="col-xs-6">
                 <input class="form-control" id="genreMusical" type="text" name="genreMusical" placeholder="<?php echo $vars['genreSalle']; ?>" value="<?php echo $vars['genreSalle']; ?>"/>
@@ -81,6 +71,17 @@
             </div>
             <div class="col-lg-2"></div>
         </div>
+        <div class="form-group">   
+            <label class="control-label col-xs-4" for="descriptionSalle">Description :</label>
+            <div class="col-xs-6">
+                <textarea class="form-control" id="descriptionSalle" type="text" name="descriptionSalle" placeholder="<?php echo $vars['descriptionSalle']; ?>" value="<?php echo $vars['descriptionSalle']; ?>"/></textarea>
+            </div>
+            <div class="col-xs-1">
+                <span id="descriptionSalleInfo"></span>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+
         <div class='form-group'>
             <label class="control-label col-xs-4" for="photoSalle">Votre photo de profil :</label> 
             <div class="col-xs-6">
