@@ -23,8 +23,11 @@ if ($favori === "true") {
 
 $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdArtiste($noProfil);
 
-$texte=filter_input(INPUT_POST,'commentaire');
-$model['GestionnaireCommentaire']->commenterArtiste($noProfil, $id, $texte);
+$texte = filter_input(INPUT_POST, 'commentaire');
+if (!empty($texte)) {
+    $model['GestionnaireCommentaire']->commenterArtiste($noProfil, $id, $texte);
+    $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdArtiste($noProfil);
+}
 
 /* fin de séquence */
 
@@ -35,7 +38,7 @@ $vue['noProfil'] = $noProfil;
 $vue['nomProfil'] = $nomProfil;
 $vue['photoProfil'] = $photoProfil;
 $vue['descProfil'] = $descProfil;
-$vue['commentaire']=$commentaires;
+$vue['commentaire'] = $commentaires;
 $view->render('artiste', $vue);
 
 /* fin de l'affichage de la vue */

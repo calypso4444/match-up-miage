@@ -31,12 +31,12 @@
                 <div>
                     <?php
                     foreach ($vars['commentaire'] as $commentaires):
-                        echo "<img src=\"" ;
+                        echo "<img src=\"";
                         echo $commentaires['avatar'];
-                        echo "\"></br>";
-                        echo $commentaires['pseudo'] . "</br>";
-                        echo $commentaires['texteCommentaireArtiste'] . "</br>";
-                        echo $commentaires['dateEditionCommentaireArtiste'] . "</br>";
+                        echo "\">";
+                        echo " " . $commentaires['pseudo'];
+                        echo " (" . $commentaires['dateEditionCommentaireArtiste'] . ")</br>";
+                        echo $commentaires['texteCommentaireArtiste'] . "</br></br>";
                     endforeach;
                     ?>
                 </div>
@@ -44,6 +44,7 @@
                     <input type="text" name="commentaire" placeholder="Taper votre commentaire ici"/>
                     <button type="submit" class="btn glyphicon glyphicon-pencil">Commenter</button>
                 </form>
+                </br>
             </div>
             <div id="agenda">
                 <h4>L'agenda : </h4></br>
