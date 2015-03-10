@@ -19,7 +19,6 @@
         </form>
         <a href="" class="btn glyphicon glyphicon-envelope"> Contacter l'artiste </a>
         <a href="" class="btn glyphicon glyphicon-star-empty"> Noter l'artiste </a>
-        <a href="" class="btn glyphicon glyphicon-pencil"> Commenter l'artiste </a>
     </div>
 
     <div id="contenu" class="col-lg-12">
@@ -29,6 +28,22 @@
             </div>
             <div id="commentaire">
                 <h4>Les derniers commentaires : </h4></br>
+                <div>
+                    <?php
+                    foreach ($vars['commentaire'] as $commentaires):
+                        echo "<img src=\"" ;
+                        echo $commentaires['avatar'];
+                        echo "\"></br>";
+                        echo $commentaires['pseudo'] . "</br>";
+                        echo $commentaires['texteCommentaireArtiste'] . "</br>";
+                        echo $commentaires['dateEditionCommentaireArtiste'] . "</br>";
+                    endforeach;
+                    ?>
+                </div>
+                <form id="commentaire" method="post" action="f_commentaire_artiste.php?tmp=<?php echo $vars['noProfil']; ?>">
+                    <input type="text" name="commentaire" placeholder="Taper votre commentaire ici"/>
+                    <button type="submit" class="btn glyphicon glyphicon-pencil">Commenter</button>
+                </form>
             </div>
             <div id="agenda">
                 <h4>L'agenda : </h4></br>

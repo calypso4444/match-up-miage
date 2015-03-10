@@ -31,16 +31,20 @@
                 <div>
                     <?php
                     foreach ($vars['commentaire'] as $commentaires):
-                        echo "<img src=\"" ;
+                        echo "<tr>";
+                        echo "<img src=\"";
                         echo $commentaires['avatar'];
-                        echo "\"></br>";
-                        echo $commentaires['pseudo'] . "</br>";
+                        echo "\">";
+                        echo " " . $commentaires['pseudo'] . "</br>";
                         echo $commentaires['texteCommentaireSalle'] . "</br>";
-                        echo $commentaires['dateEditionCommentaireSalle'] . "</br>";
+                        echo $commentaires['dateEditionCommentaireSalle'] . "</br></br>";
                     endforeach;
                     ?>
                 </div>
-                <a href="" class="btn glyphicon glyphicon-pencil"> Commenter la salle </a>
+                <form id="commentaire" method="post" action="f_commentaire_salle.php?tmp=<?php echo $vars['noProfil']; ?>">
+                    <input type="text" name="commentaire" placeholder="Taper votre commentaire ici"/>
+                    <button type="submit" value="true" class="btn glyphicon glyphicon-pencil">Commenter</button>
+                </form>
             </div>
             <div id="acces">
                 <h4>L'accès : </h4>
