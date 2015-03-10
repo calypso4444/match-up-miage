@@ -5,6 +5,7 @@
         <p><h1>Dernier commentaire mis en ligne</h1> <p>
         <div id='commentaire'>
             <?php
+            //on affiche le dernier commentaire, cad celui des deux qui n'est pas null
             if ($vars['dernierCommentaireArtiste'] !== null) {
                 echo "<img src=\"";
                 echo $vars['dernierCommentaireArtiste']['avatar'];
