@@ -23,6 +23,9 @@ if ($favori === "true") {
 
 $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdArtiste($noProfil);
 
+$texte=filter_input(INPUT_POST,'commentaire');
+$model['GestionnaireCommentaire']->commenterArtiste($noProfil, $id, $texte);
+
 /* fin de séquence */
 
 /* affichage de la vue */

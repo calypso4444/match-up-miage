@@ -41,7 +41,7 @@
                     endforeach;
                     ?>
                 </div>
-                <form id="commentaire" method="post" action="f_commentaire_salle.php?tmp=<?php echo $vars['noProfil']; ?>">
+                <form id="commentaire" method="post" action="salle.php?tmp=<?php echo $vars['noProfil']; ?>">
                     <input type="text" name="commentaire" placeholder="Taper votre commentaire ici"/>
                     <button type="submit" value="true" class="btn glyphicon glyphicon-pencil">Commenter</button>
                 </form>
