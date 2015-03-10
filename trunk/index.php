@@ -9,9 +9,11 @@ include_once 'config/includeGlobal.php';
 
 /* séquence du controleur */
 
+//on recupere le dernier commentaire posté a propos d'une salle et le dernier commentaire posté a propos d'un artiste
 $lastA = $model['GestionnaireCommentaire']->getLastCommentaireArtiste();
 $lastS = $model['GestionnaireCommentaire']->getLastCommentaireSalle();
 if ($lastA != null and $lastS !== null) {
+    //on regarde lequel est de le plus recent et on annule l'autre 
     if ($lastA['dateEditionCommentaireArtiste'] <= $lastS['dateEditionCommentaireSalle']) {
         $lastA = null;
     } else {

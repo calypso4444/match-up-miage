@@ -66,7 +66,7 @@ FOREIGN KEY(nArtiste) REFERENCES artiste (nArtiste)
 );
 
 CREATE TABLE `petiteAnnonce` (
-`nPetiteAnnonce` int(255) NOT NULL,
+`nPetiteAnnonce` int(255) NOT NULL AUTO_INCREMENT,
 `auteur` int(255) NOT NULL,
 `textePetiteAnnonce` varchar(255),
 `dateDeb` DATE NOT NULL,
@@ -77,7 +77,7 @@ FOREIGN KEY(auteur) REFERENCES salle (nSalle)
 );
 
 CREATE TABLE `annonceEvenementSalle` (
-`nAnnonceEvenementSalle` int(255) NOT NULL,
+`nAnnonceEvenementSalle` int(255) NOT NULL AUTO_INCREMENT,
 `auteur` int(255) NOT NULL,
 `texteAnnonceEvenementSalle` varchar(255),
 `dateEditionAnnonceEvenementSalle` timestamp,
@@ -95,7 +95,7 @@ FOREIGN KEY(auteur) REFERENCES salle (nSalle)
 );
 
 CREATE TABLE `commentaireSalle` (
-`nCommentaireSalle` int(255) NOT NULL,
+`nCommentaireSalle` int(255) NOT NULL AUTO_INCREMENT,
 `cible` int(255) NOT NULL,
 `texteCommentaireSalle` varchar(255),
 `dateEditionCommentaireSalle` timestamp,
@@ -106,7 +106,7 @@ FOREIGN KEY(auteur) REFERENCES utilisateur (id)
 );
 
 CREATE TABLE `commentaireArtiste` (
-`nCommentaireArtiste` int(255) NOT NULL,
+`nCommentaireArtiste` int(255) NOT NULL AUTO_INCREMENT,
 `cible` int(255) NOT NULL,
 `texteCommentaireArtiste` varchar(255),
 `dateEditionCommentaireArtiste` timestamp,
@@ -117,7 +117,7 @@ FOREIGN KEY(auteur) REFERENCES utilisateur (id)
 );
 
 CREATE TABLE `albumPhotoArtiste` (
-`nPhotoArtiste` int(255) NOT NULL,
+`nPhotoArtiste` int(255) NOT NULL AUTO_INCREMENT,
 `proprietaire` int(255) NOT NULL,
 `photoArtiste` varchar(255),
 KEY `nPhotoArtiste`(`nPhotoArtiste`),
@@ -125,7 +125,7 @@ FOREIGN KEY(proprietaire) REFERENCES artiste (nArtiste)
 );
 
 CREATE TABLE `albumPhotoSalle` (
-`nPhotoSalle` int(255) NOT NULL,
+`nPhotoSalle` int(255) NOT NULL AUTO_INCREMENT,
 `proprietaire` int(255) NOT NULL,
 `photoSalle` varchar(255),
 KEY `nPhotoSalle`(`nPhotoSalle`),
@@ -133,7 +133,7 @@ FOREIGN KEY(proprietaire) REFERENCES salle (nSalle)
 );
 
 CREATE TABLE `bibliothequeMusicale` (
-`nMorceau` int(255) NOT NULL,
+`nMorceau` int(255) NOT NULL AUTO_INCREMENT,
 `proprietaire` int(255) NOT NULL,
 `morceau` varchar(255),
 KEY `nMorceau`(`nMorceau`),
