@@ -35,9 +35,9 @@
                         echo "<img src=\"";
                         echo $commentaires['avatar'];
                         echo "\">";
-                        echo " " . $commentaires['pseudo'] . "</br>";
-                        echo $commentaires['texteCommentaireSalle'] . "</br>";
-                        echo $commentaires['dateEditionCommentaireSalle'] . "</br></br>";
+                        echo " " . $commentaires['pseudo'];
+                        echo " (" . $commentaires['dateEditionCommentaireSalle'] . ")</br>";
+                        echo $commentaires['texteCommentaireSalle'] . "</br></br>";
                     endforeach;
                     ?>
                 </div>
@@ -45,6 +45,7 @@
                     <input type="text" name="commentaire" placeholder="Taper votre commentaire ici"/>
                     <button type="submit" value="true" class="btn glyphicon glyphicon-pencil">Commenter</button>
                 </form>
+                </br>
             </div>
             <div id="acces">
                 <h4>L'accès : </h4>

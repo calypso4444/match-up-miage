@@ -1,7 +1,6 @@
 <!-- web -->
 
 <?php
-
 /* instanciation des fichiers de config + modele */
 
 include_once 'config/includeGlobal.php';
@@ -10,44 +9,47 @@ include_once 'config/includeGlobal.php';
 
 /* séquence du controleur */
 
-$noProfil=filter_input(INPUT_GET, 'tmp');
-$infoProfil=$model['GestionnaireProfil']->getAllInfo_Salle($noProfil);
-$nomProfil=$infoProfil['nomSalle'];
-$photoProfil=$infoProfil['photoProfilSalle'];
-$descProfil=$infoProfil['descriptionSalle'];
-$adresse=$infoProfil['adresseSalle'];
-$cp=$infoProfil['cpSalle'];
-$ville=$infoProfil['villeSalle'];
+$noProfil = filter_input(INPUT_GET, 'tmp');
+$infoProfil = $model['GestionnaireProfil']->getAllInfo_Salle($noProfil);
+$nomProfil = $infoProfil['nomSalle'];
+$photoProfil = $infoProfil['photoProfilSalle'];
+$descProfil = $infoProfil['descriptionSalle'];
+$adresse = $infoProfil['adresseSalle'];
+$cp = $infoProfil['cpSalle'];
+$ville = $infoProfil['villeSalle'];
 
 
-$id=$_SESSION['user']['id'];
+$id = $_SESSION['user']['id'];
 
-$favori=filter_input(INPUT_POST, 'favori');
-    if($favori==="true"){
-        $model['GestionnaireUtilisateur']->ajouterEnFavoriSalle($noProfil, $id);
-    }
+$favori = filter_input(INPUT_POST, 'favori');
+if ($favori === "true") {
+    $model['GestionnaireUtilisateur']->ajouterEnFavoriSalle($noProfil, $id);
+}
 
-    
-$petiteAnnonces=$model['GestionnaireAnnonce']->getAllPetiteAnnonceByIdSalle($noProfil);
-$commentaires=$model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($noProfil);
 
-$texte=filter_input(INPUT_POST,'commentaire');
-$model['GestionnaireCommentaire']->commenterSalle($noProfil, $id, $texte);
+$petiteAnnonces = $model['GestionnaireAnnonce']->getAllPetiteAnnonceByIdSalle($noProfil);
+$commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($noProfil);
+
+$texte = filter_input(INPUT_POST, 'commentaire');
+if (!empty($texte)) {
+    $model['GestionnaireCommentaire']->commenterSalle($noProfil, $id, $texte);
+    $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($noProfil);
+}
 
 /* fin de séquence */
 
 /* affichage de la vue */
 
 $vue = array();
-$vue['noProfil']=$noProfil;
-$vue['nomProfil']=$nomProfil;
-$vue['photoProfil']=$photoProfil;
-$vue['descProfil']=$descProfil;
-$vue['petiteAnnonce']=$petiteAnnonces;
-$vue['commentaire']=$commentaires;
-$vue['adresse']=$adresse;
-$vue['cp']=$cp;
-$vue['ville']=$ville;
+$vue['noProfil'] = $noProfil;
+$vue['nomProfil'] = $nomProfil;
+$vue['photoProfil'] = $photoProfil;
+$vue['descProfil'] = $descProfil;
+$vue['petiteAnnonce'] = $petiteAnnonces;
+$vue['commentaire'] = $commentaires;
+$vue['adresse'] = $adresse;
+$vue['cp'] = $cp;
+$vue['ville'] = $ville;
 $view->render('salle', $vue);
 
 /* fin de l'affichage de la vue */
