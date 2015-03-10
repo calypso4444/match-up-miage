@@ -40,7 +40,7 @@
                     endforeach;
                     ?>
                 </div>
-                <form id="commentaire" method="post" action="f_commentaire_artiste.php?tmp=<?php echo $vars['noProfil']; ?>">
+                <form id="commentaire" method="post" action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>">
                     <input type="text" name="commentaire" placeholder="Taper votre commentaire ici"/>
                     <button type="submit" class="btn glyphicon glyphicon-pencil">Commenter</button>
                 </form>
