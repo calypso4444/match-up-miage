@@ -180,6 +180,32 @@ class GestionnaireProfil extends Gestionnaire {
         }
     }
 
+    public function getAllPhotoSalleById($noProfil) {
+        $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['ALBUM_PHOTO_S'] . " WHERE proprietaire=$noProfil");
+        if ($reqm !== false) {
+            $photos = array();
+            while ($row = mysqli_fetch_assoc($reqm)) {
+                $photos[] = $row;
+            }
+            return $photos;
+        } else {
+            return null;
+        }
+    }
+
+    public function getAllPhotoArtisteById($noProfil) {
+        $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['ALBUM_PHOTO_A'] . " WHERE proprietaire=$noProfil");
+        if ($reqm !== false) {
+            $photos = array();
+            while ($row = mysqli_fetch_assoc($reqm)) {
+                $photos[] = $row;
+            }
+            return $photos;
+        } else {
+            return null;
+        }
+    }
+
 }
 
 ?>

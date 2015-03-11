@@ -172,6 +172,10 @@ h1, h2, h3{
     text-align: center;
 }
 
-aside.col-lg-4 {
+aside#parution.col-lg-4 {
 margin-left: -30px;
+}
+
+div#albumPhoto img{
+    max-height: 50px;
 }

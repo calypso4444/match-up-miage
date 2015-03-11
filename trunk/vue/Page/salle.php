@@ -30,10 +30,35 @@
     </div>
 
     <div id="contenu" class="col-lg-12">
-        <aside class="col-lg-4">
+        <aside id='parution'class="col-lg-4">
             <div id="albumPhoto">
                 <h4>Album photo de la salle : </h4></br>
+                <table class="table">
+                    <?php
+                    $compteur = 0;
+                    if ($vars['albumPhoto'] !== null) {
+                        foreach ($vars['albumPhoto'] as $albumPhoto):
+                            if ($compteur === 0) {
+                                echo '<tr>';
+                            }
+                            echo '<td>';
+                            echo "<img src=\"";
+                            echo $albumPhoto['photoSalle'];
+                            echo "\"></td>";
+                            $compteur++;
+                            if ($compteur === 3) {
+                                echo '</tr>';
+                                $compteur=0;
+                            }
+                        endforeach;
+                    } else {
+                        echo '</br>';
+                    }
+                    ?>
+                </table>
             </div>
+
+
             <div id="commentaire">
                 <h4>Les derniers commentaires : </h4></br>
                 <div>
