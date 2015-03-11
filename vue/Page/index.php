@@ -54,13 +54,13 @@
                 echo $vars['dernierCommentaireArtiste']['avatar'];
                 echo "\">";
                 echo $vars ['dernierCommentaireArtiste'] ['pseudo'] . " : ";
-                echo $vars['dernierCommentaireArtiste']['texteCommentaireArtiste'];
+                echo "<a href='artiste.php?tmp=" . $vars['dernierCommentaireArtiste']['cible'] . "'>" . $vars['dernierCommentaireArtiste']['texteCommentaireArtiste'] . "</a>";
             } else {
                 echo "<img src=\"";
                 echo $vars['dernierCommentaireSalle']['avatar'];
                 echo "\">";
                 echo $vars ['dernierCommentaireSalle'] ['pseudo'] . " : </br> ";
-                echo $vars['dernierCommentaireSalle']['texteCommentaireSalle'];
+                echo "<a href='salle.php?tmp=" . $vars['dernierCommentaireSalle']['cible'] . "'>" . $vars['dernierCommentaireSalle']['texteCommentaireSalle'] . "</a>";
             }
             ?>
         </div>
