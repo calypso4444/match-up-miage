@@ -68,6 +68,7 @@
             }
             ?>
         </div>
+        </br>
     </aside>
 
     <section id="salleDeLaSemaine" class="col-lg-4">
