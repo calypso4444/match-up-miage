@@ -61,6 +61,7 @@ body {
     background-color: #fff0d9;
     margin :auto; /*a virer des que possible (bootstrap)*/
     width: 80%; /*a virer des que possible (bootstrap)*/
+    font-family: din;
 }
 
 div#photoProfil{
@@ -94,6 +95,7 @@ div#commentaire{
 
 #banner{
     border-bottom: solid 4px black;
+    margin-right: -15px;
 }
 
 img{
@@ -127,10 +129,7 @@ ul{
     float: none !important;
 }
 
-div#menuConnexion img{
-    max-height: 150px;
 
-}
 
 
 
