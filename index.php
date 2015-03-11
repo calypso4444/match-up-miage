@@ -21,6 +21,8 @@ if ($lastA != null and $lastS !== null) {
     }
 }
 
+$evenements=$model['GestionnaireConcert']->getEvenementsLesPlusSuivis();
+
 /* fin de séquence */
 
 /* affichage de la vue */
@@ -28,6 +30,7 @@ if ($lastA != null and $lastS !== null) {
 $vue = array();
 $vue['dernierCommentaireArtiste'] = $lastA;
 $vue['dernierCommentaireSalle'] = $lastS;
+$vue['evenements']=$evenements;
 $view->render('index', $vue);
 
 /* fin de l'affichage de la vue */

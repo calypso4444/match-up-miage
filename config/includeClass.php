@@ -11,12 +11,14 @@ include_once 'modele/GestionnaireProfil.php';
 include_once 'modele/GestionnaireCarte.php';
 include_once 'modele/GestionnaireCommentaire.php';
 include_once 'modele/GestionnaireAnnonce.php';
+include_once 'modele/GestionnaireConcert.php';
 
 $model = array();
 $model['GestionnaireUtilisateur'] = new GestionnaireUtilisateur();
 $model['GestionnaireProfil'] = new GestionnaireProfil();
 $model['GestionnaireAnnonce'] = new GestionnaireAnnonce();
 $model['GestionnaireCommentaire'] = new GestionnaireCommentaire();
+$model['GestionnaireConcert'] = new GestionnaireConcert();
 
 /* view File */
 
