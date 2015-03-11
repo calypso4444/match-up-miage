@@ -29,6 +29,15 @@ if (!empty($texte)) {
     $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdArtiste($noProfil);
 }
 
+$nCom = filter_input(INPUT_GET, 'nCom');
+$remove = filter_input(INPUT_POST, 'remove');
+if ($remove === "true") {
+    if ($model['GestionnaireCommentaire']->estProprietaireCommentaireArtiste($nCom, $id)) {
+        $model['GestionnaireCommentaire']->supprimerCommentaireArtiste($nCom);
+    }
+}
+$commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdArtiste($noProfil);
+
 /* fin de séquence */
 
 /* affichage de la vue */

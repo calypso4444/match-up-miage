@@ -36,6 +36,15 @@ if (!empty($texte)) {
     $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($noProfil);
 }
 
+$nCom= filter_input(INPUT_GET, 'nCom');
+$remove = filter_input(INPUT_POST, 'remove');
+if ($remove === "true") {
+    if ($model['GestionnaireCommentaire']->estProprietaireCommentaireSalle($nCom, $id)) {
+        $model['GestionnaireCommentaire']->supprimerCommentaireSalle($nCom);
+    }
+}
+$commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($noProfil);
+
 /* fin de séquence */
 
 /* affichage de la vue */

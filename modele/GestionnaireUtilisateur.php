@@ -82,11 +82,15 @@ class GestionnaireUtilisateur extends Gestionnaire {
     public function getUsersEnValidation() {
         //on recupere tous les tuples de la table validation
         $quete = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['VALIDATION'] . "");
-        $usersValidation = array();
-        while ($validation = mysqli_fetch_array($quete)) {
-            $usersValidation[] = $validation;
+        if ($quete !== false) {
+            $usersValidation = array();
+            while ($validation = mysqli_fetch_array($quete)) {
+                $usersValidation[] = $validation;
+            }
+            return $usersValidation;
+        } else {
+            return null;
         }
-        return $usersValidation;
     }
 
     public function setMail($id, $mail) {
@@ -146,20 +150,28 @@ class GestionnaireUtilisateur extends Gestionnaire {
 
     public function getAllFavoris_Artiste($id) {
         $req = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['FAVORI_A'] . " F INNER JOIN " . $GLOBALS['DB_TABLE']['ARTISTE'] . " A  ON A.nArtiste=F.cible WHERE F.proprietaire=$id ; ");
-        $favoris = array();
-        while ($row = mysqli_fetch_assoc($req)) {
-            $favoris[] = $row;
+        if ($req !== false) {
+            $favoris = array();
+            while ($row = mysqli_fetch_assoc($req)) {
+                $favoris[] = $row;
+            }
+            return $favoris;
+        } else {
+            return null;
         }
-        return $favoris;
     }
 
     public function getAllFavoris_Salle($id) {
         $req = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['FAVORI_S'] . " F INNER JOIN " . $GLOBALS['DB_TABLE']['SALLE'] . " S  ON S.nSalle=F.cible WHERE F.proprietaire=$id ; ");
-        $favoris = array();
-        while ($row = mysqli_fetch_assoc($req)) {
-            $favoris[] = $row;
+        if ($req !== false) {
+            $favoris = array();
+            while ($row = mysqli_fetch_assoc($req)) {
+                $favoris[] = $row;
+            }
+            return $favoris;
+        } else {
+            return null;
         }
-        return $favoris;
     }
 
     public function getAll_EvenementsSuivis($id) {
@@ -170,11 +182,15 @@ class GestionnaireUtilisateur extends Gestionnaire {
                 . " INNER JOIN " . $GLOBALS['DB_TABLE']['SALLE'] . " S  ON S.nSalle=C.nSalle "
                 . " INNER JOIN " . $GLOBALS['DB_TABLE']['ARTISTE'] . " A  ON A.nArtiste=C.nArtiste "
                 . " WHERE E.proprietaire=$id ; ");
-        $suivis = array();
-        while ($row = mysqli_fetch_assoc($req)) {
-            $suivis[] = $row;
+        if ($req !== false) {
+            $suivis = array();
+            while ($row = mysqli_fetch_assoc($req)) {
+                $suivis[] = $row;
+            }
+            return $suivis;
+        } else {
+            return null;
         }
-        return $suivis;
     }
 
     public function test() {

@@ -30,15 +30,19 @@
                 <h4>Les derniers commentaires : </h4></br>
                 <div>
                     <?php
-                    foreach ($vars['commentaire'] as $commentaires):
-                        echo "<tr>";
-                        echo "<img src=\"";
-                        echo $commentaires['avatar'];
-                        echo "\">";
-                        echo " " . $commentaires['pseudo']." : </br>";
-                        echo $commentaires['texteCommentaireSalle'] . "</br></br>";
-                    endforeach;
+                    if ($vars['commentaire'] !== null) {
+                        foreach ($vars['commentaire'] as $commentaires):
+                            echo "<tr>";
+                            echo "<img src=\"";
+                            echo $commentaires['avatar'];
+                            echo "\">";
+                            echo " " . $commentaires['pseudo'] . " : ";
+                            echo "<form action='salle.php?tmp=" . $vars['noProfil'] . "&nCom=" . $commentaires['nCommentaireSalle'] . "' method='post'><button type='submit' name='remove' value='true' class='btn glyphicon glyphicon-remove'></button></form>";
+                            echo $commentaires['texteCommentaireSalle'] . "</br></br>";
+                        endforeach;
+                    }
                     ?>
+
                 </div>
                 <form id="commentaire" method="post" action="salle.php?tmp=<?php echo $vars['noProfil']; ?>">
                     <input type="text" name="commentaire" placeholder="Taper votre commentaire ici"/>
@@ -63,15 +67,17 @@
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($vars['petiteAnnonce'] as $petiteAnnonce):
-                            echo '<tr>';
-                            echo "<td class='col-lg-3'>" . $petiteAnnonce['textePetiteAnnonce'] . "</td>";
-                            echo '<td>'
-                            . '<a class="btn" href="supprimer_petiteAnnonce.php?nPetiteAnnonce=' . $petiteAnnonce['nPetiteAnnonce'] . '">Supprimer</a>'
-                            . '<a class="btn btn-danger" href="repondre.php?nPetiteAnnonce=' . $petiteAnnonce['nPetiteAnnonce'] . '">Répondre à cette annonce</a>'
-                            . '</td>';
-                            echo '</tr>';
-                        endforeach;
+                        if ($vars['petiteAnnonce'] !== null) {
+                            foreach ($vars['petiteAnnonce'] as $petiteAnnonce):
+                                echo '<tr>';
+                                echo "<td class='col-lg-3'>" . $petiteAnnonce['textePetiteAnnonce'] . "</td>";
+                                echo '<td>'
+                                . '<a class="btn" href="supprimer_petiteAnnonce.php?nPetiteAnnonce=' . $petiteAnnonce['nPetiteAnnonce'] . '">Supprimer</a>'
+                                . '<a class="btn btn-danger" href="repondre.php?nPetiteAnnonce=' . $petiteAnnonce['nPetiteAnnonce'] . '">Répondre à cette annonce</a>'
+                                . '</td>';
+                                echo '</tr>';
+                            endforeach;
+                        }
                         ?>
                     </tbody>
                 </table>
