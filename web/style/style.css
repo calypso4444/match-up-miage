@@ -56,12 +56,17 @@ body{
 }
 
 */
+@font-face {
+	font-family: 'amatic';
+	src : url('../fonts/AmaticSC-Regular.ttf') format('truetype');
+	font-style: normal;
+}
 
 body {
     background-color: #fff0d9;
     margin :auto; /*a virer des que possible (bootstrap)*/
     width: 80%; /*a virer des que possible (bootstrap)*/
-    font-family: din;
+    font-family: amatic;
 }
 
 div#photoProfil{
