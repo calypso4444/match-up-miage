@@ -17,6 +17,13 @@
         <script type="text/javascript" language="Javascript" src="web/js/verificationArtiste.js"></script>
         <script type="text/javascript" language="Javascript" src="web/js/verificationSalle.js"></script>
         
+        
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=fr"></script>
+        <script type="text/javascript" language="Javascript" src="web/js/gmap3.js"></script>
+        <script type="text/javascript" language="Javascript" src="web/js/map.js"></script>
+        
+        
+        
     </head>
 
     <body>
