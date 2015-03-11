@@ -48,14 +48,14 @@
         <p><h3>Dernier commentaire mis en ligne</h3> <p>
         <div id='commentaire'>
             <?php
-            //on affiche le dernier commentaire, cad celui des deux qui n'est pas null
+            //on affiche le dernier commentaire, cad celui des deux qui n'est pas null ou rien si il n'y a pas de commentaires dans la bdd
             if ($vars['dernierCommentaireArtiste'] !== null) {
                 echo "<img src=\"";
                 echo $vars['dernierCommentaireArtiste']['avatar'];
                 echo "\">";
                 echo $vars ['dernierCommentaireArtiste'] ['pseudo'] . " : ";
                 echo "<a href='artiste.php?tmp=" . $vars['dernierCommentaireArtiste']['cible'] . "'>" . $vars['dernierCommentaireArtiste']['texteCommentaireArtiste'] . "</a>";
-            } else {
+            } if ($vars['dernierCommentaireSalle'] !== null) {
                 echo "<img src=\"";
                 echo $vars['dernierCommentaireSalle']['avatar'];
                 echo "\">";
