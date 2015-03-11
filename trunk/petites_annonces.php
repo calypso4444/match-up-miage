@@ -10,12 +10,14 @@ include_once 'config/includeGlobal.php';
 
 /* séquence du controleur */
 
+$annonces=$model['GestionnaireAnnonce']->getAllPetiteAnnonce();
 
 /* fin de séquence */
 
 /* affichage de la vue */
 
 $vue = array();
+$vue['annonces']=$annonces;
 $view->render('petites_annonces', $vue);
 
 /* fin de l'affichage de la vue */
