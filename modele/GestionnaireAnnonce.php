@@ -20,7 +20,7 @@ class GestionnaireAnnonce extends Gestionnaire {
                 . " FROM " . $GLOBALS['DB_TABLE']['PETITE_ANNONCE'] . " P "
                 . " INNER JOIN " . $GLOBALS['DB_TABLE']['SALLE'] . " S "
                 . " ON S.nSalle=auteur "
-                . " ORDER BY dateEditionPetiteAnnonce; ");
+                . " ORDER BY dateEditionPetiteAnnonce DESC; ");
         if ($reqm !== false) {
             $annonces = array();
             while ($row = mysqli_fetch_assoc($reqm)) {
