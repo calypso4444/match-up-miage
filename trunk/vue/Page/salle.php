@@ -30,7 +30,7 @@
     </div>
 
     <div id="contenu" class="col-lg-12">
-        <aside class="col-lg-3">
+        <aside class="col-lg-4">
             <div id="albumPhoto">
                 <h4>Album photo de la salle : </h4></br>
             </div>
@@ -62,11 +62,10 @@
             </div>
             <div id="acces">
                 <h4>L'accès : </h4>
-                <?php echo $vars['adresse'] . " " . $vars['cp'] . " " . $vars['ville']; ?>
-                                <div id="map-canvas"></div>
+                <div id="map-canvas"></div>
             </div>
         </aside>
-        <section class="col-lg-9">
+        <section class="col-lg-8">
             <h4>Le fil d'actualité : </h4></br>
             <div id="annonceEvenement">
 
