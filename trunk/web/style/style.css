@@ -103,12 +103,11 @@ img{
 
 
 #map-canvas {
-	width: 230px;
-	height: 200px;
-	background-color : #CCC;	
+    width: 230px;
+    height: 200px;
+    background-color : #CCC;	
 }
 
-div#commentaire img{
 
 div#texteCommentaire img{
 
@@ -136,13 +135,13 @@ div#menuConnexion img{
 
 }
 
-}
+
 
 div#texteCommentaire{
     background-color: #494949;
     border-radius: 10px 0;
     color:white;
-    
+
 }
 
 div#texteCommentaire a {
@@ -155,3 +154,6 @@ div#texteCommentaire form {
     height:10px;
 }
 
+h1, h2, h3{
+    font-weight: bold;
+}
