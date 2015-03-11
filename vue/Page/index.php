@@ -59,8 +59,7 @@
                 echo "<img src=\"";
                 echo $vars['dernierCommentaireSalle']['avatar'];
                 echo "\">";
-                echo $vars ['dernierCommentaireSalle'] ['pseudo'] . " ";
-                echo "(" . $vars['dernierCommentaireSalle'] ['dateEditionCommentaireSalle'] . ") : ";
+                echo $vars ['dernierCommentaireSalle'] ['pseudo'] . " : </br> ";
                 echo $vars['dernierCommentaireSalle']['texteCommentaireSalle'];
             }
             ?>
