@@ -71,7 +71,7 @@ class GestionnaireUtilisateur extends Gestionnaire {
         $pseudo = $connexion['pseudo'];
         $passe = $connexion['passe'];
         $email = $connexion['email'];
-        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['CONNEXION'] . " (pseudo,passe,email,dateInscription) VALUES('$pseudo', '$passe', '$email',NOW());");
+        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['CONNEXION'] . " (pseudo,passe,email,dateInscription,avatar) VALUES('$pseudo', '$passe', '$email',NOW(),'web/image/avatar.png');");
         $this->refuser($id);
     }
 

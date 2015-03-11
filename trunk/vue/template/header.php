@@ -6,13 +6,7 @@
     <div id='menuConnexion' class="col-lg-2">
         <?php if (isset($_SESSION['user'])) : ?>
             <img src="
-            <?php
-            if ($_SESSION['user']['avatar'] !== null) {
-                echo $_SESSION['user']['avatar'];
-            } else {
-                echo'web/image/avatar.png';
-            }
-            ?>
+            <?php echo $_SESSION['user']['avatar']; ?>
                  " alt="avatar"/>
             <a href="f_mes_profils.php" class="glyphicon glyphicon-user"> mes profils </a></br>
             <a href="f_info_perso.php" class="glyphicon glyphicon-cog"> mes infos perso </a></br>
