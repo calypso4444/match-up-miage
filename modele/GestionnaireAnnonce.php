@@ -16,7 +16,7 @@ class GestionnaireAnnonce extends Gestionnaire {
     }
 
     public function getAllPetiteAnnonce() {
-        $reqm = mysqli_query($this->link, " SELECT nPetiteAnnonce, auteur,textePetiteAnnonce, dateDeb, dateFin,dateEditionPetiteAnnonce, nomSalle "
+        $reqm = mysqli_query($this->link, " SELECT nPetiteAnnonce, auteur,textePetiteAnnonce, dateDeb, dateFin,dateEditionPetiteAnnonce, nomSalle, photoProfilSalle "
                 . " FROM " . $GLOBALS['DB_TABLE']['PETITE_ANNONCE'] . " P "
                 . " INNER JOIN " . $GLOBALS['DB_TABLE']['SALLE'] . " S "
                 . " ON S.nSalle=auteur "
