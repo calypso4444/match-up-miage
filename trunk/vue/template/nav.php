@@ -1,4 +1,4 @@
-<nav >
+<nav>
 
     <ul class="menu navbar nav-tabs nav col-lg-12">
         <li class="text-center"><a href="index.php">Accueil</a></li>
