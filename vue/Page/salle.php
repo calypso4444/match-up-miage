@@ -32,14 +32,13 @@
                     <?php
                     if ($vars['commentaire'] !== null) {
                         foreach ($vars['commentaire'] as $commentaires):
-                            echo"<div id='texteCommentaire'>";
-                            echo "<form action='salle.php?tmp=" . $vars['noProfil'] . "&nCom=" . $commentaires['nCommentaireSalle'] . "' method='post'><button type='submit' name='remove' value='true' class='btn glyphicon glyphicon-remove'></button></form>";
+                            echo "<tr>";
                             echo "<img src=\"";
                             echo $commentaires['avatar'];
                             echo "\">";
-                            echo " " . $commentaires['pseudo'] . " : </br>";
-                            echo $commentaires['texteCommentaireSalle'];
-                            echo "</div></br>";
+                            echo " " . $commentaires['pseudo'] . " : ";
+                            echo "<form action='salle.php?tmp=" . $vars['noProfil'] . "&nCom=" . $commentaires['nCommentaireSalle'] . "' method='post'><button type='submit' name='remove' value='true' class='btn glyphicon glyphicon-remove'></button></form>";
+                            echo $commentaires['texteCommentaireSalle'] . "</br></br>";
                         endforeach;
                     }
                     ?>
@@ -54,7 +53,7 @@
             <div id="acces">
                 <h4>L'accès : </h4>
                 <?php echo $vars['adresse'] . " " . $vars['cp'] . " " . $vars['ville']; ?>
-				<input id="adresse" type="hidden" value="<?php echo $vars['adresse']; ?>"></input>
+				<input id="adresse" type="hidden" value="<?php echo $vars['adresse'] . " " . $vars['cp'] . " " . $vars['ville']; ?>"></input>
 				<div id="map-canvas"></div>
             </div>
         </aside>
