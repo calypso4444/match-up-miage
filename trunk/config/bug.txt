@@ -3,3 +3,8 @@
 -insertion des images tout format dans la bdd[resolu]
 -fixation taille nav et avatar?
 -redimensionnement des images insérées
+
+
+
+<!-- 11/03 -->
+- Problème lors de la suppression de commentaire depuis la page artiste
