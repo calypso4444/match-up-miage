@@ -3,12 +3,12 @@
 <div id="bloc1" class="col-lg-12"style="border-bottom: solid black 1px">
     <div id="musique" class="col-lg-4" style="border-right: solid black 1px;">
         <section id="evenementAttendus" style="border-bottom: solid black 1px">
-            <p><h3>&Eacute;v&egrave;nements les plus attendus</h3> <p>
+            <h3>&Eacute;v&egrave;nements les plus attendus</h3>
                 <input type="submit" value="+" />
         </section>
 
         <section id="selectionRandom">
-            <p><h3>S&eacute;lection random</h3> <p>
+            <h3>S&eacute;lection random</h3>
             <div id='player'>
                 <!--a supprimer-->
                 <audio controls
@@ -36,7 +36,7 @@
 
 <div id="bloc2" class="col-lg-12" style="">
     <section class="col-lg-8" style="border-right: solid black 1px">
-        <p><h2>Ce soir &agrave; Paris</h2></p>
+        <h2>Ce soir &agrave; Paris</h2>
         <div id='map'>
             <img src="web/image/map.png" alt="map" />
         </div>
@@ -45,7 +45,7 @@
     </section>
 
     <aside class="col-lg-4" style="border-bottom: solid black 1px">
-        <p><h3>Dernier commentaire mis en ligne</h3> <p>
+        <h3>Dernier commentaire mis en ligne</h3>
         <div id='texteCommentaire'>
             <?php
             //on affiche le dernier commentaire, cad celui des deux qui n'est pas null ou rien si il n'y a pas de commentaires dans la bdd
@@ -71,7 +71,7 @@
     </aside>
 
     <section id="salleDeLaSemaine" class="col-lg-4">
-        <p><h3>Salle de la semaine</h3> <p>
+        <h3>Salle de la semaine</h3>
     </section>
 
 </div>

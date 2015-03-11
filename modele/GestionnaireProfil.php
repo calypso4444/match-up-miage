@@ -18,135 +18,168 @@ class GestionnaireProfil extends Gestionnaire {
 
     public function getAllInfo_Artiste($noProfil) {
         $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['ARTISTE'] . " WHERE nArtiste='$noProfil'");
-        $row = mysqli_fetch_assoc($reqm);
-        return $row != null ? $row : null;
+        if ($reqm !== false) {
+            $row = mysqli_fetch_assoc($reqm);
+            return $row != null ? $row : null;
+        } else {
+            return null;
+        }
     }
-    
+
     public function supprimerArtiste($nArtiste, $idProprietaire) {
-        if(mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['ARTISTE'] . " WHERE nArtiste=$nArtiste AND proprietaireArtiste=$idProprietaire")) {
+        if (mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['ARTISTE'] . " WHERE nArtiste=$nArtiste AND proprietaireArtiste=$idProprietaire")) {
             mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['FAVORI_A'] . " WHERE cible='$nArtiste'");
         }
     }
-    
+
     public function supprimerSalle($nSalle, $idProprietaire) {
-        if(mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " WHERE nSalle=$nSalle AND proprietaireSalle=$idProprietaire")) {
+        if (mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " WHERE nSalle=$nSalle AND proprietaireSalle=$idProprietaire")) {
             mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['FAVORI_S'] . " WHERE cible='$nSalle'");
         }
     }
 
     public function getAllInfo_Salle($noProfil) {
         $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " WHERE nSalle='$noProfil'");
-        $row = mysqli_fetch_assoc($reqm);
-        return $row != null ? $row : null;
+        if ($reqm !== false) {
+            $row = mysqli_fetch_assoc($reqm);
+            return $row != null ? $row : null;
+        } else {
+            return null;
+        }
     }
 
     public function getAllProfil_ArtisteById($id) {
         $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['ARTISTE'] . " WHERE proprietaireArtiste=$id");
-        $profils = array();
-        while ($row = mysqli_fetch_assoc($reqm)) {
-            $profils[] = $row;
+        if ($reqm !== false) {
+            $profils = array();
+            while ($row = mysqli_fetch_assoc($reqm)) {
+                $profils[] = $row;
+            }
+            return $profils;
+        } else {
+            return null;
         }
-        return $profils;
     }
 
     public function getAllProfil_SalleById($id) {
         $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " WHERE proprietaireSalle=$id");
-        $profils = array();
-        while ($row = mysqli_fetch_assoc($reqm)) {
-            $profils[] = $row;
+        if ($reqm !== false) {
+            $profils = array();
+            while ($row = mysqli_fetch_assoc($reqm)) {
+                $profils[] = $row;
+            }
+            return $profils;
+        } else {
+            return null;
         }
-        return $profils;
     }
 
     public function getAllProfil_Artiste() {
         $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['ARTISTE'] . "");
-        $profils = array();
-        while ($row = mysqli_fetch_assoc($reqm)) {
-            $profils[] = $row;
+        if ($reqm !== false) {
+            $profils = array();
+            while ($row = mysqli_fetch_assoc($reqm)) {
+                $profils[] = $row;
+            }
+            return $profils;
+        } else {
+            return null;
         }
-        return $profils;
     }
 
     public function getAllProfil_Salle() {
         $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['SALLE'] . "");
-        $profils = array();
-        while ($row = mysqli_fetch_assoc($reqm)) {
-            $profils[] = $row;
+        if ($reqm !== false) {
+            $profils = array();
+            while ($row = mysqli_fetch_assoc($reqm)) {
+                $profils[] = $row;
+            }
+            return $profils;
+        } else {
+            return null;
         }
-        return $profils;
     }
 
-    public function setNomArtiste($noprofil,$nom){
+    public function setNomArtiste($noprofil, $nom) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['ARTISTE'] . " SET nomArtiste='$nom' WHERE nArtiste = $noprofil;");
     }
-    
-    public function setDescriptionArtiste($noprofil,$desc){
+
+    public function setDescriptionArtiste($noprofil, $desc) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['ARTISTE'] . " SET descriptionArtiste='$desc' WHERE nArtiste = $noprofil;");
     }
-    
-    public function setphotoProfilArtiste($noprofil,$path){
+
+    public function setphotoProfilArtiste($noprofil, $path) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['ARTISTE'] . " SET photoProfilArtiste='$path' WHERE nArtiste = $noprofil;");
     }
-    
-    public function setGenreMusicalArtiste($noprofil,$genre){
+
+    public function setGenreMusicalArtiste($noprofil, $genre) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['ARTISTE'] . " SET genreMusicalArtiste='$genre' WHERE nArtiste = $noprofil;");
     }
-    
-    public function setNomSalle($noprofil,$nom){
+
+    public function setNomSalle($noprofil, $nom) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET nomSalle='$nom' WHERE nSalle = $noprofil;");
     }
-    
-    public function setDescriptionSalle($noprofil,$desc){
+
+    public function setDescriptionSalle($noprofil, $desc) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET descriptionSalle='$desc' WHERE nSalle = $noprofil;");
     }
-    
-    public function setphotoProfilSalle($noprofil,$path){
+
+    public function setphotoProfilSalle($noprofil, $path) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET photoProfilSalle='$path' WHERE nSalle = $noprofil;");
     }
-    
-    public function setGenreMusicalSalle($noprofil,$genre){
+
+    public function setGenreMusicalSalle($noprofil, $genre) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET genreMusicalSalle='$genre' WHERE nSalle = $noprofil;");
     }
-    
-    public function setAdresseSalle($noprofil,$adresse){
+
+    public function setAdresseSalle($noprofil, $adresse) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET adresseSalle='$adresse' WHERE nSalle = $noprofil;");
     }
-    
-    public function settelSalle($noprofil,$tel){
+
+    public function settelSalle($noprofil, $tel) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET telSalle='$tel' WHERE nSalle = $noprofil;");
     }
-    
-    public function setNomGerant($noprofil,$nom){
+
+    public function setNomGerant($noprofil, $nom) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET nomGerant='$nom' WHERE nSalle = $noprofil;");
     }
-    
-    public function setPrenomGerant($noprofil,$prenom){
+
+    public function setPrenomGerant($noprofil, $prenom) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET prenomGerant='$prenom' WHERE nSalle = $noprofil;");
     }
-    
-    public function setContactGerant($noprofil,$contact){
+
+    public function setContactGerant($noprofil, $contact) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET contactGerant='$contact' WHERE nSalle = $noprofil;");
     }
-    
-    public function setCpSalle($noprofil,$cpSalle){
+
+    public function setCpSalle($noprofil, $cpSalle) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET cpSalle='$cpSalle' WHERE nSalle = $noprofil;");
     }
-    
-    public function setVilleSalle($noprofil,$villeSalle){
+
+    public function setVilleSalle($noprofil, $villeSalle) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET villeSalle='$villeSalle' WHERE nSalle = $noprofil;");
     }
-    
+
     public function estProprietaireProfilSalle($nProfil, $id) {
         $reqm = mysqli_query($this->link, "SELECT COUNT(*) AS nb FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " WHERE nSalle=$nProfil AND proprietaireSalle=$id");
-        $row = mysqli_fetch_assoc($reqm);
-        return $row['nb'] > 0 ? true : false;
+        if ($reqm !== false) {
+            $row = mysqli_fetch_assoc($reqm);
+            return $row['nb'] > 0 ? true : false;
+        } else {
+            return false;
+        }
     }
-    
+
     public function estProprietaireProfilArtiste($nProfil, $id) {
         $reqm = mysqli_query($this->link, "SELECT COUNT(*) AS nb FROM " . $GLOBALS['DB_TABLE']['ARTISTE'] . " WHERE nArtiste=$nProfil AND proprietaireArtiste=$id");
-        $row = mysqli_fetch_assoc($reqm);
-        return $row['nb'] > 0 ? true : false;
+        if ($reqm !== false) {
+            $row = mysqli_fetch_assoc($reqm);
+            return $row['nb'] > 0 ? true : false;
+        } else {
+            return false;
+        }
     }
+
 }
 
 ?>
