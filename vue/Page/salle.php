@@ -1,7 +1,7 @@
 <!-- vue/page -->
 
 <div class="col-lg-12">
-
+	
     <h1><?php echo $vars['nomProfil']; ?></h1>
 
     <div id="photoProfil" class="col-lg-12">
@@ -54,6 +54,8 @@
             <div id="acces">
                 <h4>L'accès : </h4>
                 <?php echo $vars['adresse'] . " " . $vars['cp'] . " " . $vars['ville']; ?>
+				<input id="adresse" type="hidden" value="<?php echo $vars['adresse']; ?>"></input>
+				<div id="map-canvas"></div>
             </div>
         </aside>
         <section class="col-lg-9">
