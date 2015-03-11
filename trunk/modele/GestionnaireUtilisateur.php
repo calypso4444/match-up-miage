@@ -26,32 +26,52 @@ class GestionnaireUtilisateur extends Gestionnaire {
 
     private function getUserByMail($mail, $motDePasse) {
         $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE email='$mail' AND passe='$motDePasse'");
-        $row = mysqli_fetch_assoc($reqm);
-        return $row['id'] != null ? $row : null;
+        if ($reqm !== false) {
+            $row = mysqli_fetch_assoc($reqm);
+            return $row['id'] != null ? $row : null;
+        } else {
+            return null;
+        }
     }
 
     private function getUserById($id) {
         $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE id='$id'");
-        $row = mysqli_fetch_assoc($reqm);
-        return $row['id'] != null ? $row : null;
+        if ($reqm !== false) {
+            $row = mysqli_fetch_assoc($reqm);
+            return $row['id'] != null ? $row : null;
+        } else {
+            return null;
+        }
     }
 
     private function getUserByPseudo($pseudo, $motDePasse) {
         $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE pseudo='$pseudo' AND passe='$motDePasse'");
-        $row = mysqli_fetch_assoc($reqm);
-        return $row['id'] != null ? $row : null;
+        if ($reqm !== false) {
+            $row = mysqli_fetch_assoc($reqm);
+            return $row['id'] != null ? $row : null;
+        } else {
+            return null;
+        }
     }
 
     public function existeDejaMail($mail) {
         $reqm = mysqli_query($this->link, "SELECT COUNT(*) AS nbm FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE email='$mail'");
-        $row = mysqli_fetch_assoc($reqm);
-        return $row['nbm'] > 0 ? true : false;
+        if ($reqm !== false) {
+            $row = mysqli_fetch_assoc($reqm);
+            return $row['nbm'] > 0 ? true : false;
+        } else {
+            return false;
+        }
     }
 
     public function existeDejaPseudo($pseudo) {
         $reqp = mysqli_query($this->link, "SELECT COUNT(*) AS nbp FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE pseudo='$pseudo'");
-        $row = mysqli_fetch_assoc($reqp);
-        return $row['nbp'] > 0 ? true : false;
+        if ($reqm !== false) {
+            $row = mysqli_fetch_assoc($reqp);
+            return $row['nbp'] > 0 ? true : false;
+        } else {
+            return false;
+        }
     }
 
     public function motDePasseProvisioire($mail) {
