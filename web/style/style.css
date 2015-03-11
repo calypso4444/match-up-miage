@@ -67,8 +67,8 @@ body {
 div#photoProfil{
     border: solid black 1px;
     min-height: 300px;
-
 }
+
 div#description{
     border: solid black 1px;
     height: 100px;
@@ -164,4 +164,8 @@ div#texteCommentaire form {
 h1, h2, h3{
     font-weight: bold;
     text-align: center;
+}
+
+aside.col-lg-4 {
+margin-left: -30px;
 }
