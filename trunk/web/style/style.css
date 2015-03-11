@@ -100,7 +100,7 @@ img{
     width :100%;
 }
 
-<<<<<<< .mine
+
 
 #map-canvas {
 	width: 230px;
@@ -109,9 +109,9 @@ img{
 }
 
 div#commentaire img{
-=======
+
 div#texteCommentaire img{
->>>>>>> .r323
+
     height:20px;
     width :20px;
 }
@@ -133,9 +133,9 @@ ul{
 
 div#menuConnexion img{
     max-height: 150px;
-<<<<<<< .mine
+
 }
-=======
+
 }
 
 div#texteCommentaire{
@@ -155,4 +155,3 @@ div#texteCommentaire form {
     height:10px;
 }
 
->>>>>>> .r323
