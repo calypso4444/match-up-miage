@@ -52,7 +52,7 @@
             if ($vars['dernierCommentaireArtiste'] !== null) {
                 echo "<img src=\"";
                 echo $vars['dernierCommentaireArtiste']['avatar'];
-                echo "\"> ";
+                echo "\" > ";
                 echo $vars ['dernierCommentaireArtiste'] ['pseudo'] . " : </br>";
                 echo "<a href='artiste.php?tmp=" . $vars['dernierCommentaireArtiste']['cible'] . "'>" . $vars['dernierCommentaireArtiste']['texteCommentaireArtiste'] . "</a>";
                 echo"</br>";
