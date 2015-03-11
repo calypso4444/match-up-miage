@@ -38,6 +38,8 @@ if ($remove === "true") {
 }
 $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdArtiste($noProfil);
 
+$albumPhoto = $model['GestionnaireProfil']->getAllPhotoArtisteById($noProfil);
+
 /* fin de séquence */
 
 /* affichage de la vue */
@@ -47,6 +49,7 @@ $vue['noProfil'] = $noProfil;
 $vue['nomProfil'] = $nomProfil;
 $vue['photoProfil'] = $photoProfil;
 $vue['descProfil'] = $descProfil;
+$vue['albumPhoto'] = $albumPhoto;
 $vue['commentaire'] = $commentaires;
 $view->render('artiste', $vue);
 

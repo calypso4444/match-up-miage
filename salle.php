@@ -45,6 +45,8 @@ if ($remove === "true") {
 }
 $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($noProfil);
 
+$albumPhoto=$model['GestionnaireProfil']->getAllPhotoSalleById($noProfil);
+
 /* fin de séquence */
 
 /* affichage de la vue */
@@ -54,6 +56,7 @@ $vue['noProfil'] = $noProfil;
 $vue['nomProfil'] = $nomProfil;
 $vue['photoProfil'] = $photoProfil;
 $vue['descProfil'] = $descProfil;
+$vue['albumPhoto']=$albumPhoto;
 $vue['petiteAnnonce'] = $petiteAnnonces;
 $vue['commentaire'] = $commentaires;
 $vue['adresse'] = $adresse;
