@@ -13,7 +13,7 @@ class GestionnaireConcert extends Gestionnaire {
                 . " ON A.nArtiste=C.nArtiste"
                 . " INNER JOIN " . $GLOBALS['DB_TABLE']['SALLE'] . " S "
                 . " ON S.nSalle=C.nSalle "
-                . " ORDER BY nbrSuivi;");
+                . " ORDER BY nbrSuivi DESC;");
         if ($req !== false) {
             $concerts = array();
             while ($row = mysqli_fetch_assoc($req)) {

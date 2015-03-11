@@ -6,25 +6,25 @@
             <h3>&Eacute;v&egrave;nements les plus attendus</h3>
             <?php
             $compteur = 1;
-            if ($vars['evenements']!==null){
+            if ($vars['evenements'] !== null) {
 
-                foreach ($vars['evenements'] as $evenements ) :
-                if ($compteur > 5) {
-                break;
-                }
-                        echo $compteur . ". ";
-                $compteur++;
-                echo$evenements['nomSalle'];
-                echo' - ';
-                echo$evenements['nomArtiste'];
-                echo' ( ';
-                echo$evenements['dateConcert'];
-                echo' )</br>';
-            endforeach;
+                foreach ($vars['evenements'] as $evenements) :
+                    if ($compteur > 5) {
+                        break;
+                    }
+                    echo $compteur . ". ";
+                    $compteur++;
+                    echo$evenements['nomSalle'];
+                    echo' - ';
+                    echo$evenements['nomArtiste'];
+                    echo' ( ';
+                    echo$evenements['dateConcert'];
+                    echo' )</br>';
+                endforeach;
             }
             ?>
-            </br>
             <input type="submit" value="+" />
+            </br>
         </section>
 
         <section id="selectionRandom">
@@ -70,21 +70,21 @@
             <?php
             //on affiche le dernier commentaire, cad celui des deux qui n'est pas null ou rien si il n'y a pas de commentaires dans la bdd
             if ($vars['dernierCommentaireArtiste'] !== null) {
-            echo "<img src=\"";
-            echo $vars['dernierCommentaireArtiste']['avatar'];
-            echo "\" > ";
-            echo $vars ['dernierCommentaireArtiste'] ['pseudo'] . " : </br>";
-            echo "<a href='artiste.php?tmp=" . $vars['dernierCommentaireArtiste']['cible'] . "'>" . $vars [ 'dernierCommentaireArtiste']['texteCommentaireArtiste'] . "</a>";
-                    echo"</br>";
+                echo "<img src=\"";
+                echo $vars['dernierCommentaireArtiste']['avatar'];
+                echo "\" > ";
+                echo $vars ['dernierCommentaireArtiste'] ['pseudo'] . " : </br>";
+                echo "<a href='artiste.php?tmp=" . $vars['dernierCommentaireArtiste']['cible'] . "'>" . $vars ['dernierCommentaireArtiste']['texteCommentaireArtiste'] . "</a>";
+                echo"</br>";
             } else if ($vars['dernierCommentaireSalle'] !== null) {
-            echo "<img src=\"";
-            echo $vars['dernierCommentaireSalle']['avatar'];
-            echo "\">";
-            echo $vars ['dernierCommentaireSalle'] ['pseudo'] . " : </br> ";
-            echo "<a href='salle.php?tmp=" . $vars['dernierCommentaireSalle']['cible'] . "'>" . $vars [ 'dernierCommentaireSalle']['texteCommentaireSalle'] . "</a>";
-            echo"</br>";
+                echo "<img src=\"";
+                echo $vars['dernierCommentaireSalle']['avatar'];
+                echo "\">";
+                echo $vars ['dernierCommentaireSalle'] ['pseudo'] . " : </br> ";
+                echo "<a href='salle.php?tmp=" . $vars['dernierCommentaireSalle']['cible'] . "'>" . $vars ['dernierCommentaireSalle']['texteCommentaireSalle'] . "</a>";
+                echo"</br>";
             } else {
-            echo"</br>";
+                echo"</br>";
             }
             ?>
         </div>
