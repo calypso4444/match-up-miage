@@ -32,12 +32,14 @@
                     <?php
                     if ($vars['commentaire']) {
                         foreach ($vars['commentaire'] as $commentaires):
+                            echo"<div id='texteCommentaire'>";
+                            echo "<form action='artistesalle.php?tmp=" . $vars['noProfil'] . "&nCom=" . $commentaires['nCommentaireArtiste'] . "' method='post'><button type='submit' name='remove' value='true' class='btn glyphicon glyphicon-remove'></button></form>";
                             echo "<img src=\"";
                             echo $commentaires['avatar'];
                             echo "\">";
-                            echo " " . $commentaires['pseudo'] . " : ";
-                            echo "<form action='artistesalle.php?tmp=" . $vars['noProfil'] . "&nCom=" . $commentaires['nCommentaireArtiste'] . "' method='post'><button type='submit' name='remove' value='true' class='btn glyphicon glyphicon-remove'></button></form>";
-                            echo $commentaires['texteCommentaireArtiste'] . "</br></br>";
+                            echo " " . $commentaires['pseudo'] . " : </br>";
+                            echo $commentaires['texteCommentaireArtiste'];
+                            echo '</div></br>';
                         endforeach;
                     }
                     ?>
