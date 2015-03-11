@@ -89,8 +89,18 @@ div#commentaire{
     border: solid black 1px;
 }
 
+.navbar-form{
+    margin-bottom: -19px;
+    margin-top: -14px;
+}
+
 #menuConnexion{
     border-left: solid 1px black;
+    margin-bottom: -100px;
+}
+
+#menuConnexion img{
+    margin-top: -60px;
 }
 
 #banner{
