@@ -1,11 +1,11 @@
-<header class="container-fluid">
-
-    <div id="banner"  class="col-lg-10 ">
+<header class="fluid row">
+<div class="row-same-height">
+    <div id="banner"  class="col-lg-10 col-sm-height">
         <img src="web/image/banner.png" alt="banner" />
     </div>
-    <div id='menuConnexion' class="col-lg-2">
+    <div id='menuConnexion' class="col-lg-2 col-sm-height">
         <?php if (isset($_SESSION['user'])) : ?>
-            <img src="<?php echo $_SESSION['user']['avatar']; ?>" alt="avatar"/>
+        <img src="<?php echo $_SESSION['user']['avatar']; ?>" alt="avatar"/></br>
             <a href="f_mes_profils.php" class="glyphicon glyphicon-user"> mes profils </a></br>
             <a href="f_info_perso.php" class="glyphicon glyphicon-cog"> mes infos perso </a></br>
             <a href="f_mes_favoris.php" class="glyphicon glyphicon-heart"> mes favoris </a></br>
@@ -23,6 +23,6 @@
             <a href="mot_de_passe_oublie.php">Mot de passe oubli&eacute;?</a><br/> 
         <?php endif ?>
     </div>
-
+</div>
 </header>
 
