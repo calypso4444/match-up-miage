@@ -22,7 +22,7 @@
     </div>
 
     <div id="contenu" class="col-lg-12">
-        <aside class="col-lg-3">
+        <aside class="col-lg-4">
             <div id="albumPhoto">
                 <h4>Album photo de l'artiste : </h4></br>
             </div>
@@ -54,7 +54,7 @@
                 <h4>L'agenda : </h4></br>
             </div>
         </aside>
-        <section class="col-lg-9">
+        <section class="col-lg-8">
             <h4>Le fil d'actualité : </h4>
             <!--            à supprimer-->
             <audio controls
