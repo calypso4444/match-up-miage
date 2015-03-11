@@ -8,11 +8,15 @@ class GestionnaireCommentaire extends Gestionnaire {
                 . " INNER JOIN " . $GLOBALS['DB_TABLE']['CONNEXION'] . " "
                 . " ON auteur=id "
                 . "WHERE cible=$noProfil");
-        $commentaires = array();
-        while ($row = mysqli_fetch_assoc($reqm)) {
-            $commentaires[] = $row;
+        if ($reqm !== false) {
+            $commentaires = array();
+            while ($row = mysqli_fetch_assoc($reqm)) {
+                $commentaires[] = $row;
+            }
+            return $commentaires;
+        } else {
+            return null;
         }
-        return $commentaires;
     }
 
     public function getAllCommentairesByIdArtiste($noProfil) {
@@ -21,11 +25,15 @@ class GestionnaireCommentaire extends Gestionnaire {
                 . " INNER JOIN " . $GLOBALS['DB_TABLE']['CONNEXION'] . " "
                 . " ON auteur=id "
                 . "WHERE cible=$noProfil");
-        $commentaires = array();
-        while ($row = mysqli_fetch_assoc($reqm)) {
-            $commentaires[] = $row;
+        if ($reqm !== false) {
+            $commentaires = array();
+            while ($row = mysqli_fetch_assoc($reqm)) {
+                $commentaires[] = $row;
+            }
+            return $commentaires;
+        } else {
+            return null;
         }
-        return $commentaires;
     }
 
     public function getLastCommentaireArtiste() {
@@ -66,6 +74,30 @@ class GestionnaireCommentaire extends Gestionnaire {
 
     public function commenterArtiste($noProfil, $id, $texte) {
         mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['COMMENTAIRE_A'] . "  (nCommentaireArtiste, cible, texteCommentaireArtiste, auteur, dateEditionCommentaireArtiste) VALUES('',$noProfil,'$texte',$id ,NOW());");
+    }
+
+    public function supprimerCommentaireSalle($nCommentaire) {
+        mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['COMMENTAIRE_S'] . "  WHERE nCommentaireSalle=$nCommentaire;");
+    }
+
+    public function supprimerCommentaireArtiste($nCommentaire) {
+        mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['COMMENTAIRE_A'] . "  WHERE nCommentaireArtiste=$nCommentaire;");
+    }
+
+    public function estProprietaireCommentaireSalle($nCommentaire, $id) {
+        $reqm = mysqli_query($this->link, "SELECT COUNT(*) AS nb FROM " . $GLOBALS['DB_TABLE']['COMMENTAIRE_S'] . " WHERE nCommentaireSalle=$nCommentaire AND auteur=$id");
+        if($reqm!==false){
+        $row = mysqli_fetch_assoc($reqm);
+        return $row['nb'] > 0 ? true : false;
+        }else{
+            return false;
+        }
+    }
+
+    public function estProprietaireCommentaireArtiste($nCommentaire, $id) {
+        $reqm = mysqli_query($this->link, "SELECT COUNT(*) AS nb FROM " . $GLOBALS['DB_TABLE']['COMMENTAIRE_A'] . " WHERE nCommentaireArtiste=$nCommentaire AND auteur=$id");
+        $row = mysqli_fetch_assoc($reqm);
+        return $row['nb'] > 0 ? true : false;
     }
 
 }

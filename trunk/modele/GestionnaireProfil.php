@@ -135,6 +135,18 @@ class GestionnaireProfil extends Gestionnaire {
     public function setVilleSalle($noprofil,$villeSalle){
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET villeSalle='$villeSalle' WHERE nSalle = $noprofil;");
     }
+    
+    public function estProprietaireProfilSalle($nProfil, $id) {
+        $reqm = mysqli_query($this->link, "SELECT COUNT(*) AS nb FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " WHERE nSalle=$nProfil AND proprietaireSalle=$id");
+        $row = mysqli_fetch_assoc($reqm);
+        return $row['nb'] > 0 ? true : false;
+    }
+    
+    public function estProprietaireProfilArtiste($nProfil, $id) {
+        $reqm = mysqli_query($this->link, "SELECT COUNT(*) AS nb FROM " . $GLOBALS['DB_TABLE']['ARTISTE'] . " WHERE nArtiste=$nProfil AND proprietaireArtiste=$id");
+        $row = mysqli_fetch_assoc($reqm);
+        return $row['nb'] > 0 ? true : false;
+    }
 }
 
 ?>

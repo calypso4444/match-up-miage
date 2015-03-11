@@ -30,13 +30,16 @@
                 <h4>Les derniers commentaires : </h4></br>
                 <div>
                     <?php
-                    foreach ($vars['commentaire'] as $commentaires):
-                        echo "<img src=\"";
-                        echo $commentaires['avatar'];
-                        echo "\">";
-                        echo " " . $commentaires['pseudo']." : </br>";
-                        echo $commentaires['texteCommentaireArtiste'] . "</br></br>";
-                    endforeach;
+                    if ($vars['commentaire']) {
+                        foreach ($vars['commentaire'] as $commentaires):
+                            echo "<img src=\"";
+                            echo $commentaires['avatar'];
+                            echo "\">";
+                            echo " " . $commentaires['pseudo'] . " : ";
+                            echo "<form action='artistesalle.php?tmp=" . $vars['noProfil'] . "&nCom=" . $commentaires['nCommentaireArtiste'] . "' method='post'><button type='submit' name='remove' value='true' class='btn glyphicon glyphicon-remove'></button></form>";
+                            echo $commentaires['texteCommentaireArtiste'] . "</br></br>";
+                        endforeach;
+                    }
                     ?>
                 </div>
                 <form id="commentaire" method="post" action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>">
