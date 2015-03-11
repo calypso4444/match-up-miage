@@ -105,10 +105,11 @@ img{
 
 
 #map-canvas {
-    width: 230px;
+	position: inherit;
     height: 200px;
     background-color : #CCC;	
 }
+
 
 div#texteCommentaire img{
     height:25px;
