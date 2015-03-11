@@ -79,9 +79,13 @@ div#interaction{
 div#contenu{
     border: solid black 1px;
 }
-div#commentaire,#albumPhoto,#agenda,#acces{
+div#albumPhoto,#agenda,#acces{
     border: solid black 1px;
     min-height: 200px;
+}
+
+div#commentaire{
+    border: solid black 1px;
 }
 
 #menuConnexion{
@@ -99,4 +103,8 @@ img{
 div#commentaire img{
     height:20px;
     width :20px;
+}
+
+ul{
+     list-style-type: none;
 }

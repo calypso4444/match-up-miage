@@ -1,6 +1,6 @@
 <!-- vue/page -->
 
-<div class="container col-lg-12">
+<div class="col-lg-12">
 
     <h1><?php echo $vars['nomProfil']; ?></h1>
 
@@ -34,8 +34,7 @@
                         echo "<img src=\"";
                         echo $commentaires['avatar'];
                         echo "\">";
-                        echo " " . $commentaires['pseudo'];
-                        echo " (" . $commentaires['dateEditionCommentaireArtiste'] . ")</br>";
+                        echo " " . $commentaires['pseudo']." : </br>";
                         echo $commentaires['texteCommentaireArtiste'] . "</br></br>";
                     endforeach;
                     ?>
