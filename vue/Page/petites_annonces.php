@@ -19,7 +19,7 @@
                 <?php
                 foreach ($vars['annonces'] as $annonces):
                     echo '<tr>';
-                    echo "<td class='col-lg-4'><a href=salle.php?tmp=" . $annonces['auteur'] . "><img src='".$annonces['photoProfilSalle']."'/></a></br>".$annonces['nomSalle']."</td>";
+                    echo "<td class='col-lg-4'>".$annonces['nomSalle']."</br><a href=salle.php?tmp=" . $annonces['auteur'] . "><img src='".$annonces['photoProfilSalle']."'/></a></td>";
                     echo '<td class="col-lg-4">' . $annonces['textePetiteAnnonce'] .'</td>';
                     echo '<td>entre le</br> ' . $annonces['dateDeb'] . '</br>et le</br> '.$annonces['dateFin'].'</td>';
                     echo '<td>' . $annonces['dateEditionPetiteAnnonce'] .'</td>';
