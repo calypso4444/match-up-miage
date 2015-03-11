@@ -10,7 +10,8 @@
                 <tr>
                     <th>Posté par</th>
                     <th>Annonce</th>
-                    <th>Date</th>
+                    <th>Dates</th>
+                    <th>Date de parution</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -19,6 +20,7 @@
                 foreach ($vars['annonces'] as $annonces):
                     echo '<tr>';
                     echo "<td class='col-lg-3'><a href=salle.php?tmp=" . $annonces['auteur'] . ">".$annonces['nomSalle']."</a></td>";
+                    echo '<td>' . $annonces['textePetiteAnnonce'] .'</td>';
                     echo '<td>entre le ' . $annonces['dateDeb'] . 'et le '.$annonces['dateFin'].'</td>';
                     echo '<td>' . $annonces['dateEditionPetiteAnnonce'] .'</td>';
                     echo '<td>'
