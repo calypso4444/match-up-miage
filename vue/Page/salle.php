@@ -1,7 +1,7 @@
 <!-- vue/page -->
 
 <div class="col-lg-12">
-	
+
     <h1><?php echo $vars['nomProfil']; ?></h1>
 
     <div id="photoProfil" class="col-lg-12">
@@ -32,20 +32,22 @@
                     <?php
                     if ($vars['commentaire'] !== null) {
                         foreach ($vars['commentaire'] as $commentaires):
-                            echo "<tr>";
+                            echo"<div id='texteCommentaire'>";
+                            echo "<form action='salle.php?tmp=" . $vars['noProfil'] . "&nCom=" . $commentaires['nCommentaireSalle'] . "' method='post'><button type='submit' name='remove' value='true' class='btn glyphicon glyphicon-remove'></button></form>";
                             echo "<img src=\"";
                             echo $commentaires['avatar'];
                             echo "\">";
-                            echo " " . $commentaires['pseudo'] . " : ";
-                            echo "<form action='salle.php?tmp=" . $vars['noProfil'] . "&nCom=" . $commentaires['nCommentaireSalle'] . "' method='post'><button type='submit' name='remove' value='true' class='btn glyphicon glyphicon-remove'></button></form>";
-                            echo $commentaires['texteCommentaireSalle'] . "</br></br>";
+                            echo " " . $commentaires['pseudo'] . " : </br>";
+                            echo $commentaires['texteCommentaireSalle'];
+                            echo "</div>";
+                            echo"</br>";
                         endforeach;
                     }
                     ?>
 
                 </div>
                 <form id="commentaire" method="post" action="salle.php?tmp=<?php echo $vars['noProfil']; ?>">
-                    <input type="text" name="commentaire" placeholder="Taper votre commentaire ici"/>
+                    <input type="text" name="commentaire" placeholder="Votre prose ici"/>
                     <button type="submit" value="true" class="btn glyphicon glyphicon-pencil">Commenter</button>
                 </form>
                 </br>
@@ -53,8 +55,8 @@
             <div id="acces">
                 <h4>L'accès : </h4>
                 <?php echo $vars['adresse'] . " " . $vars['cp'] . " " . $vars['ville']; ?>
-				<input id="adresse" type="hidden" value="<?php echo $vars['adresse'] . " " . $vars['cp'] . " " . $vars['ville']; ?>"></input>
-				<div id="map-canvas"></div>
+                <input id="adresse" type="hidden" value="<?php echo $vars['adresse'] . " " . $vars['cp'] . " " . $vars['ville']; ?>"></input>
+                <div id="map-canvas"></div>
             </div>
         </aside>
         <section class="col-lg-9">

@@ -53,7 +53,7 @@
                 echo "<img src=\"";
                 echo $vars['dernierCommentaireArtiste']['avatar'];
                 echo "\"> ";
-                echo $vars ['dernierCommentaireArtiste'] ['pseudo'] . " : ";
+                echo $vars ['dernierCommentaireArtiste'] ['pseudo'] . " : </br>";
                 echo "<a href='artiste.php?tmp=" . $vars['dernierCommentaireArtiste']['cible'] . "'>" . $vars['dernierCommentaireArtiste']['texteCommentaireArtiste'] . "</a>";
                 echo"</br>";
             } else if ($vars['dernierCommentaireSalle'] !== null) {
