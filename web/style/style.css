@@ -100,7 +100,7 @@ img{
     width :100%;
 }
 
-div#commentaire img{
+div#texteCommentaire img{
     height:20px;
     width :20px;
 }
@@ -121,4 +121,21 @@ ul{
 
 div#menuConnexion img{
     max-height: 150px;
+}
+
+div#texteCommentaire{
+    background-color: #494949;
+    border-radius: 10px 0;
+    color:white;
+    
+}
+
+div#texteCommentaire a {
+    text-decoration: none;
+    color:white;
+}
+
+div#texteCommentaire form {
+    text-align: right;
+    height:10px;
 }
