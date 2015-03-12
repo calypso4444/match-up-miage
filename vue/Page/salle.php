@@ -111,9 +111,11 @@
                             foreach ($vars['petiteAnnonce'] as $petiteAnnonce):
                                 echo '<tr>';
                                 echo "<td class='col-lg-3'>" . $petiteAnnonce['textePetiteAnnonce'] . "</td>";
+                                echo '<td>entre le</br> ' . $petiteAnnonce['dateDeb'] . '</br>et le</br> ' . $petiteAnnonce['dateFin'] . '</td>';
+                                echo '<td>' . $petiteAnnonce['dateEditionPetiteAnnonce'] . '</td>';
                                 echo '<td>'
-                                . '<a class="btn btn-danger" href="supprimer_petiteAnnonce.php?nPetiteAnnonce=' . $petiteAnnonce['nPetiteAnnonce'] . '">Supprimer</a>'
-                                . '<a class="btn" href="repondre.php?nPetiteAnnonce=' . $petiteAnnonce['nPetiteAnnonce'] . '">Répondre à cette annonce</a>'
+                                . "<a class='btn btn-danger' href=salle.php?tmp=" . $vars['noProfil'] . "&nPetiteAnnonce=" . $petiteAnnonce['nPetiteAnnonce'] . ">Supprimer</a> "
+                                . '<a class="btn btn-default" href="repondre.php?nPetiteAnnonce=' . $petiteAnnonce['nPetiteAnnonce'] . '">Postuler</a>'
                                 . '</td>';
                                 echo '</tr>';
                             endforeach;

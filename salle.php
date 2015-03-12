@@ -73,6 +73,11 @@ if (isset($_FILES['mon_fichier'])) {
     }
 }
 
+$nAnnonce = filter_input(INPUT_GET, 'nPetiteAnnonce');
+$model['GestionnaireAnnonce']->supprimerPetiteAnnonceByIdSalle($noProfil,$nAnnonce);
+
+
+
 /* fin de séquence */
 
 /* affichage de la vue */

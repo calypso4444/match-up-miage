@@ -31,6 +31,10 @@ class GestionnaireAnnonce extends Gestionnaire {
             return null;
         }
     }
+    
+    public function supprimerPetiteAnnonceByIdSalle($noprofil,$nAnnonce){
+        mysqli_query($this->link, " DELETE FROM ". $GLOBALS['DB_TABLE']['PETITE_ANNONCE'] ." WHERE nPetiteAnnonce=$nAnnonce AND auteur=$noprofil");
+    }
 
 }
 
