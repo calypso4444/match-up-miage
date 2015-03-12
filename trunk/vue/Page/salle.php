@@ -98,9 +98,28 @@
         <section class="col-lg-8">
             <h4>Le fil d'actualité : </h4></br>
             <div id="annonceEvenement">
-
+                <p>annonces évènement</p>
+                <table class="table">
+                    <thead>
+                    </thead>
+                    <tbody>
+                        <?php
+                        if ($vars['annonceEvenement'] !== null) {
+                            foreach ($vars['annonceEvenement'] as $annonceEvenement):
+                                echo '<tr>';
+                                echo "<td class='col-lg-3'>" . $annonceEvenement['texteAnnonceEvenementSalle'] . "</td>";
+                                echo '<td>' . $annonceEvenement['dateEditionAnnonceEvenementSalle'] . '</td>';
+                                echo '<td>'
+                                . "<a class='btn btn-danger' href=salle.php?tmp=" . $vars['noProfil'] . "&nAnnonceEvenement=" . $annonceEvenement['nAnnonceEvenementSalle'] . ">Supprimer</a> "
+                                . '</td>';
+                                echo '</tr>';
+                            endforeach;
+                        }
+                        ?>
+                    </tbody>
+                </table>
             </div>
-            <div id="petiteAnnonce" style="border : solid 1px">
+            <div id="petiteAnnonce">
                 <p>petites annonces</p>
                 <table class="table">
                     <thead>
@@ -123,6 +142,15 @@
                         ?>
                     </tbody>
                 </table>
+            </div>
+            <div id="posterAnnonce">
+                <p>poster une annonce</p>
+                <form action="salle.php?tmp=' . $vars['noProfil'].'" method="post" id="posterAnnonce">
+                    <input type="radio" name="typeAnnonce" value="petiteAnnonce"> une petite annonce</input>
+                    <input type="radio" name="typeAnnonce" value="annonceEvenement"> une annonce évènementielle</input>
+                    <textarea class="form-control" rows="5" id="posterAnnonce" type="text" name="posterAnnonce" placeholder="" value=""/></textarea>
+                    <input class="btn btn-default" type="submit" value="Valider" id="envoyer"/>
+                </form>
             </div>
         </section>
     </div>

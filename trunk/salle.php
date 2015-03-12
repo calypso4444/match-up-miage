@@ -28,6 +28,7 @@ if ($favori === "true") {
 
 
 $petiteAnnonces = $model['GestionnaireAnnonce']->getAllPetiteAnnonceByIdSalle($noProfil);
+$annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdSalle($noProfil);
 $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($noProfil);
 
 $texte = filter_input(INPUT_POST, 'commentaire');
@@ -73,9 +74,8 @@ if (isset($_FILES['mon_fichier'])) {
     }
 }
 
-$nAnnonce = filter_input(INPUT_GET, 'nPetiteAnnonce');
-$model['GestionnaireAnnonce']->supprimerPetiteAnnonceByIdSalle($noProfil,$nAnnonce);
-
+$nPetiteAnnonce = filter_input(INPUT_GET, 'nPetiteAnnonce');
+$model['GestionnaireAnnonce']->supprimerPetiteAnnonceByIdSalle($noProfil,$nPetiteAnnonce);
 
 
 /* fin de séquence */
@@ -89,6 +89,7 @@ $vue['photoProfil'] = $photoProfil;
 $vue['descProfil'] = $descProfil;
 $vue['albumPhoto'] = $albumPhoto;
 $vue['petiteAnnonce'] = $petiteAnnonces;
+$vue['annonceEvenement'] = $annoncesEvenement;
 $vue['commentaire'] = $commentaires;
 $vue['adresse'] = $adresse;
 $vue['cp'] = $cp;
