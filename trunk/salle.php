@@ -39,7 +39,7 @@ if (!empty($texte)) {
 $nCom= filter_input(INPUT_GET, 'nCom');
 $remove = filter_input(INPUT_POST, 'remove');
 if ($remove === "true") {
-    if ($model['GestionnaireCommentaire']->estProprietaireCommentaireSalle($nCom, $id)) {
+    if ($model['GestionnaireCommentaire']->estProprietaireCommentaireSalle($nCom, $id)or ($model['GestionnaireProfil']->estProprietaireProfilSalle($nProfil, $id))) {
         $model['GestionnaireCommentaire']->supprimerCommentaireSalle($nCom);
     }
 }
