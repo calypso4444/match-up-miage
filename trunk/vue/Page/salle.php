@@ -99,14 +99,14 @@
             <h4>Le fil d'actualité : </h4></br>
             <div id="posterAnnonce">
                 <p>poster une annonce</p>
-                <form action="salle.php?tmp=' . $vars['noProfil'].'" method="post" id="posterAnnonce">
+                <form action="salle.php?tmp=<?php echo $vars['noProfil'];?>" method="post" id="posterAnnonce">
                     <input type="radio" name="typeAnnonce" value="petiteAnnonce"> une petite annonce</input>
                     <input type="radio" name="typeAnnonce" value="annonceEvenement"> une annonce évènementielle</input>
                     </br>
                     offre valable du : 
-                    <input data-format="dd/MM/yyyy" type="text" placeholder="jj/mm/yy"/>
+                    <input data-format="dd/MM/yyyy" type="text" placeholder="jj/mm/yy" name='dateDeb'/>
                     au : 
-                    <input data-format="dd/MM/yyyy" type="text" placeholder="jj/mm/yy"/>
+                    <input data-format="dd/MM/yyyy" type="text" placeholder="jj/mm/yy" name='dateFin'/>
                     </br>
                     <textarea class="form-control" rows="5" id="posterAnnonce" type="text" name="posterAnnonce" placeholder="" value=""/></textarea>
                     </br>

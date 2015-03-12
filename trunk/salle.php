@@ -73,9 +73,34 @@ if (isset($_FILES['mon_fichier'])) {
         $albumPhoto = $model['GestionnaireProfil']->getAllPhotoSalleById($noProfil);
     }
 }
-
+//suppression d'annonce
 $nPetiteAnnonce = filter_input(INPUT_GET, 'nPetiteAnnonce');
-$model['GestionnaireAnnonce']->supprimerPetiteAnnonceByIdSalle($noProfil,$nPetiteAnnonce);
+$model['GestionnaireAnnonce']->supprimerPetiteAnnonceByIdSalle($noProfil, $nPetiteAnnonce);
+$petiteAnnonces = $model['GestionnaireAnnonce']->getAllPetiteAnnonceByIdSalle($noProfil);
+
+$nAnnonceEvenement = filter_input(INPUT_GET, 'nAnnonceEvenement');
+$model['GestionnaireAnnonce']->supprimerAnnonceEvenementByIdSalle($noProfil, $nAnnonceEvenement);
+$annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdSalle($noProfil);
+
+//creation d'annonce
+$typeAnnonce = filter_input(INPUT_POST, 'typeAnnonce');
+$texteAnnonce = filter_input(INPUT_POST, 'posterAnnonce');
+$dateDeb = filter_input(INPUT_POST, 'dateDeb');
+$dateFin = filter_input(INPUT_POST, 'dateFin');
+if (isset($typeAnnonce)) {
+    if ($typeAnnonce === 'petiteAnnonce') {
+        if (!empty($texteAnnonce)) {
+            $model['GestionnaireAnnonce']->creerPetiteAnnonceSalle($noProfil, $texteAnnonce);
+            $petiteAnnonces = $model['GestionnaireAnnonce']->getAllPetiteAnnonceByIdSalle($noProfil);
+        }
+    }
+    if ($typeAnnonce === 'annonceEvenement') {
+        if (!empty($texteAnnonce)) {
+            $model['GestionnaireAnnonce']->creerAnnonceEvenementSalle($noProfil, $texteAnnonce);
+            $annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdSalle($noProfil);
+        }
+    }
+}
 
 
 /* fin de séquence */

@@ -97,6 +97,44 @@
                 <source src="/bootstrap-player/media/cusb-cyl2985d.mp3" type="audio/mpeg" />
                 <a href="/bootstrap-player/media/cusb-cyl2985d.mp3">cusb_cyl2985d</a>
             </audio>
+
+            <div id="posterAnnonce">
+                <p>poster une annonce</p>
+                <form action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" method="post" id="posterAnnonce">
+                    <textarea class="form-control" rows="5" id="posterAnnonce" type="text" name="posterAnnonce" placeholder="" value=""/></textarea>
+                    </br>
+                    <input class="btn btn-default" type="submit" value="Valider" id="envoyer"/>
+                </form>
+                </br>
+            </div>
+            <div id="annonceEvenement">
+                <p>annonces évènement</p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Annonce</th>
+                            <th>Date de parution</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        if ($vars['annonceEvenement'] !== null) {
+                            foreach ($vars['annonceEvenement'] as $annonceEvenement):
+                                echo '<tr>';
+                                echo "<td class='col-lg-3'>" . $annonceEvenement['texteAnnonceEvenementArtiste'] . "</td>";
+                                echo '<td>' . $annonceEvenement['dateEditionAnnonceEvenementArtiste'] . '</td>';
+                                echo '<td>'
+                                . "<a class='btn btn-danger' href=artiste.php?tmp=" . $vars['noProfil'] . "&nAnnonceEvenement=" . $annonceEvenement['nAnnonceEvenementArtiste'] . ">Supprimer</a> "
+                                . '</td>';
+                                echo '</tr>';
+                            endforeach;
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+
         </section>
     </div>
 

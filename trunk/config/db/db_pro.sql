@@ -87,11 +87,11 @@ FOREIGN KEY(auteur) REFERENCES salle (nSalle)
 
 CREATE TABLE `annonceEvenementArtiste` (
 `auteur` int(255) NOT NULL,
-`nAnnonceEvenementArtiste` int(255) NOT NULL,
+`nAnnonceEvenementArtiste` int(255) NOT NULL AUTO_INCREMENT,
 `texteAnnonceEvenementArtiste` varchar(255),
 `dateEditionAnnonceEvenementArtiste` timestamp,
 KEY `nAnnonceEvenementArtiste`(`nAnnonceEvenementArtiste`),
-FOREIGN KEY(auteur) REFERENCES salle (nSalle)
+FOREIGN KEY(auteur) REFERENCES artiste (nArtiste)
 );
 
 CREATE TABLE `commentaireSalle` (
