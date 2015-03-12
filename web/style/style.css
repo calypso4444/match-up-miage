@@ -107,6 +107,8 @@ div#commentaire{
 
 #menuConnexion img{
     margin-top: -60px;
+    max-height: 100px;
+    width:auto;
 }
 
 #banner{
