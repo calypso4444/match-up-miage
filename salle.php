@@ -48,7 +48,6 @@ $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($
 $albumPhoto = $model['GestionnaireProfil']->getAllPhotoSalleById($noProfil);
 
 if (isset($_FILES['mon_fichier'])) {
-    echo "coucou";
     $tab_img = $_FILES['mon_fichier'];
     if ($_FILES['mon_fichier']['error'] > 0) {
         $erreur = "Erreur lors du transfert";
@@ -64,7 +63,9 @@ if (isset($_FILES['mon_fichier'])) {
 //    if ($image_sizes[0] > $maxwidth OR $image_sizes[1] > $maxheight) {
 //        $erreur = "Image trop grande";
 //    }
-    $chemin = "web/image/albumPhotoSalle/{$noProfil}.{$extension_upload}";
+    $idmax = $model['GestionnaireProfil']->getNMaxPhotoSalle($noProfil);
+    $idmax++;
+    $chemin = "web/image/albumPhotoSalle/{$noProfil}.{$idmax}.{$extension_upload}";
     $resultat = move_uploaded_file($tab_img['tmp_name'], $chemin);
     if ($resultat) {
         $model['GestionnaireProfil']->ajouterPhotoSalle($noProfil, $chemin);

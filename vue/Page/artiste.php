@@ -24,7 +24,12 @@
     <div id="contenu" class="col-lg-12">
         <aside id='parution'class="col-lg-4">
             <div id="albumPhoto">
-                <h4>Album photo de l'artiste : </h4></br>
+                <h4>Album photo de l'artiste : </h4>
+                <form id="album" method="post" action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" enctype="multipart/form-data">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
+                    <input type="file" name="mon_fichier" id="mon_fichier" />
+                    <input id="envoyer"  type="submit" value="OK"/>
+                </form>
                 <table class="table">
                     <?php
                     $compteur = 0;
@@ -40,41 +45,41 @@
                             $compteur++;
                             if ($compteur === 3) {
                                 echo '</tr>';
-                                $compteur=0;
+                                $compteur = 0;
                             }
                         endforeach;
-                    }else{
+                    } else {
                         echo '</br>';
                     }
                     ?>
-            </table>
-            <div id="commentaire">
-                <h4>Les derniers commentaires : </h4></br>
-                <div>
-                    <?php
-                    if ($vars['commentaire']) {
-                        foreach ($vars['commentaire'] as $commentaires):
-                            echo"<div id='texteCommentaire'>";
-                            echo "<form action='artistesalle.php?tmp=" . $vars['noProfil'] . "&nCom=" . $commentaires['nCommentaireArtiste'] . "' method='post'><button type='submit' name='remove' value='true' class='btn glyphicon glyphicon-remove'></button></form>";
-                            echo "<img src=\"";
-                            echo $commentaires['avatar'];
-                            echo "\">";
-                            echo " " . $commentaires['pseudo'] . " : </br>";
-                            echo $commentaires['texteCommentaireArtiste'];
-                            echo '</div></br>';
-                        endforeach;
-                    }
-                    ?>
+                </table>
+                <div id="commentaire">
+                    <h4>Les derniers commentaires : </h4></br>
+                    <div>
+                        <?php
+                        if ($vars['commentaire']) {
+                            foreach ($vars['commentaire'] as $commentaires):
+                                echo"<div id='texteCommentaire'>";
+                                echo "<form action='artistesalle.php?tmp=" . $vars['noProfil'] . "&nCom=" . $commentaires['nCommentaireArtiste'] . "' method='post'><button type='submit' name='remove' value='true' class='btn glyphicon glyphicon-remove'></button></form>";
+                                echo "<img src=\"";
+                                echo $commentaires['avatar'];
+                                echo "\">";
+                                echo " " . $commentaires['pseudo'] . " : </br>";
+                                echo $commentaires['texteCommentaireArtiste'];
+                                echo '</div></br>';
+                            endforeach;
+                        }
+                        ?>
+                    </div>
+                    <form id="commentaire" method="post" action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>">
+                        <input type="text" name="commentaire" placeholder="Votre prose ici"/>
+                        <button type="submit" class="btn glyphicon glyphicon-pencil">Commenter</button>
+                    </form>
+                    </br>
                 </div>
-                <form id="commentaire" method="post" action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>">
-                    <input type="text" name="commentaire" placeholder="Votre prose ici"/>
-                    <button type="submit" class="btn glyphicon glyphicon-pencil">Commenter</button>
-                </form>
-                </br>
-            </div>
-            <div id="agenda">
-                <h4>L'agenda : </h4></br>
-            </div>
+                <div id="agenda">
+                    <h4>L'agenda : </h4></br>
+                </div>
         </aside>
         <section class="col-lg-8">
             <h4>Le fil d'actualité : </h4>

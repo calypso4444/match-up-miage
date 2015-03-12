@@ -207,12 +207,23 @@ class GestionnaireProfil extends Gestionnaire {
     }
 
     public function ajouterPhotoSalle($noProfil, $path) {
-        echo"INSERT INTO " . $GLOBALS['DB_TABLE']['ALBUM_PHOTO_S'] . " (proprietaire, photoSalle) VALUES ($noProfil,'$path'";
-        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['ALBUM_PHOTO_S'] . " (proprietaire, photoSalle) VALUES ($noProfil,'$path'");
+        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['ALBUM_PHOTO_S'] . " (proprietaire, photoSalle) VALUES ($noProfil,'$path')");
     }
 
     public function ajouterPhotoArtiste($noProfil, $path) {
-        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['ALBUM_PHOTO_A'] . " (proprietaire, photoArtiste) VALUES ($noProfil,'$path'");
+        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['ALBUM_PHOTO_A'] . " (proprietaire, photoArtiste) VALUES ($noProfil,'$path')");
+    }
+
+    public function getNMaxPhotoSalle($noProfil) {
+        $tmp = mysqli_query($this->link, "SELECT MAX(nPhotoSalle)AS idmax FROM " . $GLOBALS['DB_TABLE']['ALBUM_PHOTO_S'] . " WHERE proprietaire=$noProfil");
+        $row = mysqli_fetch_assoc($tmp);
+        return $row['idmax'];
+    }
+
+    public function getNMaxPhotoArtiste($noProfil) {
+        $tmp = mysqli_query($this->link, "SELECT MAX(nPhotoArtiste)AS idmax FROM " . $GLOBALS['DB_TABLE']['ALBUM_PHOTO_A'] . " WHERE proprietaire=$noProfil");
+        $row = mysqli_fetch_assoc($tmp);
+        return $row['idmax'];
     }
 
 }
