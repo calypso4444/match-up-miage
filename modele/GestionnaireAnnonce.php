@@ -62,6 +62,22 @@ class GestionnaireAnnonce extends Gestionnaire {
         }
     }
 
+    public function supprimerAnnonceEvenementByIdSalle($noprofil, $nAnnonce) {
+        mysqli_query($this->link, " DELETE FROM " . $GLOBALS['DB_TABLE']['ANNONCE_EVENEMENT_S'] . " WHERE nAnnonceEvenementSalle=$nAnnonce AND auteur=$noprofil");
+    }
+
+    public function supprimerAnnonceEvenementByIdArtiste($noprofil, $nAnnonce) {
+        mysqli_query($this->link, " DELETE FROM " . $GLOBALS['DB_TABLE']['ANNONCE_EVENEMENT_A'] . " WHERE nAnnonceEvenementArtiste=$nAnnonce AND auteur=$noprofil");
+    }
+
+    public function creerAnnonceEvenementSalle($noProfil, $texteAnnonce) {
+        mysqli_query($this->link, " INSERT INTO " . $GLOBALS['DB_TABLE']['ANNONCE_EVENEMENT_S'] . " (auteur,texteAnnonceEvenementSalle, dateEditionAnnonceEvenementSalle) VALUES ($noProfil,'$texteAnnonce',NOW());");
+    }
+
+    public function creerAnnonceEvenementArtiste($noProfil, $texteAnnonce) {
+        mysqli_query($this->link, " INSERT INTO " . $GLOBALS['DB_TABLE']['ANNONCE_EVENEMENT_A'] . " (auteur,texteAnnonceEvenementArtiste, dateEditionAnnonceEvenementArtiste) VALUES ($noProfil,'$texteAnnonce',NOW())");
+    }
+
 }
 
 ?>

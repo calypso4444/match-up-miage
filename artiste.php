@@ -38,6 +38,7 @@ if ($remove === "true") {
     }
 }
 $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdArtiste($noProfil);
+$annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdArtiste($noProfil);
 
 $albumPhoto = $model['GestionnaireProfil']->getAllPhotoArtisteById($noProfil);
 
@@ -67,6 +68,18 @@ if (isset($_FILES['mon_fichier'])) {
     }
 }
 
+//creation d'annonce
+$texteAnnonce = filter_input(INPUT_POST, 'posterAnnonce');
+if (!empty($texteAnnonce)) {
+    $model['GestionnaireAnnonce']->creerAnnonceEvenementArtiste($noProfil, $texteAnnonce);
+    $annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdArtiste($noProfil);
+}
+
+//suppression d'annonce
+$nAnnonceEvenement = filter_input(INPUT_GET, 'nAnnonceEvenement');
+$model['GestionnaireAnnonce']->supprimerAnnonceEvenementByIdArtiste($noProfil, $nAnnonceEvenement);
+$annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdArtiste($noProfil);
+
 /* fin de séquence */
 
 /* affichage de la vue */
@@ -78,6 +91,7 @@ $vue['photoProfil'] = $photoProfil;
 $vue['descProfil'] = $descProfil;
 $vue['albumPhoto'] = $albumPhoto;
 $vue['commentaire'] = $commentaires;
+$vue['annonceEvenement'] = $annoncesEvenement;
 $view->render('artiste', $vue);
 
 /* fin de l'affichage de la vue */
