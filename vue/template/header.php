@@ -1,6 +1,6 @@
 <header class="fluid row">
     <div class="row-same-height">
-        <div class="col-lg-10 col-sm-height">
+        <div class="col-lg-9 col-sm-height">
             <div id="banner">
                 <img src="web/image/banner.png" alt="banner" />
             </div>

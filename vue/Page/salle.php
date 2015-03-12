@@ -32,7 +32,13 @@
     <div id="contenu" class="col-lg-12">
         <aside id='parution'class="col-lg-4">
             <div id="albumPhoto">
-                <h4>Album photo de la salle : </h4></br>
+                <h4>Album photo de la salle : </h4>
+                <form id="album" method="post" action="salle.php?tmp=<?php echo $vars['noProfil']; ?>" enctype="multipart/form-data">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+                    <label for="mon_fichier"></label>
+                    <input type="file" name="mon_fichier" id="mon_fichier" />
+                    <input id="envoyer"  type="submit" value="OK"/>
+                </form>
                 <table class="table">
                     <?php
                     $compteur = 0;
@@ -48,7 +54,7 @@
                             $compteur++;
                             if ($compteur === 3) {
                                 echo '</tr>';
-                                $compteur=0;
+                                $compteur = 0;
                             }
                         endforeach;
                     } else {

@@ -36,16 +36,41 @@ if (!empty($texte)) {
     $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($noProfil);
 }
 
-$nCom= filter_input(INPUT_GET, 'nCom');
+$nCom = filter_input(INPUT_GET, 'nCom');
 $remove = filter_input(INPUT_POST, 'remove');
 if ($remove === "true") {
-    if ($model['GestionnaireCommentaire']->estProprietaireCommentaireSalle($nCom, $id)or ($model['GestionnaireProfil']->estProprietaireProfilSalle($nProfil, $id))) {
+    if ($model['GestionnaireCommentaire']->estProprietaireCommentaireSalle($nCom, $id)or ( $model['GestionnaireProfil']->estProprietaireProfilSalle($nProfil, $id))) {
         $model['GestionnaireCommentaire']->supprimerCommentaireSalle($nCom);
     }
 }
 $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($noProfil);
 
-$albumPhoto=$model['GestionnaireProfil']->getAllPhotoSalleById($noProfil);
+$albumPhoto = $model['GestionnaireProfil']->getAllPhotoSalleById($noProfil);
+
+if (isset($_FILES['mon_fichier'])) {
+    echo "coucou";
+    $tab_img = $_FILES['mon_fichier'];
+    if ($_FILES['mon_fichier']['error'] > 0) {
+        $erreur = "Erreur lors du transfert";
+    }
+    $extensions_valides = array('jpg', 'jpeg', 'gif', 'png');
+    //1. strrchr renvoie l'extension avec le point (« . »).
+    //2. substr(chaine,1) ignore le premier caractère de chaine.
+    //3. strtolower met l'extension en minuscules.
+    $extension_upload = strtolower(substr(strrchr($tab_img['name'], '.'), 1));
+//    $maxwidth = 0;
+//    $maxheight = 0;
+//    $image_sizes = getimagesize($tab_img['tmp_name']);
+//    if ($image_sizes[0] > $maxwidth OR $image_sizes[1] > $maxheight) {
+//        $erreur = "Image trop grande";
+//    }
+    $chemin = "web/image/albumPhotoSalle/{$noProfil}.{$extension_upload}";
+    $resultat = move_uploaded_file($tab_img['tmp_name'], $chemin);
+    if ($resultat) {
+        $model['GestionnaireProfil']->ajouterPhotoSalle($noProfil, $chemin);
+        $albumPhoto = $model['GestionnaireProfil']->getAllPhotoSalleById($noProfil);
+    }
+}
 
 /* fin de séquence */
 
@@ -56,7 +81,7 @@ $vue['noProfil'] = $noProfil;
 $vue['nomProfil'] = $nomProfil;
 $vue['photoProfil'] = $photoProfil;
 $vue['descProfil'] = $descProfil;
-$vue['albumPhoto']=$albumPhoto;
+$vue['albumPhoto'] = $albumPhoto;
 $vue['petiteAnnonce'] = $petiteAnnonces;
 $vue['commentaire'] = $commentaires;
 $vue['adresse'] = $adresse;
