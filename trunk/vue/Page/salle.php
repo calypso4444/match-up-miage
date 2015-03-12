@@ -97,10 +97,32 @@
         </aside>
         <section class="col-lg-8">
             <h4>Le fil d'actualité : </h4></br>
+            <div id="posterAnnonce">
+                <p>poster une annonce</p>
+                <form action="salle.php?tmp=' . $vars['noProfil'].'" method="post" id="posterAnnonce">
+                    <input type="radio" name="typeAnnonce" value="petiteAnnonce"> une petite annonce</input>
+                    <input type="radio" name="typeAnnonce" value="annonceEvenement"> une annonce évènementielle</input>
+                    </br>
+                    offre valable du : 
+                    <input data-format="dd/MM/yyyy" type="text" placeholder="jj/mm/yy"/>
+                    au : 
+                    <input data-format="dd/MM/yyyy" type="text" placeholder="jj/mm/yy"/>
+                    </br>
+                    <textarea class="form-control" rows="5" id="posterAnnonce" type="text" name="posterAnnonce" placeholder="" value=""/></textarea>
+                    </br>
+                    <input class="btn btn-default" type="submit" value="Valider" id="envoyer"/>
+                </form>
+                </br>
+            </div>
             <div id="annonceEvenement">
                 <p>annonces évènement</p>
                 <table class="table">
                     <thead>
+                        <tr>
+                            <th>Annonce</th>
+                            <th>Date de parution</th>
+                            <th>Action</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <?php
@@ -123,6 +145,12 @@
                 <p>petites annonces</p>
                 <table class="table">
                     <thead>
+                        <tr>
+                            <th>Annonce</th>
+                            <th>Période</th>
+                            <th>Date de parution</th>
+                            <th>Action</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <?php
@@ -142,15 +170,6 @@
                         ?>
                     </tbody>
                 </table>
-            </div>
-            <div id="posterAnnonce">
-                <p>poster une annonce</p>
-                <form action="salle.php?tmp=' . $vars['noProfil'].'" method="post" id="posterAnnonce">
-                    <input type="radio" name="typeAnnonce" value="petiteAnnonce"> une petite annonce</input>
-                    <input type="radio" name="typeAnnonce" value="annonceEvenement"> une annonce évènementielle</input>
-                    <textarea class="form-control" rows="5" id="posterAnnonce" type="text" name="posterAnnonce" placeholder="" value=""/></textarea>
-                    <input class="btn btn-default" type="submit" value="Valider" id="envoyer"/>
-                </form>
             </div>
         </section>
     </div>
