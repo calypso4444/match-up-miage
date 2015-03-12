@@ -1,11 +1,11 @@
 <nav>
                 </br>
                 <ul class="menu navbar nav-justified navbar-form ">
-                    <li class="text-center"><a href="index.php">Accueil</a></li>
-                    <li class="text-center"><a href="que_faire.php">Que faire ?</a></li>
-                    <li class="text-center"><a href="tous_les_artistes.php">Artistes</a></li>
-                    <li class="text-center"><a href="toutes_les_salles.php">Salles</a></li>
-                    <li class="text-center"><a href="petites_annonces.php">Petites annonces</a></li>	
+                    <li id="border" class="text-center"><a href="index.php">Accueil</a></li>
+                    <li id="border" class="text-center"><a href="que_faire.php">Que faire ?</a></li>
+                    <li id="border" class="text-center"><a href="tous_les_artistes.php">Artistes</a></li>
+                    <li id="border" class="text-center"><a href="toutes_les_salles.php">Salles</a></li>
+                    <li id="border" class="text-center"><a href="petites_annonces.php">Petites annonces</a></li>	
                     <li class="text-center">
                         <form id="formulaireRecherche" method ="post" name="recherche">
                             <label for="recherche"></label> 
