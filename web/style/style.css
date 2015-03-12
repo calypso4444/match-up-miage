@@ -68,7 +68,6 @@ body {
     background-color: #fff0d9;
     margin :auto; /*a virer des que possible (bootstrap)*/
     width: 80%; /*a virer des que possible (bootstrap)*/
-    font-family: din;
 }
 
 #main{
@@ -114,6 +113,8 @@ div#commentaire{
     margin-bottom: -19px;
     margin-top: -14px;
     border-right: solid 1px black;
+    color: black;
+    text-decoration: none;
 }
 
 
