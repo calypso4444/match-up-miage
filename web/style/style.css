@@ -56,6 +56,7 @@ body{
 }
 
 */
+
 @font-face {
 	font-family: 'amatic';
 	src : url('../fonts/AmaticSC-Regular.ttf') format('truetype');
@@ -99,6 +100,13 @@ div#commentaire{
     margin-bottom: -19px;
     margin-top: -14px;
 }
+
+.navbar-form #border{
+    margin-bottom: -19px;
+    margin-top: -14px;
+    border-right: solid 1px black;
+}
+
 
 #menuConnexion{
     border-left: solid 1px black;
@@ -147,10 +155,6 @@ ul{
     display: table-cell;
     float: none !important;
 }
-
-
-
-
 
 div#texteCommentaire{
     background-color: #494949;
