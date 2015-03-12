@@ -207,6 +207,7 @@ class GestionnaireProfil extends Gestionnaire {
     }
 
     public function ajouterPhotoSalle($noProfil, $path) {
+        echo"INSERT INTO " . $GLOBALS['DB_TABLE']['ALBUM_PHOTO_S'] . " (proprietaire, photoSalle) VALUES ($noProfil,'$path'";
         mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['ALBUM_PHOTO_S'] . " (proprietaire, photoSalle) VALUES ($noProfil,'$path'");
     }
 

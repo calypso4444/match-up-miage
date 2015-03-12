@@ -1,8 +1,8 @@
 <!-- vue/page -->
 
-<div id="bloc1" class="col-lg-12"style="border-bottom: solid black 1px">
-    <div id="musique" class="col-lg-4" style="border-right: solid black 1px;">
-        <section id="evenementAttendus" style="border-bottom: solid black 1px">
+<div id="bloc1" class="col-lg-12">
+    <div id="musique" class="col-lg-4">
+        <section id="evenementAttendus">
             <h3>&Eacute;v&egrave;nements les plus attendus</h3>
             <?php
             $compteur = 1;
@@ -54,8 +54,8 @@
 
 </div>
 
-<div id="bloc2" class="col-lg-12" style="">
-    <section class="col-lg-8" style="border-right: solid black 1px">
+<div id="bloc2" class="col-lg-12">
+    <section id='carte' class="col-lg-8">
         <h2>Ce soir &agrave; Paris</h2>
         <div id='map'>
             <img src="web/image/map.png" alt="map" />
@@ -64,7 +64,7 @@
         </br>
     </section>
 
-    <aside class="col-lg-4" style="border-bottom: solid black 1px">
+    <aside class="col-lg-4">
         <h3>Dernier commentaire mis en ligne</h3>
         <div id='texteCommentaire'>
             <?php
