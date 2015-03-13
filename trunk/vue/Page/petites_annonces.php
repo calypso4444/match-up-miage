@@ -21,14 +21,22 @@
                     echo '<tr>';
                     echo "<td class='col-lg-4'>" . $annonces['nomSalle'] . "</br><a href=salle.php?tmp=" . $annonces['auteur'] . "><img src='" . $annonces['photoProfilSalle'] . "'/></a></td>";
                     echo '<td class="col-lg-4">' . $annonces['textePetiteAnnonce'] . '</td>';
-                    echo '<td>entre le</br> ' . $annonces['dateDeb'] . '</br>et le</br> ' . $annonces['dateFin'] . '</td>';
-                    echo '<td>' . $annonces['dateEditionPetiteAnnonce'] . '</td>';
+                    $dateDeb = new DateTime($annonces['dateDeb']);
+                    if ($annonces['dateFin'] === null) {
+                        echo '<td>à partir du </br> ' . $dateDeb->format('d/m/y ') . '</td>';
+                    } else {
+                        $dateFin = new DateTime($annonces['dateFin']);
+                        echo '<td>du </br> ' . $dateDeb->format('d/m/y ') . '</br> au </br> ' . $dateFin->format('d/m/y ') . '</td>';
+                    }
+                    $dateEdition = new DateTime($annonces['dateEditionPetiteAnnonce']);
+                    echo '<td>' . $dateEdition->format('d/m/y ') . '</td>';
                     echo '<td class="col-lg-1">'
-                    . '<a class="btn" href="petites_annonces.php?nSalle=' . $annonces['auteur'] . '&nAnnonce=' . $annonces['nPetiteAnnonce'] . '">Postuler</a>'
+                    . '<a class="btn btn-default" href="petites_annonces.php?nSalle=' . $annonces['auteur'] . '&nAnnonce=' . $annonces['nPetiteAnnonce'] . '">Postuler</a>'
                     . '</td>';
                     echo '</tr>';
                 endforeach;
                 ?>
+
             </tbody>
         </table>
     </div>

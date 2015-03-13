@@ -90,7 +90,7 @@ $dateFin = filter_input(INPUT_POST, 'dateFin');
 if (isset($typeAnnonce)) {
     if ($typeAnnonce === 'petiteAnnonce') {
         if (!empty($texteAnnonce)) {
-            $model['GestionnaireAnnonce']->creerPetiteAnnonceSalle($noProfil, $texteAnnonce);
+            $model['GestionnaireAnnonce']->creerPetiteAnnonce($noProfil, $texteAnnonce, $dateDeb, $dateFin);
             $petiteAnnonces = $model['GestionnaireAnnonce']->getAllPetiteAnnonceByIdSalle($noProfil);
         }
     }

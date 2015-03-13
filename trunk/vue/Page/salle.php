@@ -99,14 +99,14 @@
             <h4>Le fil d'actualité : </h4></br>
             <div id="posterAnnonce">
                 <p>poster une annonce</p>
-                <form action="salle.php?tmp=<?php echo $vars['noProfil'];?>" method="post" id="posterAnnonce">
+                <form action="salle.php?tmp=<?php echo $vars['noProfil']; ?>" method="post" id="posterAnnonce">
                     <input type="radio" name="typeAnnonce" value="petiteAnnonce"> une petite annonce</input>
                     <input type="radio" name="typeAnnonce" value="annonceEvenement"> une annonce évènementielle</input>
                     </br>
                     offre valable du : 
-                    <input data-format="dd/MM/yyyy" type="text" placeholder="jj/mm/yy" name='dateDeb'/>
+                    <input data-format="dd/MM/yyyy" type="text" placeholder="jj/mm/aa" name='dateDeb'/>
                     au : 
-                    <input data-format="dd/MM/yyyy" type="text" placeholder="jj/mm/yy" name='dateFin'/>
+                    <input data-format="dd/MM/yyyy" type="text" placeholder="jj/mm/aa" name='dateFin'/>
                     </br>
                     <textarea class="form-control" rows="5" id="posterAnnonce" type="text" name="posterAnnonce" placeholder="" value=""/></textarea>
                     </br>
@@ -130,7 +130,8 @@
                             foreach ($vars['annonceEvenement'] as $annonceEvenement):
                                 echo '<tr>';
                                 echo "<td class='col-lg-3'>" . $annonceEvenement['texteAnnonceEvenementSalle'] . "</td>";
-                                echo '<td>' . $annonceEvenement['dateEditionAnnonceEvenementSalle'] . '</td>';
+                                $date = new DateTime($annonceEvenement['dateEditionAnnonceEvenementSalle']);
+                                echo '<td>' . $date->format('d/m/y ') . '</td>';
                                 echo '<td>'
                                 . "<a class='btn btn-danger' href=salle.php?tmp=" . $vars['noProfil'] . "&nAnnonceEvenement=" . $annonceEvenement['nAnnonceEvenementSalle'] . ">Supprimer</a> "
                                 . '</td>';
@@ -158,8 +159,15 @@
                             foreach ($vars['petiteAnnonce'] as $petiteAnnonce):
                                 echo '<tr>';
                                 echo "<td class='col-lg-3'>" . $petiteAnnonce['textePetiteAnnonce'] . "</td>";
-                                echo '<td>entre le</br> ' . $petiteAnnonce['dateDeb'] . '</br>et le</br> ' . $petiteAnnonce['dateFin'] . '</td>';
-                                echo '<td>' . $petiteAnnonce['dateEditionPetiteAnnonce'] . '</td>';
+                                $dateDeb = new DateTime($petiteAnnonce['dateDeb']);
+                                if ($petiteAnnonce['dateFin'] === null) {
+                                    echo '<td>à partir du </br> ' . $dateDeb->format('d/m/y ') . '</td>';
+                                } else {
+                                    $dateFin = new DateTime($petiteAnnonce['dateFin']);
+                                    echo '<td>du </br> ' . $dateDeb->format('d/m/y ') . '</br> au </br> ' . $dateFin->format('d/m/y ') . '</td>';
+                                }
+                                $dateEdition = new DateTime($petiteAnnonce['dateEditionPetiteAnnonce']);
+                                echo '<td>' . $dateEdition->format('d/m/y ') . '</td>';
                                 echo '<td>'
                                 . "<a class='btn btn-danger' href=salle.php?tmp=" . $vars['noProfil'] . "&nPetiteAnnonce=" . $petiteAnnonce['nPetiteAnnonce'] . ">Supprimer</a> "
                                 . '<a class="btn btn-default" href="repondre.php?nPetiteAnnonce=' . $petiteAnnonce['nPetiteAnnonce'] . '">Postuler</a>'
