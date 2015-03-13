@@ -32,6 +32,19 @@ class GestionnaireAnnonce extends Gestionnaire {
         }
     }
 
+    public function creerPetiteAnnonce($noProfil, $texteAnnonce, $dateDeb, $dateFin) {
+        if (empty($dateDeb)) {
+            mysqli_query($this->link, " INSERT INTO " . $GLOBALS['DB_TABLE']['PETITE_ANNONCE'] . " (auteur,textePetiteAnnonce, dateEditionPetiteAnnonce, dateDeb, dateFin) VALUES ($noProfil,'$texteAnnonce',NOW(), NOW(), STR_TO_DATE('$dateFin','%d/%m/%Y'));");
+            if (empty($dateFin)) {
+                mysqli_query($this->link, " INSERT INTO " . $GLOBALS['DB_TABLE']['PETITE_ANNONCE'] . " (auteur,textePetiteAnnonce, dateEditionPetiteAnnonce, dateDeb) VALUES ($noProfil,'$texteAnnonce',NOW(), NOW());");
+            } else {
+                mysqli_query($this->link, " INSERT INTO " . $GLOBALS['DB_TABLE']['PETITE_ANNONCE'] . " (auteur,textePetiteAnnonce, dateEditionPetiteAnnonce, dateDeb) VALUES ($noProfil,'$texteAnnonce',NOW(), STR_TO_DATE('$dateDeb','%d/%m/%Y'));");
+            }
+        } else {
+            mysqli_query($this->link, " INSERT INTO " . $GLOBALS['DB_TABLE']['PETITE_ANNONCE'] . " (auteur,textePetiteAnnonce, dateEditionPetiteAnnonce, dateDeb, dateFin) VALUES ($noProfil,'$texteAnnonce',NOW(), STR_TO_DATE('$dateDeb','%d/%m/%Y'), STR_TO_DATE('$dateFin','%d/%m/%Y'));");
+        }
+    }
+
     public function supprimerPetiteAnnonceByIdSalle($noprofil, $nAnnonce) {
         mysqli_query($this->link, " DELETE FROM " . $GLOBALS['DB_TABLE']['PETITE_ANNONCE'] . " WHERE nPetiteAnnonce=$nAnnonce AND auteur=$noprofil");
     }
