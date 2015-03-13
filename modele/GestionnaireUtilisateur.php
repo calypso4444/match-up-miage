@@ -66,7 +66,7 @@ class GestionnaireUtilisateur extends Gestionnaire {
 
     public function existeDejaPseudo($pseudo) {
         $reqp = mysqli_query($this->link, "SELECT COUNT(*) AS nbp FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE pseudo='$pseudo'");
-        if ($reqm !== false) {
+        if ($reqp !== false) {
             $row = mysqli_fetch_assoc($reqp);
             return $row['nbp'] > 0 ? true : false;
         } else {
