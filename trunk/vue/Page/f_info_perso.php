@@ -126,7 +126,7 @@
             <!-- Début du bouton -->
 
             <div>
-                <input class="btn btn-default" type="submit" value="Valider " id="envoyer">
+                <input class="btn btn-default center-block" type="submit" value="Valider " id="envoyer">
             </div><!-- Fin du bouton -->
         </form>
     </div>
