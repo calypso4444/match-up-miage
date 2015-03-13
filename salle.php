@@ -21,11 +21,10 @@ $ville = $infoProfil['villeSalle'];
 
 $id = $_SESSION['user']['id'];
 
-$favori = filter_input(INPUT_POST, 'favori');
+$favori = filter_input(INPUT_GET, 'fav');
 if ($favori === "true") {
     $model['GestionnaireUtilisateur']->ajouterEnFavoriSalle($noProfil, $id);
 }
-
 
 $petiteAnnonces = $model['GestionnaireAnnonce']->getAllPetiteAnnonceByIdSalle($noProfil);
 $annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdSalle($noProfil);
