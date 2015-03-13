@@ -226,6 +226,25 @@ class GestionnaireProfil extends Gestionnaire {
         return $row['idmax'];
     }
 
+    public function getClassementFavoriSalle(){
+        $req = mysqli_query($this->link, " SELECT nSalle, nomSalle, photoProfilSalle,descriptionSalle, genreMusicalSalle FROM " . $GLOBALS['DB_TABLE']['Salle'].""
+                . " INNER JOIN "
+                . " (SELECT cible, COUNT(*) AS nbrFav "
+                . " FROM " . $GLOBALS['DB_TABLE']['FAVORI_S']
+                . " GROUP BY cible)"
+                . " ON nSalle=cible "
+                . " ORDER BY nbrFav DESC;");
+        if ($req !== false) {
+            $classement = array();
+            while ($row = mysqli_fetch_assoc($req)) {
+                $classement[] = $row;
+            }
+            return $classement;
+        } else {
+            return null;
+        }
+    }
+    
 }
 
 ?>
