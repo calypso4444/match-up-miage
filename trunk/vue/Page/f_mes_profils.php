@@ -20,7 +20,7 @@
                     echo "<td class='col-lg-3'><a href=salle.php?tmp=" . $salle['nSalle'] . "><img src=\"" . $salle['photoProfilSalle'] . "\"></a></td>";
                     echo '<td>' . $salle['nomSalle'] . '</td>';
                     echo '<td>'
-                    . '<a class="btn" href="modifier_salle.php?nSalle=' . $salle['nSalle'] . '">Modifier</a>'
+                    . '<a class="btn btn-default" href="modifier_salle.php?nSalle=' . $salle['nSalle'] . '">Modifier</a>'
                     . '<a class="btn btn-danger" href="supprimer_salle.php?nSalle=' . $salle['nSalle'] . '">Supprimer</a>'
                     . '</td>';
                     echo '</tr>';
