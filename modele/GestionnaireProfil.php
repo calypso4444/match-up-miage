@@ -227,12 +227,31 @@ class GestionnaireProfil extends Gestionnaire {
     }
 
     public function getClassementFavoriSalle() {
-        $req = mysqli_query($this->link, " SELECT nSalle, nomSalle, photoProfilSalle,descriptionSalle, genreMusicalSalle FROM " . $GLOBALS['DB_TABLE']['Salle'] . ""
+        $req = mysqli_query($this->link, " SELECT nSalle, nomSalle, photoProfilSalle,descriptionSalle, genreMusicalSalle FROM " . $GLOBALS['DB_TABLE']['SALLE'] . ""
                 . " INNER JOIN "
                 . " (SELECT cible, COUNT(*) AS nbrFav "
                 . " FROM " . $GLOBALS['DB_TABLE']['FAVORI_S']
                 . " GROUP BY cible) F "
                 . " ON nSalle=F.cible "
+                . " ORDER BY nbrFav DESC;");
+        if ($req !== false) {
+            $classement = array();
+            while ($row = mysqli_fetch_assoc($req)) {
+                $classement[] = $row;
+            }
+            return $classement;
+        } else {
+            return null;
+        }
+    }
+    
+    public function getClassementFavoriArtiste() {
+        $req = mysqli_query($this->link, " SELECT nArtiste, nomArtiste, photoProfilArtiste,descriptionArtiste, genreMusicalArtiste FROM " . $GLOBALS['DB_TABLE']['ARTISTE'] . ""
+                . " INNER JOIN "
+                . " (SELECT cible, COUNT(*) AS nbrFav "
+                . " FROM " . $GLOBALS['DB_TABLE']['FAVORI_A']
+                . " GROUP BY cible) F "
+                . " ON nArtiste=F.cible "
                 . " ORDER BY nbrFav DESC;");
         if ($req !== false) {
             $classement = array();
