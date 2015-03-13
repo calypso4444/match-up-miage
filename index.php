@@ -23,6 +23,8 @@ if ($lastA != null and $lastS !== null) {
 
 $evenements=$model['GestionnaireConcert']->getEvenementsLesPlusSuivis();
 
+$salleFavorite=$model['GestionnaireProfil']->getClassementFavoriSalle();
+
 /* fin de séquence */
 
 /* affichage de la vue */
