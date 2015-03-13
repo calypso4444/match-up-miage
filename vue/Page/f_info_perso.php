@@ -23,7 +23,7 @@
 
                                 <td>
                                     <fieldset disabled="disabled">
-                                        <input class="form-control" id="pseudo" type="text" name="pseudo" placeholder="<?php echo $vars['userPseudo']; ?>" value=" &lt;?php echo $vars['userPseudo']; ?&gt;">
+                                        <input class="form-control" id="pseudo" type="text" name="pseudo" placeholder="<?php echo $vars['userPseudo']; ?>" value=" <?php echo $vars['userPseudo']; ?>">
                                     </fieldset>
                                 </td>
 
