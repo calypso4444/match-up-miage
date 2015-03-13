@@ -143,7 +143,7 @@ img{
 #map-canvas {
     position: inherit;
     height: 200px;
-    background-color : #CCC;    
+    background-color : #CCC;	
 }
 
 
@@ -212,4 +212,3 @@ aside#parution.col-lg-4 {
 
 #bloc2 aside{
     border-bottom: solid black 1px;
-}

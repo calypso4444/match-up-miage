@@ -50,6 +50,26 @@
 
     <section class="col-lg-8">
         <p><h3>Artiste de la semaine</h3> <p>
+        <table class="table">
+            <?php
+            if ($vars['artisteFavori'] !== null) {
+                echo '<tr>';
+                foreach ($vars['artisteFavori'] as $artisteFavori) :
+                    echo '<td class="col-lg-8"><a href=artiste.php?tmp=' . $artisteFavori["nArtiste"] . '><img src="';
+                    echo$artisteFavori['photoProfilArtiste'];
+                    echo '"/></a></td><td><div id="entete">son petit nom </div>';
+                    echo$artisteFavori['nomArtiste'];
+                    echo '</br></br><div id="entete">a quoi il ressemble</div>';
+                    echo$artisteFavori['descriptionArtiste'];
+                    echo '</br></br><div id="entete">son genre</div>';
+                    echo$artisteFavori['genreMusicalArtiste'];
+                    echo '</td>';
+                    break;
+                endforeach;
+            }
+            echo '</tr>';
+            ?>
+        </table>
     </section>
 
 </div>
@@ -93,6 +113,26 @@
 
     <section id="salleDeLaSemaine" class="col-lg-4">
         <h3>Salle de la semaine</h3>
+        <table class="table">
+            <?php
+            if ($vars['salleFavorite'] !== null) {
+                echo '<tr>';
+                foreach ($vars['salleFavorite'] as $salleFavorite) :
+                    echo '<td class="col-lg-8"><a href=salle.php?tmp=' . $salleFavorite["nSalle"] . '><img src="';
+                    echo$salleFavorite['photoProfilSalle'];
+                    echo '"/></a></td><td><div id="entete">son petit nom </div>';
+                    echo$salleFavorite['nomSalle'];
+                    echo '</br></br><div id="entete">a quoi elle ressemble</div>';
+                    echo$salleFavorite['descriptionSalle'];
+                    echo '</br></br><div id="entete">son genre</div>';
+                    echo$salleFavorite['genreMusicalSalle'];
+                    echo '</td>';
+                    break;
+                endforeach;
+            }
+            echo '</tr>';
+            ?>
+        </table>
     </section>
 
 </div>
