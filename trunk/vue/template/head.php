@@ -20,7 +20,6 @@
         <script type="text/javascript" language="Javascript" src="web/js/gmap3.js"></script>
         <script type="text/javascript" language="Javascript" src="web/js/map.js"></script>
 		<script type="text/javascript" language="Javascript" src="web/js/bootstrap.file-input.js"></script>
-        <script type="text/javascript" language="Javascript" src="web/js/testFile.js"></script>
 
 
 
