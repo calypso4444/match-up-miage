@@ -117,7 +117,7 @@
                             <tr>
                                 <td><label for="mon_fichier">Votre avatar (max. 3 Mo) :</label></td>
 
-                                <td><input type="hidden" name="MAX_FILE_SIZE" value="1048576"> <input class="filestyle" type="file" name="mon_fichier" id="mon_fichier" data-input="false"></td>
+                                <td><input type="hidden" name="MAX_FILE_SIZE" value="1048576"> <input class="filestyle" type="file" name="mon_fichier" id="mon_fichier" data-input="false" data-buttonText="Votre fichier"></td>
                             </tr><!-- Fin champs pour modifier votre photo de profil -->
                         </tbody>
                     </table>

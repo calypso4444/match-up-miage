@@ -32,6 +32,7 @@ $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($
 
 $texte = filter_input(INPUT_POST, 'commentaire');
 if (!empty($texte)) {
+	$texte=htmlspecialchars($texte);
     $model['GestionnaireCommentaire']->commenterSalle($noProfil, $id, $texte);
     $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($noProfil);
 }
