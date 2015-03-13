@@ -194,6 +194,14 @@ class GestionnaireUtilisateur extends Gestionnaire {
         }
     }
 
+    public function supprimerFavoris_Salle($id, $nSalle) {
+        mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['FAVORI_S'] . " WHERE proprietaire=$id AND cible=$nSalle ; ");
+    }
+
+    public function supprimerFavoris_Artiste($id, $nArtiste) {
+        mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['FAVORI_A'] . " WHERE proprietaire=$id AND cible=$nArtiste ; ");
+    }
+
     public function getAll_EvenementsSuivis($id) {
         $req = mysqli_query(
                 $this->link, "SELECT nomArtiste, nomSalle, dateConcert "
