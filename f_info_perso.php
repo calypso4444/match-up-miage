@@ -81,7 +81,7 @@ if (!empty($cpasse) and ( sha1($cpasse) === $user['passe'])) {
     $cp = htmlspecialchars($cp);
     if (!empty($cp) and ( $cp !== $user['CP'])) {
         $model['GestionnaireUtilisateur']->setCP($id, $cp);
-        $user['cp'] = $cp;
+        $user['CP'] = $cp;
     }
     //changement de ville
     $ville = htmlspecialchars($ville);
