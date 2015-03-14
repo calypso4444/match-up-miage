@@ -24,9 +24,12 @@
             <div id="albumPhoto">
                 <h4>Album photo de l'artiste : </h4>
                 <form id="album" method="post" action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" enctype="multipart/form-data">
+                    <div class="btn-group">
                     <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
-                    <input type="file" name="mon_fichier" id="mon_fichier" />
-                    <input id="envoyer"  type="submit" value="OK"/>
+                    <span class="btn"><input type="file" name="mon_fichier" id="mon_fichier" class="filestyle" data-input="false" data-buttonText="Votre photo"/></span>
+                    <span class="btn"> <input class="btn btn-default" id="envoyer"  type="submit" value="OK"/></span>
+	                </div>
+
                 </form>
                 <table class="table">
                     <?php
