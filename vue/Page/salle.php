@@ -131,7 +131,7 @@
                                 echo '<tr>';
                                 echo "<td class='col-lg-3'>" . $annonceEvenement['texteAnnonceEvenementSalle'] . "</td>";
                                 $date = new DateTime($annonceEvenement['dateEditionAnnonceEvenementSalle']);
-                                echo '<td>' . $date->format('d/m/y ') . '</td>';
+                                echo '<td>' . $date->format('d/m/y') . '</td>';
                                 echo '<td>'
                                 . "<a class='btn btn-danger' href=salle.php?tmp=" . $vars['noProfil'] . "&nAnnonceEvenement=" . $annonceEvenement['nAnnonceEvenementSalle'] . ">Supprimer</a> "
                                 . '</td>';

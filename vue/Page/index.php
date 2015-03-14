@@ -18,7 +18,8 @@
                     echo' - ';
                     echo$evenements['nomArtiste'];
                     echo' ( ';
-                    echo$evenements['dateConcert'];
+                    $date = new DateTime($evenements['dateConcert']);
+                    echo$date->format('d/m/y');
                     echo' )</br>';
                 endforeach;
             }
