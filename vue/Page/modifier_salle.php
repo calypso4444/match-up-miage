@@ -1,9 +1,12 @@
 <!-- vue/page -->
-<div class="container col-lg-12">	
+<div class="col-lg-12">	
+	<h1>Infos de ma salle <?php echo $vars['nomSalle']; ?></h1>
+	
     <form id="formulaireModificationProfilSalle" method ="post" name="formulaireModificationProfilSalle" enctype="multipart/form-data">
 	    <div id="row">    
-		    <table class="table">
-		   		<tbody>
+		   <div class="col-lg-6">
+		   		<table class="table">
+		   		 	<tbody>
 			    		        
         <!-- Début champs pour modifier son nom de salle -->
         
@@ -12,7 +15,7 @@
             <label class="control-label" for="nomSalle">Votre nom de salle : *</label> 
 	        </td>
 	        <td>
-                <input class="form-control" id="nomArtiste" type="text" name="nomSalle" placeholder="<?php echo $vars['nomSalle']; ?>" value="<?php echo $vars['nomSalle']; ?>"/>
+                <input class="form-control" id="nomSalle" type="text" name="nomSalle" placeholder="<?php echo $vars['nomSalle']; ?>" value="<?php echo $vars['nomSalle']; ?>"/>
 	        </td>
 	        <td>		
                 <span id="nomSalleInfo"></span>
@@ -66,6 +69,58 @@
                 <span id="cpSalleInfo"></span>
             </td>
         </tr>
+        
+        <!-- Début champs pour modifier le genre musical --> 
+        
+        <tr> 
+	        <td>
+            <label class="control-label" for="genreMusical">Votre genre musical :</label>
+	        </td>
+	        <td>
+                <input class="form-control" id="genreMusical" type="text" name="genreMusical" placeholder="<?php echo $vars['genreSalle']; ?>" value="<?php echo $vars['genreSalle']; ?>"/>
+	        </td>
+	        <td>
+                <span id="genreMusicalInfo"></span>
+            </td>
+        </tr>
+        
+        <!-- Fin champs pour modifier le genre musical -->
+       
+        <!-- Début champs pour modifier la description --> 
+     
+        <tr> 
+	        <td>
+            <label class="control-label" for="descriptionSalle">Description :</label><br/>
+	        <span id="descriptionSalleInfo"></span>
+	        </td>
+	        <td>
+                <textarea style="resize:none" class="form-control" id="descriptionSalle" rows="5" type="text" name="descriptionSalle" placeholder="<?php echo $vars['descriptionSalle']; ?>" value="<?php echo $vars['descriptionSalle'];?>"></textarea>
+            </td>
+
+        </tr>
+		
+		<!-- Fin champs pour modifier la description -->
+		
+		<!-- Début champs pour modifier la photo de la salle --> 
+
+        <tr>
+	        <td>
+            <label class="control-label" for="photoSalle">Votre photo de profil :</label> 
+	        </td>
+	        <td>
+                <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />	
+                <input class="filestyle" type="file" name="mon_fichier" id="mon_fichier" data-input="false" data-buttonText="Votre photo"/>
+            </td>
+        </tr>
+
+		<!-- Fin champs pour modifier la photo de la salle -->
+        
+		   		 	</tbody>
+		   		</table>
+		   </div>
+         <div class="col-lg-6">
+		   	<table class="table">
+			   	<tbody>
         
         <!-- Fin champs pour modifier le code postal de la salle -->
         
@@ -132,54 +187,6 @@
         </tr>
         
         <!-- Fin champs pour modifier 'comment contacter le gérant de la salle' -->
-        
-        <!-- Début champs pour modifier le genre musical --> 
-        
-        <tr> 
-	        <td>
-            <label class="control-label" for="genreMusical">Votre genre musical :</label>
-	        </td>
-	        <td>
-                <input class="form-control" id="genreMusical" type="text" name="genreMusical" placeholder="<?php echo $vars['genreSalle']; ?>" value="<?php echo $vars['genreSalle']; ?>"/>
-	        </td>
-	        <td>
-                <span id="genreMusicalInfo"></span>
-            </td>
-        </tr>
-        
-        <!-- Fin champs pour modifier le genre musical -->
-        
-        <!-- Début champs pour modifier la description --> 
-     
-        <tr> 
-	        <td>
-            <label class="control-label" for="descriptionSalle">Description :</label>
-	        </td>
-	        <td>
-                <textarea class="form-control" id="descriptionSalle" rows="5" type="text" name="descriptionSalle" placeholder="<?php echo $vars['descriptionSalle']; ?>" value="<?php echo $vars['descriptionSalle'];?>"></textarea>
-            </td>
-            <td>
-                <span id="descriptionSalleInfo"></span>
-            </td>
-        </tr>
-		
-		<!-- Fin champs pour modifier la description -->
-		
-		<!-- Début champs pour modifier la photo de la salle --> 
-
-        <tr>
-	        <td>
-            <label class="control-label" for="photoSalle">Votre photo de profil :</label> 
-	        </td>
-	        <td>
-                <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />	
-                <input class="filestyle" type="file" name="mon_fichier" id="mon_fichier" data-input="false" data-buttonText="Votre photo"/>
-            </td>
-        </tr>
-        
-        
-
-		<!-- Fin champs pour modifier la photo de la salle -->
 		
 		
         <tr>
@@ -192,8 +199,10 @@
             </td>
         </tr>
 		
-            </tbody>
-		</table>
+            		</tbody>
+				</table>
+		   	</div>
+	    </div>
     </form>  
 </div>
 
