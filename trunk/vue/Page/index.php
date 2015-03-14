@@ -7,7 +7,6 @@
             <?php
             $compteur = 1;
             if ($vars['evenements'] !== null) {
-
                 foreach ($vars['evenements'] as $evenements) :
                     if ($compteur > 5) {
                         break;

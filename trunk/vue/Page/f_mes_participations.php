@@ -13,7 +13,7 @@
                     if ($compteur === 0) {
                         echo '<tr>';
                     }
-                    echo '<td>';
+                    echo '<td class="col-lg-2">';
                     echo "ou ? : <a href='salle.php?tmp=" . $concert['nSalle'] . "'>" . $concert['nomSalle'] . "</a>";
                     echo '</br>';
                     echo "qui ? : <a href='artiste.php?tmp=" . $concert['nArtiste'] . "'>" . $concert['nomArtiste'] . "</a>";
@@ -21,7 +21,8 @@
                     $date = new DateTime($concert['dateConcert']);
                     echo "quand? : " . $date->format('d/m/y');
                     echo '</td>';
-                    if ($compteur === 3) {
+                    $compteur++;
+                    if ($compteur === 5) {
                         echo '</tr>';
                         $compteur = 0;
                     }
