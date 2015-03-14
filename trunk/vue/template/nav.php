@@ -7,7 +7,7 @@
                     <li id="border" class="text-center"><a href="toutes_les_salles.php">Salles</a></li>
                     <li id="border" class="text-center"><a href="petites_annonces.php">Petites annonces</a></li>	
                     <li class="text-center">
-                        <form id="formulaireRecherche" method ="post" name="recherche">
+                        <form id="formulaireRecherche" method ="post" name="recherche" action='f_recherche_avancee.php'>
                             <label for="recherche"></label> 
                             <input id="recherche" type="text" name="recherche" placeholder="Tapez votre recherche ici" value=""/>
                             <input  type="submit" value="GO" id="envoyer"/>
