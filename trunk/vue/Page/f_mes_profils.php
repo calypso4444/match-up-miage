@@ -47,7 +47,7 @@
                     echo "<td class='col-lg-3'><a href=artiste.php?tmp=" . $artiste['nArtiste'] . "><img src=\"" . $artiste['photoProfilArtiste'] . "\"></a></td>";
                     echo '<td>' . $artiste['nomArtiste'] . '</td>';
                     echo '<td>'
-                    . '<a class="btn" href="modifier_artiste.php?nArtiste=' . $artiste['nArtiste'] . '">Modifier</a>'
+                    . '<a class="btn btn-default" href="modifier_artiste.php?nArtiste=' . $artiste['nArtiste'] . '">Modifier</a>'
                     . '<a class="btn btn-danger" href="supprimer_artiste.php?nArtiste=' . $artiste['nArtiste'] . '">Supprimer</a>'
                     . '</td>';
                     echo '</tr>';
