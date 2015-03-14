@@ -1,6 +1,6 @@
 <!-- vue/page -->
 
-<div class="container col-lg-12">
+<div class="col-lg-12">
     <h1> En attente de validation  </h1>
 </div>
 <div>
