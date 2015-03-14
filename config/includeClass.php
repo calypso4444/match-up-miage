@@ -12,6 +12,7 @@ include_once 'modele/GestionnaireCarte.php';
 include_once 'modele/GestionnaireCommentaire.php';
 include_once 'modele/GestionnaireAnnonce.php';
 include_once 'modele/GestionnaireConcert.php';
+include_once 'modele/GestionnaireRecherche.php';
 
 $model = array();
 $model['GestionnaireUtilisateur'] = new GestionnaireUtilisateur();
@@ -20,6 +21,7 @@ $model['GestionnaireAnnonce'] = new GestionnaireAnnonce();
 $model['GestionnaireCommentaire'] = new GestionnaireCommentaire();
 $model['GestionnaireConcert'] = new GestionnaireConcert();
 $model['GestionnaireCarte'] = new GestionnaireCarte();
+$model['GestionnaireRecherche'] = new GestionnaireRecherche();
 
 /* view File */
 
