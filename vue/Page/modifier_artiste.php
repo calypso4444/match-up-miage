@@ -1,7 +1,7 @@
 <!-- vue/page -->
 
 <div class="col-lg-12">
-	<h1>Création de la page artiste</h1>
+	<h1>modification de la page artiste</h1>
     <form id="formulaireModificationProfilArtiste" method ="post" name="formulaireModificationProfilArtiste" enctype="multipart/form-data">
 	    <div id="row">    
 		   <div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
