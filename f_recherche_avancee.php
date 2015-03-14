@@ -10,17 +10,17 @@ include_once 'config/includeGlobal.php';
 /* séquence du controleur */
 
 $mot = filter_input(INPUT_POST, 'recherche');
-if (isset($mot)) {
-    $mot=  htmlspecialchars($mot);
+$resultat = null;
+if (isset($mot)and $mot !== '') {
+    $mot = htmlspecialchars($mot);
     $resultat = $model['GestionnaireRecherche']->rechercheParMotClef($mot);
 }
-
 /* fin de séquence */
 
 /* affichage de la vue */
 
 $vue = array();
-$vue['mot']=$mot;
+$vue['mot'] = $mot;
 $vue['resultat'] = $resultat;
 $view->render('f_recherche_avancee', $vue);
 
