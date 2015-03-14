@@ -209,7 +209,8 @@ class GestionnaireUtilisateur extends Gestionnaire {
                 . " INNER JOIN " . $GLOBALS['DB_TABLE']['CONCERT'] . " C  ON E.cible=C.nConcert "
                 . " INNER JOIN " . $GLOBALS['DB_TABLE']['SALLE'] . " S  ON S.nSalle=C.nSalle "
                 . " INNER JOIN " . $GLOBALS['DB_TABLE']['ARTISTE'] . " A  ON A.nArtiste=C.nArtiste "
-                . " WHERE E.proprietaire=$id ; ");
+                . " WHERE E.proprietaire=$id "
+                . " ORDER BY dateConcert; ");
         if ($req !== false) {
             $suivis = array();
             while ($row = mysqli_fetch_assoc($req)) {
