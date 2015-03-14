@@ -19,10 +19,10 @@ $model['GestionnaireProfil'] = new GestionnaireProfil();
 $model['GestionnaireAnnonce'] = new GestionnaireAnnonce();
 $model['GestionnaireCommentaire'] = new GestionnaireCommentaire();
 $model['GestionnaireConcert'] = new GestionnaireConcert();
+$model['GestionnaireCarte'] = new GestionnaireCarte();
 
 /* view File */
 
 include_once 'vue/View.php';
 $view = new View();
-
 ?>

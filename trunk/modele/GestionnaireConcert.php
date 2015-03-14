@@ -25,18 +25,41 @@ class GestionnaireConcert extends Gestionnaire {
         }
     }
 
-    public function getAllSalleConcertByDate($date) {
-        $req = mysqli_query($this->link, " SELECT S.nSalle, nomSalle, photoProfilSalle,descriptionSalle, genreMusicalSalle, adresseSalle, cpSalle,villeSalle, latitude, longitude FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " S "
-                . " INNER JOIN "
-                . $GLOBALS['DB_TABLE']['CONCERT'] . " C "
+    public function getAllConcertByDate($date) {
+        $req = mysqli_query($this->link, " SELECT S.nSalle, nomSalle, A.nArtiste, A.nomArtiste, C.dateConcert FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " S "
+                . " INNER JOIN " . $GLOBALS['DB_TABLE']['CONCERT'] . " C "
                 . " ON S.nSalle=C.nSalle "
+                . " INNER JOIN " . $GLOBALS['DB_TABLE']['ARTISTE'] . " A "
+                . " ON A.nArtiste=C.nArtiste"
+                . " INNER JOIN " . $GLOBALS['DB_TABLE']['SALLE'] . " S "
+                . " ON S.nSalle=C.nSalle "
+                . " ORDER BY C.dateConcert "
                 . " WHERE C.dateConcert=STR_TO_DATE('$date','%d/%m/%Y');");
         if ($req !== false) {
-            $salle = array();
+            $concert = array();
             while ($row = mysqli_fetch_assoc($req)) {
-                $salle[] = $row;
+                $concert[] = $row;
             }
-            return $salle;
+            return $concert;
+        } else {
+            return null;
+        }
+    }
+
+    public function getAllConcert() {
+        $req = mysqli_query($this->link, " SELECT S.nSalle, nomSalle, A.nArtiste, A.nomArtiste, C.dateConcert FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " S "
+                . " INNER JOIN " . $GLOBALS['DB_TABLE']['CONCERT'] . " C "
+                . " ON S.nSalle=C.nSalle "
+                . " INNER JOIN " . $GLOBALS['DB_TABLE']['ARTISTE'] . " A "
+                . " ON A.nArtiste=C.nArtiste"
+                . " WHERE C.dateConcert>=CURDATE() "
+                . " ORDER BY C.dateConcert;");
+        if ($req !== false) {
+            $concert = array();
+            while ($row = mysqli_fetch_assoc($req)) {
+                $concert[] = $row;
+            }
+            return $concert;
         } else {
             return null;
         }

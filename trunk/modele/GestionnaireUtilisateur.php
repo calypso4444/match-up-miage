@@ -204,7 +204,7 @@ class GestionnaireUtilisateur extends Gestionnaire {
 
     public function getAll_EvenementsSuivis($id) {
         $req = mysqli_query(
-                $this->link, "SELECT nomArtiste, nomSalle, dateConcert "
+                $this->link, "SELECT A.nArtiste,nomArtiste, S.nSalle, nomSalle, dateConcert "
                 . " FROM " . $GLOBALS['DB_TABLE']['EVENEMENT_SUIVI'] . " E "
                 . " INNER JOIN " . $GLOBALS['DB_TABLE']['CONCERT'] . " C  ON E.cible=C.nConcert "
                 . " INNER JOIN " . $GLOBALS['DB_TABLE']['SALLE'] . " S  ON S.nSalle=C.nSalle "
