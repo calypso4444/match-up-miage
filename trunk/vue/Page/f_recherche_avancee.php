@@ -4,11 +4,15 @@
 
     <h1>recherche avancée</h1>
 
-    <div id='resultat'>
-        Voici les résultats correspondant à votre recherche : <?php echo "'" . $vars['mot'] . "'"; ?>
+    <div id="optionAvancee" class="col-lg-2" style="border-right : solid black 1px; border-top: solid black 1px">
+        options avancées pour affiner le résulat de votre recherche 
         </br>
+    </div>
+
+    <div id='resultat' class="col-lg-10" style="border-top: solid black 1px">
+        <p> Voici les résultats correspondant à votre recherche : <?php echo "'" . $vars['mot'] . "'"; ?></p>
         <?php
-        if ($vars['resultat'] !== null) {
+        if (!empty($vars['resultat'])) {
             if (!empty($vars['resultat']['artiste'])) {
                 echo '<table class="table col-lg-4">';
                 echo 'dans la catégorie artistes : </br>';
@@ -50,6 +54,8 @@
                 endforeach;
                 echo'</table>';
             }
+        } else {
+            echo 'aucun résultat';
         }
         ?>
     </div>
