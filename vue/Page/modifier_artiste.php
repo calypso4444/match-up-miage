@@ -1,6 +1,6 @@
 <!-- vue/page -->
 
-<div class="container col-lg-12">
+<div class="col-lg-12">
 	<h1>Création de la page artiste</h1>
     <form id="formulaireModificationProfilArtiste" method ="post" name="formulaireModificationProfilArtiste" enctype="multipart/form-data">
 	    <div id="row">    

@@ -8,7 +8,7 @@
         <table class="table">
             <tbody>
                 <?php
-                $compteur = 0;
+                $chk = 0;
                 $dateAffichage = new DateTime();
                 $dateAffichage = $dateAffichage->format('d/m/y');
                 if ($vars['concert'] !== null) {
@@ -16,12 +16,12 @@
                         $date = new DateTime($concert['dateConcert']);
                         $date = $date->format('d/m/y');
                         if ($date !== $dateAffichage) {
-                            if ($compteur === 1) {
+                            if ($chk === 1) {
                                 echo '</tr>';
-                                $compteur = 0;
+                                $chk = 0;
                             }
                             echo '<tr>';
-                            $compteur++;
+                            $chk++;
                             echo '<td><div id="entete"> le ' . $date . " : </div></td>";
                             $dateAffichage = $date;
                         } else {

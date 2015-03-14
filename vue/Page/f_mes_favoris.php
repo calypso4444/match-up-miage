@@ -1,16 +1,16 @@
 <!-- vue/page -->
 
-<div class="container col-lg-12">
+<div class="col-lg-12">
 
     <h1>mes favoris</h1>
 
-    <div id="mesFavorisSalles" style="border-bottom: solid black 1px;border-top: solid black 1px">
+    <div id="mesFavorisSalles" class='col-lg-6'>
         <h2>salles</h2>
         <table class="table">
             <thead>
                 <tr>
                     <th>Snapshot</th>
-                    <th>Nom de la salle</th>
+                    <th>Nom</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -18,7 +18,7 @@
                 <?php
                 foreach ($vars['mesFavoris_S'] as $fav_s):
                     echo '<tr>';
-                    echo "<td class='col-lg-3'><a href=salle.php?tmp=" . $fav_s['nSalle'] . "><img src=\"" . $fav_s['photoProfilSalle'] . "\"></a></td>";
+                    echo "<td class='col-lg-7'><a href=salle.php?tmp=" . $fav_s['nSalle'] . "><img src=\"" . $fav_s['photoProfilSalle'] . "\"></a></td>";
                     echo '<td>' . $fav_s['nomSalle'] . '</td>';
                     echo '<td>'
                     . '<a class="btn btn-danger" href="f_mes_favoris.php?nSalle=' . $fav_s['nSalle'] . '">Supprimer</a>'
@@ -29,13 +29,13 @@
             </tbody>
         </table>
     </div>
-    <div id="mesFavorisArtistes"style="border-bottom: solid black 1px">
+    <div id="mesFavorisArtistes" class='col-lg-6'>
         <h2>artistes</h2>
         <table class="table">
             <thead>
                 <tr>
                     <th>Snapshot</th>
-                    <th>Nom de l'artiste</th>
+                    <th>Nom</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -43,7 +43,7 @@
                 <?php
                 foreach ($vars['mesFavoris_A'] as $fav_a):
                     echo '<tr>';
-                    echo "<td class='col-lg-3'><a href=artiste.php?tmp=" . $fav_a['nArtiste'] . "><img src=\"" . $fav_a['photoProfilArtiste'] . "\"></a></td>";
+                    echo "<td class='col-lg-7'><a href=artiste.php?tmp=" . $fav_a['nArtiste'] . "><img src=\"" . $fav_a['photoProfilArtiste'] . "\"></a></td>";
                     echo '<td>' . $fav_a['nomArtiste'] . '</td>';
                     echo '<td>'
                     . '<a class="btn btn-danger" href="f_mes_favoris.php?nArtiste=' . $fav_a['nArtiste'] . '">Supprimer</a>'
