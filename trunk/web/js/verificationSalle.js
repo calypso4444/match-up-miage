@@ -18,22 +18,23 @@ $(document).ready(function(){
 
 	
 	nomSalle.blur(validateNomSalle);
-	descriptionSalle.blur(validateDescription);
+	descriptionSalle.blur(validateDescriptionSalle);
 	cpSalle.blur(validateCpSalle);
 	adresseSalle.blur(validateAdresse);
 	villeSalle.blur(validateVilleSalle);
 		
 	nomSalle.keyup(validateNomSalle);
-	descriptionSalle.keyup(validateDescription);
+	descriptionSalle.keyup(validateDescriptionSalle);
 	cpSalle.keyup(validateCpSalle);
 	adresseSalle.keyup(validateAdresse);
 	villeSalle.keyup(validateVilleSalle);
 	
 	form.submit(function(){
-		if(validateNomSalle() & validateAdresse() & validateCpSalle() & validateVilleSalle()){
+		if(validateAdresse() & validateCpSalle() & validateVilleSalle() & validateNomSalle() & validateDescriptionSalle()) {
+			alert("Bien enregistré");
 			return true;
 		} else {
-			alert("Veuillez remplir les champs suivant correctement ");
+			alert("Veuillez remplir correctement les champs ");
 			return false;
 		}
 	});
@@ -86,26 +87,23 @@ $(document).ready(function(){
         }
     }
 		
-	function validateDescription(){
+	function validateDescriptionSalle(){
 		
 	var nombreCaractere = $(descriptionSalle).val().length;
-    var nombreCaractere = 300 - nombreCaractere;
-    var nombreMots = jQuery.trim($(this).val()).split(' ').length;
+    var nombreCaractere = 255 - nombreCaractere;
     
-    if($(this).val() === '') {
-     	nombreMots = 0;
-    }
-    
-    var msg = nombreCaractere + ' Caractere(s) restant';
+    var msg = nombreCaractere + ' caractère(s) restant(s)';
 	descriptionSalleInfo.text(msg);
 
 
     if (nombreCaractere < 0) { 
 	    descriptionSalleInfo.css('color', 'red');
+	    return false;
 	} else { 
 	    descriptionSalleInfo.css('color', 'black');  
-	     }
-	}
-		
+	    return true;
+	    
+		}
+	}	
 });
 
