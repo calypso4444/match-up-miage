@@ -215,5 +215,17 @@ aside#parution.col-lg-4 {
 }
 
 #entete{
+    text-decoration: underline;
     font-weight: bold;
+}
+
+#suivi td{
+    background-color: #494949;
+    border-radius: 10px 0;
+    color: white;
+}
+
+#suivi table{
+    border-spacing: 5px;
+   border-collapse: separate;
 }
