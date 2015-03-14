@@ -202,7 +202,6 @@ aside#parution.col-lg-4 {
 }
 
 #musique{
-    border-right: solid black 1px;
     padding-left: 0;
 }
 
@@ -260,4 +259,14 @@ div#txthover {
     position: absolute;
     top: 20%;
     visibility: hidden;
+}
+
+section#artisteDeLaSemaine{
+    border-left: solid black 1px;
+}
+
+section#salleDeLaSemaine button, section#artisteDeLaSemaine button{
+    position: absolute;
+    background-color: transparent;
+    color: white;
 }
