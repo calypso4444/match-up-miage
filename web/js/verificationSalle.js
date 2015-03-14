@@ -40,7 +40,7 @@ $(document).ready(function(){
 	});
 
 	function validateNomSalle(){
-		if(!nomSalle.val().match(/^[A-Za-zàéèêëîïôöûüùç.]+([ -][A-Za-zàéèêëîïôöûüùç.]{1,})*$/i)){
+		if(!nomSalle.val().match(/^[A-Za-zàéèêëîïôöûüùç.0-9]+([ -0-9][A-Za-zàéèêëîïôöûüùç.0-9]{1,})*$/i)){
 			nomSalleInfo.removeClass("glyphicon glyphicon-ok");
 			nomSalleInfo.addClass("glyphicon glyphicon-remove");
 			return false;
