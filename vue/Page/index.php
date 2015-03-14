@@ -4,27 +4,30 @@
     <div id="musique" class="col-lg-4">
         <section id="evenementAttendus">
             <h3>&Eacute;v&egrave;nements les plus attendus</h3>
-            <?php
-            $compteur = 1;
-            if ($vars['evenements'] !== null) {
-                foreach ($vars['evenements'] as $evenements) :
-                    if ($compteur > 5) {
-                        break;
-                    }
-                    echo $compteur . ". ";
-                    $compteur++;
-                    echo$evenements['nomSalle'];
-                    echo' - ';
-                    echo$evenements['nomArtiste'];
-                    echo' ( ';
-                    $date = new DateTime($evenements['dateConcert']);
-                    echo$date->format('d/m/y');
-                    echo' )</br>';
-                endforeach;
-            }
-            ?>
-            <input type="submit" value="+" />
-            </br>
+            <div id="txtEvenement">
+                <?php
+                $compteur = 1;
+                if ($vars['evenements'] !== null) {
+                    foreach ($vars['evenements'] as $evenements) :
+                        if ($compteur > 5) {
+                            break;
+                        }
+                        echo $compteur . ". ";
+                        $compteur++;
+                        echo$evenements['nomSalle'];
+                        echo' - ';
+                        echo$evenements['nomArtiste'];
+                        echo' ( ';
+                        $date = new DateTime($evenements['dateConcert']);
+                        echo$date->format('d/m/y');
+                        echo' )</br>';
+                    endforeach;
+                }
+                ?>
+            </div>
+            <form method="post">
+                <input type="submit" value="+" />
+            </form>
         </section>
 
         <section id="selectionRandom">
@@ -48,27 +51,40 @@
         </section>
     </div>
 
-    <section class="col-lg-8">
-        <p><h3>Artiste de la semaine</h3> <p>
+    <section id="artisteDeLaSemaine" class="col-lg-8">
+        <h3>Artiste de la semaine</h3>
         <table class="table">
             <?php
             if ($vars['artisteFavori'] !== null) {
                 echo '<tr>';
+                $nom;
+                $desc;
+                $genre;
                 foreach ($vars['artisteFavori'] as $artisteFavori) :
-                    echo '<td class="col-lg-8"><a href=artiste.php?tmp=' . $artisteFavori["nArtiste"] . '><img src="';
+                    $nom = $artisteFavori['nomArtiste'];
+                    $desc = $artisteFavori['descriptionArtiste'];
+                    $genre = $artisteFavori['genreMusicalArtiste'];
+                    $txt = "son petit nom :</br> " . $nom . "</br>ce à quoi il ressemble :</br>" . $desc . "</br>son genre : </br>" . $genre . "</br>";
+                    echo '<td class="col-lg-12"><button onclick="setVisibility()" style="position: absolute">+</button><a href=artiste.php?tmp=' . $artisteFavori["nArtiste"] . '><img src="';
                     echo$artisteFavori['photoProfilArtiste'];
-                    echo '"/></a></td><td><div id="entete">son petit nom </div>';
-                    echo$artisteFavori['nomArtiste'];
-                    echo '</br></br><div id="entete">a quoi il ressemble</div>';
-                    echo$artisteFavori['descriptionArtiste'];
-                    echo '</br></br><div id="entete">son genre</div>';
-                    echo$artisteFavori['genreMusicalArtiste'];
+                    echo '"/></a>';
+                    echo '<div id="txthover">' . $txt . '</div>';
                     echo '</td>';
                     break;
                 endforeach;
             }
-            echo '</tr>';
             ?>
+
+            <script> function setVisibility() {
+                    $doc = document.getElementById("txthover");
+                    if ($doc.style.visibility === 'visible') {
+                        $doc.style.visibility = 'hidden';
+                    } else {
+                        $doc.style.visibility = 'visible';
+                    }
+                }
+            </script>
+
         </table>
     </section>
 
@@ -116,16 +132,19 @@
         <table class="table">
             <?php
             if ($vars['salleFavorite'] !== null) {
+                $nom;
+                $desc;
+                $genre;
                 echo '<tr>';
                 foreach ($vars['salleFavorite'] as $salleFavorite) :
-                    echo '<td class="col-lg-8"><a href=salle.php?tmp=' . $salleFavorite["nSalle"] . '><img src="';
+                    $nom = $salleFavorite['nomSalle'];
+                    $desc = $salleFavorite['descriptionSalle'];
+                    $genre = $salleFavorite['genreMusicalSalle'];
+                    $txt = "son petit nom :</br> " . $nom . "</br>ce à quoi il ressemble :</br>" . $desc . "</br>son genre : </br>" . $genre . "</br>";
+                    echo '<td class="col-lg-12"><button onclick="setVisibility()" style="position: absolute">+</button><a href=salle.php?tmp=' . $salleFavorite["nSalle"] . '><img src="';
                     echo$salleFavorite['photoProfilSalle'];
-                    echo '"/></a></td><td><div id="entete">son petit nom </div>';
-                    echo$salleFavorite['nomSalle'];
-                    echo '</br></br><div id="entete">a quoi elle ressemble</div>';
-                    echo$salleFavorite['descriptionSalle'];
-                    echo '</br></br><div id="entete">son genre</div>';
-                    echo$salleFavorite['genreMusicalSalle'];
+                    echo '"/></a>';
+                    echo'<div id="txthover">' . $txt . '</div>';
                     echo '</td>';
                     break;
                 endforeach;

@@ -73,6 +73,8 @@ body {
 #main{
     border-top:solid black 2px;
     border-bottom:solid black 2px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 div#photoProfil{
@@ -195,10 +197,13 @@ aside#parution.col-lg-4 {
 
 #bloc1{
     border-bottom: solid black 1px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 #musique{
     border-right: solid black 1px;
+    padding-left: 0;
 }
 
 #evenementAttendus{
@@ -206,8 +211,20 @@ aside#parution.col-lg-4 {
     margin-right: -15px;
 }
 
+#evenementAttendus form{
+    text-align: right;
+}
+
+#player{
+    margin-left: 8%;
+}
+
 #carte{
     border-right: solid black 1px;
+}
+#bloc2{
+    padding-left: 0;
+    padding-right: 0;
 }
 
 #bloc2 aside{
@@ -227,5 +244,20 @@ aside#parution.col-lg-4 {
 
 #suivi table{
     border-spacing: 5px;
-   border-collapse: separate;
+    border-collapse: separate;
+}
+
+#txtEvenement{
+    margin-left: 10%;
+}
+
+div#txthover {
+    background: rgba(0,0,0,0.5);
+    color: white;
+    cursor: pointer;
+    display: table;
+    right: 5%;
+    position: absolute;
+    top: 20%;
+    visibility: hidden;
 }
