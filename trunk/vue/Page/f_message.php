@@ -32,7 +32,7 @@
                         <label for="objet">Objet : *</label> 
                     </td>
                     <td class="col-lg-10">
-                        <input class="form-control" id="objet" type="text" name="objet" placeholder="" value=""/>
+                        <input class="form-control" id="objet" type="text" name="objet" placeholder="" value="<?php echo $vars['objet']; ?>"/>
                     </td>
                 </tr>
                 <tr>

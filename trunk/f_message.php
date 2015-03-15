@@ -31,8 +31,8 @@ $expediteur = filter_input(INPUT_POST, 'expediteur');
 $objet = filter_input(INPUT_POST, 'objet');
 $message = filter_input(INPUT_POST, 'txtMessage');
 if (!empty($message)) {
-    $message=  htmlspecialchars($message);
-    $objet= htmlspecialchars($objet);
+    $message = htmlspecialchars($message);
+    $objet = htmlspecialchars($objet);
     //on ne peut pas envoyer de mail en local....
 //    mail($destinataire, $objet, $message);
     $messageEnvoye = true;
@@ -46,6 +46,16 @@ if ($exp === null) {
     $dexp['email'] = null;
 }
 
+$nAnnonce = filter_input(INPUT_GET, 'nAnnonce');
+$annonce;
+if(isset($nAnnonce)){
+    $annonce=$model['GestionnaireAnnonce']->getPetiteAnnonce($nAnnonce);
+    $dateEdition = new DateTime($annonce['dateEditionPetiteAnnonce']);
+    $dateEdition=$dateEdition->format('d/m/y');
+    $objet="Votre annonce du ".$dateEdition;
+}
+
+
 /* fin de séquence */
 
 /* affichage de la vue */
@@ -53,6 +63,7 @@ if ($exp === null) {
 $vue = array();
 $vue['destinataire'] = $dest['email'];
 $vue['expediteur'] = $exp['email'];
+$vue['objet'] = $objet;
 $vue['messageEnvoye'] = $messageEnvoye;
 $view->render('f_message', $vue);
 
