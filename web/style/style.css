@@ -78,8 +78,8 @@ body {
 }
 
 div#photoProfil{
-    border-top: : solid black 1px;
-    border-bottom: : solid black 1px;
+    border-top: solid black 1px;
+    border-bottom: solid black 1px;
     min-height: 300px;
 }
 
@@ -107,19 +107,19 @@ div#commentaire{
 }
 
 .navbar-form{
-    margin-bottom: -19px;
     margin-top: -14px;
 }
-
-.navbar-form #border{
-    margin-bottom: -19px;
-    margin-top: -14px;
-    border-right: solid 1px black;
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
+@media(min-width: 775px) {
+    .navbar-form #border{
+        margin-bottom: -19px;
+        margin-top: -14px;
+        border-right: solid 1px black;
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .navbar-form {margin-bottom: -19px;}
 }
-
 
 #menuConnexion{
     border-left: solid 1px black;
