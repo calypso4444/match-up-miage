@@ -1,71 +1,4 @@
 <!-- vue/page -->
-<style type="text/css">	
-.photo-grid {
-	margin: auto;
-	max-width: auto;
-	text-align: center;
-}
-
-.photo-grid li {
-	display: inline-block;
-	width: auto;
-}
-
-.photo-grid li figcaption {
-	width: auto;
-	display: inline-block;
-	height: auto;
-}
- 
-.photo-grid figure {
-	height: auto;
-	width: auto;
-	overflow: hidden;
-	position: relative;
-	display: inline-block;
-}
-
-.photo-grid figcaption {
-	background: rgba(0,0,0,0.8);
-	color: white;
-	display: inline-block;
-	height: auto;
-	left: 0;
-	opacity: 0;
-	position: absolute;
-	right: 0;
-	top: 0;
-	-webkit-transition: all 300ms;
-	-moz-transition: all 300ms;
-	transition: all 300ms;
-	-webkit-transition-delay: 100ms;
-	-moz-transition-delay: 100ms;
-	transition-delay: 100ms;
-	z-index: 100;
-}
-
-.photo-grid figcaption p {
-	display: inline-block;
-	font-size: 1.5em;
-	position: relative;
-	top: -40px;
-	width: auto;
-	-webkit-transition: all 1200ms ease-out;
-	-moz-transition: all 1200ms ease-out;
-	transition: all 1200ms ease-out;
-}
-  
-.photo-grid li:hover figcaption {
-	opacity: 0.7;
-}
-
-.photo-grid li:hover figcaption p {
-	-moz-transform: translateY(40px);
-	-webkit-transform: translateY(40px);
-	transform: translateY(40px);
-}
-</style>
-
 <div id="bloc1" class="col-lg-12">
     <div id="musique" class="col-lg-4">
         <section id="evenementAttendus">
@@ -178,7 +111,7 @@
                 $nom;
                 $desc;
                 $genre;
-                echo '<<ul class="photo-grid">';
+                echo '<ul class="photo-grid">';
                 foreach ($vars['salleFavorite'] as $salleFavorite) :
                     $nom = $salleFavorite['nomSalle'];
                     $desc = $salleFavorite['descriptionSalle'];
