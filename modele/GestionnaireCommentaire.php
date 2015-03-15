@@ -69,11 +69,11 @@ class GestionnaireCommentaire extends Gestionnaire {
     }
 
     public function commenterSalle($noProfil, $id, $texte) {
-        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['COMMENTAIRE_S'] . "  (nCommentaireSalle, cible, texteCommentaireSalle, auteur, dateEditionCommentaireSalle) VALUES('',$noProfil,'$texte',$id ,NOW());");
+        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['COMMENTAIRE_S'] . "  (nCommentaireSalle, cible, texteCommentaireSalle, auteur, dateEditionCommentaireSalle) VALUES('',$noProfil,'" . mysqli_real_escape_string($this->link, $texte) . "',$id ,NOW());");
     }
 
     public function commenterArtiste($noProfil, $id, $texte) {
-        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['COMMENTAIRE_A'] . "  (nCommentaireArtiste, cible, texteCommentaireArtiste, auteur, dateEditionCommentaireArtiste) VALUES('',$noProfil,'$texte',$id ,NOW());");
+        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['COMMENTAIRE_A'] . "  (nCommentaireArtiste, cible, texteCommentaireArtiste, auteur, dateEditionCommentaireArtiste) VALUES('',$noProfil,'" . mysqli_real_escape_string($this->link, $texte) . "',$id ,NOW());");
     }
 
     public function supprimerCommentaireSalle($nCommentaire) {
