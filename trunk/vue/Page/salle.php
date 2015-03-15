@@ -22,8 +22,8 @@
     </div>
 
     <div id="interaction" class="col-lg-3">
-        <a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&fav=true" class="glyphicon glyphicon-heart"> Ajouter en favori </a>
-        <a href="" class="glyphicon glyphicon-envelope"> Contacter la salle </a>
+        <a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&fav=true" class="glyphicon glyphicon-heart"> Ajouter en favori </a></br>
+        <a href="" class="glyphicon glyphicon-envelope"> Contacter la salle </a></br>
         <a href="" class="glyphicon glyphicon-star-empty"> Noter la salle </a>
     </div>
 
@@ -32,11 +32,11 @@
             <div id="albumPhoto">
                 <h4>Album photo de la salle : </h4>
                 <form id="album" method="post" action="salle.php?tmp=<?php echo $vars['noProfil']; ?>" enctype="multipart/form-data">
-					<div class="btn-group">
-                    <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
-                    <span class="btn"><input type="file" name="mon_fichier" id="mon_fichier" class="filestyle" data-input="false" data-buttonText="Votre photo"/></span>
-                    <span class="btn"> <input class="btn btn-default" id="envoyer"  type="submit" value="OK"/></span>
-	                </div>
+                    <div class="btn-group">
+                        <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+                        <span class="btn"><input type="file" name="mon_fichier" id="mon_fichier" class="filestyle" data-input="false" data-buttonText="Votre photo"/></span>
+                        <span class="btn"> <input class="btn btn-default" id="envoyer"  type="submit" value="OK"/></span>
+                    </div>
                 </form>
                 <table class="table">
                     <?php
@@ -47,6 +47,7 @@
                                 echo '<tr>';
                             }
                             echo '<td>';
+                            echo "<form id ='suppressionPhoto' action='salle.php?tmp=" . $vars['noProfil'] . "&nP=" . $albumPhoto['nPhotoSalle'] . "' method='post'><button id='suppression' type='submit' name='removePhoto' value='true' >x</button></form>";
                             echo "<img src=\"";
                             echo $albumPhoto['photoSalle'];
                             echo "\"></td>";

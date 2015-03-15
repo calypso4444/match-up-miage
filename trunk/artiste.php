@@ -31,8 +31,8 @@ if (!empty($texte)) {
 }
 
 $nCom = filter_input(INPUT_GET, 'nCom');
-$remove = filter_input(INPUT_POST, 'remove');
-if ($remove === "true") {
+$removeComment = filter_input(INPUT_POST, 'removeComment');
+if ($removeComment === "true") {
     if ($model['GestionnaireCommentaire']->estProprietaireCommentaireArtiste($nCom, $id)) {
         $model['GestionnaireCommentaire']->supprimerCommentaireArtiste($nCom);
     }
@@ -40,6 +40,13 @@ if ($remove === "true") {
 $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdArtiste($noProfil);
 $annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdArtiste($noProfil);
 
+$nPhoto = filter_input(INPUT_GET, 'nP');
+$removePhoto = filter_input(INPUT_POST, 'removePhoto');
+if ($removePhoto === "true") {
+    if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
+        $model['GestionnaireProfil']->supprimerPhotoArtiste($noProfil, $nPhoto);
+    }
+}
 $albumPhoto = $model['GestionnaireProfil']->getAllPhotoArtisteById($noProfil);
 
 if (isset($_FILES['mon_fichier'])) {

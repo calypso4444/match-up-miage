@@ -46,6 +46,13 @@ if ($remove === "true") {
 }
 $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($noProfil);
 
+$nPhoto = filter_input(INPUT_GET, 'nP');
+$removePhoto = filter_input(INPUT_POST, 'removePhoto');
+if ($removePhoto === "true") {
+    if ($model['GestionnaireProfil']->estProprietaireProfilSalle($noProfil, $id)) {
+        $model['GestionnaireProfil']->supprimerPhotoSalle($noProfil,$nPhoto);
+    }
+}
 $albumPhoto = $model['GestionnaireProfil']->getAllPhotoSalleById($noProfil);
 
 if (isset($_FILES['mon_fichier'])) {

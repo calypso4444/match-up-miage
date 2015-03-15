@@ -214,6 +214,14 @@ class GestionnaireProfil extends Gestionnaire {
         mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['ALBUM_PHOTO_A'] . " (proprietaire, photoArtiste) VALUES ($noProfil,'$path')");
     }
 
+    public function supprimerPhotoSalle($noProfil, $nPhoto) {
+        mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['ALBUM_PHOTO_S'] . " WHERE proprietaire=$noProfil AND nPhotoSalle=$nPhoto");
+    }
+
+    public function supprimerPhotoArtiste($noProfil, $nPhoto) {
+        mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['ALBUM_PHOTO_A'] . " WHERE proprietaire=$noProfil AND nPhotoArtiste=$nPhoto");
+    }
+    
     public function getNMaxPhotoSalle($noProfil) {
         $tmp = mysqli_query($this->link, "SELECT MAX(nPhotoSalle)AS idmax FROM " . $GLOBALS['DB_TABLE']['ALBUM_PHOTO_S'] . " WHERE proprietaire=$noProfil");
         $row = mysqli_fetch_assoc($tmp);

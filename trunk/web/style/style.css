@@ -117,6 +117,7 @@ div#commentaire{
     border-right: solid 1px black;
     color: black;
     text-decoration: none;
+    font-weight: bold;
 }
 
 
@@ -182,7 +183,10 @@ div#texteCommentaire a {
 
 div#texteCommentaire form {
     text-align: right;
-    height:10px;
+}
+
+div#texteCommentaire button {
+    background-color: transparent;
 }
 
 h1, h2, h3{
@@ -269,4 +273,10 @@ section#salleDeLaSemaine button, section#artisteDeLaSemaine button{
     position: absolute;
     background-color: transparent;
     color: white;
+}
+
+button#suppression{
+    position:absolute;
+    background-color:transparent;
+    color:white;
 }

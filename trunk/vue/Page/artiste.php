@@ -14,8 +14,8 @@
     </div>
 
     <div id="interaction" class="col-lg-3">
-        <a href="artiste.php?tmp=<?php echo $vars['noProfil']; ?>&fav=true" class="glyphicon glyphicon-heart"> Ajouter en favori </a>
-        <a href="" class=" glyphicon glyphicon-envelope"> Contacter l'artiste </a>
+        <a href="artiste.php?tmp=<?php echo $vars['noProfil']; ?>&fav=true" class="glyphicon glyphicon-heart"> Ajouter en favori </a></br>
+        <a href="" class=" glyphicon glyphicon-envelope"> Contacter l'artiste </a></br>
         <a href="" class=" glyphicon glyphicon-star-empty"> Noter l'artiste </a>
     </div>
 
@@ -25,10 +25,10 @@
                 <h4>Album photo de l'artiste : </h4>
                 <form id="album" method="post" action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" enctype="multipart/form-data">
                     <div class="btn-group">
-                    <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
-                    <span class="btn"><input type="file" name="mon_fichier" id="mon_fichier" class="filestyle" data-input="false" data-buttonText="Votre photo"/></span>
-                    <span class="btn"> <input class="btn btn-default" id="envoyer"  type="submit" value="OK"/></span>
-	                </div>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
+                        <span class="btn"><input type="file" name="mon_fichier" id="mon_fichier" class="filestyle" data-input="false" data-buttonText="Votre photo"/></span>
+                        <span class="btn"> <input class="btn btn-default" id="envoyer"  type="submit" value="OK"/></span>
+                    </div>
 
                 </form>
                 <table class="table">
@@ -40,6 +40,7 @@
                                 echo '<tr>';
                             }
                             echo '<td>';
+                            echo "<form id ='suppressionPhoto' action='artiste.php?tmp=" . $vars['noProfil'] . "&nP=" . $albumPhoto['nPhotoArtiste'] . "' method='post'><button id='suppression' type='submit' name='removePhoto' value='true' >x</button></form>";
                             echo "<img src=\"";
                             echo $albumPhoto['photoArtiste'];
                             echo "\"></td>";
@@ -61,7 +62,7 @@
                         if ($vars['commentaire']) {
                             foreach ($vars['commentaire'] as $commentaires):
                                 echo"<div id='texteCommentaire'>";
-                                echo "<form action='artiste.php?tmp=" . $vars['noProfil'] . "&nCom=" . $commentaires['nCommentaireArtiste'] . "' method='post'><button type='submit' name='remove' value='true' class='btn glyphicon glyphicon-remove'></button></form>";
+                                echo "<form action='artiste.php?tmp=" . $vars['noProfil'] . "&nCom=" . $commentaires['nCommentaireArtiste'] . "' method='post'><button type='submit' name='removeComment' value='true'>x</button></form>";
                                 echo "<img src=\"";
                                 echo $commentaires['avatar'];
                                 echo "\">";
