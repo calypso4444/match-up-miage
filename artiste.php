@@ -26,6 +26,7 @@ $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdArtiste
 
 $texte = filter_input(INPUT_POST, 'commentaire');
 if (!empty($texte)) {
+    $texte=  htmlspecialchars($texte);
     $model['GestionnaireCommentaire']->commenterArtiste($noProfil, $id, $texte);
     $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdArtiste($noProfil);
 }
