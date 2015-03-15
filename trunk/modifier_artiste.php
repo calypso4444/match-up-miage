@@ -18,12 +18,17 @@ $genreArtiste = filter_input(INPUT_POST, 'genreMusical');
 
 if (!empty($nomArtiste)and $nomArtiste !== $infoProfil['nomArtiste']) {
     $model['GestionnaireProfil']->setNomArtiste($noProfil, $nomArtiste);
+    $infoProfil['nomArtiste'] = $nomArtiste;
 }
+
 if (!empty($descArtiste)and $descArtiste !== $infoProfil['descriptionArtiste']) {
     $model['GestionnaireProfil']->setDescriptionArtiste($noProfil, $descArtiste);
+    $infoProfil['descriptionArtiste'] = $descArtiste;
 }
+
 if (!empty($genreArtiste)and $genreArtiste !== $infoProfil['genreMusicalArtiste']) {
     $model['GestionnaireProfil']->setGenreMusicalArtiste($noProfil, $genreArtiste);
+    $infoProfil['genreMusicalArtiste'] = $genreArtiste;
 }
 if (isset($_FILES['mon_fichier'])) {
     $tab_img = $_FILES['mon_fichier'];
