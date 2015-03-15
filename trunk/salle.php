@@ -97,12 +97,14 @@ $dateFin = filter_input(INPUT_POST, 'dateFin');
 if (isset($typeAnnonce)) {
     if ($typeAnnonce === 'petiteAnnonce') {
         if (!empty($texteAnnonce)) {
+            $texteAnnonce = htmlspecialchars($texteAnnonce);
             $model['GestionnaireAnnonce']->creerPetiteAnnonce($noProfil, $texteAnnonce, $dateDeb, $dateFin);
             $petiteAnnonces = $model['GestionnaireAnnonce']->getAllPetiteAnnonceByIdSalle($noProfil);
         }
     }
     if ($typeAnnonce === 'annonceEvenement') {
         if (!empty($texteAnnonce)) {
+            $texteAnnonce = htmlspecialchars($texteAnnonce);
             $model['GestionnaireAnnonce']->creerAnnonceEvenementSalle($noProfil, $texteAnnonce);
             $annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdSalle($noProfil);
         }
