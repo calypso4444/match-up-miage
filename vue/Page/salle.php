@@ -94,6 +94,11 @@
             <div id="acces">
                 <h4>L'accès : </h4>
                 <div id="map-canvas"></div>
+                <?php
+                if ($vars['tel'] !== null) {
+                    echo 'tel :' . $vars['tel'];
+                }
+                ?>
             </div>
         </aside>
         <section class="col-lg-8">
