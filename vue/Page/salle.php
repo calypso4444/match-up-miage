@@ -130,7 +130,7 @@
                         if ($vars['annonceEvenement'] !== null) {
                             foreach ($vars['annonceEvenement'] as $annonceEvenement):
                                 echo '<tr>';
-                                echo "<td class='col-lg-3'>" . $annonceEvenement['texteAnnonceEvenementSalle'] . "</td>";
+                                echo "<td class='col-lg-8'>" . $annonceEvenement['texteAnnonceEvenementSalle'] . "</td>";
                                 $date = new DateTime($annonceEvenement['dateEditionAnnonceEvenementSalle']);
                                 echo '<td>' . $date->format('d/m/y') . '</td>';
                                 echo '<td>'
@@ -159,7 +159,7 @@
                         if ($vars['petiteAnnonce'] !== null) {
                             foreach ($vars['petiteAnnonce'] as $petiteAnnonce):
                                 echo '<tr>';
-                                echo "<td class='col-lg-3'>" . $petiteAnnonce['textePetiteAnnonce'] . "</td>";
+                                echo "<td class='col-lg-8'>" . $petiteAnnonce['textePetiteAnnonce'] . "</td>";
                                 $dateDeb = new DateTime($petiteAnnonce['dateDeb']);
                                 if ($petiteAnnonce['dateFin'] === null) {
                                     echo '<td>à partir du </br> ' . $dateDeb->format('d/m/y ') . '</td>';
