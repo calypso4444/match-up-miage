@@ -47,7 +47,7 @@
                                 echo '<tr>';
                             }
                             echo '<td>';
-                            echo "<form id ='suppressionPhoto' action='salle.php?tmp=" . $vars['noProfil'] . "&nP=" . $albumPhoto['nPhotoSalle'] . "' method='post'><button id='suppression' type='submit' name='removePhoto' value='true' >x</button></form>";
+                            echo "<form id ='suppressionPhoto' action='salle.php?tmp=" . $vars['noProfil'] . "&nP=" . $albumPhoto['nPhotoSalle'] . "' method='post'><button id='suppression' class='btn glyphicon glyphicon-remove' type='submit' name='removePhoto' value='true' ></button></form>";
                             echo "<img src=\"";
                             echo $albumPhoto['photoSalle'];
                             echo "\"></td>";

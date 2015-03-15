@@ -173,7 +173,6 @@ div#texteCommentaire{
     background-color: #494949;
     border-radius: 10px 0;
     color:white;
-
 }
 
 div#texteCommentaire a {
@@ -182,10 +181,15 @@ div#texteCommentaire a {
 }
 
 div#texteCommentaire form {
-    text-align: right;
+    position: absolute;
+    right: 0;
 }
 
-div#texteCommentaire button {
+div#albumPhoto form#suppressionPhoto{
+    position: absolute;
+}
+
+div#texteCommentaire button, div#albumPhoto button {
     background-color: transparent;
 }
 
@@ -277,6 +281,5 @@ section#salleDeLaSemaine button, section#artisteDeLaSemaine button{
 
 button#suppression{
     position:absolute;
-    background-color:transparent;
     color:white;
 }

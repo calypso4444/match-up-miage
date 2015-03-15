@@ -40,7 +40,7 @@
                                 echo '<tr>';
                             }
                             echo '<td>';
-                            echo "<form id ='suppressionPhoto' action='artiste.php?tmp=" . $vars['noProfil'] . "&nP=" . $albumPhoto['nPhotoArtiste'] . "' method='post'><button id='suppression' type='submit' name='removePhoto' value='true' >x</button></form>";
+                            echo "<form id ='suppressionPhoto' action='artiste.php?tmp=" . $vars['noProfil'] . "&nP=" . $albumPhoto['nPhotoArtiste'] . "' method='post'><button id='suppression' class='btn glyphicon glyphicon-remove' type='submit' name='removePhoto' value='true' ></button></form>";
                             echo "<img src=\"";
                             echo $albumPhoto['photoArtiste'];
                             echo "\"></td>";
@@ -62,7 +62,7 @@
                         if ($vars['commentaire']) {
                             foreach ($vars['commentaire'] as $commentaires):
                                 echo"<div id='texteCommentaire'>";
-                                echo "<form action='artiste.php?tmp=" . $vars['noProfil'] . "&nCom=" . $commentaires['nCommentaireArtiste'] . "' method='post'><button type='submit' name='removeComment' value='true'>x</button></form>";
+                                echo "<form action='artiste.php?tmp=" . $vars['noProfil'] . "&nCom=" . $commentaires['nCommentaireArtiste'] . "' method='post'><button class='btn glyphicon glyphicon-remove' type='submit' name='removeComment' value='true'></button></form>";
                                 echo "<img src=\"";
                                 echo $commentaires['avatar'];
                                 echo "\">";
