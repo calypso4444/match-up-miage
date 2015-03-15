@@ -1,7 +1,6 @@
 <!-- vue/page -->
 
 <div class="col-lg-12">
-<<<<<<< .mine
 	<h1>Infos de mon profil <?php echo $vars['nomArtiste']; ?></h1>
     <form id="formulaireModificationProfilArtiste" method ="post" name="formulaireModificationProfilArtiste" enctype="multipart/form-data">
 	    <div id="row">    
