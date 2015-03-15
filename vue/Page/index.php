@@ -33,9 +33,9 @@
         <section id="selectionRandom">
             <h3>S&eacute;lection random</h3>
             <div id='player'>
-                <video controls oncanplay name="media">
+                <audio controls oncanplay name="media">
                     <source src="http://localhost/match-up-miage/musique/piste01.mp3" type="audio/mpeg"></source>
-                </video>
+                </audio>
             </div>
         </section>
     </div>
