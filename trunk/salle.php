@@ -17,6 +17,7 @@ $descProfil = $infoProfil['descriptionSalle'];
 $adresse = $infoProfil['adresseSalle'];
 $cp = $infoProfil['cpSalle'];
 $ville = $infoProfil['villeSalle'];
+$tel = $infoProfil['telSalle'];
 
 
 $id = $_SESSION['user']['id'];
@@ -128,6 +129,7 @@ $vue['commentaire'] = $commentaires;
 $vue['adresse'] = $adresse;
 $vue['cp'] = $cp;
 $vue['ville'] = $ville;
+$vue['tel'] = $tel;
 $view->render('salle', $vue);
 
 /* fin de l'affichage de la vue */
