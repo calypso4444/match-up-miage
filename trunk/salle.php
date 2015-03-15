@@ -32,7 +32,7 @@ $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($
 
 $texte = filter_input(INPUT_POST, 'commentaire');
 if (!empty($texte)) {
-	$texte=htmlspecialchars($texte);
+    $texte = htmlspecialchars($texte);
     $model['GestionnaireCommentaire']->commenterSalle($noProfil, $id, $texte);
     $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($noProfil);
 }
@@ -50,7 +50,7 @@ $nPhoto = filter_input(INPUT_GET, 'nP');
 $removePhoto = filter_input(INPUT_POST, 'removePhoto');
 if ($removePhoto === "true") {
     if ($model['GestionnaireProfil']->estProprietaireProfilSalle($noProfil, $id)) {
-        $model['GestionnaireProfil']->supprimerPhotoSalle($noProfil,$nPhoto);
+        $model['GestionnaireProfil']->supprimerPhotoSalle($noProfil, $nPhoto);
     }
 }
 $albumPhoto = $model['GestionnaireProfil']->getAllPhotoSalleById($noProfil);
