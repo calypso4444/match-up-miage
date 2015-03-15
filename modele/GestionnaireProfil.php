@@ -2,18 +2,18 @@
 
 class GestionnaireProfil extends Gestionnaire {
 
-    public function getProprietaireSalle($noProfil){
-        $tmp=mysqli_query($this->link,"SELECT proprietaireSalle AS id FROM ". $GLOBALS['DB_TABLE']['SALLE'] . " WHERE nSalle=$noProfil;");
+    public function getProprietaireSalle($noProfil) {
+        $tmp = mysqli_query($this->link, "SELECT proprietaireSalle AS id FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " WHERE nSalle=$noProfil;");
         $row = mysqli_fetch_assoc($tmp);
         return $row['id'];
     }
-    
-    public function getProprietaireartiste($noProfil){
-        $tmp=mysqli_query($this->link,"SELECT proprietaireArtiste AS id FROM ". $GLOBALS['DB_TABLE']['ARTISTE'] . " WHERE nArtiste=$noProfil;");
+
+    public function getProprietaireartiste($noProfil) {
+        $tmp = mysqli_query($this->link, "SELECT proprietaireArtiste AS id FROM " . $GLOBALS['DB_TABLE']['ARTISTE'] . " WHERE nArtiste=$noProfil;");
         $row = mysqli_fetch_assoc($tmp);
         return $row['id'];
     }
-    
+
     public function newProfilArtiste($id) {
         mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['ARTISTE'] . " (proprietaireArtiste) VALUES($id);");
         $tmp = mysqli_query($this->link, "SELECT MAX(nArtiste)AS idmax FROM " . $GLOBALS['DB_TABLE']['ARTISTE'] . " WHERE proprietaireArtiste=$id");
@@ -227,21 +227,21 @@ class GestionnaireProfil extends Gestionnaire {
     }
 
     public function supprimerPhotoSalle($noProfil, $nPhoto) {
-        $tmp=mysqli_query($this->link, "SELECT photoSalle AS path FROM ". $GLOBALS['DB_TABLE']['ALBUM_PHOTO_S'] ." WHERE proprietaire=$noProfil AND nPhotoSalle=$nPhoto");
-        $row=  mysqli_fetch_assoc($tmp);
-        $filename=$row['path'];
+        $tmp = mysqli_query($this->link, "SELECT photoSalle AS path FROM " . $GLOBALS['DB_TABLE']['ALBUM_PHOTO_S'] . " WHERE proprietaire=$noProfil AND nPhotoSalle=$nPhoto");
+        $row = mysqli_fetch_assoc($tmp);
+        $filename = $row['path'];
         unlink($filename);
         mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['ALBUM_PHOTO_S'] . " WHERE proprietaire=$noProfil AND nPhotoSalle=$nPhoto");
     }
 
     public function supprimerPhotoArtiste($noProfil, $nPhoto) {
-        $tmp=mysqli_query($this->link, "SELECT photoArtiste AS path FROM ". $GLOBALS['DB_TABLE']['ALBUM_PHOTO_A'] ." WHERE proprietaire=$noProfil AND nPhotoArtiste=$nPhoto");
-        $row=  mysqli_fetch_assoc($tmp);
-        $filename=$row['path'];
+        $tmp = mysqli_query($this->link, "SELECT photoArtiste AS path FROM " . $GLOBALS['DB_TABLE']['ALBUM_PHOTO_A'] . " WHERE proprietaire=$noProfil AND nPhotoArtiste=$nPhoto");
+        $row = mysqli_fetch_assoc($tmp);
+        $filename = $row['path'];
         unlink($filename);
         mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['ALBUM_PHOTO_A'] . " WHERE proprietaire=$noProfil AND nPhotoArtiste=$nPhoto");
     }
-    
+
     public function getNMaxPhotoSalle($noProfil) {
         $tmp = mysqli_query($this->link, "SELECT MAX(nPhotoSalle)AS idmax FROM " . $GLOBALS['DB_TABLE']['ALBUM_PHOTO_S'] . " WHERE proprietaire=$noProfil");
         $row = mysqli_fetch_assoc($tmp);
@@ -272,7 +272,7 @@ class GestionnaireProfil extends Gestionnaire {
             return null;
         }
     }
-    
+
     public function getClassementFavoriArtiste() {
         $req = mysqli_query($this->link, " SELECT nArtiste, nomArtiste, photoProfilArtiste,descriptionArtiste, genreMusicalArtiste FROM " . $GLOBALS['DB_TABLE']['ARTISTE'] . ""
                 . " INNER JOIN "
@@ -291,8 +291,8 @@ class GestionnaireProfil extends Gestionnaire {
             return null;
         }
     }
-    
-    public function getAllMorceau ($noProfil){
+
+    public function getAllMorceau($noProfil) {
         $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['BIBLIOTHEQUE'] . " WHERE proprietaire=$noProfil");
         if ($reqm !== false) {
             $playlist = array();
@@ -304,11 +304,16 @@ class GestionnaireProfil extends Gestionnaire {
             return null;
         }
     }
-    
-    public function getMorceau($nMorceau){
-        $tmp=mysqli_query($this->link,"SELECT * FROM ". $GLOBALS['DB_TABLE']['BIBLIOTHEQUE'] . " WHERE nMorceau=$nMorceau;");
+
+    public function getMorceau($nMorceau) {
+        $tmp = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['BIBLIOTHEQUE'] . " WHERE nMorceau=$nMorceau;");
         $row = mysqli_fetch_assoc($tmp);
         return $row;
+    }
+
+    public function ajouterMorceau($noProfil,$titre,$artiste, $path) {
+        echo "INSERT INTO " . $GLOBALS['DB_TABLE']['BIBLIOTHEQUE'] . " (proprietaire, titre,artiste, morceau) VALUES ($noProfil,'$titre','$artiste','$path')";
+        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['BIBLIOTHEQUE'] . " (proprietaire, titre,artiste, morceau) VALUES ($noProfil,'$titre','$artiste','$path');");
     }
 
 }

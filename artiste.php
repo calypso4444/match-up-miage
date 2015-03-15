@@ -26,7 +26,7 @@ $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdArtiste
 
 $texte = filter_input(INPUT_POST, 'commentaire');
 if (!empty($texte)) {
-    $texte=  htmlspecialchars($texte);
+    $texte = htmlspecialchars($texte);
     $model['GestionnaireCommentaire']->commenterArtiste($noProfil, $id, $texte);
     $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdArtiste($noProfil);
 }
@@ -79,7 +79,7 @@ if (isset($_FILES['mon_fichier'])) {
 //creation d'annonce
 $texteAnnonce = filter_input(INPUT_POST, 'posterAnnonce');
 if (!empty($texteAnnonce)) {
-    $texteAnnonce=  htmlspecialchars($texteAnnonce);
+    $texteAnnonce = htmlspecialchars($texteAnnonce);
     $model['GestionnaireAnnonce']->creerAnnonceEvenementArtiste($noProfil, $texteAnnonce);
     $annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdArtiste($noProfil);
 }
@@ -89,10 +89,30 @@ $nAnnonceEvenement = filter_input(INPUT_GET, 'nAnnonceEvenement');
 $model['GestionnaireAnnonce']->supprimerAnnonceEvenementByIdArtiste($noProfil, $nAnnonceEvenement);
 $annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdArtiste($noProfil);
 
-$playlist=$model['GestionnaireProfil']->getAllMorceau($noProfil);
-$piste=filter_input(INPUT_GET, 'nPiste');
-if(isset($piste)){
-    $piste=$model['GestionnaireProfil']->getMorceau($piste);
+$playlist = $model['GestionnaireProfil']->getAllMorceau($noProfil);
+$piste = filter_input(INPUT_GET, 'nPiste');
+if (isset($piste)) {
+    $piste = $model['GestionnaireProfil']->getMorceau($piste);
+}
+
+$titre = filter_input(INPUT_POST, 'titre');
+if (isset($_FILES['morceau'])and isset($titre)) {
+    $tab_son = $_FILES['morceau'];
+    if ($_FILES['morceau']['error'] > 0) {
+        $erreur = "Erreur lors du transfert";
+    }
+    $extensions_valides = array('mp3', 'wav');
+    $extension_upload = strtolower(substr(strrchr($tab_son['name'], '.'), 1));
+    $dossier = "web/musique/{$nomProfil}";
+    if (!is_dir($dossier)) {
+        mkdir($dossier);
+    }
+    $chemin = "web/musique/{$nomProfil}/{$titre}.{$extension_upload}";
+    $resultat = move_uploaded_file($tab_son['tmp_name'], $chemin);
+    if ($resultat) {
+        $model['GestionnaireProfil']->ajouterMorceau($noProfil, $titre, $nomProfil, $chemin);
+        $playlist = $model['GestionnaireProfil']->getAllMorceau($noProfil);
+    }
 }
 
 /* fin de séquence */

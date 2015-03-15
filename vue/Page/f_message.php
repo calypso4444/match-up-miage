@@ -4,7 +4,7 @@
 
     <h1>message</h1>
 
-    <form action="f_message.php?" method="post" id="posterMessage">
+    <form action="f_message.php" method="post" id="posterMessage">
 	    <div id="row">    
 		   <div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
 			    <table class="table">

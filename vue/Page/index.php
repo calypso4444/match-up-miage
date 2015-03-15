@@ -33,6 +33,7 @@
             <h3>S&eacute;lection random</h3>
             <div id='player'>
                 <audio controls oncanplay name="media">
+                    <source src="web/musique/piste01.mp3" type="audio/mpeg"></source>
                 </audio>
             </div>
         </section>
