@@ -91,6 +91,16 @@ class GestionnaireAnnonce extends Gestionnaire {
         mysqli_query($this->link, " INSERT INTO " . $GLOBALS['DB_TABLE']['ANNONCE_EVENEMENT_A'] . " (auteur,texteAnnonceEvenementArtiste, dateEditionAnnonceEvenementArtiste) VALUES ($noProfil,'$texteAnnonce',NOW())");
     }
 
+    public function getPetiteAnnonce($nAnnonce) {
+        $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['PETITE_ANNONCE'] . " WHERE nPetiteAnnonce=$nAnnonce");
+        if ($reqm !== false) {
+            $row = mysqli_fetch_assoc($reqm);
+            return $row;
+        } else {
+            return null;
+        }
+    }
+
 }
 
 ?>
