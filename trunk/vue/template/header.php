@@ -8,7 +8,7 @@
         </div>
         <div id='menuConnexion' class="col-lg-2 col-sm-height">
             <?php if (isset($_SESSION['user'])) : ?>
-                <img src="<?php echo $_SESSION['user']['avatar']; ?>" alt="avatar"/></br>
+                <img src="<?php echo $_SESSION['user']['avatar']; ?>" alt="avatar" class="img img-responsive"/></br>
                 <a href="f_mes_profils.php" class="glyphicon glyphicon-user"> mes profils </a></br>
                 <a href="f_info_perso.php" class="glyphicon glyphicon-cog"> mes infos perso </a></br>
                 <a href="f_mes_favoris.php" class="glyphicon glyphicon-heart"> mes favoris </a></br>
