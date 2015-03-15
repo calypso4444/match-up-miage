@@ -9,7 +9,6 @@ include_once 'config/includeGlobal.php';
 
 /* séquence du controleur */
 
-$exp = filter_input(INPUT_GET, 'exp');
 $destA = filter_input(INPUT_GET, 'destA');
 $destS = filter_input(INPUT_GET, 'destS');
 $dest = null;
@@ -24,14 +23,16 @@ if (isset($destS)) {
     $dest = $model['GestionnaireUtilisateur']->getUserById($destS);
 }
 
-$exp = $model['GestionnaireUtilisateur']->getUserById($exp);
+$exp = $model['GestionnaireUtilisateur']->getUserById($_SESSION['user']['id']);
 
 
 $destinataire = filter_input(INPUT_POST, 'destinataire');
 $expediteur = filter_input(INPUT_POST, 'expediteur');
 $objet = filter_input(INPUT_POST, 'objet');
 $message = filter_input(INPUT_POST, 'txtMessage');
-if ($message !== '' and $destinataire !== '' and $expediteur !== '') {
+if (!empty($message)) {
+    $message=  htmlspecialchars($message);
+    $objet= htmlspecialchars($objet);
     //on ne peut pas envoyer de mail en local....
 //    mail($destinataire, $objet, $message);
     $messageEnvoye = true;
