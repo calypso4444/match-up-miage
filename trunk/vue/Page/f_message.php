@@ -11,7 +11,7 @@
 					<tbody>
 						<tr>
 		                    <td>
-		                        <label for="expediteur">Exéditeur : </label> 
+		                        <label for="expediteur">Expéditeur : </label> 
 		                    </td>
 		                    <td>
 		                        <fieldset disabled="disabled">
