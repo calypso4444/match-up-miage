@@ -312,7 +312,6 @@ class GestionnaireProfil extends Gestionnaire {
     }
 
     public function ajouterMorceau($noProfil,$titre,$artiste, $path) {
-        echo "INSERT INTO " . $GLOBALS['DB_TABLE']['BIBLIOTHEQUE'] . " (proprietaire, titre,artiste, morceau) VALUES ($noProfil,'$titre','$artiste','$path')";
         mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['BIBLIOTHEQUE'] . " (proprietaire, titre,artiste, morceau) VALUES ($noProfil,'$titre','$artiste','$path');");
     }
 
