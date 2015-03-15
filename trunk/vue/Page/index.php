@@ -7,7 +7,6 @@
 }
 
 .photo-grid li {
-	border: 5px solid white;
 	display: inline-block;
 	width: auto;
 }
@@ -29,7 +28,7 @@
 .photo-grid figcaption {
 	background: rgba(0,0,0,0.8);
 	color: white;
-	display: table;
+	display: inline-block;
 	height: auto;
 	left: 0;
 	opacity: 0;
@@ -46,7 +45,7 @@
 }
 
 .photo-grid figcaption p {
-	display: table-cell;
+	display: inline-block;
 	font-size: 1.5em;
 	position: relative;
 	top: -40px;
@@ -179,21 +178,20 @@
                 $nom;
                 $desc;
                 $genre;
-                echo '<tr>';
+                echo '<<ul class="photo-grid">';
                 foreach ($vars['salleFavorite'] as $salleFavorite) :
                     $nom = $salleFavorite['nomSalle'];
                     $desc = $salleFavorite['descriptionSalle'];
                     $genre = $salleFavorite['genreMusicalSalle'];
-                    $txt = "son petit nom :</br> " . $nom . "</br>ce à quoi il ressemble :</br>" . $desc . "</br>son genre : </br>" . $genre . "</br>";
-                    echo '<td class="col-lg-12"><button onclick="setVisibility()" style="position: absolute">+</button><a href=salle.php?tmp=' . $salleFavorite["nSalle"] . '><img src="';
+                    $txt = "son petit nom : " . $nom . "</br>ce à quoi il ressemble : " . $desc . "</br>son genre : " . $genre . "</br>";
+                    echo '<li><a href=salle.php?tmp=' . $salleFavorite["nSalle"] . '><figure><img src="';
                     echo$salleFavorite['photoProfilSalle'];
-                    echo '"/></a>';
-                    echo'<div id="txthover">' . $txt . '</div>';
-                    echo '</td>';
+                    echo '"/>';
+                    echo'<figcaption><p>' . $txt . '</p></figcaption></figure>';
+                    echo '</a></li>';
                     break;
                 endforeach;
             }
-            echo '</tr>';
             ?>
         </table>
     </section>
