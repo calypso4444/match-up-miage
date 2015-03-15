@@ -2,6 +2,18 @@
 
 class GestionnaireProfil extends Gestionnaire {
 
+    public function getProprietaireSalle($noProfil){
+        $tmp=mysqli_query($this->link,"SELECT proprietaireSalle AS id FROM ". $GLOBALS['DB_TABLE']['SALLE'] . " WHERE nSalle=$noProfil;");
+        $row = mysqli_fetch_assoc($tmp);
+        return $row['id'];
+    }
+    
+    public function getProprietaireartiste($noProfil){
+        $tmp=mysqli_query($this->link,"SELECT proprietaireArtiste AS id FROM ". $GLOBALS['DB_TABLE']['ARTISTE'] . " WHERE nArtiste=$noProfil;");
+        $row = mysqli_fetch_assoc($tmp);
+        return $row['id'];
+    }
+    
     public function newProfilArtiste($id) {
         mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['ARTISTE'] . " (proprietaireArtiste) VALUES($id);");
         $tmp = mysqli_query($this->link, "SELECT MAX(nArtiste)AS idmax FROM " . $GLOBALS['DB_TABLE']['ARTISTE'] . " WHERE proprietaireArtiste=$id");

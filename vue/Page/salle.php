@@ -23,7 +23,7 @@
 
     <div id="interaction" class="col-lg-3">
         <a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&fav=true" class="glyphicon glyphicon-heart"> Ajouter en favori </a></br>
-        <a href="" class="glyphicon glyphicon-envelope"> Contacter la salle </a></br>
+        <a href="f_message.php?destS=<?php echo $vars['noProfil']; ?>&exp=<?php echo $_SESSION['user']['id']; ?>" class="glyphicon glyphicon-envelope"> Contacter la salle </a></br>
         <a href="" class="glyphicon glyphicon-star-empty"> Noter la salle </a>
     </div>
 

@@ -15,7 +15,7 @@
 
     <div id="interaction" class="col-lg-3">
         <a href="artiste.php?tmp=<?php echo $vars['noProfil']; ?>&fav=true" class="glyphicon glyphicon-heart"> Ajouter en favori </a></br>
-        <a href="" class=" glyphicon glyphicon-envelope"> Contacter l'artiste </a></br>
+        <a href="f_message.php?destA=<?php echo $vars['noProfil']; ?>&exp=<?php echo $_SESSION['user']['id']; ?>" class=" glyphicon glyphicon-envelope"> Contacter l'artiste </a></br>
         <a href="" class=" glyphicon glyphicon-star-empty"> Noter l'artiste </a>
     </div>
 
