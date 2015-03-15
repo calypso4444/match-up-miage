@@ -45,12 +45,16 @@
 		                        <textarea style="resize:none" class="form-control" id="txtMessage" rows="7" type="text" name="txtMessage" placeholder="" value=""/></textarea> 
 		                    </td>
 		                </tr>
-		            </tbody>
-		        </table>
-		        <div class="text-center">
-		            <input class="btn btn-default" type="submit" value="Valider" id="envoyer"/>
-		        </div>
-		        </div>
+		                
+		                <tr>
+			                <td></td>
+			                <td class="text-right">
+				                <input class="btn btn-default" type="submit" value="Valider" id="envoyer"/>
+			                </td>       
+		                </tr>
+		                	</tbody>
+						</table>
+		        	</div>
 		        </div>
 		    </form>
 		    </br>
