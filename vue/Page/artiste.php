@@ -98,7 +98,7 @@
                                     <input class="form-control" id="artiste" type="text" name="artiste" placeholder="artiste" value=""/>
                                 </td>
                                 <td class="col-lg-3">
-                                    <input class="form-control filestyle" type="file" id="morceau" accept="audio/*" name="morceau" placeholder="" value=""/>
+                                    <input class="filestyle" type="file" id="morceau" accept="audio/*" name="morceau" placeholder="" value="" data-input="false" data-buttonText="Votre son"/>
                                 </td>
                                 <td class="col-lg-2">
                                     <input type="hidden" name="MAX_FILE_SIZE" value="30000000" />
