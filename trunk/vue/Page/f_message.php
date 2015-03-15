@@ -40,7 +40,7 @@
                         <label for="txtMessage">Votre message : *</label> 
                     </td>
                     <td class="col-lg-10">
-                        <textarea class="form-control" id="txtMessage" type="text" name="posterMessage" placeholder="" value=""/></textarea> 
+                        <textarea class="form-control" id="txtMessage" type="text" name="txtMessage" placeholder="" value=""/></textarea> 
                     </td>
                 </tr>
             </tbody>
