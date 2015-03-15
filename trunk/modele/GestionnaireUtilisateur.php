@@ -34,7 +34,7 @@ class GestionnaireUtilisateur extends Gestionnaire {
         }
     }
 
-    private function getUserById($id) {
+    public function getUserById($id) {
         $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE id='$id'");
         if ($reqm !== false) {
             $row = mysqli_fetch_assoc($reqm);
