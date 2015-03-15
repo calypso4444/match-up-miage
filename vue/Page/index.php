@@ -101,7 +101,6 @@
             <h3>S&eacute;lection random</h3>
             <div id='player'>
                 <audio controls oncanplay name="media">
-                    <source src="/musique/piste01.mp3" type="audio/mpeg"></source>
                 </audio>
             </div>
         </section>
@@ -122,7 +121,7 @@
                     $genre = $artisteFavori['genreMusicalArtiste'];
                     $txt = "Son petit nom : " . $nom . "</br>Ce à quoi il ressemble : " . $desc . "</br>son genre : " . $genre . "</br>";
                     echo '<li><a href=artiste.php?tmp=' . $artisteFavori["nArtiste"] . '><figure><img src="';
-                    echo $artisteFavori['photoProfilArtiste'];
+                    echo$artisteFavori['photoProfilArtiste'];
                     echo '"/>';
                     echo '<figcaption><p>' . $txt . '</p></figcaption></figure>';
                     echo '</a></li>';

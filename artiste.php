@@ -89,6 +89,12 @@ $nAnnonceEvenement = filter_input(INPUT_GET, 'nAnnonceEvenement');
 $model['GestionnaireAnnonce']->supprimerAnnonceEvenementByIdArtiste($noProfil, $nAnnonceEvenement);
 $annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdArtiste($noProfil);
 
+$playlist=$model['GestionnaireProfil']->getAllMorceau($noProfil);
+$piste=filter_input(INPUT_GET, 'nPiste');
+if(isset($piste)){
+    $piste=$model['GestionnaireProfil']->getMorceau($piste);
+}
+
 /* fin de séquence */
 
 /* affichage de la vue */
@@ -101,6 +107,8 @@ $vue['descProfil'] = $descProfil;
 $vue['albumPhoto'] = $albumPhoto;
 $vue['commentaire'] = $commentaires;
 $vue['annonceEvenement'] = $annoncesEvenement;
+$vue['playlist'] = $playlist;
+$vue['piste'] = $piste;
 $view->render('artiste', $vue);
 
 /* fin de l'affichage de la vue */

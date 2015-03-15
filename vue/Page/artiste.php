@@ -85,20 +85,42 @@
         </aside>
         <section class="col-lg-8">
             <h4>Le fil d'actualité : </h4>
-            <!--            à supprimer-->
-            <audio controls
-                   data-info-album-art="http://farm5.staticflickr.com/4050/4353986539_ec89b52698_d.jpg"
-                   data-info-album-title="8874"
-                   data-info-artist="Billy Murray"
-                   data-info-title="Come, take a trip in my air-ship"
-                   data-info-label="Edison Gold Moulded Record"
-                   data-info-year="1905"
-                   data-info-att="University of California, Santa Barbara Library."
-                   data-info-att-link="http://cylinders.library.ucsb.edu/search.php?query=8874">
-                <source src="/bootstrap-player/media/cusb-cyl2985d.ogg" type="audio/ogg" />
-                <source src="/bootstrap-player/media/cusb-cyl2985d.mp3" type="audio/mpeg" />
-                <a href="/bootstrap-player/media/cusb-cyl2985d.mp3">cusb_cyl2985d</a>
-            </audio>
+            <div id="play" class="col-lg-12">
+                <table class="table">
+                    <tbody>
+                    <td class="col-lg-6">
+                        <audio controls oncanplay name="media">
+                            <?php
+                            if ($vars['piste'] !== null) {
+                                echo "<source src='" . $vars['piste']['morceau'] . "' type='audio/mpeg'></source>";
+                            }
+                            ?>
+                        </audio>
+                        <?php
+                        if ($vars['piste'] !== null) {
+                            echo $vars['piste']['titre'] . " - " . $vars['piste']['artiste'];
+                        }
+                        ?>
+                    </td>
+                    <td class="col-lg-6">
+                        <?php
+                        if ($vars['playlist'] !== null) {
+                            $compteur = 1;
+                            foreach ($vars['playlist'] as $playlist):
+                                echo '<a href="artiste.php?tmp=' . $vars['noProfil'] . '&nPiste=' . $playlist['nMorceau'] . '">';
+                                echo $compteur;
+                                echo ". ";
+                                echo $playlist['titre'] . " - ";
+                                echo $playlist['artiste'];
+                                echo "</a>";
+                                $compteur++;
+                            endforeach;
+                        }
+                        ?>
+                    </td>
+                    </tbody>
+                </table>
+            </div>
 
             <div id="posterAnnonce">
                 <p>poster une annonce</p>
@@ -125,7 +147,7 @@
                             foreach ($vars['annonceEvenement'] as $annonceEvenement):
                                 echo '<tr>';
                                 echo "<td class='col-lg-8'>" . $annonceEvenement['texteAnnonceEvenementArtiste'] . "</td>";
-                                $dateEdition=new DateTime($annonceEvenement['dateEditionAnnonceEvenementArtiste']);
+                                $dateEdition = new DateTime($annonceEvenement['dateEditionAnnonceEvenementArtiste']);
                                 echo '<td>' . $dateEdition->format('d/m/y') . '</td>';
                                 echo '<td>'
                                 . "<a class='btn btn-danger' href=artiste.php?tmp=" . $vars['noProfil'] . "&nAnnonceEvenement=" . $annonceEvenement['nAnnonceEvenementArtiste'] . ">Supprimer</a> "

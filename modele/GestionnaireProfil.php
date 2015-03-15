@@ -291,6 +291,25 @@ class GestionnaireProfil extends Gestionnaire {
             return null;
         }
     }
+    
+    public function getAllMorceau ($noProfil){
+        $reqm = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['BIBLIOTHEQUE'] . " WHERE proprietaire=$noProfil");
+        if ($reqm !== false) {
+            $playlist = array();
+            while ($row = mysqli_fetch_assoc($reqm)) {
+                $playlist[] = $row;
+            }
+            return $playlist;
+        } else {
+            return null;
+        }
+    }
+    
+    public function getMorceau($nMorceau){
+        $tmp=mysqli_query($this->link,"SELECT * FROM ". $GLOBALS['DB_TABLE']['BIBLIOTHEQUE'] . " WHERE nMorceau=$nMorceau;");
+        $row = mysqli_fetch_assoc($tmp);
+        return $row;
+    }
 
 }
 
