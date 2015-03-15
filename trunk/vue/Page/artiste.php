@@ -85,7 +85,30 @@
         </aside>
         <section class="col-lg-8">
             <h4>Le fil d'actualité : </h4>
-            <div id="play" class="col-lg-12">
+            <div id="playlist" class="col-lg-12">
+
+                <form action='artiste.php?tmp=<?php echo $vars['noProfil'] ?>' method="post" enctype="multipart/form-data">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td class="col-lg-4">
+                                    <input class="form-control" id="titre" type="text" name="titre" placeholder="titre" value=""/>
+                                </td>
+                                <td class="col-lg-3">
+                                    <input class="form-control" id="artiste" type="text" name="artiste" placeholder="artiste" value=""/>
+                                </td>
+                                <td class="col-lg-3">
+                                    <input class="form-control filestyle" type="file" id="morceau" accept="audio/*" name="morceau" placeholder="" value=""/>
+                                </td>
+                                <td class="col-lg-2">
+                                    <input type="hidden" name="MAX_FILE_SIZE" value="30000000" />
+                                    <input class="btn btn-default" type="submit" value="Upload">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+
                 <table class="table">
                     <tbody>
                     <td class="col-lg-6">
@@ -98,7 +121,9 @@
                         </audio>
                         <?php
                         if ($vars['piste'] !== null) {
+                            echo'<p>';
                             echo $vars['piste']['titre'] . " - " . $vars['piste']['artiste'];
+                            echo'</p>';
                         }
                         ?>
                     </td>
@@ -112,7 +137,7 @@
                                 echo ". ";
                                 echo $playlist['titre'] . " - ";
                                 echo $playlist['artiste'];
-                                echo "</a>";
+                                echo "</a></br>";
                                 $compteur++;
                             endforeach;
                         }
