@@ -9,7 +9,7 @@
             <tbody>
                 <tr>
                     <td class="col-lg-2">
-                        <label  for="expediteur">Exéditeur : *</label> 
+                        <label  for="expediteur">Exéditeur : </label> 
                     </td>
                     <td class="col-lg-10">
                         <fieldset disabled="disabled">
@@ -19,7 +19,7 @@
                 </tr>
                 <tr>
                     <td class="col-lg-2">
-                        <label  for="destinataire">Destinataire : *</label> 
+                        <label  for="destinataire">Destinataire : </label> 
                     </td>
                     <td class="col-lg-10">
                         <fieldset disabled="disabled">
@@ -29,7 +29,7 @@
                 </tr>
                 <tr>
                     <td class="col-lg-2">
-                        <label for="objet">Objet : *</label> 
+                        <label for="objet">Objet : </label> 
                     </td>
                     <td class="col-lg-10">
                         <input class="form-control" id="objet" type="text" name="objet" placeholder="" value="<?php echo $vars['objet']; ?>"/>
@@ -37,7 +37,7 @@
                 </tr>
                 <tr>
                     <td class="col-lg-2">
-                        <label for="txtMessage">Votre message : *</label> 
+                        <label for="txtMessage">Votre message : </label> 
                     </td>
                     <td class="col-lg-10">
                         <textarea class="form-control" id="txtMessage" type="text" name="txtMessage" placeholder="" value=""/></textarea> 

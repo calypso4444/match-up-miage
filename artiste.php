@@ -79,6 +79,7 @@ if (isset($_FILES['mon_fichier'])) {
 //creation d'annonce
 $texteAnnonce = filter_input(INPUT_POST, 'posterAnnonce');
 if (!empty($texteAnnonce)) {
+    $texteAnnonce=  htmlspecialchars($texteAnnonce);
     $model['GestionnaireAnnonce']->creerAnnonceEvenementArtiste($noProfil, $texteAnnonce);
     $annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdArtiste($noProfil);
 }
