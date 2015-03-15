@@ -1,4 +1,71 @@
 <!-- vue/page -->
+<style type="text/css">	
+.photo-grid {
+	margin: auto;
+	max-width: auto;
+	text-align: center;
+}
+
+.photo-grid li {
+	border: 5px solid white;
+	display: inline-block;
+	width: auto;
+}
+
+.photo-grid li figcaption {
+	width: auto;
+	display: inline-block;
+	height: auto;
+}
+ 
+.photo-grid figure {
+	height: auto;
+	width: auto;
+	overflow: hidden;
+	position: relative;
+	display: inline-block;
+}
+
+.photo-grid figcaption {
+	background: rgba(0,0,0,0.8);
+	color: white;
+	display: table;
+	height: auto;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	-webkit-transition: all 300ms;
+	-moz-transition: all 300ms;
+	transition: all 300ms;
+	-webkit-transition-delay: 100ms;
+	-moz-transition-delay: 100ms;
+	transition-delay: 100ms;
+	z-index: 100;
+}
+
+.photo-grid figcaption p {
+	display: table-cell;
+	font-size: 1.5em;
+	position: relative;
+	top: -40px;
+	width: auto;
+	-webkit-transition: all 1200ms ease-out;
+	-moz-transition: all 1200ms ease-out;
+	transition: all 1200ms ease-out;
+}
+  
+.photo-grid li:hover figcaption {
+	opacity: 0.7;
+}
+
+.photo-grid li:hover figcaption p {
+	-moz-transform: translateY(40px);
+	-webkit-transform: translateY(40px);
+	transform: translateY(40px);
+}
+</style>
 
 <div id="bloc1" class="col-lg-12">
     <div id="musique" class="col-lg-4">
@@ -34,7 +101,7 @@
             <h3>S&eacute;lection random</h3>
             <div id='player'>
                 <audio controls oncanplay name="media">
-                    <source src="http://localhost/match-up-miage/musique/piste01.mp3" type="audio/mpeg"></source>
+                    <source src="/musique/piste01.mp3" type="audio/mpeg"></source>
                 </audio>
             </div>
         </section>
@@ -45,7 +112,7 @@
         <table class="table">
             <?php
             if ($vars['artisteFavori'] !== null) {
-                echo '<tr>';
+                echo '<ul class="photo-grid">';
                 $nom;
                 $desc;
                 $genre;
@@ -53,27 +120,16 @@
                     $nom = $artisteFavori['nomArtiste'];
                     $desc = $artisteFavori['descriptionArtiste'];
                     $genre = $artisteFavori['genreMusicalArtiste'];
-                    $txt = "son petit nom :</br> " . $nom . "</br>ce à quoi il ressemble :</br>" . $desc . "</br>son genre : </br>" . $genre . "</br>";
-                    echo '<td class="col-lg-12"><button onclick="setVisibility()" style="position: absolute">+</button><a href=artiste.php?tmp=' . $artisteFavori["nArtiste"] . '><img src="';
-                    echo$artisteFavori['photoProfilArtiste'];
-                    echo '"/></a>';
-                    echo '<div id="txthover">' . $txt . '</div>';
-                    echo '</td>';
+                    $txt = "Son petit nom : " . $nom . "</br>Ce à quoi il ressemble : " . $desc . "</br>son genre : " . $genre . "</br>";
+                    echo '<li><a href=artiste.php?tmp=' . $artisteFavori["nArtiste"] . '><figure><img src="';
+                    echo $artisteFavori['photoProfilArtiste'];
+                    echo '"/>';
+                    echo '<figcaption><p>' . $txt . '</p></figcaption></figure>';
+                    echo '</a></li>';
                     break;
                 endforeach;
             }
             ?>
-
-            <script> function setVisibility() {
-                    $doc = document.getElementById("txthover");
-                    if ($doc.style.visibility === 'visible') {
-                        $doc.style.visibility = 'hidden';
-                    } else {
-                        $doc.style.visibility = 'visible';
-                    }
-                }
-            </script>
-
         </table>
     </section>
 
