@@ -227,10 +227,18 @@ class GestionnaireProfil extends Gestionnaire {
     }
 
     public function supprimerPhotoSalle($noProfil, $nPhoto) {
+        $tmp=mysqli_query($this->link, "SELECT photoSalle AS path FROM ". $GLOBALS['DB_TABLE']['ALBUM_PHOTO_S'] ." WHERE proprietaire=$noProfil AND nPhotoSalle=$nPhoto");
+        $row=  mysqli_fetch_assoc($tmp);
+        $filename=$row['path'];
+        unlink($filename);
         mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['ALBUM_PHOTO_S'] . " WHERE proprietaire=$noProfil AND nPhotoSalle=$nPhoto");
     }
 
     public function supprimerPhotoArtiste($noProfil, $nPhoto) {
+        $tmp=mysqli_query($this->link, "SELECT photoArtiste AS path FROM ". $GLOBALS['DB_TABLE']['ALBUM_PHOTO_A'] ." WHERE proprietaire=$noProfil AND nPhotoArtiste=$nPhoto");
+        $row=  mysqli_fetch_assoc($tmp);
+        $filename=$row['path'];
+        unlink($filename);
         mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['ALBUM_PHOTO_A'] . " WHERE proprietaire=$noProfil AND nPhotoArtiste=$nPhoto");
     }
     
