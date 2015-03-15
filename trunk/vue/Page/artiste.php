@@ -124,8 +124,9 @@
                         if ($vars['annonceEvenement'] !== null) {
                             foreach ($vars['annonceEvenement'] as $annonceEvenement):
                                 echo '<tr>';
-                                echo "<td class='col-lg-3'>" . $annonceEvenement['texteAnnonceEvenementArtiste'] . "</td>";
-                                echo '<td>' . $annonceEvenement['dateEditionAnnonceEvenementArtiste'] . '</td>';
+                                echo "<td class='col-lg-8'>" . $annonceEvenement['texteAnnonceEvenementArtiste'] . "</td>";
+                                $dateEdition=new DateTime($annonceEvenement['dateEditionAnnonceEvenementArtiste']);
+                                echo '<td>' . $dateEdition->format('d/m/y') . '</td>';
                                 echo '<td>'
                                 . "<a class='btn btn-danger' href=artiste.php?tmp=" . $vars['noProfil'] . "&nAnnonceEvenement=" . $annonceEvenement['nAnnonceEvenementArtiste'] . ">Supprimer</a> "
                                 . '</td>';

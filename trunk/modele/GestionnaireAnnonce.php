@@ -33,6 +33,7 @@ class GestionnaireAnnonce extends Gestionnaire {
     }
 
     public function creerPetiteAnnonce($noProfil, $texteAnnonce, $dateDeb, $dateFin) {
+        $texteAnnonce=mysqli_real_escape_string($this->link, $texteAnnonce);
         if (empty($dateDeb)) {
             mysqli_query($this->link, " INSERT INTO " . $GLOBALS['DB_TABLE']['PETITE_ANNONCE'] . " (auteur,textePetiteAnnonce, dateEditionPetiteAnnonce, dateDeb, dateFin) VALUES ($noProfil,'$texteAnnonce',NOW(), NOW(), STR_TO_DATE('$dateFin','%d/%m/%Y'));");
             if (empty($dateFin)) {
@@ -84,10 +85,12 @@ class GestionnaireAnnonce extends Gestionnaire {
     }
 
     public function creerAnnonceEvenementSalle($noProfil, $texteAnnonce) {
+        $texteAnnonce=mysqli_real_escape_string($this->link, $texteAnnonce);
         mysqli_query($this->link, " INSERT INTO " . $GLOBALS['DB_TABLE']['ANNONCE_EVENEMENT_S'] . " (auteur,texteAnnonceEvenementSalle, dateEditionAnnonceEvenementSalle) VALUES ($noProfil,'$texteAnnonce',NOW());");
     }
 
     public function creerAnnonceEvenementArtiste($noProfil, $texteAnnonce) {
+        $texteAnnonce=mysqli_real_escape_string($this->link, $texteAnnonce);
         mysqli_query($this->link, " INSERT INTO " . $GLOBALS['DB_TABLE']['ANNONCE_EVENEMENT_A'] . " (auteur,texteAnnonceEvenementArtiste, dateEditionAnnonceEvenementArtiste) VALUES ($noProfil,'$texteAnnonce',NOW())");
     }
 
