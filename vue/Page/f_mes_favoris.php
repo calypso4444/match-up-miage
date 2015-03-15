@@ -3,7 +3,6 @@
 <div class="col-lg-12">
 
     <h1>mes favoris</h1>
-
     <div id="mesFavorisSalles" class='col-lg-6'>
         <h2>salles</h2>
         <table class="table">
