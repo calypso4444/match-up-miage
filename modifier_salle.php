@@ -25,12 +25,15 @@ $contactGerant = filter_input(INPUT_POST, 'contactGerant');
 
 if (!empty($nomSalle)and $nomSalle !== $infoProfil['nomSalle']) {
     $model['GestionnaireProfil']->setNomSalle($noProfil, $nomSalle);
+    $infoProfil['nomSalle'] = $nomSalle;
 }
 if (!empty($descSalle)and $descSalle !== $infoProfil['descriptionSalle']) {
     $model['GestionnaireProfil']->setDescriptionSalle($noProfil, $descSalle);
+    $infoProfil['descSalle'] = $descSalle;
 }
 if (!empty($genreSalle)and $genreSalle !== $infoProfil['genreMusicalSalle']) {
     $model['GestionnaireProfil']->setGenreMusicalSalle($noProfil, $genreSalle);
+    $infoProfil['genreSalle'] = $genreSalle;
 }
 if (isset($_FILES['mon_fichier'])) {
     $tab_img = $_FILES['mon_fichier'];
@@ -52,28 +55,36 @@ if (isset($_FILES['mon_fichier'])) {
     $resultat = move_uploaded_file($tab_img['tmp_name'], $chemin);
     if ($resultat) {
         $model['GestionnaireProfil']->setphotoProfilSalle($noProfil, $chemin);
+        $infoProfil['chemin'] = $chemin;
     }
 }
 if (!empty($adresseSalle)and $adresseSalle !== $infoProfil['adresseSalle']) {
     $model['GestionnaireProfil']->setAdresseSalle($noProfil, $adresseSalle);
+    $infoProfil['adresseSalle'] = $adresseSalle;
 }
 if (!empty($telSalle)and $telSalle !== $infoProfil['telSalle']) {
     $model['GestionnaireProfil']->setTelSalle($noProfil, $telSalle);
+    $infoProfil['telSalle'] = $telSalle;
 }
 if (!empty($nomGerant)and $nomGerant !== $infoProfil['nomGerant']) {
     $model['GestionnaireProfil']->setNomGerant($noProfil, $nomGerant);
+    $infoProfil['nomGerant'] = $nomGerant;
 }
 if (!empty($prenomGerant)and $prenomGerant !== $infoProfil['prenomGerant']) {
     $model['GestionnaireProfil']->setPrenomGerant($noProfil, $prenomGerant);
+    $infoProfil['prenomGerant'] = $prenomGerant;
 }
 if (!empty($contactGerant)and $contactGerant !== $infoProfil['contactGerant']) {
     $model['GestionnaireProfil']->setContactGerant($noProfil, $contactGerant);
+    $infoProfil['contactGerant'] = $contactGerant;
 }
 if (!empty($cpSalle)and $cpSalle!== $infoProfil['cpSalle']) {
     $model['GestionnaireProfil']->setCpSalle($noProfil, $cpSalle);
+    $infoProfil['cpSalle'] = $cpSalle;
 }
 if (!empty($villeSalle)and $villeSalle!==$infoProfil['villeSalle']) {
     $model['GestionnaireProfil']->setVilleSalle($noProfil, $villeSalle);
+    $infoProfil['villeSalle'] = $villeSalle;
 }
 
 /* fin de séquence */
