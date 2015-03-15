@@ -10,6 +10,10 @@
         </script>
     </head>
     <body>
+        
+        <video controls autoplay name="media">
+            <source src="http://localhost/match-up-miage/musique/piste01.mp3" type="audio/mpeg"></source>
+        </video>
 
         <div id="lecteur">
             <div id="controls">
