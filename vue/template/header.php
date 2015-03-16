@@ -2,13 +2,13 @@
     <div class="row-same-height">
         <div class="col-lg-9 col-sm-height">
             <div id="banner">
-                <img src="web/image/banner.png" alt="banner" />
+                <a href="index.php"><img src="web/image/banner.png" alt="banner"/></a>
             </div>
             <?php include_once 'nav.php';?>
         </div>
         <div id='menuConnexion' class="col-lg-2 col-sm-height">
             <?php if (isset($_SESSION['user'])) : ?>
-                <img src="<?php echo $_SESSION['user']['avatar']; ?>" alt="avatar" class="img img-responsive"/></br>
+            	<a href="f_info_perso.php"><img src="<?php echo $_SESSION['user']['avatar']; ?>" alt="avatar" class="img img-responsive"/></a></br>
                 <a href="f_mes_profils.php" class="glyphicon glyphicon-user"> mes profils </a></br>
                 <a href="f_info_perso.php" class="glyphicon glyphicon-cog"> mes infos perso </a></br>
                 <a href="f_mes_favoris.php" class="glyphicon glyphicon-heart"> mes favoris </a></br>
