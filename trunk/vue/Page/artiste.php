@@ -1,6 +1,8 @@
 <!-- vue/page -->
 
 <div class="col-lg-12">
+	
+	<script type="text/javascript" src="web/js/verificationMusique.js"></script>
 
     <h1><?php echo $vars['nomProfil']; ?></h1>
 
@@ -87,7 +89,7 @@
             <h4>Le fil d'actualité : </h4>
             <div id="playlist" class="col-lg-12">
 
-                <form action='artiste.php?tmp=<?php echo $vars['noProfil'] ?>' method="post" enctype="multipart/form-data">
+                <form id="formulaireAjoutMusique" name="formulaireAjoutMusique" action='artiste.php?tmp=<?php echo $vars['noProfil'] ?>' method="post" enctype="multipart/form-data">
                     <table class="table">
                         <tbody>
                             <tr>
