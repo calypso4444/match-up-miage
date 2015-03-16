@@ -115,9 +115,8 @@
                 echo '<ul class="photo-grid">';
                 foreach ($vars['salleFavorite'] as $salleFavorite) :
                     $nom = $salleFavorite['nomSalle'];
-                    $desc = $salleFavorite['descriptionSalle'];
                     $genre = $salleFavorite['genreMusicalSalle'];
-                    $txt = "son petit nom : " . $nom . "</br>ce à quoi il ressemble : " . $desc . "</br>son genre : " . $genre . "</br>";
+                    $txt = "son petit nom : " . $nom . "</br>son genre : " . $genre . "</br>";
                     echo '<li><a href=salle.php?tmp=' . $salleFavorite["nSalle"] . '><figure><img src="';
                     echo$salleFavorite['photoProfilSalle'];
                     echo '"/>';
