@@ -26,6 +26,8 @@ $evenements=$model['GestionnaireConcert']->getEvenementsLesPlusSuivis();
 $salleFavorite=$model['GestionnaireProfil']->getClassementFavoriSalle();
 $artisteFavori=$model['GestionnaireProfil']->getClassementFavoriArtiste();
 
+$selectionRandom=$model['GestionnaireProfil']->getMorceauRandom();
+
 /* fin de séquence */
 
 /* affichage de la vue */
@@ -36,6 +38,7 @@ $vue['dernierCommentaireSalle'] = $lastS;
 $vue['evenements']=$evenements;
 $vue['salleFavorite']=$salleFavorite;
 $vue['artisteFavori']=$artisteFavori;
+$vue['selectionRandom']=$selectionRandom;
 $view->render('index', $vue);
 
 /* fin de l'affichage de la vue */

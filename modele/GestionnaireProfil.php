@@ -311,8 +311,32 @@ class GestionnaireProfil extends Gestionnaire {
         return $row;
     }
 
-    public function ajouterMorceau($noProfil,$titre,$artiste, $path) {
+    public function ajouterMorceau($noProfil, $titre, $artiste, $path) {
         mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['BIBLIOTHEQUE'] . " (proprietaire, titre,artiste, morceau) VALUES ($noProfil,'$titre','$artiste','$path');");
+    }
+
+    public function supprimerMorceau($noProfil, $nMorceau) {
+        $tmp = mysqli_query($this->link, "SELECT morceau AS path FROM " . $GLOBALS['DB_TABLE']['BIBLIOTHEQUE'] . " WHERE proprietaire=$noProfil AND nMorceau=$nMorceau");
+        $row = mysqli_fetch_assoc($tmp);
+        $filename = $row['path'];
+        unlink($filename);
+        mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['BIBLIOTHEQUE'] . " WHERE proprietaire=$noProfil AND nMorceau=$nMorceau");
+    }
+
+    public function getMorceauRandom() {
+        $tmp = mysqli_query($this->link, "SELECT MAX(nMorceau)AS idmax FROM " . $GLOBALS['DB_TABLE']['BIBLIOTHEQUE'] . ";");
+        $row = mysqli_fetch_assoc($tmp);
+        $max = $row['idmax'];
+        $nRand = rand(0, $max);
+        $trouve = false;
+        while ($trouve == false) {
+            $tmp = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['BIBLIOTHEQUE'] . " WHERE nMorceau=$nRand;");
+            if ($tmp !== false) {
+                $row = mysqli_fetch_assoc($tmp);
+                $trouve = true;
+                return $row;
+            }
+        }
     }
 
 }
