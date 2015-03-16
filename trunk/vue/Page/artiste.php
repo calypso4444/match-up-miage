@@ -91,13 +91,10 @@
                     <table class="table">
                         <tbody>
                             <tr>
-                                <td class="col-lg-4">
-                                    <input class="form-control" id="titre" type="text" name="titre" placeholder="titre" value=""/>
+                                <td class="col-lg-6">
+                                    <input class="form-control" id="titre" type="text" name="titre" placeholder="Titre" value=""/>
                                 </td>
-                                <td class="col-lg-3">
-                                    <input class="form-control" id="artiste" type="text" name="artiste" placeholder="artiste" value=""/>
-                                </td>
-                                <td class="col-lg-3">
+                                <td class="col-xs-1">
                                     <input class="filestyle" type="file" id="morceau" accept="audio/*" name="morceau" placeholder="" value="" data-input="false" data-buttonText="Votre son"/>
                                 </td>
                                 <td class="col-lg-2">
