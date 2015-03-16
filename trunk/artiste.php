@@ -96,22 +96,24 @@ if (isset($piste)) {
 }
 
 $titre = filter_input(INPUT_POST, 'titre');
-if (isset($_FILES['morceau'])and isset($titre)) {
-    $tab_son = $_FILES['morceau'];
-    if ($_FILES['morceau']['error'] > 0) {
-        $erreur = "Erreur lors du transfert";
-    }
-    $extensions_valides = array('mp3', 'wav');
-    $extension_upload = strtolower(substr(strrchr($tab_son['name'], '.'), 1));
-    $dossier = "web/musique/{$nomProfil}";
-    if (!is_dir($dossier)) {
-        mkdir($dossier);
-    }
-    $chemin = "web/musique/{$nomProfil}/{$titre}.{$extension_upload}";
-    $resultat = move_uploaded_file($tab_son['tmp_name'], $chemin);
-    if ($resultat) {
-        $model['GestionnaireProfil']->ajouterMorceau($noProfil, $titre, $nomProfil, $chemin);
-        $playlist = $model['GestionnaireProfil']->getAllMorceau($noProfil);
+if (isset($_FILES['morceau'])and ! empty($titre)) {
+    if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
+        $tab_son = $_FILES['morceau'];
+        if ($_FILES['morceau']['error'] > 0) {
+            $erreur = "Erreur lors du transfert";
+        }
+        $extensions_valides = array('mp3', 'wav');
+        $extension_upload = strtolower(substr(strrchr($tab_son['name'], '.'), 1));
+        $dossier = "web/musique/{$nomProfil}";
+        if (!is_dir($dossier)) {
+            mkdir($dossier);
+        }
+        $chemin = "web/musique/{$nomProfil}/{$titre}.{$extension_upload}";
+        $resultat = move_uploaded_file($tab_son['tmp_name'], $chemin);
+        if ($resultat) {
+            $model['GestionnaireProfil']->ajouterMorceau($noProfil, $titre, $nomProfil, $chemin);
+            $playlist = $model['GestionnaireProfil']->getAllMorceau($noProfil);
+        }
     }
 }
 
