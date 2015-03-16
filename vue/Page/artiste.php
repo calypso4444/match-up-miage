@@ -2,7 +2,6 @@
 
 <div class="col-lg-12">
 	
-	<script type="text/javascript" src="web/js/verificationMusique.js"></script>
 
     <h1><?php echo $vars['nomProfil']; ?></h1>
 
