@@ -98,7 +98,7 @@
                                     <input class="filestyle" type="file" id="morceau" accept="audio/*" name="morceau" placeholder="" value="" data-input="false" data-buttonText="Votre son"/>
                                 </td>
                                 <td class="col-lg-2">
-                                    <input type="hidden" name="MAX_FILE_SIZE" value="30000000" />
+<!--                                    <input type="hidden" name="MAX_FILE_SIZE" value="300000" />-->
                                     <input class="btn btn-default" type="submit" value="Upload">
                                 </td>
                             </tr>
