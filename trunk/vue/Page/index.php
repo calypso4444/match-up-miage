@@ -39,7 +39,10 @@
                     echo '<audio controls oncanplay name="media">';
                     echo '<source src="';
                     echo $vars['selectionRandom']['morceau'];
-                    echo '" type="audio/mpeg"></source></audio>';
+                    echo '" type="audio/mpeg"></source></audio></br>';
+                    echo $vars['selectionRandom']['titre'];
+                    echo ' - ';
+                    echo $vars['selectionRandom']['artiste'];
                 }
                 ?>
             </div>
