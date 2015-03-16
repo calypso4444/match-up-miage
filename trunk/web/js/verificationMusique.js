@@ -7,7 +7,6 @@ $(document).ready(function(){
 	
 	form.submit(function(){
 		if(validateNomMusique()){
-			alert("Bien ajouté");
 			return true;
 		} else {
 			alert("Veuillez entrer un titre");
