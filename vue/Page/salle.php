@@ -176,7 +176,7 @@
                                 echo '<td>' . $dateEdition->format('d/m/y ') . '</td>';
                                 echo '<td>'
                                 . "<a class='btn btn-danger' href=salle.php?tmp=" . $vars['noProfil'] . "&nPetiteAnnonce=" . $petiteAnnonce['nPetiteAnnonce'] . ">Supprimer</a> "
-                                . '<a class="btn btn-default" href="repondre.php?nPetiteAnnonce=' . $petiteAnnonce['nPetiteAnnonce'] . '">Postuler</a>'
+                                . '<a class="btn btn-default" href="f_message.php?destS=' . $vars['noProfil'] . '&nAnnonce=' . $petiteAnnonce['nPetiteAnnonce'] . '">Postuler</a>'
                                 . '</td>';
                                 echo '</tr>';
                             endforeach;
