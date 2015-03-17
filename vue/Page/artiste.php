@@ -88,7 +88,7 @@
                             if ($vars['aVenir'] !== null) {
                                 foreach ($vars['aVenir'] as $aVenir):
                                     $date = new DateTime($aVenir['dateConcert']);
-                                    $dateConcert=$date->format('d/m/y');
+                                    $dateConcert = $date->format('d/m/y');
                                     echo '<tr>';
                                     echo '<td> le ' . $dateConcert . ' - ' . $aVenir['nomSalle'] . '</td>';
                                     echo '<td> <a href="artiste.php?tmp=' . $vars['noProfil'] . '&nConcert=' . $aVenir['nConcert'] . '" class=" btn btn-default"> Participer </a></td>';
@@ -142,20 +142,29 @@
                         ?>
                     </td>
                     <td class="col-lg-6">
-                        <?php
-                        if ($vars['playlist'] !== null) {
-                            $compteur = 1;
-                            foreach ($vars['playlist'] as $playlist):
-                                echo '<a href="artiste.php?tmp=' . $vars['noProfil'] . '&nPiste=' . $playlist['nMorceau'] . '">';
-                                echo $compteur;
-                                echo ". ";
-                                echo $playlist['titre'] . " - ";
-                                echo $playlist['artiste'];
-                                echo "</a></br>";
-                                $compteur++;
-                            endforeach;
-                        }
-                        ?>
+                        <table class="table" id="tablePlaylist">
+                            <tbody>
+                                <?php
+                                if ($vars['playlist'] !== null) {
+                                    $compteur = 1;
+                                    foreach ($vars['playlist'] as $playlist):
+                                        echo"<tr>";
+                                        echo '<td>';
+                                        echo '<a href="artiste.php?tmp=' . $vars['noProfil'] . '&nPiste=' . $playlist['nMorceau'] . '">';
+                                        echo $compteur;
+                                        echo ". ";
+                                        echo $playlist['titre'] . " - ";
+                                        echo $playlist['artiste'];
+                                        echo "</a>";
+                                        echo '</td><td>';
+                                        echo "<form id='suppressionMorceau' action='artiste.php?tmp=" . $vars['noProfil'] . "&nMorceau=" . $playlist['nMorceau'] . "' method='post'><button id='suppression'class='btn glyphicon glyphicon-remove' type='submit' name='removeSong' value='true'></button></form>";
+                                        echo "</td></tr>";
+                                        $compteur++;
+                                    endforeach;
+                                }
+                                ?>
+                            </tbody>
+                        </table>
                     </td>
                     </tbody>
                 </table>
