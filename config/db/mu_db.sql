@@ -145,7 +145,7 @@ FOREIGN KEY(proprietaire) REFERENCES artiste (nArtiste)
 CREATE TABLE `favoriArtiste`(
 `proprietaire` int(255) NOT NULL,
 `cible` int(255) NOT NULL,
-KEY(`proprietaire`,`cible`),
+PRIMARY KEY(`proprietaire`,`cible`),
 FOREIGN KEY(cible) REFERENCES artiste (nArtiste),
 FOREIGN KEY(proprietaire) REFERENCES utilisateur (id)
 );
@@ -153,7 +153,7 @@ FOREIGN KEY(proprietaire) REFERENCES utilisateur (id)
 CREATE TABLE `favoriSalle`(
 `proprietaire` int(255) NOT NULL,
 `cible` int(255) NOT NULL,
-KEY(`proprietaire`,`cible`),
+PRIMARY KEY(`proprietaire`,`cible`),
 FOREIGN KEY(cible) REFERENCES salle (nSalle),
 FOREIGN KEY(proprietaire) REFERENCES utilisateur (id)
 );
@@ -161,7 +161,7 @@ FOREIGN KEY(proprietaire) REFERENCES utilisateur (id)
 CREATE TABLE `evenementSuivi`(
 `proprietaire` int(255) NOT NULL,
 `cible` int(255) NOT NULL,
-KEY(`proprietaire`,`cible`),
+PRIMARY KEY(`proprietaire`,`cible`),
 FOREIGN KEY(cible) REFERENCES concert (nConcert),
 FOREIGN KEY(proprietaire) REFERENCES utilisateur (id)
 );

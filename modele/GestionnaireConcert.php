@@ -64,6 +64,26 @@ class GestionnaireConcert extends Gestionnaire {
             return null;
         }
     }
+    
+    public function getConcertByArtiste($noProfil) {
+        $req = mysqli_query($this->link, " SELECT S.nSalle, nomSalle, A.nArtiste, A.nomArtiste, C.dateConcert, C.nConcert FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " S "
+                . " INNER JOIN " . $GLOBALS['DB_TABLE']['CONCERT'] . " C "
+                . " ON S.nSalle=C.nSalle "
+                . " INNER JOIN " . $GLOBALS['DB_TABLE']['ARTISTE'] . " A "
+                . " ON A.nArtiste=C.nArtiste"
+                . " WHERE C.dateConcert>=CURDATE()"
+                . " AND A.nArtiste=$noProfil "
+                . " ORDER BY C.dateConcert DESC;");
+        if ($req !== false) {
+            $concert = array();
+            while ($row = mysqli_fetch_assoc($req)) {
+                $concert[] = $row;
+            }
+            return $concert;
+        } else {
+            return null;
+        }
+    }
 
 }
 
