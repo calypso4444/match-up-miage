@@ -89,12 +89,6 @@ $nAnnonceEvenement = filter_input(INPUT_GET, 'nAnnonceEvenement');
 $model['GestionnaireAnnonce']->supprimerAnnonceEvenementByIdArtiste($noProfil, $nAnnonceEvenement);
 $annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdArtiste($noProfil);
 
-$playlist = $model['GestionnaireProfil']->getAllMorceau($noProfil);
-$piste = filter_input(INPUT_GET, 'nPiste');
-if (isset($piste)) {
-    $piste = $model['GestionnaireProfil']->getMorceau($piste);
-}
-
 $titre = filter_input(INPUT_POST, 'titre');
 if (isset($_FILES['morceau'])and ! empty($titre)) {
     if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
@@ -116,6 +110,20 @@ if (isset($_FILES['morceau'])and ! empty($titre)) {
         }
     }
 }
+
+$nMorceau = filter_input(INPUT_GET, 'nMorceau');
+$removeSong = filter_input(INPUT_POST, 'removeSong');
+if ($removeSong === "true") {
+    if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
+        $model['GestionnaireProfil']->supprimerMorceau($noProfil,$nMorceau);
+    }
+}
+
+$playlist = $model['GestionnaireProfil']->getAllMorceau($noProfil);
+$piste = filter_input(INPUT_GET, 'nPiste');
+if (isset($piste)) {
+    $piste = $model['GestionnaireProfil']->getMorceau($piste);
+}$commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdArtiste($noProfil);
 
 $concerAVenir=$model['GestionnaireConcert']->GetConcertByArtiste($noProfil);
 

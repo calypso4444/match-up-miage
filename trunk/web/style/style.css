@@ -189,7 +189,7 @@ div#albumPhoto form#suppressionPhoto{
     position: absolute;
 }
 
-div#texteCommentaire button, div#albumPhoto button {
+div#texteCommentaire button, div#albumPhoto button, div#playlist button {
     background-color: transparent;
 }
 
@@ -273,15 +273,16 @@ section#artisteDeLaSemaine{
     border-left: solid black 1px;
 }
 
-section#salleDeLaSemaine button, section#artisteDeLaSemaine button{
-    position: absolute;
-    background-color: transparent;
-    color: white;
+button#suppression{
+    color:white;
 }
 
-button#suppression{
-    position:absolute;
-    color:white;
+table#tablePlaylist{
+    background-color: #494949;
+    border-radius: 10px;
+}
+table#tablePlaylist tr{
+    border-top: 1px grey dashed;
 }
 
 /* CI_DESSOUS HOVER PAGE INDEX */
