@@ -45,7 +45,7 @@ $(document).ready(function() {
 		},
 			map:{
 				options:{
-					zoom: 15
+					zoom: 14
     			}
   			}
 	});	
