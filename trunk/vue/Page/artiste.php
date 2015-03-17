@@ -1,7 +1,7 @@
 <!-- vue/page -->
 
 <div class="col-lg-12">
-	
+
 
     <h1><?php echo $vars['nomProfil']; ?></h1>
 
@@ -82,6 +82,22 @@
                 </div>
                 <div id="agenda">
                     <h4>L'agenda : </h4></br>
+                    <table class="table">
+                        <tbody>
+                            <?php
+                            if ($vars['aVenir'] !== null) {
+                                foreach ($vars['aVenir'] as $aVenir):
+                                    $date = new DateTime($aVenir['dateConcert']);
+                                    $dateConcert=$date->format('d/m/y');
+                                    echo '<tr>';
+                                    echo '<td> le ' . $dateConcert . ' - ' . $aVenir['nomSalle'] . '</td>';
+                                    echo '<td> <a href="artiste.php?tmp=' . $vars['noProfil'] . '&nConcert=' . $aVenir['nConcert'] . '" class=" btn btn-default"> Participer </a></td>';
+                                    echo'</tr>';
+                                endforeach;
+                            }
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
         </aside>
         <section class="col-lg-8">

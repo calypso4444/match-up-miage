@@ -117,6 +117,15 @@ if (isset($_FILES['morceau'])and ! empty($titre)) {
     }
 }
 
+$concerAVenir=$model['GestionnaireConcert']->GetConcertByArtiste($noProfil);
+
+$participation=filter_input(INPUT_GET, 'nConcert');
+if(isset($participation)){
+    if(isset($id)){
+        $model['GestionnaireUtilisateur']->participer($id,$participation);
+    }
+}
+
 /* fin de séquence */
 
 /* affichage de la vue */
@@ -128,6 +137,7 @@ $vue['photoProfil'] = $photoProfil;
 $vue['descProfil'] = $descProfil;
 $vue['albumPhoto'] = $albumPhoto;
 $vue['commentaire'] = $commentaires;
+$vue['aVenir']=$concerAVenir;
 $vue['annonceEvenement'] = $annoncesEvenement;
 $vue['playlist'] = $playlist;
 $vue['piste'] = $piste;
