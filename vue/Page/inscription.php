@@ -2,9 +2,12 @@
 
 <div class="col-lg-12" id="formulaireI">
     <h1> Formulaire d'inscription </h1>
-    	<div class="row">
+    	
 			<form class="form-horizontal" id="formulaireInscription" method ="post" name="verificationInscription1">
+				<div class="row">
+					<div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
 				<table class="table">
+					
 					<tbody>
 					
 
@@ -79,16 +82,20 @@
 <!-- Fin champs pour vérifier son mot de passe -->
 
     <tr>
-	    <td>
-        <input class="btn btn-default center-block" type="submit" value="M'inscrire" id="envoyer"/>
+	    <td></td>
+	    <td class="text-right">
+        <input class="btn btn-default" type="submit" value="M'inscrire" id="envoyer"/>
 	    </td>
     </tr>
     
     
 				</tbody>
 			</table>
+    	 			</div>
+				</div>
     	</form>
-    </div>
+    	
+   
 </div>
 
 
