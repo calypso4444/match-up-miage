@@ -2,7 +2,7 @@
     <div class="row-same-height">
         <div class="col-lg-9 col-sm-height">
             <div id="banner">
-                <a href="index.php"><img src="web/image/banner.png" alt="banner"/></a>
+                <a href="index.php"><img src="web/image/banner_nobackground.png" alt="banner"/></a>
             </div>
             <?php include_once 'nav.php';?>
         </div>
