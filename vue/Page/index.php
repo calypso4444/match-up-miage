@@ -103,26 +103,40 @@
                 <td id="tranverse" class="col-lg-8">
                     <section id='carte'>
                         <h2>Ce soir &agrave; Paris</h2>
-                        <canvas id='map'style='height:420.7px; width: 532.7px; border:solid #21e738 1px; padding:0; margin :0;background-image:url("web/image/carte/map.svg");background-repeat: no-repeat' >
-<!--                            <svg viewBox="0 0 532.7 420.7" style='border:solid red 1px;'>
-                            </svg>-->
+                        <canvas id='map'style='height:420.7px; width: 534.7px; border:solid #21e738 1px; padding:0; margin :0;background-image:url("web/image/carte/map.svg");background-repeat: no-repeat' >
                         </canvas>
-                        </br>
                     </section>
 
                     <script>
 
-//                        MAP_WIDTH = 532.7;
-//                        MAP_HEIGHT = 420.7;
-//
-//                        function convert(lat, lon) {
-//                            var y = ((-1 * lat) + 90) * (MAP_HEIGHT / 180);
-//                            var x = (lon + 180) * (MAP_WIDTH / 360);
-//                            var tab= new array(x,y);
-//                            return tab;
-//                        }
+                        PI = 3.14159265359;
+                        MAP_WIDTH = 532.7;
+                        MAP_HEIGHT = 420.7;
 
-                        var canvas = $("#map")[0];
+                        latitude = 48.8672991; // (φ)
+                        longitude = 2.363467300000025;   // (λ)
+
+                        mapWidth = 532.7;
+                        mapHeight = 420.7;
+
+                        function latitudeToPixel(latitude) {
+                            latRad = latitude * PI / 180;
+                            mercN = Math.log(Math.tan((PI / 4) + (latRad / 2)));
+                            y = (mapHeight / 2) - (mapWidth * mercN / (2 * PI));
+                            return y;
+                        }
+
+                        function longitudeToPixel(longitude) {
+                            x = (longitude + 180) * (mapWidth / 360);
+                            return x;
+                        }
+
+
+
+
+
+                        var canvas = $("#map")[0]
+                                ;
                         var context = canvas.getContext("2d");
 
                         var img = new Image();   // Crée un nouvel objet Image
@@ -141,12 +155,15 @@
 //                            var x = t[0];
 //                            var y = t[1];
 
-                            var tabx = [22, 249, 269];
-                            var taby = [116, 130,96 ];
+                            lon = longitudeToPixel(longitude);
+                            lat = latitudeToPixel(latitude);
+
+                            var tabx = [22, 249, 209, lon];
+                            var taby = [116, 130, 96, lat];
 
 
                             etoile.onload = function() {
-                                for (var i = 0; i < 3; i++) {
+                                for (var i = 0; i < 4; i++) {
 ////                                    ctx.drawImage(etoile, tabx[i], taby[i],10,8);
                                     ctx.fillStyle = "yellow";
                                     ctx.fillRect(tabx[i], taby[i], 3, 3);
