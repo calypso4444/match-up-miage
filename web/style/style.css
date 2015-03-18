@@ -121,6 +121,7 @@ div#commentaire{
 #menuConnexion{
     border-left: solid 1px black;
     margin-bottom: -100px;
+    vertical-align: top;
 }
 /*
 #menuConnexion img{
