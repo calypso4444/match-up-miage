@@ -64,7 +64,7 @@
                                 echo '<tr>';
                             }
                             echo '<td>';
-                            echo "<form id ='suppressionPhoto' action='salle.php?tmp=" . $vars['noProfil'] . "&nP=" . $albumPhoto['nPhotoSalle'] . "' method='post'><button id='suppression' class='btn glyphicon glyphicon-remove' type='submit' name='removePhoto' value='true' ></button></form>";
+                            echo "<form id ='suppressionPhoto' action='salle.php?tmp=" . $vars['noProfil'] . "&nP=" . $albumPhoto['nPhotoSalle'] . "' method='post'><button id='suppression' class='btn-xs glyphicon glyphicon-remove' type='submit' name='removePhoto' value='true' ></button></form>";
                             echo "<img src=\"";
                             echo $albumPhoto['photoSalle'];
                             echo "\"></td>";
@@ -89,7 +89,7 @@
                     if ($vars['commentaire'] !== null) {
                         foreach ($vars['commentaire'] as $commentaires):
                             echo"<div id='texteCommentaire'>";
-                            echo "<form action='salle.php?tmp=" . $vars['noProfil'] . "&nCom=" . $commentaires['nCommentaireSalle'] . "' method='post'><button type='submit' name='remove' value='true' class='btn glyphicon glyphicon-remove'></button></form>";
+                            echo "<form action='salle.php?tmp=" . $vars['noProfil'] . "&nCom=" . $commentaires['nCommentaireSalle'] . "' method='post'><button type='submit' name='remove' value='true' class='btn-xs glyphicon glyphicon-remove'></button></form>";
                             echo "<img src=\"";
                             echo $commentaires['avatar'];
                             echo "\">";

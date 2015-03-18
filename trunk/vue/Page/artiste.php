@@ -57,7 +57,7 @@
                                 echo '<tr>';
                             }
                             echo '<td>';
-                            echo "<form id ='suppressionPhoto' action='artiste.php?tmp=" . $vars['noProfil'] . "&nP=" . $albumPhoto['nPhotoArtiste'] . "' method='post'><button id='suppression' class='btn glyphicon glyphicon-remove' type='submit' name='removePhoto' value='true' ></button></form>";
+                            echo "<form id ='suppressionPhoto' action='artiste.php?tmp=" . $vars['noProfil'] . "&nP=" . $albumPhoto['nPhotoArtiste'] . "' method='post'><button id='suppression' class='btn-xs glyphicon glyphicon-remove' type='submit' name='removePhoto' value='true' ></button></form>";
                             echo "<img src=\"";
                             echo $albumPhoto['photoArtiste'];
                             echo "\"></td>";
@@ -79,7 +79,7 @@
                         if ($vars['commentaire']) {
                             foreach ($vars['commentaire'] as $commentaires):
                                 echo"<div id='texteCommentaire'>";
-                                echo "<form action='artiste.php?tmp=" . $vars['noProfil'] . "&nCom=" . $commentaires['nCommentaireArtiste'] . "' method='post'><button class='btn glyphicon glyphicon-remove' type='submit' name='removeComment' value='true'></button></form>";
+                                echo "<form action='artiste.php?tmp=" . $vars['noProfil'] . "&nCom=" . $commentaires['nCommentaireArtiste'] . "' method='post'><button class='btn-xs glyphicon glyphicon-remove' type='submit' name='removeComment' value='true'></button></form>";
                                 echo "<img src=\"";
                                 echo $commentaires['avatar'];
                                 echo "\">";
@@ -107,7 +107,7 @@
                                     $dateConcert = $date->format('d/m/y');
                                     echo '<tr>';
                                     echo '<td> le ' . $dateConcert . ' - ' . $aVenir['nomSalle'] . '</td>';
-                                    echo '<td> <a href="artiste.php?tmp=' . $vars['noProfil'] . '&nConcert=' . $aVenir['nConcert'] . '" class=" btn btn-default"> Participer </a></td>';
+                                    echo '<td> <a href="artiste.php?tmp=' . $vars['noProfil'] . '&nConcert=' . $aVenir['nConcert'] . '" class=" btn-xs btn-default"> Participer </a></td>';
                                     echo'</tr>';
                                 endforeach;
                             }
@@ -173,7 +173,7 @@
                                         echo $playlist['artiste'];
                                         echo "</a>";
                                         echo '</td><td>';
-                                        echo "<form id='suppressionMorceau' action='artiste.php?tmp=" . $vars['noProfil'] . "&nMorceau=" . $playlist['nMorceau'] . "' method='post'><button id='suppression'class='btn glyphicon glyphicon-remove' type='submit' name='removeSong' value='true'></button></form>";
+                                        echo "<form id='suppressionMorceau' action='artiste.php?tmp=" . $vars['noProfil'] . "&nMorceau=" . $playlist['nMorceau'] . "' method='post'><button id='suppression'class='btn-xs glyphicon glyphicon-remove' type='submit' name='removeSong' value='true'></button></form>";
                                         echo "</td></tr>";
                                         $compteur++;
                                     endforeach;

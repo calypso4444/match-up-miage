@@ -9,9 +9,9 @@ include_once 'config/includeGlobal.php';
 
 /* séquence du controleur */
 
-$id=$_SESSION['user']['id'];
+$id = $_SESSION['user']['id'];
 
-$noProfil=0;
+$noProfil = 0;
 
 $nomSalle = filter_input(INPUT_POST, 'nomSalle');
 $descSalle = filter_input(INPUT_POST, 'descriptionSalle');
@@ -24,9 +24,8 @@ $contactGerant = filter_input(INPUT_POST, 'contactGerant');
 $cpSalle = filter_input(INPUT_POST, 'cpSalle');
 $villeSalle = filter_input(INPUT_POST, 'villeSalle');
 
-if (!empty($nomSalle)) {
-    $noProfil=$model['GestionnaireProfil']->newProfilSalle($id);
-    $model['GestionnaireProfil']->setNomSalle($noProfil, $nomSalle);
+if (!empty($nomSalle)and ! empty($adresseSalle) and ! empty($villeSalle)and ! empty($cpSalle)) {
+    $model['GestionnaireProfil']->newProfilSalle($id, $nomSalle, $adresseSalle, $cpSalle, $villeSalle);
 }
 if (!empty($descSalle)) {
     $model['GestionnaireProfil']->setDescriptionSalle($noProfil, $descSalle);

@@ -35,7 +35,6 @@ class GestionnaireAnnonce extends Gestionnaire {
     public function creerPetiteAnnonce($noProfil, $texteAnnonce, $dateDeb, $dateFin) {
         $texteAnnonce=mysqli_real_escape_string($this->link, $texteAnnonce);
         if (empty($dateDeb)) {
-            mysqli_query($this->link, " INSERT INTO " . $GLOBALS['DB_TABLE']['PETITE_ANNONCE'] . " (auteur,textePetiteAnnonce, dateEditionPetiteAnnonce, dateDeb, dateFin) VALUES ($noProfil,'$texteAnnonce',NOW(), NOW(), STR_TO_DATE('$dateFin','%d/%m/%Y'));");
             if (empty($dateFin)) {
                 mysqli_query($this->link, " INSERT INTO " . $GLOBALS['DB_TABLE']['PETITE_ANNONCE'] . " (auteur,textePetiteAnnonce, dateEditionPetiteAnnonce, dateDeb) VALUES ($noProfil,'$texteAnnonce',NOW(), NOW());");
             } else {

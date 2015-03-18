@@ -209,13 +209,21 @@ aside#parution.col-lg-4 {
     padding-right: 0;
 }
 
+#bloc1 table td#tranverse,#bloc2 table td#tranverse{
+    border-right: 1px black solid;
+}
+
+#bloc1 table, #bloc2 table{
+     margin-bottom: 0; 
+     margin-top: 0;
+}
+
 #musique{
     padding-left: 0;
 }
 
 #evenementAttendus{
     border-bottom: solid black 1px;
-    margin-right: -15px;
 }
 
 #evenementAttendus #btnExtra{
@@ -226,9 +234,6 @@ aside#parution.col-lg-4 {
     margin-left: 8%;
 }
 
-#carte{
-    border-right: solid black 1px;
-}
 #bloc2{
     padding-left: 0;
     padding-right: 0;
@@ -269,9 +274,6 @@ div#txthover {
     visibility: hidden;
 }
 
-section#artisteDeLaSemaine{
-    border-left: solid black 1px;
-}
 
 button#suppression{
     color:white;
