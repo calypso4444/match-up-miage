@@ -21,8 +21,12 @@ class GestionnaireProfil extends Gestionnaire {
         return $row['idmax'];
     }
 
-    public function newProfilSalle($id) {
-        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['SALLE'] . " (proprietaireSalle) VALUES($id);");
+    public function newProfilSalle($id,$nom, $adresse, $cp, $ville) {
+        $address = $adresse . ' ' . $cp . ' ' . $ville;
+        $coords =$this->getXmlCoordsFromAdress($address);
+        $latitude=$coords['lat'];
+        $longitude=$coords['lon'];
+        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['SALLE'] . " (proprietaireSalle,nomSalle,adresseSalle,cpSalle, villeSalle,latitude, longitude) VALUES($id,'$nom','$adresse','$cp','$ville','$latitude','$longitude');");
         $tmp = mysqli_query($this->link, "SELECT MAX(nSalle)AS idmax FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " WHERE proprietaireSalle=$id");
         $row = mysqli_fetch_assoc($tmp);
         return $row['idmax'];
@@ -337,6 +341,20 @@ class GestionnaireProfil extends Gestionnaire {
                 return $row;
             }
         }
+    }
+
+    private function getXmlCoordsFromAdress($address) {
+        $coords = array();
+        $base_url = "http://maps.googleapis.com/maps/api/geocode/xml?";
+        $request_url = $base_url . "address=" . urlencode($address) . '&sensor=false';
+        $xml = simplexml_load_file($request_url) or die("url not loading");
+        $coords['lat'] = $coords['lon'] = '';
+        $coords['status'] = $xml->status;
+        if ($coords['status'] == 'OK') {
+            $coords['lat'] = $xml->result->geometry->location->lat;
+            $coords['lon'] = $xml->result->geometry->location->lng;
+        }
+        return $coords;
     }
 
 }
