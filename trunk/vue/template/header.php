@@ -6,7 +6,7 @@
             </div>
             <?php include_once 'nav.php';?>
         </div>
-        <div id='menuConnexion' class="col-lg-2 col-sm-height" style="display:flex; height: auto ; vertical-align: top;">
+        <div id='menuConnexion' class="col-lg-2 col-sm-height" style="vertical-align: top;">
             <?php if (isset($_SESSION['user'])) : ?>
             	<a href="f_info_perso.php"><img src="<?php echo $_SESSION['user']['avatar']; ?>" alt="avatar" class="img img-responsive"/></a></br>
                 <a href="f_mes_profils.php" class="glyphicon glyphicon-user"> mes profils </a></br>
