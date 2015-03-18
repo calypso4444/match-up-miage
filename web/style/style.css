@@ -141,8 +141,6 @@ img{
     width :100%;
 }
 
-
-
 #map-canvas {
     position: inherit;
     height: 200px;
@@ -167,6 +165,10 @@ ul{
 .col-sm-height {
     display: table-cell;
     float: none !important;
+}
+
+div#lesArtistes td{
+    height:30%;
 }
 
 div#texteCommentaire{
@@ -279,7 +281,7 @@ button#suppression{
 
 table#tablePlaylist{
     background-color: #494949;
-    border-radius: 10px;
+    border-radius: 10px ;
 }
 table#tablePlaylist tr{
     border-top: 1px grey dashed;
