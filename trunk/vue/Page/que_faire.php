@@ -4,6 +4,15 @@
 
     <h1>que faire ?</h1>
 
+    <section id='carteFiltre' class="col-lg-12">
+        <h2>Ce soir &agrave; Paris</h2>
+        <div id='map'>
+            <img src="web/image/map.png" alt="map" />
+        </div>
+        <input type="range" />
+        </br>
+    </section>
+    
     <div id="queFaire">
         <table class="table">
             <tbody>
