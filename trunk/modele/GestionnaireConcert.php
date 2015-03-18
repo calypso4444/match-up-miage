@@ -3,7 +3,7 @@
 class GestionnaireConcert extends Gestionnaire {
 
     public function getEvenementsLesPlusSuivis() {
-        $req = mysqli_query($this->link, " SELECT A.nomArtiste, S.nomSalle, C.dateConcert FROM " . $GLOBALS['DB_TABLE']['CONCERT'] . " C "
+        $req = mysqli_query($this->link, " SELECT A.nomArtiste, S.nomSalle, C.dateConcert, C.nConcert FROM " . $GLOBALS['DB_TABLE']['CONCERT'] . " C "
                 . " INNER JOIN "
                 . " (SELECT cible, COUNT(*) AS nbrSuivi "
                 . " FROM " . $GLOBALS['DB_TABLE']['EVENEMENT_SUIVI']

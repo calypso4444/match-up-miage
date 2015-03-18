@@ -23,6 +23,13 @@ if ($lastA != null and $lastS !== null) {
 
 $evenements=$model['GestionnaireConcert']->getEvenementsLesPlusSuivis();
 
+$participation=filter_input(INPUT_GET, 'nConcert');
+if(isset($participation)){
+    if(isset($id)){
+        $model['GestionnaireUtilisateur']->participer($id,$participation);
+    }
+}
+
 $salleFavorite=$model['GestionnaireProfil']->getClassementFavoriSalle();
 $artisteFavori=$model['GestionnaireProfil']->getClassementFavoriArtiste();
 
