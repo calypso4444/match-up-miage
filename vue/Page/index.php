@@ -4,29 +4,39 @@
         <section id="evenementAttendus">
             <h3>&Eacute;v&egrave;nements les plus attendus</h3>
             <div id="txtEvenement">
-                <?php
-                $compteur = 1;
-                if ($vars['evenements'] !== null) {
-                    foreach ($vars['evenements'] as $evenements) :
-                        if ($compteur > 5) {
-                            break;
+                <table class="table">
+                    <tbody>
+                        <?php
+                        $compteur = 1;
+                        if ($vars['evenements'] !== null) {
+                            foreach ($vars['evenements'] as $evenements) :
+                                if ($compteur > 5) {
+                                    break;
+                                }
+                                echo '<tr>';
+                                echo '<td>';
+                                echo $compteur . ". ";
+                                $compteur++;
+                                echo$evenements['nomSalle'];
+                                echo' - ';
+                                echo$evenements['nomArtiste'];
+                                echo' ( ';
+                                $date = new DateTime($evenements['dateConcert']);
+                                echo$date->format('d/m/y');
+                                echo' )';
+                                echo '</td><td>';
+                                echo '<a href="index.php?nConcert=' . $evenements['nConcert'] . '" class=" btn btn-default"> Participer </a>';
+                                echo '</td>';
+                                echo '</tr>';
+                            endforeach;
                         }
-                        echo $compteur . ". ";
-                        $compteur++;
-                        echo$evenements['nomSalle'];
-                        echo' - ';
-                        echo$evenements['nomArtiste'];
-                        echo' ( ';
-                        $date = new DateTime($evenements['dateConcert']);
-                        echo$date->format('d/m/y');
-                        echo' )</br>';
-                    endforeach;
-                }
-                ?>
+                        ?>
+                    </tbody>
+                </table>
             </div>
-            <form method="post">
-                <input type="submit" value="+" />
-            </form>
+            <div id="btnExtra">
+                <a href="tous_les_evenements_attendus.php"><button class="btn-default">+</button></a>
+            </div>
         </section>
 
         <section id="selectionRandom">
