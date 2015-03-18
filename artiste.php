@@ -14,6 +14,7 @@ $infoProfil = $model['GestionnaireProfil']->getAllInfo_Artiste($noProfil);
 $nomProfil = $infoProfil['nomArtiste'];
 $photoProfil = $infoProfil['photoProfilArtiste'];
 $descProfil = $infoProfil['descriptionArtiste'];
+$genre=$infoProfil['genreMusicalArtiste'];
 
 $id = $_SESSION['user']['id'];
 
@@ -143,6 +144,7 @@ $vue['noProfil'] = $noProfil;
 $vue['nomProfil'] = $nomProfil;
 $vue['photoProfil'] = $photoProfil;
 $vue['descProfil'] = $descProfil;
+$vue['genre'] = $genre;
 $vue['albumPhoto'] = $albumPhoto;
 $vue['commentaire'] = $commentaires;
 $vue['aVenir']=$concerAVenir;

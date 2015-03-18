@@ -83,7 +83,6 @@
         <div id='map'>
             <img src="web/image/map.png" alt="map" />
         </div>
-        <input type="range" />
         </br>
     </section>
 

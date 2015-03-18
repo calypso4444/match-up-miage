@@ -16,16 +16,33 @@
         <img src="<?php echo ($vars['photoProfil'] !== null) ? $vars['photoProfil'] : "web/image/salle.png"; ?>">
     </div>
 
-    <div id="description" class="col-lg-9">
-        <h4>Description : </h4>
-        <p><?php echo $vars['descProfil']; ?></p>
-    </div>
+    <table id="bandeauProfil" class="table">
+        <tbody>
+            <tr>
+                <td class="col-lg-6">
+                    <div id="description">
+                        <h4>Description : </h4>
+                        <p><?php echo $vars['descProfil']; ?></p>
+                    </div>
+                </td>
 
-    <div id="interaction" class="col-lg-3">
-        <a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&fav=true" class="glyphicon glyphicon-heart"> Ajouter en favori </a></br>
-        <a href="f_message.php?destS=<?php echo $vars['noProfil']; ?>" class="glyphicon glyphicon-envelope"> Contacter la salle </a></br>
-        <a href="" class="glyphicon glyphicon-star-empty"> Noter la salle </a>
-    </div>
+                <td id="central" class="col-lg-3">
+                    <div id="genreMusical">
+                        <h4>Genre musical : </h4>
+                        <p><?php echo $vars['genre']; ?></p>
+                    </div>
+                </td>
+
+                <td class="col-lg-3">
+                    <div id="interaction">
+                        <a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&fav=true" class="glyphicon glyphicon-heart"> Ajouter en favori </a></br>
+                        <a href="f_message.php?destS=<?php echo $vars['noProfil']; ?>" class="glyphicon glyphicon-envelope"> Contacter la salle </a></br>
+                        <a href="" class="glyphicon glyphicon-star-empty"> Noter la salle </a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
     <div id="contenu" class="col-lg-12">
         <aside id='parution'class="col-lg-4">
