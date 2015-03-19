@@ -35,6 +35,8 @@ $artisteFavori=$model['GestionnaireProfil']->getClassementFavoriArtiste();
 
 $selectionRandom=$model['GestionnaireProfil']->getMorceauRandom();
 
+$concertCarte=$model['GestionnaireCarte']->getAllSalleConcertByDate("2015-03-19");
+
 /* fin de séquence */
 
 /* affichage de la vue */
@@ -46,6 +48,7 @@ $vue['evenements']=$evenements;
 $vue['salleFavorite']=$salleFavorite;
 $vue['artisteFavori']=$artisteFavori;
 $vue['selectionRandom']=$selectionRandom;
+$vue['concertCarte']=$concertCarte;
 $view->render('index', $vue);
 
 /* fin de l'affichage de la vue */

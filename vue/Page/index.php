@@ -102,41 +102,39 @@
             <tr>
                 <td id="tranverse" class="col-lg-8">
                     <section id='carte'>
+                        <input id="concertCarte" type="hidden" value="<?php echo $vars['concertCarte'] ;?>"/>
                         <h2>Ce soir &agrave; Paris</h2>
-                        <canvas id='map'style='height:420.7px; width: 534.7px; border:solid #21e738 1px; padding:0; margin :0;background-image:url("web/image/carte/map.svg");background-repeat: no-repeat' >
+                        <canvas id='map'style='height:841.4px; width: 1065.4px; border:solid #21e738 1px; padding:0; margin :0;background-image:url("web/image/carte/map.svg");background-repeat: no-repeat' >
                         </canvas>
                     </section>
 
                     <script>
+                        
+                        var concertCarte = $('#concertCarte').val();
+                        alert(concertCarte);
 
-                        PI = 3.14159265359;
                         MAP_WIDTH = 532.7;
                         MAP_HEIGHT = 420.7;
 
                         latitude = 48.8672991; // (φ)
                         longitude = 2.363467300000025;   // (λ)
 
-                        mapWidth = 532.7;
-                        mapHeight = 420.7;
+                        mapWidth = 299;
+                        mapHeight = 149;
 
-                        function latitudeToPixel(latitude) {
-                            latRad = latitude * PI / 180;
-                            mercN = Math.log(Math.tan((PI / 4) + (latRad / 2)));
-                            y = (mapHeight / 2) - (mapWidth * mercN / (2 * PI));
-                            return y;
+                        var coinHautGauche = {lat: 48.899947, long: 2.245588};
+                        var coinBasDroit = {lat: 48.817377, long: 2.418537};
+
+
+                        function gps2pixel(lat, long)
+                        {
+                            return {
+                                x: Math.round(mapWidth * (long - coinHautGauche.long) / (coinBasDroit.long - coinHautGauche.long)),
+                                y: Math.round(mapHeight * (lat - coinHautGauche.lat) / (coinBasDroit.lat - coinHautGauche.lat))
+                            };
+
                         }
-
-                        function longitudeToPixel(longitude) {
-                            x = (longitude + 180) * (mapWidth / 360);
-                            return x;
-                        }
-
-
-
-
-
-                        var canvas = $("#map")[0]
-                                ;
+                        var canvas = $("#map")[0];
                         var context = canvas.getContext("2d");
 
                         var img = new Image();   // Crée un nouvel objet Image
@@ -151,22 +149,23 @@
                             var etoile = new Image();
                             etoile.src = 'web/image/carte/etoile.svg';
 
-//                            var t = convert(48.8672991, 2.363467300000025);
-//                            var x = t[0];
-//                            var y = t[1];
+                            var position = gps2pixel(48.855306, 2.345908);
+                            var position2 = gps2pixel(48.873466, 2.294898);
+                            
+                            lon = position.x;
+                            lat = position.y;
+                            lon2 = position2.x;
+                            lat2 = position2.y;
 
-                            lon = longitudeToPixel(longitude);
-                            lat = latitudeToPixel(latitude);
-
-                            var tabx = [22, 249, 209, lon];
-                            var taby = [116, 130, 96, lat];
+                            var tabx = [248, 125, 0, 290, 299,lon,lon2];
+                            var taby = [3, 2, 87, 87, 149,lat,lat2];
 
 
                             etoile.onload = function() {
-                                for (var i = 0; i < 4; i++) {
-////                                    ctx.drawImage(etoile, tabx[i], taby[i],10,8);
-                                    ctx.fillStyle = "yellow";
-                                    ctx.fillRect(tabx[i], taby[i], 3, 3);
+                                for (var i = 0; i < 7; i++) {
+                                    ctx.drawImage(etoile, tabx[i], taby[i],10,8);
+//                                    ctx.fillStyle = "yellow";
+//                                    ctx.fillRect(tabx[i], taby[i], 2, 2);
 //                                    star(ctx, tabx[i], taby[i], 4, 4, 0.5);
                                 }
                             }
@@ -205,15 +204,19 @@
                                 echo "<img src=\"";
                                 echo $vars['dernierCommentaireArtiste']['avatar'];
                                 echo "\" > ";
-                                echo $vars ['dernierCommentaireArtiste'] ['pseudo'] . " : </br>";
-                                echo "<a href='artiste.php?tmp=" . $vars['dernierCommentaireArtiste']['cible'] . "'>" . $vars ['dernierCommentaireArtiste']['texteCommentaireArtiste'] . "</a>";
+                                echo $vars ['dernierCommentaireArtiste'] ['pseudo'] . ""
+                                . " (à propos de "
+                                . "<a href='artiste.php?tmp=" . $vars['dernierCommentaireArtiste']['cible'] . "'>" . $vars['dernierCommentaireArtiste'] ['nomArtiste'] . "</a>) : </br>";
+                                echo $vars ['dernierCommentaireArtiste']['texteCommentaireArtiste'];
                                 echo"</br>";
                             } else if ($vars['dernierCommentaireSalle'] !== null) {
                                 echo "<img src=\"";
                                 echo $vars['dernierCommentaireSalle']['avatar'];
                                 echo "\">";
-                                echo $vars ['dernierCommentaireSalle'] ['pseudo'] . " : </br> ";
-                                echo "<a href='salle.php?tmp=" . $vars['dernierCommentaireSalle']['cible'] . "'>" . $vars ['dernierCommentaireSalle']['texteCommentaireSalle'] . "</a>";
+                                echo $vars ['dernierCommentaireSalle'] ['pseudo'] . ""
+                                . " (à propos de "
+                                . "<a href='salle.php?tmp=" . $vars['dernierCommentaireSalle']['cible'] . "'>" . $vars['dernierCommentaireSalle'] ['nomSalle'] . "</a>) : </br>";
+                                echo $vars ['dernierCommentaireSalle']['texteCommentaireSalle'];
                                 echo"</br>";
                             } else {
                                 echo"</br>";

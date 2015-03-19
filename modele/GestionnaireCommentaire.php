@@ -41,10 +41,12 @@ class GestionnaireCommentaire extends Gestionnaire {
         $row = mysqli_fetch_assoc($tmp);
         $indice = $row['idmax'];
         if ($indice !== null) {
-            $tmp = mysqli_query($this->link, "SELECT nCommentaireArtiste,cible,texteCommentaireArtiste,dateEditionCommentaireArtiste, auteur, pseudo, avatar "
+            $tmp = mysqli_query($this->link, "SELECT nCommentaireArtiste,cible,texteCommentaireArtiste,dateEditionCommentaireArtiste, auteur, pseudo, avatar,nomArtiste "
                     . " FROM " . $GLOBALS['DB_TABLE']['COMMENTAIRE_A'] . " "
                     . " INNER JOIN " . $GLOBALS['DB_TABLE']['CONNEXION'] . " "
                     . " ON auteur=id "
+                    . " INNER JOIN " . $GLOBALS['DB_TABLE']['ARTISTE'] . " "
+                    . " ON cible=nArtiste "
                     . " WHERE nCommentaireArtiste=$indice");
             $row = mysqli_fetch_assoc($tmp);
             return $row;
@@ -57,10 +59,12 @@ class GestionnaireCommentaire extends Gestionnaire {
         $row = mysqli_fetch_assoc($tmp);
         $indice = $row['idmax'];
         if ($indice !== null) {
-            $tmp = mysqli_query($this->link, "SELECT nCommentaireSalle,cible,texteCommentaireSalle,dateEditionCommentaireSalle, auteur, pseudo, avatar "
+            $tmp = mysqli_query($this->link, "SELECT nCommentaireSalle,cible,texteCommentaireSalle,dateEditionCommentaireSalle, auteur, pseudo, avatar,nomSalle "
                     . " FROM " . $GLOBALS['DB_TABLE']['COMMENTAIRE_S'] . " "
                     . " INNER JOIN " . $GLOBALS['DB_TABLE']['CONNEXION'] . " "
                     . " ON auteur=id "
+                    . " INNER JOIN " . $GLOBALS['DB_TABLE']['SALLE'] . " "
+                    . " ON cible=nSalle "
                     . " WHERE nCommentaireSalle=$indice");
             $row = mysqli_fetch_assoc($tmp);
             return $row;
