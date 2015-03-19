@@ -15,11 +15,12 @@
                 <a href="f_mes_participations.php" class="glyphicon glyphicon-thumbs-up"> mes participations </a></br>
                 <a href="deconnexion.php" class="glyphicon glyphicon-off"> deconnexion </a>
             <?php else: ?>
-                	                <h3 class="form-signin-heading">Connexion</h3>
+              	<h3 class="form-signin-heading">Connexion</h3>
                 <form action="connexion.php" method="POST">
                     <div style="margin-bottom: 5px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input id="login-username" type="text" class="form-control" name="login" value="" placeholder="pseudo / email">                                      	                </div>
+                        <input id="login-username" type="text" class="form-control" name="login" value="" placeholder="pseudo / email">
+                    </div>
                     <div style="margin-bottom: 5px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                         <input id="login-password" type="password" class="form-control" name="passe" placeholder="mot de passe">
