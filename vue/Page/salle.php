@@ -16,38 +16,27 @@
         <img src="<?php echo ($vars['photoProfil'] !== null) ? $vars['photoProfil'] : "web/image/salle.png"; ?>">
     </div>
 
-    <table id="bandeauProfil" class="table">
-        <tbody>
-            <tr>
-                <td class="col-lg-6">
-                    <div id="description">
-                        <h4>Description : </h4>
-                        <p><?php echo $vars['descProfil']; ?></p>
-                    </div>
-                </td>
+    <div id="bandeauProfil" class="row-same-height">
+        <div id="description" class="col-lg-6 col-sm-height">
+            <h4>description : </h4>
+            <p><?php echo $vars['descProfil']; ?></p>
+        </div>
 
-                <td id="central" class="col-lg-3">
-                    <div id="genreMusical">
-                        <h4>Genre musical : </h4>
-                        <p><?php echo $vars['genre']; ?></p>
-                    </div>
-                </td>
+        <div id="genreMusical" class="col-lg-3 col-sm-height">
+            <h4>genre musical : </h4>
+            <p><?php echo $vars['genre']; ?></p>
+        </div>
 
-                <td class="col-lg-3">
-                    <div id="interaction">
-                        <a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&fav=true" class="glyphicon glyphicon-heart"> Ajouter en favori </a></br>
-                        <a href="f_message.php?destS=<?php echo $vars['noProfil']; ?>" class="glyphicon glyphicon-envelope"> Contacter la salle </a></br>
-                        <a href="" class="glyphicon glyphicon-star-empty"> Noter la salle </a>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
+        <div id="interaction" class="col-lg-3 col-sm-height">
+            <a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&fav=true" class="glyphicon glyphicon-heart"> Ajouter en favori </a></br>
+            <a href="f_message.php?destS=<?php echo $vars['noProfil']; ?>" class="glyphicon glyphicon-envelope"> Contacter la salle </a></br>
+            <a href="" class="glyphicon glyphicon-star-empty"> Noter la salle </a>
+        </div>
+    </div>
     <div id="contenu" class="col-lg-12">
         <aside id='parution'class="col-lg-4">
             <div id="albumPhoto">
-                <h4>Album photo de la salle : </h4>
+                <h4>album photo de la salle : </h4>
                 <form id="album" method="post" action="salle.php?tmp=<?php echo $vars['noProfil']; ?>" enctype="multipart/form-data">
                     <div class="btn-group">
                         <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
@@ -83,7 +72,7 @@
 
 
             <div id="commentaire">
-                <h4>Les derniers commentaires : </h4></br>
+                <h4>les derniers commentaires : </h4></br>
                 <div>
                     <?php
                     if ($vars['commentaire'] !== null) {
@@ -109,7 +98,7 @@
                 </br>
             </div>
             <div id="acces">
-                <h4>L'accès : </h4>
+                <h4>l'accès : </h4>
                 <div id="map-canvas"></div>
                 <?php
                 if ($vars['tel'] !== null) {
@@ -119,7 +108,7 @@
             </div>
         </aside>
         <section class="col-lg-8">
-            <h4>Le fil d'actualité : </h4></br>
+            <h4>le fil d'actualité : </h4></br>
             <div id="posterAnnonce">
                 <p>poster une annonce</p>
                 <form action="salle.php?tmp=<?php echo $vars['noProfil']; ?>" method="post" id="posterAnnonce">

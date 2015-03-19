@@ -22,13 +22,14 @@ div#photoProfil{
     border-top: solid black 2px;
     border-bottom: solid black 2px;
     min-height: 300px;
+    padding: 0;
 }
-table#bandeauProfil{
+div#bandeauProfil{
     border-bottom: solid black 2px;
     margin-bottom: 0;
 }
 
-table#bandeauProfil td#central{
+div#genreMusical{
     border-right: solid black 2px;
     border-left: solid black 2px;
 }
@@ -114,16 +115,18 @@ div#texteCommentaire{
     background-color: #494949;
     border-radius: 10px 0;
     color:white;
+    padding: 2%;
+    margin: 2%;
 }
 
 div#texteCommentaire a {
-    text-decoration: none;
+    /*text-decoration: none;*/
     color:white;
 }
 
 div#texteCommentaire form {
     position: absolute;
-    right: 0;
+    right: 2%;
 }
 
 div#albumPhoto form#suppressionPhoto{
@@ -154,7 +157,11 @@ aside#parution.col-lg-4 {
 }
 
 #artisteDeLaSemaine{
-       border-left: solid black 2px;
+    border-left: solid black 2px;
+}
+
+#bloc1 ul.photo-grid{
+    padding:0;
 }
 
 #evenementAttendus{
@@ -180,6 +187,7 @@ aside#parution.col-lg-4 {
 
 #bloc2 aside{
     border-bottom: solid black 2px;
+    padding: 0;
 }
 
 #bloc2_2{
