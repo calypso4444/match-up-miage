@@ -26,8 +26,8 @@
             <a href="" class=" glyphicon glyphicon-star-empty"> Noter l'artiste </a>
         </div>
     </div>
-    <div id="contenu" class="col-lg-12">
-        <aside id='parution'class="col-lg-4">
+    <div id="contenu" class="col-lg-12 row-same-height">
+        <aside id='parution'class="col-lg-4 col-sm-height">
             <div id="albumPhoto">
                 <h4>album photo de l'artiste</h4>
                 <form id="album" method="post" action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" enctype="multipart/form-data">
@@ -198,7 +198,7 @@
 
         </div>
 
-        <section id="playlist" class="col-lg-4">
+        <section id="playlist" class="col-lg-4 col-sm-height">
             <h4>ma musique</h4>
 
             <table class="table" id="tablePlaylist">
@@ -246,7 +246,7 @@
         </section>
 
 
-        <section id="annonceEvenement" style="border-left: black solid 2px" class="col-lg-4">
+        <section id="annonceEvenement" style="border-left: black solid 2px" class="col-lg-4 col-sm-height">
             <h4>mes annonces</h4>
             <div id="annonce">
                 <?php
