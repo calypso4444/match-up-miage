@@ -11,6 +11,13 @@ include_once 'config/includeGlobal.php';
 
 $concert = $model['GestionnaireConcert']->getAllConcert();
 
+$participation=filter_input(INPUT_GET, 'nConcert');
+if(isset($participation)){
+    if(isset($id)){
+        $model['GestionnaireUtilisateur']->participer($id,$participation);
+    }
+}
+
 /* fin de séquence */
 
 /* affichage de la vue */
