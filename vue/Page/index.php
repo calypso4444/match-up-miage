@@ -40,21 +40,26 @@
 
         <section id="selectionRandom">
             <h3>s&eacute;lection random</h3>
-            <div id='player'>
-                <?php
-                if ($vars['selectionRandom'] === null) {
-                    echo '<audio controls oncanplay name="media"><source src="web/musique/piste01.mp3" type="audio/mpeg"></source></audio>';
-                } else {
-                    echo '<audio controls oncanplay name="media">';
-                    echo '<source src="';
-                    echo $vars['selectionRandom']['morceau'];
-                    echo '" type="audio/mpeg"></source></audio></br>';
-                    echo $vars['selectionRandom']['titre'];
-                    echo ' - ';
-                    echo $vars['selectionRandom']['artiste'];
-                }
-                ?>
-            </div>
+            <table class="table" id="tablePlaylist">
+                <tbody>
+                    <?php
+                    if ($vars['selectionRandom'] !== null) {
+                        echo '<tr><td>';
+                        echo'<a href="artiste.php?tmp=' . $vars['selectionRandom']['proprietaire'] . '">';
+                        echo $vars['selectionRandom']['titre'];
+                        echo ' - ';
+                        echo $vars['selectionRandom']['artiste'];
+                        echo'</a>';
+                        echo '</td></tr><tr><td>';
+                        echo '<audio controls oncanplay name="media">';
+                        echo '<source src="';
+                        echo $vars['selectionRandom']['morceau'];
+                        echo '" type="audio/mpeg"></source></audio></br>';
+                        echo '</td></tr>';
+                    }
+                    ?>
+                </tbody>
+            </table>
         </section>
     </div>
     <section id="artisteDeLaSemaine"class="col-lg-8 col-sm-height" >
@@ -120,7 +125,7 @@
                     echo $vars['dernierCommentaireSalle']['avatar'];
                     echo "\">";
                     echo $vars ['dernierCommentaireSalle'] ['pseudo'] . ""
-                    . " (à propos de "
+                    . " ("
                     . "<a href='salle.php?tmp=" . $vars['dernierCommentaireSalle']['cible'] . "'>" . $vars['dernierCommentaireSalle'] ['nomSalle'] . "</a>) : </br>";
                     echo $vars ['dernierCommentaireSalle']['texteCommentaireSalle'];
                     echo"</br>";
