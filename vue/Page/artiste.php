@@ -94,9 +94,9 @@
                             if ($vars['aVenir'] !== null) {
                                 foreach ($vars['aVenir'] as $aVenir):
                                     $date = new DateTime($aVenir['dateConcert']);
-                                    $dateConcert = $date->format('d/m/y');
+                                    $dateConcert = $date->format('d/m');
                                     echo '<tr>';
-                                    echo '<td> le ' . $dateConcert . ' - ' . $aVenir['nomSalle'] . '</td>';
+                                    echo '<td> <div class="date"> ' . $dateConcert . '</div>' . $aVenir['nomSalle'] . '</td>';
                                     echo '<td> <a href="artiste.php?tmp=' . $vars['noProfil'] . '&nConcert=' . $aVenir['nConcert'] . '" class=" btn-xs btn-default"> Participer </a></td>';
                                     echo'</tr>';
                                 endforeach;
