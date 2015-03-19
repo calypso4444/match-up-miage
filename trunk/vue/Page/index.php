@@ -101,17 +101,22 @@
         <tbody>
             <tr>
                 <td id="tranverse" class="col-lg-8">
-                    <section id='carte'>
-                        <input id="concertCarte" type="hidden" value="<?php echo $vars['concertCarte'] ;?>"/>
+                    <section id='carte'class="text-center">
+                        <input id="concertCarte" type="hidden" value="<?php echo htmlentities(json_encode($vars['concertCarte'])); ?>"/>
                         <h2>Ce soir &agrave; Paris</h2>
-                        <canvas id='map'style='height:841.4px; width: 1065.4px; border:solid #21e738 1px; padding:0; margin :0;background-image:url("web/image/carte/map.svg");background-repeat: no-repeat' >
+                        
+                        <canvas id='map'style='height:588.98px; width: 745.78px; padding:0; margin :0;background-image:url("web/image/carte/map.svg");background-repeat: no-repeat' >
                         </canvas>
                     </section>
 
                     <script>
-                        
-                        var concertCarte = $('#concertCarte').val();
-                        alert(concertCarte);
+
+                        var txt = $('#concertCarte').val();
+                        var concertCarte = JSON.parse(txt);
+
+                        var lon = new Array();
+                        var lat = new Array();
+
 
                         MAP_WIDTH = 532.7;
                         MAP_HEIGHT = 420.7;
@@ -142,49 +147,58 @@
                         img.onload = function() {
                             draw();
                         }
+
+//                        function constructionLatLon(tab){
+                        for (var i = 0; i <= concertCarte.length; i++){
+                        lon[i] = concertCarte[i].longitude;
+                                lat[i] = concertCarte[i].latitude;
+                                var tmp = gps2pixel(lat[i], lon[i]);
+                                lon[i] = tmp.x;
+                                lat[i] = tmp.y;
+                        }
+//                        };
+
                         function draw() {
-                            var ctx = document.getElementById('map').getContext('2d');
-                            var img = new Image();
-                            img.src = 'web/image/carte/map.svg';
-                            var etoile = new Image();
-                            etoile.src = 'web/image/carte/etoile.svg';
-
-                            var position = gps2pixel(48.855306, 2.345908);
-                            var position2 = gps2pixel(48.873466, 2.294898);
-                            
-                            lon = position.x;
-                            lat = position.y;
-                            lon2 = position2.x;
-                            lat2 = position2.y;
-
-                            var tabx = [248, 125, 0, 290, 299,lon,lon2];
-                            var taby = [3, 2, 87, 87, 149,lat,lat2];
+                        var ctx = document.getElementById('map').getContext('2d');
+                                var img = new Image();
+                                img.src = 'web/image/carte/map.svg';
+                                var etoile = new Image();
+                                etoile.src = 'web/image/carte/etoile.svg';
+                                var position = gps2pixel(48.855306, 2.345908);
+                                var position2 = gps2pixel(48.873466, 2.294898);
+//                            lon = position.x;
+//                            lat = position.y;
+//                            lon2 = position2.x;
+//                            lat2 = position2.y;
+//
+//                            var tabx = [248, 125, 0, 290, 299, lon, lon2];
+//                            var taby = [3, 2, 87, 87, 149, lat, lat2];
 
 
-                            etoile.onload = function() {
+                                etoile.onload = function() {
                                 for (var i = 0; i < 7; i++) {
-                                    ctx.drawImage(etoile, tabx[i], taby[i],10,8);
-//                                    ctx.fillStyle = "yellow";
-//                                    ctx.fillRect(tabx[i], taby[i], 2, 2);
+//                                    ctx.drawImage(etoile, lon[i], lat[i], 10, 8);
+                                ctx.fillStyle = "green";
+                                        ctx.fillRect(lon[i], lat[i], 2, 2);
 //                                    star(ctx, tabx[i], taby[i], 4, 4, 0.5);
                                 }
-                            }
-                            function star(ctx, x, y, r, p, m)
-                            {
-                                ctx.save();
+                                }
+                        function star(ctx, x, y, r, p, m)
+                        {
+                        ctx.save();
                                 ctx.beginPath();
                                 ctx.translate(x, y);
                                 ctx.moveTo(0, 0 - r);
                                 for (var i = 0; i < p; i++)
-                                {
-                                    ctx.rotate(Math.PI / p);
-                                    ctx.lineTo(0, 0 - (r * m));
-                                    ctx.rotate(Math.PI / p);
-                                    ctx.lineTo(0, 0 - r);
-                                }
-                                ctx.fill();
+                        {
+                        ctx.rotate(Math.PI / p);
+                                ctx.lineTo(0, 0 - (r * m));
+                                ctx.rotate(Math.PI / p);
+                                ctx.lineTo(0, 0 - r);
+                        }
+                        ctx.fill();
                                 ctx.restore();
-                            }
+                        }
                         }
 
 
