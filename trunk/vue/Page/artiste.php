@@ -89,7 +89,7 @@
                                     $date = new DateTime($aVenir['dateConcert']);
                                     $dateConcert = $date->format('d/m');
                                     echo '<tr>';
-                                    echo '<td> <div class="date"> ' . $dateConcert . '</div>' . $aVenir['nomSalle'] . '</td>';
+                                    echo '<td> <div class="date"> ' . $dateConcert . '. </div>' . $aVenir['nomSalle'] . '</td>';
                                     echo '<td> <a href="artiste.php?tmp=' . $vars['noProfil'] . '&nConcert=' . $aVenir['nConcert'] . '" class=" btn-xs btn-default"> Participer </a></td>';
                                     echo'</tr>';
                                 endforeach;
@@ -257,7 +257,7 @@
                 if ($vars['annonceEvenement'] !== null) {
                     foreach ($vars['annonceEvenement'] as $annonceEvenement):
                         $dateEdition = new DateTime($annonceEvenement['dateEditionAnnonceEvenementArtiste']);
-                        echo "<div class='date'>" . $dateEdition->format('d/m') . "</div>";
+                        echo "<div class='date'>" . $dateEdition->format('d/m') . ". </div>";
                         echo $annonceEvenement['texteAnnonceEvenementArtiste'];
                     endforeach;
                 }

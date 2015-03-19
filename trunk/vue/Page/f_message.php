@@ -59,6 +59,6 @@
 		    </form>
 		    </br>
 		    
-		    <?php echo ($vars['messageEnvoye'])? "<script>alert('message envoyé');</script>":null ;?>
+		    <?php echo ($vars['messageEnvoye'])? "<script>alert('message envoyé');document.location.href='index.php'</script>":null ;?>
 		    
 		</div>

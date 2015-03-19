@@ -15,15 +15,14 @@
                                 }
                                 echo '<tr>';
                                 echo '<td>';
-                                echo $compteur . ". ";
                                 $compteur++;
+                                echo'<div class="date">';
+                                $date = new DateTime($evenements['dateConcert']);
+                                echo$date->format('d/m');
+                                echo'. </div>';
                                 echo$evenements['nomSalle'];
                                 echo' - ';
                                 echo$evenements['nomArtiste'];
-                                echo' ( ';
-                                $date = new DateTime($evenements['dateConcert']);
-                                echo$date->format('d/m/y');
-                                echo' )';
                                 echo '</td><td>';
                                 echo '<a href="index.php?nConcert=' . $evenements['nConcert'] . '" class="btn-xs btn-default"> Participer </a>';
                                 echo '</td>';
