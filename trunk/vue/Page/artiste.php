@@ -9,37 +9,27 @@
         <img src="<?php echo ($vars['photoProfil'] !== null) ? $vars['photoProfil'] : "web/image/artiste.png"; ?>">
     </div>
 
-    <table id='bandeauProfil' class='table'>
-        <tbody>
-            <tr>
-                <td class="col-lg-6">
-                    <div id="description" >
-                        <h4>Description : </h4>
-                        <p><?php echo $vars['descProfil']; ?></p>
-                    </div>
-                </td>
+    <div id='bandeauProfil' class='col-lg-12 row-same-height'>
+        <div id="description" class="col-lg-6 col-sm-height">
+            <h4>description</h4>
+            <p><?php echo $vars['descProfil']; ?></p>
+        </div>
 
-                <td id="central" class="col-lg-3">
-                    <div id="genreMusical" >
-                        <h4>Genre musical : </h4>
-                        <p><?php echo $vars['genre']; ?></p>
-                    </div>
-                </td>
+        <div id="genreMusical" class="col-lg-3 col-sm-height">
+            <h4>genre musical</h4>
+            <p><?php echo $vars['genre']; ?></p>
+        </div>
 
-                <td class="col-lg-3"><div id="interaction">
-                        <a href="artiste.php?tmp=<?php echo $vars['noProfil']; ?>&fav=true" class="glyphicon glyphicon-heart"> Ajouter en favori </a></br>
-                        <a href="f_message.php?destA=<?php echo $vars['noProfil']; ?>" class=" glyphicon glyphicon-envelope"> Contacter l'artiste </a></br>
-                        <a href="" class=" glyphicon glyphicon-star-empty"> Noter l'artiste </a>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table >
-
+        <div id="interaction" class="col-lg-3 col-sm-height">
+            <a href="artiste.php?tmp=<?php echo $vars['noProfil']; ?>&fav=true" class="glyphicon glyphicon-heart"> Ajouter en favori </a></br>
+            <a href="f_message.php?destA=<?php echo $vars['noProfil']; ?>" class=" glyphicon glyphicon-envelope"> Contacter l'artiste </a></br>
+            <a href="" class=" glyphicon glyphicon-star-empty"> Noter l'artiste </a>
+        </div>
+    </div>
     <div id="contenu" class="col-lg-12">
         <aside id='parution'class="col-lg-4">
             <div id="albumPhoto">
-                <h4>Album photo de l'artiste : </h4>
+                <h4>album photo de l'artiste</h4>
                 <form id="album" method="post" action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" enctype="multipart/form-data">
                     <div class="btn-group">
                         <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
@@ -73,7 +63,7 @@
                     ?>
                 </table>
                 <div id="commentaire">
-                    <h4>Les derniers commentaires : </h4></br>
+                    <h4>les derniers commentaires</h4></br>
                     <div>
                         <?php
                         if ($vars['commentaire']) {
@@ -97,7 +87,7 @@
                     </br>
                 </div>
                 <div id="agenda">
-                    <h4>L'agenda : </h4></br>
+                    <h4>l'agenda</h4></br>
                     <table class="table">
                         <tbody>
                             <?php
@@ -116,10 +106,11 @@
                     </table>
                 </div>
         </aside>
-        <section class="col-lg-8">
-            <h4>Le fil d'actualité : </h4>
-            <div id="playlist" class="col-lg-12">
 
+        <div id="artisteAdmin" class="col-lg-12" style="visibility:hidden; height:0;width:0">
+
+            <div id="uploaderMorceau">
+                <p>uploader un morceau</p>
                 <form id="formulaireAjoutMusique" name="formulaireAjoutMusique" action='artiste.php?tmp=<?php echo $vars['noProfil'] ?>' method="post" enctype="multipart/form-data">
                     <table class="table">
                         <tbody>
@@ -138,50 +129,30 @@
                         </tbody>
                     </table>
                 </form>
+            </div>
 
-                <table class="table">
+            <div id="gererPlaylist">
+                <table class="table" id="tablePlaylist">
                     <tbody>
-                    <td class="col-lg-6">
-                        <audio controls oncanplay name="media">
-                            <?php
-                            if ($vars['piste'] !== null) {
-                                echo "<source src='" . $vars['piste']['morceau'] . "' type='audio/mpeg'></source>";
-                            }
-                            ?>
-                        </audio>
                         <?php
-                        if ($vars['piste'] !== null) {
-                            echo'<p>';
-                            echo $vars['piste']['titre'] . " - " . $vars['piste']['artiste'];
-                            echo'</p>';
+                        if ($vars['playlist'] !== null) {
+                            $compteur = 1;
+                            foreach ($vars['playlist'] as $playlist):
+                                echo"<tr>";
+                                echo '<td>';
+                                echo '<a href="artiste.php?tmp=' . $vars['noProfil'] . '&nPiste=' . $playlist['nMorceau'] . '">';
+                                echo $compteur;
+                                echo ". ";
+                                echo $playlist['titre'] . " - ";
+                                echo $playlist['artiste'];
+                                echo "</a>";
+                                echo '</td><td>';
+                                echo "<form id='suppressionMorceau' action='artiste.php?tmp=" . $vars['noProfil'] . "&nMorceau=" . $playlist['nMorceau'] . "' method='post'><button id='suppression'class='btn-xs glyphicon glyphicon-remove' type='submit' name='removeSong' value='true'></button></form>";
+                                echo "</td></tr>";
+                                $compteur++;
+                            endforeach;
                         }
                         ?>
-                    </td>
-                    <td class="col-lg-6">
-                        <table class="table" id="tablePlaylist">
-                            <tbody>
-                                <?php
-                                if ($vars['playlist'] !== null) {
-                                    $compteur = 1;
-                                    foreach ($vars['playlist'] as $playlist):
-                                        echo"<tr>";
-                                        echo '<td>';
-                                        echo '<a href="artiste.php?tmp=' . $vars['noProfil'] . '&nPiste=' . $playlist['nMorceau'] . '">';
-                                        echo $compteur;
-                                        echo ". ";
-                                        echo $playlist['titre'] . " - ";
-                                        echo $playlist['artiste'];
-                                        echo "</a>";
-                                        echo '</td><td>';
-                                        echo "<form id='suppressionMorceau' action='artiste.php?tmp=" . $vars['noProfil'] . "&nMorceau=" . $playlist['nMorceau'] . "' method='post'><button id='suppression'class='btn-xs glyphicon glyphicon-remove' type='submit' name='removeSong' value='true'></button></form>";
-                                        echo "</td></tr>";
-                                        $compteur++;
-                                    endforeach;
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    </td>
                     </tbody>
                 </table>
             </div>
@@ -195,7 +166,8 @@
                 </form>
                 </br>
             </div>
-            <div id="annonceEvenement">
+
+            <div id="gererAnnonces">
                 <p>annonces évènement</p>
                 <table class="table">
                     <thead>
@@ -224,7 +196,70 @@
                 </table>
             </div>
 
-        </section>
-    </div>
+        </div>
 
+        <section id="playlist" class="col-lg-4">
+            <h4>ma musique</h4>
+
+            <table class="table" id="tablePlaylist">
+                <tbody>
+                    <tr>
+                        <td style="color: whitesmoke">
+                            <?php
+                            if ($vars['piste'] !== null) {
+                                echo'<p>';
+                                echo $vars['piste']['titre'] . " - " . $vars['piste']['artiste'];
+                                echo'</p>';
+                            }
+                            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <audio controls oncanplay name="media">
+                                <?php
+                                if ($vars['piste'] !== null) {
+                                    echo "<source src='" . $vars['piste']['morceau'] . "' type='audio/mpeg'></source>";
+                                }
+                                ?>
+                            </audio>
+                        </td>
+                    </tr>
+                    <?php
+                    if ($vars['playlist'] !== null) {
+                        $compteur = 1;
+                        foreach ($vars['playlist'] as $playlist):
+                            echo"<tr><td>";
+                            echo '<a href="artiste.php?tmp=' . $vars['noProfil'] . '&nPiste=' . $playlist['nMorceau'] . '">';
+                            echo $compteur;
+                            echo ". ";
+                            echo $playlist['titre'] . " - ";
+                            echo $playlist['artiste'];
+                            echo "</a>";
+                            echo "</td></tr>";
+                            $compteur++;
+                        endforeach;
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </section>
+
+
+        <section id="annonceEvenement" style="border-left: black solid 2px" class="col-lg-4">
+            <h4>mes annonces</h4>
+            <div id="annonce">
+                <?php
+                if ($vars['annonceEvenement'] !== null) {
+                    foreach ($vars['annonceEvenement'] as $annonceEvenement):
+                        $dateEdition = new DateTime($annonceEvenement['dateEditionAnnonceEvenementArtiste']);
+                        echo "<div class='date'>" . $dateEdition->format('d/m') . "</div>";
+                        echo $annonceEvenement['texteAnnonceEvenementArtiste'];
+                    endforeach;
+                }
+                ?>
+            </div>
+        </section>
+    </div>       
 </div>
+
