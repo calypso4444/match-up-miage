@@ -30,14 +30,7 @@
         <aside id='parution'class="col-lg-4 col-sm-height">
             <div id="albumPhoto">
                 <h4>album photo de l'artiste</h4>
-                <form id="album" method="post" action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" enctype="multipart/form-data">
-                    <div class="btn-group">
-                        <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
-                        <span class="btn"><input type="file" name="mon_fichier" id="mon_fichier" class="filestyle" data-input="false" data-buttonText="Votre photo"/></span>
-                        <span class="btn"> <input class="btn btn-default" id="envoyer"  type="submit" value="OK"/></span>
-                    </div>
 
-                </form>
                 <table class="table">
                     <?php
                     $compteur = 0;
@@ -155,6 +148,17 @@
                         ?>
                     </tbody>
                 </table>
+            </div>
+
+            <div id="uploaderPhoto">
+                <form id="album" method="post" action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" enctype="multipart/form-data">
+                    <div class="btn-group">
+                        <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
+                        <span class="btn"><input type="file" name="mon_fichier" id="mon_fichier" class="filestyle" data-input="false" data-buttonText="Votre photo"/></span>
+                        <span class="btn"> <input class="btn btn-default" id="envoyer"  type="submit" value="OK"/></span>
+                    </div>
+
+                </form>
             </div>
 
             <div id="posterAnnonce">
