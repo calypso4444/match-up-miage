@@ -5,9 +5,12 @@
     <h1>que faire ?</h1>
 
     <section id='carteFiltre' class="col-lg-12">
-        <h2>Ce soir &agrave; Paris</h2>
-        <canvas id='map'style='height:841.1px; width: 1065.4px; border:solid #21e738 1px; padding:0; margin :0;background-image:url("web/image/carte/map.svg");background-repeat: no-repeat' >
+        <input id="concertCarte" type="hidden" value="<?php echo htmlentities(json_encode($vars['concertCarte'])); ?>"/>
+        <canvas id='map'style='height:841.1px; width: 1065.4px; padding:0; margin :0;background-image:url("web/image/carte/map.svg");background-repeat: no-repeat' >
         </canvas>
+        <form action="que_faire.php" method="post" >
+            <input type="range"value="" max="31" min="0" step="1"/>
+        </form>
     </section>
 
     <div id="queFaire">
