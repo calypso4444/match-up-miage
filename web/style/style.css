@@ -230,6 +230,11 @@ button#suppression{
     color:white;
 }
 
+#annonce div.date{
+    font-weight:bolder;
+    font-size: 20px;
+}
+
 table#tablePlaylist{
     background-color: #494949;
     border-radius: 10px ;
