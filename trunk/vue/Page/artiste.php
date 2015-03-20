@@ -26,10 +26,31 @@
             <a href="" class=" glyphicon glyphicon-star-empty"> Noter l'artiste </a>
         </div>
     </div>
-    <div id="contenu" class="col-lg-12 row-same-height">
 
-        <div id="artisteAdmin" class="col-lg-12" style="visibility:hidden; height:0;width:0">
+    <div id="artisteAdmin" class="col-lg-12">
 
+        <div id="uploaderPhoto" class="col-lg-4 col-sm-height">
+            <p>uploader une photo</p>
+            <form id="album" method="post" action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" enctype="multipart/form-data">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td class="col-lg-6">
+                                <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
+                                <span class="btn"><input type="file" name="mon_fichier" id="mon_fichier" class="filestyle" data-input="false" data-buttonText="Votre photo"/></span>
+                            </td>
+                            <td class="col-lg-6">
+                                <span class="btn"> <input class="btn btn-default" id="envoyer"  type="submit" value="OK"/></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </form>
+        </div>
+
+
+        <div id="gestionMusique" class="col-lg-4 col-sm-height">
             <div id="uploaderMorceau">
                 <p>uploader un morceau</p>
                 <form id="formulaireAjoutMusique" name="formulaireAjoutMusique" action='artiste.php?tmp=<?php echo $vars['noProfil'] ?>' method="post" enctype="multipart/form-data">
@@ -43,7 +64,7 @@
                                     <input class="filestyle" type="file" id="morceau" accept="audio/*" name="morceau" placeholder="" value="" data-input="false" data-buttonText="Votre son"/>
                                 </td>
                                 <td class="col-lg-2">
-<!--                                    <input type="hidden" name="MAX_FILE_SIZE" value="300000" />-->
+    <!--                                    <input type="hidden" name="MAX_FILE_SIZE" value="300000" />-->
                                     <input class="btn btn-default" type="submit" value="Upload">
                                 </td>
                             </tr>
@@ -77,18 +98,9 @@
                     </tbody>
                 </table>
             </div>
+        </div>
 
-            <div id="uploaderPhoto">
-                <form id="album" method="post" action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" enctype="multipart/form-data">
-                    <div class="btn-group">
-                        <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
-                        <span class="btn"><input type="file" name="mon_fichier" id="mon_fichier" class="filestyle" data-input="false" data-buttonText="Votre photo"/></span>
-                        <span class="btn"> <input class="btn btn-default" id="envoyer"  type="submit" value="OK"/></span>
-                    </div>
-
-                </form>
-            </div>
-
+        <div id="gestionAnnonce" class="col-lg-4 col-sm-height">
             <div id="posterAnnonce">
                 <p>poster une annonce</p>
                 <form action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" method="post" id="posterAnnonce">
@@ -100,25 +112,18 @@
             </div>
 
             <div id="gererAnnonces">
-                <p>annonces évènement</p>
+                <p>mes annonces</p>
                 <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Annonce</th>
-                            <th>Date de parution</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
                     <tbody>
                         <?php
                         if ($vars['annonceEvenement'] !== null) {
                             foreach ($vars['annonceEvenement'] as $annonceEvenement):
                                 echo '<tr>';
-                                echo "<td class='col-lg-8'>" . $annonceEvenement['texteAnnonceEvenementArtiste'] . "</td>";
                                 $dateEdition = new DateTime($annonceEvenement['dateEditionAnnonceEvenementArtiste']);
-                                echo '<td>' . $dateEdition->format('d/m/y') . '</td>';
+                                echo '<td>' . $dateEdition->format('d/m') . '</td>';
+                                echo "<td>" . $annonceEvenement['texteAnnonceEvenementArtiste'] . "</td>";
                                 echo '<td>'
-                                . "<a class='btn btn-danger' href=artiste.php?tmp=" . $vars['noProfil'] . "&nAnnonceEvenement=" . $annonceEvenement['nAnnonceEvenementArtiste'] . ">Supprimer</a> "
+                                . "<a class='btn-sm btn-danger' href=artiste.php?tmp=" . $vars['noProfil'] . "&nAnnonceEvenement=" . $annonceEvenement['nAnnonceEvenementArtiste'] . ">Supprimer</a> "
                                 . '</td>';
                                 echo '</tr>';
                             endforeach;
@@ -127,8 +132,10 @@
                     </tbody>
                 </table>
             </div>
-
         </div>
+    </div>
+
+    <div id="contenu" class="col-lg-12 row-same-height">
 
         <aside id='parution'class="col-lg-4 col-sm-height">
             <div id="albumPhoto">
