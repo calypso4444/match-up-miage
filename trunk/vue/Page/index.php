@@ -124,7 +124,7 @@
                     echo "<img src=\"";
                     echo $vars['dernierCommentaireSalle']['avatar'];
                     echo "\">";
-                    echo $vars ['dernierCommentaireSalle'] ['pseudo'] . ""
+                    echo " ".$vars ['dernierCommentaireSalle'] ['pseudo'] . ""
                     . " ("
                     . "<a href='salle.php?tmp=" . $vars['dernierCommentaireSalle']['cible'] . "'>" . $vars['dernierCommentaireSalle'] ['nomSalle'] . "</a>) : </br>";
                     echo $vars ['dernierCommentaireSalle']['texteCommentaireSalle'];

@@ -236,12 +236,21 @@ button#suppression{
     float: left;
 }
 
+.dateValidite{
+    font-size:9px;
+    text-align: right;
+}
+
 table#tablePlaylist{
     background-color: #494949;
     border-radius: 10px ;
 }
 table#tablePlaylist tr{
     border-top: 1px grey dashed;
+}
+
+section#annonceEvenement{
+    border-left: black solid 2px;
 }
 
 /* CI_DESSOUS HOVER PAGE INDEX */
