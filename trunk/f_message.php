@@ -48,11 +48,11 @@ if ($exp === null) {
 
 $nAnnonce = filter_input(INPUT_GET, 'nAnnonce');
 $annonce;
-if(isset($nAnnonce)){
-    $annonce=$model['GestionnaireAnnonce']->getPetiteAnnonce($nAnnonce);
+if (isset($nAnnonce)) {
+    $annonce = $model['GestionnaireAnnonce']->getPetiteAnnonce($nAnnonce);
     $dateEdition = new DateTime($annonce['dateEditionPetiteAnnonce']);
-    $dateEdition=$dateEdition->format('d/m/y');
-    $objet="Votre annonce du ".$dateEdition;
+    $dateEdition = $dateEdition->format('d/m/y');
+    $objet = "Votre annonce du " . $dateEdition;
 }
 
 

@@ -142,7 +142,7 @@ h1, h2, h3{
     text-align: center;
 }
 
-aside#parution.col-lg-4, div#uploaderPhoto {
+aside#parution.col-lg-4, #adminArtiste div#uploaderPhoto {
     border-right: solid black 2px;
 }
 
@@ -323,8 +323,8 @@ section#annonceEvenement, div#gestionAnnonce{
 
 
 #artisteAdmin, #salleAdmin{
-    visibility:hidden;
-    height:0;
+/*    visibility:hidden;
+    height:0;*/
     border-bottom: solid black 2px;
 }
 
