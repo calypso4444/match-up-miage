@@ -142,8 +142,7 @@ h1, h2, h3{
     text-align: center;
 }
 
-aside#parution.col-lg-4 {
-    margin-left: -30px;
+aside#parution.col-lg-4, div#uploaderPhoto {
     border-right: solid black 2px;
 }
 
@@ -249,7 +248,7 @@ table#tablePlaylist tr{
     border-top: 1px grey dashed;
 }
 
-section#annonceEvenement{
+section#annonceEvenement, div#gestionAnnonce{
     border-left: black solid 2px;
 }
 
@@ -321,3 +320,12 @@ section#annonceEvenement{
 }
 
 /* FIN DE HOVER PAGE INDEX */
+
+
+#artisteAdmin, #salleAdmin{
+    visibility:hidden;
+    height:0;
+    border-bottom: solid black 2px;
+}
+
+   
