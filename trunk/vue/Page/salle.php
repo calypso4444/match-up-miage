@@ -87,7 +87,7 @@
                 </div>
                 <form id="commentaire" method="post" action="salle.php?tmp=<?php echo $vars['noProfil']; ?>">
                     <input type="text" name="commentaire" placeholder="Votre prose ici"/>
-                    <button type="submit" value="true" class="btn glyphicon glyphicon-pencil">Commenter</button>
+                    <button type="submit" value="true" class="glyphicon glyphicon-pencil">Commenter</button>
                 </form>
                 </br>
             </div>

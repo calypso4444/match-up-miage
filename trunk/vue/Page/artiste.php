@@ -178,7 +178,7 @@
                     </div>
                     <form id="commentaire" method="post" action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>">
                         <input type="text" name="commentaire" placeholder="Votre prose ici"/>
-                        <button type="submit" class="btn glyphicon glyphicon-pencil">Commenter</button>
+                        <button type="submit" class="glyphicon glyphicon-pencil">Commenter</button>
                     </form>
                     </br>
                 </div>
