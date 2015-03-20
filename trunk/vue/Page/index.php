@@ -100,7 +100,6 @@
     <section id='carte'class="text-center col-lg-7 col-sm-height">
         <input id="concertCarte" type="hidden" value="<?php echo htmlentities(json_encode($vars['concertCarte'])); ?>"/>
         <h3>ce soir &agrave; Paris</h3>
-
         <canvas id='map'style='height:588.98px; width: 745.78px; padding:0; margin :0;background-image:url("web/image/carte/map.svg");background-repeat: no-repeat' >
         </canvas>
     </section>

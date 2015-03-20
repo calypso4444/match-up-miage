@@ -35,7 +35,9 @@ $artisteFavori=$model['GestionnaireProfil']->getClassementFavoriArtiste();
 
 $selectionRandom=$model['GestionnaireProfil']->getMorceauRandom();
 
-$concertCarte=$model['GestionnaireCarte']->getAllSalleConcertByDate("2015-03-19");
+$date=new DateTime();
+$date=$date->format('20y-m-d');
+$concertCarte=$model['GestionnaireCarte']->getAllSalleConcertByDate($date);
 
 /* fin de séquence */
 
