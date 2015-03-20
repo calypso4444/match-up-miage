@@ -27,78 +27,6 @@
         </div>
     </div>
     <div id="contenu" class="col-lg-12 row-same-height">
-        <aside id='parution'class="col-lg-4 col-sm-height">
-            <div id="albumPhoto">
-                <h4>album photo de l'artiste</h4>
-
-                <table class="table">
-                    <?php
-                    $compteur = 0;
-                    if ($vars['albumPhoto'] !== null) {
-                        foreach ($vars['albumPhoto'] as $albumPhoto):
-                            if ($compteur === 0) {
-                                echo '<tr>';
-                            }
-                            echo '<td>';
-                            echo "<form id ='suppressionPhoto' action='artiste.php?tmp=" . $vars['noProfil'] . "&nP=" . $albumPhoto['nPhotoArtiste'] . "' method='post'><button id='suppression' class='btn-xs glyphicon glyphicon-remove' type='submit' name='removePhoto' value='true' ></button></form>";
-                            echo "<img src=\"";
-                            echo $albumPhoto['photoArtiste'];
-                            echo "\"></td>";
-                            $compteur++;
-                            if ($compteur === 3) {
-                                echo '</tr>';
-                                $compteur = 0;
-                            }
-                        endforeach;
-                    } else {
-                        echo '</br>';
-                    }
-                    ?>
-                </table>
-                <div id="commentaire">
-                    <h4>les derniers commentaires</h4></br>
-                    <div>
-                        <?php
-                        if ($vars['commentaire']) {
-                            foreach ($vars['commentaire'] as $commentaires):
-                                echo"<div id='texteCommentaire'>";
-                                echo "<form action='artiste.php?tmp=" . $vars['noProfil'] . "&nCom=" . $commentaires['nCommentaireArtiste'] . "' method='post'><button class='btn-xs glyphicon glyphicon-remove' type='submit' name='removeComment' value='true'></button></form>";
-                                echo "<img src=\"";
-                                echo $commentaires['avatar'];
-                                echo "\">";
-                                echo " " . $commentaires['pseudo'] . " : </br>";
-                                echo $commentaires['texteCommentaireArtiste'];
-                                echo '</div></br>';
-                            endforeach;
-                        }
-                        ?>
-                    </div>
-                    <form id="commentaire" method="post" action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>">
-                        <input type="text" name="commentaire" placeholder="Votre prose ici"/>
-                        <button type="submit" class="btn glyphicon glyphicon-pencil">Commenter</button>
-                    </form>
-                    </br>
-                </div>
-                <div id="agenda">
-                    <h4>l'agenda</h4></br>
-                    <table class="table">
-                        <tbody>
-                            <?php
-                            if ($vars['aVenir'] !== null) {
-                                foreach ($vars['aVenir'] as $aVenir):
-                                    $date = new DateTime($aVenir['dateConcert']);
-                                    $dateConcert = $date->format('d/m');
-                                    echo '<tr>';
-                                    echo '<td> <div class="date"> ' . $dateConcert . '. </div>' . $aVenir['nomSalle'] . '</td>';
-                                    echo '<td> <a href="artiste.php?tmp=' . $vars['noProfil'] . '&nConcert=' . $aVenir['nConcert'] . '" class=" btn-xs btn-default"> Participer </a></td>';
-                                    echo'</tr>';
-                                endforeach;
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
-        </aside>
 
         <div id="artisteAdmin" class="col-lg-12" style="visibility:hidden; height:0;width:0">
 
@@ -202,6 +130,81 @@
 
         </div>
 
+        <aside id='parution'class="col-lg-4 col-sm-height">
+            <div id="albumPhoto">
+                <h4>album photo de l'artiste</h4>
+
+                <table class="table">
+                    <?php
+                    $compteur = 0;
+                    if ($vars['albumPhoto'] !== null) {
+                        foreach ($vars['albumPhoto'] as $albumPhoto):
+                            if ($compteur === 0) {
+                                echo '<tr>';
+                            }
+                            echo '<td>';
+                            echo "<form id ='suppressionPhoto' action='artiste.php?tmp=" . $vars['noProfil'] . "&nP=" . $albumPhoto['nPhotoArtiste'] . "' method='post'><button id='suppression' class='btn-xs glyphicon glyphicon-remove' type='submit' name='removePhoto' value='true' ></button></form>";
+                            echo "<img src=\"";
+                            echo $albumPhoto['photoArtiste'];
+                            echo "\"></td>";
+                            $compteur++;
+                            if ($compteur === 3) {
+                                echo '</tr>';
+                                $compteur = 0;
+                            }
+                        endforeach;
+                    } else {
+                        echo '</br>';
+                    }
+                    ?>
+                </table>
+                <div id="commentaire">
+                    <h4>les derniers commentaires</h4></br>
+                    <div>
+                        <?php
+                        if ($vars['commentaire']) {
+                            foreach ($vars['commentaire'] as $commentaires):
+                                echo"<div id='texteCommentaire'>";
+                                echo "<form action='artiste.php?tmp=" . $vars['noProfil'] . "&nCom=" . $commentaires['nCommentaireArtiste'] . "' method='post'><button class='btn-xs glyphicon glyphicon-remove' type='submit' name='removeComment' value='true'></button></form>";
+                                echo "<img src=\"";
+                                echo $commentaires['avatar'];
+                                echo "\">";
+                                echo " " . $commentaires['pseudo'] . " : </br>";
+                                echo $commentaires['texteCommentaireArtiste'];
+                                echo '</div></br>';
+                            endforeach;
+                        }
+                        ?>
+                    </div>
+                    <form id="commentaire" method="post" action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>">
+                        <input type="text" name="commentaire" placeholder="Votre prose ici"/>
+                        <button type="submit" class="btn glyphicon glyphicon-pencil">Commenter</button>
+                    </form>
+                    </br>
+                </div>
+                <div id="agenda">
+                    <h4>l'agenda</h4></br>
+                    <table class="table">
+                        <tbody>
+                            <?php
+                            if ($vars['aVenir'] !== null) {
+                                foreach ($vars['aVenir'] as $aVenir):
+                                    $date = new DateTime($aVenir['dateConcert']);
+                                    $dateConcert = $date->format('d/m');
+                                    echo '<tr>';
+                                    echo '<td> <div class="date"> ' . $dateConcert . '. </div>' . $aVenir['nomSalle'] . '</td>';
+                                    echo '<td> <a href="artiste.php?tmp=' . $vars['noProfil'] . '&nConcert=' . $aVenir['nConcert'] . '" class=" btn-xs btn-default"> Participer </a></td>';
+                                    echo'</tr>';
+                                endforeach;
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+        </aside>
+
+
+
         <section id="playlist" class="col-lg-4 col-sm-height">
             <h4>ma musique</h4>
 
@@ -250,19 +253,25 @@
         </section>
 
 
-        <section id="annonceEvenement" style="border-left: black solid 2px" class="col-lg-4 col-sm-height">
+        <section id="annonceEvenement" class="col-lg-4 col-sm-height">
             <h4>mes annonces</h4>
             <div id="annonce">
-                <?php
-                if ($vars['annonceEvenement'] !== null) {
-                    foreach ($vars['annonceEvenement'] as $annonceEvenement):
-                        $dateEdition = new DateTime($annonceEvenement['dateEditionAnnonceEvenementArtiste']);
-                        echo "<div class='date'>" . $dateEdition->format('d/m') . ". </div>";
-                        echo $annonceEvenement['texteAnnonceEvenementArtiste'];
-                    endforeach;
-                }
-                ?>
-            </div>
+                <table class="table">
+                    <tbody>
+                        <?php
+                        if ($vars['annonceEvenement'] !== null) {
+                            foreach ($vars['annonceEvenement'] as $annonceEvenement):
+                                echo'<tr><td>';
+                                $dateEdition = new DateTime($annonceEvenement['dateEditionAnnonceEvenementArtiste']);
+                                echo "<div class='date'>" . $dateEdition->format('d/m') . ". </div>";
+                                echo $annonceEvenement['texteAnnonceEvenementArtiste'];
+                                echo '</tr></td>';
+                            endforeach;
+                        }
+                        ?>
+                        </div>
+                    </tbody>
+                </table>
         </section>
     </div>       
 </div>

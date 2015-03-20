@@ -33,17 +33,11 @@
             <a href="" class="glyphicon glyphicon-star-empty"> Noter la salle </a>
         </div>
     </div>
-    <div id="contenu" class="col-lg-12">
-        <aside id='parution'class="col-lg-4">
+    <div id="contenu" class="col-lg-12 row-same-height">
+        <aside id='parution'class="col-lg-4 col-sm-height">
             <div id="albumPhoto">
                 <h4>album photo de la salle : </h4>
-                <form id="album" method="post" action="salle.php?tmp=<?php echo $vars['noProfil']; ?>" enctype="multipart/form-data">
-                    <div class="btn-group">
-                        <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
-                        <span class="btn"><input type="file" name="mon_fichier" id="mon_fichier" class="filestyle" data-input="false" data-buttonText="Votre photo"/></span>
-                        <span class="btn"> <input class="btn btn-default" id="envoyer"  type="submit" value="OK"/></span>
-                    </div>
-                </form>
+
                 <table class="table">
                     <?php
                     $compteur = 0;
@@ -107,8 +101,18 @@
                 ?>
             </div>
         </aside>
-        <section class="col-lg-8">
-            <h4>le fil d'actualité : </h4></br>
+
+        <div id="salleAdmin" class="col-lg-12" style="visibility:hidden; height:0;width:0">
+            <div id="uploaderPhoto">
+                <form id="album" method="post" action="salle.php?tmp=<?php echo $vars['noProfil']; ?>" enctype="multipart/form-data">
+                    <div class="btn-group">
+                        <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+                        <span class="btn"><input type="file" name="mon_fichier" id="mon_fichier" class="filestyle" data-input="false" data-buttonText="Votre photo"/></span>
+                        <span class="btn"> <input class="btn btn-default" id="envoyer"  type="submit" value="OK"/></span>
+                    </div>
+                </form>
+            </div>
+
             <div id="posterAnnonce">
                 <p>poster une annonce</p>
                 <form action="salle.php?tmp=<?php echo $vars['noProfil']; ?>" method="post" id="posterAnnonce">
@@ -124,67 +128,105 @@
                     </br>
                     <input class="btn btn-default" type="submit" value="Valider" id="envoyer"/>
                 </form>
-                </br>
             </div>
-            <div id="annonceEvenement">
-                <p>annonces évènement</p>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Annonce</th>
-                            <th>Date de parution</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        if ($vars['annonceEvenement'] !== null) {
-                            foreach ($vars['annonceEvenement'] as $annonceEvenement):
-                                echo '<tr>';
-                                echo "<td class='col-lg-8'>" . $annonceEvenement['texteAnnonceEvenementSalle'] . "</td>";
-                                $date = new DateTime($annonceEvenement['dateEditionAnnonceEvenementSalle']);
-                                echo '<td>' . $date->format('d/m/y') . '</td>';
-                                echo '<td>'
-                                . "<a class='btn btn-danger' href=salle.php?tmp=" . $vars['noProfil'] . "&nAnnonceEvenement=" . $annonceEvenement['nAnnonceEvenementSalle'] . ">Supprimer</a> "
-                                . '</td>';
-                                echo '</tr>';
-                            endforeach;
-                        }
-                        ?>
-                    </tbody>
-                </table>
+
+            <div id="gererAnnonces">
+                <div id="annonceEvenement">
+                    <p>annonces évènement</p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Annonce</th>
+                                <th>Date de parution</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            if ($vars['annonceEvenement'] !== null) {
+                                foreach ($vars['annonceEvenement'] as $annonceEvenement):
+                                    echo '<tr>';
+                                    echo "<td class='col-lg-8'>" . $annonceEvenement['texteAnnonceEvenementSalle'] . "</td>";
+                                    $date = new DateTime($annonceEvenement['dateEditionAnnonceEvenementSalle']);
+                                    echo '<td>' . $date->format('d/m/y') . '</td>';
+                                    echo '<td>'
+                                    . "<a class='btn btn-danger' href=salle.php?tmp=" . $vars['noProfil'] . "&nAnnonceEvenement=" . $annonceEvenement['nAnnonceEvenementSalle'] . ">Supprimer</a> "
+                                    . '</td>';
+                                    echo '</tr>';
+                                endforeach;
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="petiteAnnonce">
+                    <p>petites annonces</p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Annonce</th>
+                                <th>Période</th>
+                                <th>Date de parution</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            if ($vars['petiteAnnonce'] !== null) {
+                                foreach ($vars['petiteAnnonce'] as $petiteAnnonce):
+                                    echo '<tr>';
+                                    echo "<td class='col-lg-8'>" . $petiteAnnonce['textePetiteAnnonce'] . "</td>";
+                                    $dateDeb = new DateTime($petiteAnnonce['dateDeb']);
+                                    if ($petiteAnnonce['dateFin'] === null) {
+                                        echo '<td>à partir du </br> ' . $dateDeb->format('d/m/y ') . '</td>';
+                                    } else {
+                                        $dateFin = new DateTime($petiteAnnonce['dateFin']);
+                                        echo '<td>du </br> ' . $dateDeb->format('d/m/y ') . '</br> au </br> ' . $dateFin->format('d/m/y ') . '</td>';
+                                    }
+                                    $dateEdition = new DateTime($petiteAnnonce['dateEditionPetiteAnnonce']);
+                                    echo '<td>' . $dateEdition->format('d/m/y ') . '</td>';
+                                    echo '<td>'
+                                    . "<a class='btn btn-danger' href=salle.php?tmp=" . $vars['noProfil'] . "&nPetiteAnnonce=" . $petiteAnnonce['nPetiteAnnonce'] . ">Supprimer</a> "
+                                    . '<a class="btn btn-default" href="f_message.php?destS=' . $vars['noProfil'] . '&nAnnonce=' . $petiteAnnonce['nPetiteAnnonce'] . '">Postuler</a>'
+                                    . '</td>';
+                                    echo '</tr>';
+                                endforeach;
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div id="petiteAnnonce">
-                <p>petites annonces</p>
+        </div>
+
+        <section id="petiteAnnonce" class="col-lg-4 col-sm-height">
+            <h4>mes petites annonces</h4>
+            <div id="annonce">
                 <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Annonce</th>
-                            <th>Période</th>
-                            <th>Date de parution</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
                     <tbody>
                         <?php
                         if ($vars['petiteAnnonce'] !== null) {
                             foreach ($vars['petiteAnnonce'] as $petiteAnnonce):
-                                echo '<tr>';
-                                echo "<td class='col-lg-8'>" . $petiteAnnonce['textePetiteAnnonce'] . "</td>";
+                                echo '<tr><td>';
                                 $dateDeb = new DateTime($petiteAnnonce['dateDeb']);
                                 if ($petiteAnnonce['dateFin'] === null) {
-                                    echo '<td>à partir du </br> ' . $dateDeb->format('d/m/y ') . '</td>';
+                                    echo '<div class="dateValidite">';
+                                    echo 'à partir du' . $dateDeb->format('d/m');
+                                    echo '</div>';
                                 } else {
+                                    echo '<div class="dateValidite">';
                                     $dateFin = new DateTime($petiteAnnonce['dateFin']);
-                                    echo '<td>du </br> ' . $dateDeb->format('d/m/y ') . '</br> au </br> ' . $dateFin->format('d/m/y ') . '</td>';
+                                    echo 'du ' . $dateDeb->format('d/m') . ' au ' . $dateFin->format('d/m');
+                                    echo '</div>';
                                 }
+                                echo '<div class="date">';
                                 $dateEdition = new DateTime($petiteAnnonce['dateEditionPetiteAnnonce']);
-                                echo '<td>' . $dateEdition->format('d/m/y ') . '</td>';
-                                echo '<td>'
-                                . "<a class='btn btn-danger' href=salle.php?tmp=" . $vars['noProfil'] . "&nPetiteAnnonce=" . $petiteAnnonce['nPetiteAnnonce'] . ">Supprimer</a> "
-                                . '<a class="btn btn-default" href="f_message.php?destS=' . $vars['noProfil'] . '&nAnnonce=' . $petiteAnnonce['nPetiteAnnonce'] . '">Postuler</a>'
-                                . '</td>';
-                                echo '</tr>';
+                                echo $dateEdition->format('d/m');
+                                echo '. </div>';
+                                echo $petiteAnnonce['textePetiteAnnonce'];
+                                echo'</br>';
+                                echo '<a class="btn-xs btn-default" href="f_message.php?destS=' . $vars['noProfil'] . '&nAnnonce=' . $petiteAnnonce['nPetiteAnnonce'] . '">Postuler</a>';
+                                echo '</td></tr>';
                             endforeach;
                         }
                         ?>
@@ -192,6 +234,30 @@
                 </table>
             </div>
         </section>
+
+        <section id="annonceEvenement" class="col-lg-4 col-sm-height">
+            <h4>mes annonces évènement</h4>
+            <div id="annonce">
+                <table class="table">
+                    <tbody>
+                        <?php
+                        if ($vars['annonceEvenement'] !== null) {
+                            foreach ($vars['annonceEvenement'] as $annonceEvenement):
+                                echo'<tr><td>';
+                                $date = new DateTime($annonceEvenement['dateEditionAnnonceEvenementSalle']);
+                                echo '<div class="date">';
+                                echo $date->format('d/m');
+                                echo '. </div>';
+                                echo $annonceEvenement['texteAnnonceEvenementSalle'];
+                                echo '</tr></td>';
+                            endforeach;
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
     </div>
 
 </div>
