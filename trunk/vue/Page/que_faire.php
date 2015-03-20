@@ -18,12 +18,12 @@
             <tbody>
                 <?php
                 $chk = 0;
-                $dateAffichage = new DateTime();
-                $dateAffichage = $dateAffichage->format('d/m/y');
+                $dateAffichage = new DateTime('00/00');
+                $dateAffichage = $dateAffichage->format('d/m');
                 if ($vars['concert'] !== null) {
                     foreach ($vars['concert'] as $concert):
                         $date = new DateTime($concert['dateConcert']);
-                        $date = $date->format('d/m/y');
+                        $date = $date->format('d/m');
                         if ($date !== $dateAffichage) {
                             if ($chk === 1) {
                                 echo '</tr>';
@@ -31,7 +31,7 @@
                             }
                             echo '<tr>';
                             $chk++;
-                            echo '<td><div id="entete"> le ' . $date . " : </div></td>";
+                            echo '<td><div class="date">' . $date . ". </div></td>";
                             $dateAffichage = $date;
                         } else {
                             echo'<td></td>';

@@ -47,12 +47,14 @@ class GestionnaireConcert extends Gestionnaire {
     }
 
     public function getAllConcert() {
+        $date= new DateTime();
+        $date=$date->format('20y-m-d');
         $req = mysqli_query($this->link, " SELECT S.nSalle, nomSalle, A.nArtiste, A.nomArtiste, C.dateConcert, C.nConcert FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " S "
                 . " INNER JOIN " . $GLOBALS['DB_TABLE']['CONCERT'] . " C "
                 . " ON S.nSalle=C.nSalle "
                 . " INNER JOIN " . $GLOBALS['DB_TABLE']['ARTISTE'] . " A "
                 . " ON A.nArtiste=C.nArtiste"
-                . " WHERE C.dateConcert>=CURDATE() "
+                . " WHERE C.dateConcert>='$date' "
                 . " ORDER BY C.dateConcert;");
         if ($req !== false) {
             $concert = array();
