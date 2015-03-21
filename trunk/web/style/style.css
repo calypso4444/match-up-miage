@@ -249,6 +249,7 @@ table#tablePlaylist tr{
 
 section#annonceEvenement, div#gestionAnnonce{
     border-left: black solid 2px;
+    margin-left:-2px;
 }
 
 div#gestionPhoto{

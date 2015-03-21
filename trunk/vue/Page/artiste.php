@@ -35,7 +35,7 @@
     </div>
 
     <div id="artisteAdmin" class="col-lg-12">
-        <div id='gestionPhoto' class='col-lg-4 col-sm-height'>
+        <div id='gestionPhoto' class='col-lg-4'>
             <div id="uploaderPhoto">
                 <p>uploader une photo</p>
                 <form id="album" method="post" action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" enctype="multipart/form-data">
@@ -85,7 +85,7 @@
         </div>
 
 
-        <div id="gestionMusique" class="col-lg-4 col-sm-height">
+        <div id="gestionMusique" class="col-lg-4">
             <div id="uploaderMorceau">
                 <p>uploader un morceau</p>
                 <form id="formulaireAjoutMusique" name="formulaireAjoutMusique" action='artiste.php?tmp=<?php echo $vars['noProfil'] ?>' method="post" enctype="multipart/form-data">
@@ -136,7 +136,7 @@
             </div>
         </div>
 
-        <div id="gestionAnnonce" class="col-lg-4 col-sm-height">
+        <div id="gestionAnnonce" class="col-lg-4 ">
             <div id="posterAnnonce">
                 <p>poster une annonce</p>
                 <form action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" method="post" id="posterAnnonce">
