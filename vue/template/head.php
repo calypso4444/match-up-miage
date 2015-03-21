@@ -9,6 +9,7 @@
 
         <link rel="stylesheet" href="web/style/style.css" media="screen" />
         <link rel="stylesheet" href="web/style/inscription.css" media="screen"/>
+        <link rel="stylesheet" href="web/style/jquery-ui.css" media="screen"/>
 
         <script type="text/javascript" language="Javascript" src="web/js/jquery.js"></script>
         <script type="text/javascript" language="Javascript" src="web/js/verificationInscription.js"></script>
@@ -21,6 +22,15 @@
         <script type="text/javascript" language="Javascript" src="web/js/bootstrap.file-input.js"></script>
         <script type="text/javascript" src="web/js/verificationMusique.js"></script>
         <script type="text/javascript" src="web/js/carteConcert.js"></script>
+        <script type="text/javascript" src="web/js/verifierDate.js"></script>
+        <script type="text/javascript" src="web/js/jquery-ui.min.js"></script>
+        
+        <!-- DATEPICKER -->
+		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+		<!-- DATEPICKER -->
+		
     </head>
 <body>
 
