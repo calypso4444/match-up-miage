@@ -8,9 +8,14 @@
     <input id="adresse" type="hidden" value="<?php echo $vars['adresse']; ?>"></input>
     <input id="ville" type="hidden" value="<?php echo $vars['ville']; ?>"></input>
     <input id="codepostal" type="hidden" value="<?php echo $vars['cp']; ?>"></input>
+    <input id="estProprietaire" type="hidden" value="<?php echo $vars['estProprietaire']; ?>"></input>
     <!-- FIN -->
-
+    
     <h1><?php echo $vars['nomProfil']; ?></h1>
+    
+    <!-- Permet d'afficher le menu admin -->
+    <input type="button" id="test" onclick="masquer_div('salleAdmin')" value="Masquer/Afficher"></button>
+    <!-- Permet d'afficher le menu admin -->
 
     <div id="photoProfil" class="col-lg-12">
         <img src="<?php echo ($vars['photoProfil'] !== null) ? $vars['photoProfil'] : "web/image/salle.png"; ?>">
@@ -263,7 +268,10 @@
                 </table>
             </div>
         </section>
-
     </div>
-
 </div>
+
+<!-- SCRIPT POUR CACHER/AFFICHER DIV -->
+<script id="cacher" type="text/javascript" src="web/js/menuCourant.js"></script>		
+<!-- FIN SCRIPT POUR CACHER/AFFICHER DIV-->	
+
