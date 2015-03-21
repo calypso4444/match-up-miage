@@ -1,5 +1,3 @@
-<!-- web -->
-
 <?php
 
 /* instanciation des fichiers de config + modele */
