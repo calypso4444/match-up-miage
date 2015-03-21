@@ -8,11 +8,15 @@ $(document).ready(function() {
     //   var context = canvas.getContext("2d");
 //    var img = new Image();   // Crée un nouvel objet Image
     //   img.src = 'web/image/carte/map.svg'; // Définit le chemin vers sa source
+    
+    var imageMap= document.getElementById("map");
+    var mapWidth=imageMap.clientWidth;
+    var mapHeight=imageMap.clientHeight;
 
-    MAP_WIDTH = 532.7;
-    MAP_HEIGHT = 420.7;
-    mapWidth = 532.7;
-    mapHeight = 420.7;
+//    MAP_WIDTH = 532.7;
+//    MAP_HEIGHT = 420.7;
+//    mapWidth = 532.7;
+//    mapHeight = 420.7;
 
     /* La fonction gps2pixel va permettre de  */
     var coinHautGauche = {lat: 48.899947, long: 2.245588}; // Correspond aux coordonnées gps de notre image de Paris dans le coin haut gauche
@@ -40,11 +44,11 @@ $(document).ready(function() {
         lon[i] = tmp.x;
         lat[i] = tmp.y;
         
-            var div = document.getElementById("map");
+            var div = document.getElementById("mapContainer");
     var img = document.createElement("img");
     img.setAttribute("src", "web/image/carte/etoile.svg");
     img.setAttribute("onmouseover", "alert('bite');");
-    img.setAttribute("style", "position:relative; top:" + lat[i] + "px;left:" + lon[i] + "px; height:10%; width:10%;");
+    img.setAttribute("style", "position:absolute; top:" + lat[i] + "px;left:" + lon[i] + "px; height:10%; width:10%;");
     div.appendChild(img);
         
     }
