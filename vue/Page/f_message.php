@@ -42,7 +42,7 @@
                                 <label for="txtMessage">Votre message : </label> 
                             </td>
                             <td>
-                                <textarea style="resize:none" class="form-control" id="txtMessage" rows="7" type="text" name="txtMessage" placeholder="" value=""/></textarea> 
+                                <textarea style="resize:none" class="form-control" id="txtMessage" rows="7" type="text" name="txtMessage" placeholder="" value="<?php echo $vars['txt']; ?>"/></textarea> 
                             </td>
                         </tr>
 
