@@ -73,11 +73,19 @@ class GestionnaireCommentaire extends Gestionnaire {
     }
 
     public function commenterSalle($noProfil, $id, $texte) {
-        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['COMMENTAIRE_S'] . "  (nCommentaireSalle, cible, texteCommentaireSalle, auteur, dateEditionCommentaireSalle) VALUES('',$noProfil,'" . mysqli_real_escape_string($this->link, $texte) . "',$id ,NOW());");
+        $tmp = mysqli_query($this->link, "SELECT COUNT(*) AS nb FROM  " . $GLOBALS['DB_TABLE']['COMMENTAIRE_S'] . " WHERE auteur=$id AND texteCommentaireSalle='" . mysqli_real_escape_string($this->link, $texte) . "';");
+        $row = mysqli_fetch_assoc($tmp);
+        if ($row['nb'] === '0') {
+            mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['COMMENTAIRE_S'] . "  (nCommentaireSalle, cible, texteCommentaireSalle, auteur, dateEditionCommentaireSalle) VALUES('',$noProfil,'" . mysqli_real_escape_string($this->link, $texte) . "',$id ,NOW());");
+        }
     }
 
     public function commenterArtiste($noProfil, $id, $texte) {
-        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['COMMENTAIRE_A'] . "  (nCommentaireArtiste, cible, texteCommentaireArtiste, auteur, dateEditionCommentaireArtiste) VALUES('',$noProfil,'" . mysqli_real_escape_string($this->link, $texte) . "',$id ,NOW());");
+        $tmp = mysqli_query($this->link, "SELECT COUNT(*) AS nb FROM  " . $GLOBALS['DB_TABLE']['COMMENTAIRE_A'] . " WHERE auteur=$id AND texteCommentaireArtiste='" . mysqli_real_escape_string($this->link, $texte) . "';");
+        $row = mysqli_fetch_assoc($tmp);
+        if ($row['nb'] === '0') {
+            mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['COMMENTAIRE_A'] . "  (nCommentaireArtiste, cible, texteCommentaireArtiste, auteur, dateEditionCommentaireArtiste) VALUES('',$noProfil,'" . mysqli_real_escape_string($this->link, $texte) . "',$id ,NOW());");
+        }
     }
 
     public function supprimerCommentaireSalle($nCommentaire) {
@@ -90,10 +98,10 @@ class GestionnaireCommentaire extends Gestionnaire {
 
     public function estProprietaireCommentaireSalle($nCommentaire, $id) {
         $reqm = mysqli_query($this->link, "SELECT COUNT(*) AS nb FROM " . $GLOBALS['DB_TABLE']['COMMENTAIRE_S'] . " WHERE nCommentaireSalle=$nCommentaire AND auteur=$id");
-        if($reqm!==false){
-        $row = mysqli_fetch_assoc($reqm);
-        return $row['nb'] > 0 ? true : false;
-        }else{
+        if ($reqm !== false) {
+            $row = mysqli_fetch_assoc($reqm);
+            return $row['nb'] > 0 ? true : false;
+        } else {
             return false;
         }
     }
