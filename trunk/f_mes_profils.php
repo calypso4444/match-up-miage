@@ -21,6 +21,7 @@ if (isset($id)) {
 
 //recuperation des profils artistes
     $profilsArtiste = $model['GestionnaireProfil']->getAllProfil_ArtisteById($id);
+    
 } else {
     $estConnecte = false;
 }

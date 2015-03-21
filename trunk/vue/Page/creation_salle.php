@@ -1,7 +1,7 @@
 <!-- vue/page -->
 
 <!--si l'utilisateur n'est pas connecté, on le redirige vers la page d'inscription-->
-<?php echo $vars['estConnecte']? null: "<script>document.location.href='inscription.php'</script>"?>
+<?php echo $vars['estConnecte'] ? null : "<script>document.location.href='inscription.php'</script>" ?>
 
 <div class="col-lg-12">	
 	

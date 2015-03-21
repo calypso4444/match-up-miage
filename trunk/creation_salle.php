@@ -16,7 +16,6 @@ $id = $_SESSION['user']['id'];
 if (isset($id)) {
     $estConnecte = true;
 
-
 //on initialise la variable dont on se servira plus tard
     $noProfil = 0;
 
