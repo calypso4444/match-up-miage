@@ -135,6 +135,8 @@ if(isset($participation)){
     }
 }
 
+$estProprietaire = $model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id);
+
 /* fin de séquence */
 
 /* affichage de la vue */
@@ -151,6 +153,7 @@ $vue['aVenir']=$concerAVenir;
 $vue['annonceEvenement'] = $annoncesEvenement;
 $vue['playlist'] = $playlist;
 $vue['piste'] = $piste;
+$vue['estProprietaire'] = $estProprietaire;
 $view->render('artiste', $vue);
 
 /* fin de l'affichage de la vue */
