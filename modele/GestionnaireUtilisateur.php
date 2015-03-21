@@ -221,11 +221,11 @@ class GestionnaireUtilisateur extends Gestionnaire {
             return null;
         }
     }
-    
-    public function participer ($id,$nConcert){
+
+    public function participer($id, $nConcert) {
         mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['EVENEMENT_SUIVI'] . " VALUES ($id ,$nConcert) ; ");
     }
-    
+
     private function genererMDP($longueur = 8) {
         $mdp = "";
 
