@@ -119,18 +119,19 @@
 
                                 <td><input type="hidden" name="MAX_FILE_SIZE" value="1048576"> <input class="filestyle" type="file" name="mon_fichier" id="mon_fichier" data-input="false" data-buttonText="Votre fichier"></td>
                             </tr><!-- Fin champs pour modifier votre photo de profil -->
-                            
+                                  <!-- Début du bouton -->
+							<tr>
+								<td></td>
+								<td>
+								<input class="btn btn-default center-block" type="submit" value="Valider " id="envoyer">
+								</td>
+							</tr>
+            				
+            				<!-- Fin du bouton -->
                           
                             
                         </tbody>
                     </table>
-                
-                      <!-- Début du bouton -->
-					<div>
-						<input class="btn btn-default center-block" type="submit" value="Valider " id="envoyer">
-					</div>
-            				
-            				<!-- Fin du bouton -->
                 </div><!-- Fin de notre div de la colonne avec les mots de passe -->
             </div><!-- Fin de notre row -->
 
