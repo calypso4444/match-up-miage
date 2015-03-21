@@ -27,10 +27,33 @@ if (isset($participation)) {
     }
 }
 
-//permet l'affichage sur la carte des concerts de la date courante
+//permet de prendre la date courante par defaut
+$dateConcert = new DateTime();
+$dateConcert = $dateConcert->format('20y-m-d');
+
+//calcul à partir de la date courante du nombre de jour dans le mois, recuperation du resultat et du nom du mois
 $date = new DateTime();
-$date = $date->format('20y-m-d');
-$concertCarte = $model['GestionnaireCarte']->getAllSalleConcertByDate($date);
+$mois = $date->format('m');
+$annee = $date->format('y');
+$nomMois = '';
+$nombreDeJours = cal_days_in_month(CAL_GREGORIAN, $mois, $annee);
+$tabMois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+if ($mois < 10) {
+    $nomMois = $tabMois[substr($mois, 1) - 1];
+} else {
+    $nomMois = $tabMois[$mois - 1];
+}
+
+//gestion de l'input choix du jour dont on veut afficher les concerts (choisi par l'utilisateur)
+$choixJour = filter_input(INPUT_POST, 'choixJour');
+if (isset($choixJour)) {
+    $dateConcert = new DateTime();
+    $dateConcert = $dateConcert->setDate($annee, $mois, $choixJour);
+    $dateConcert = $dateConcert->format('20y-m-d');
+}
+
+//recuperation de tous les concerts à afficher selon la date
+$concertCarte = $model['GestionnaireCarte']->getAllSalleConcertByDate($dateConcert);
 
 /* fin de séquence */
 
@@ -40,6 +63,9 @@ $vue = array();
 $vue['estConnecte'] = $estConnecte;
 $vue['concert'] = $concert;
 $vue['concertCarte'] = $concertCarte;
+$vue['nomMois'] = $nomMois;
+$vue['nombreDeJours'] = $nombreDeJours;
+$vue['dateConcert']=substr($dateConcert, 8);
 $view->render('que_faire', $vue);
 
 /* fin de l'affichage de la vue */

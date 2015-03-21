@@ -7,20 +7,38 @@ if ($vars['estConnecte'] === false) {
 }
 ?>
 
-<div class="col-lg-12">
-
+<div id='bloc1' class='col-lg-12'>
     <h1>que faire ?</h1>
+    <p class='text-center'>Concerts du <?php echo $vars['dateConcert'] . " " . $vars['nomMois']; ?>
 
-    <section id='carteFiltre' class="col-lg-12">
-        <input id="concertCarte" type="hidden" value="<?php echo htmlentities(json_encode($vars['concertCarte'])); ?>"/>
-        <canvas id='map'style='height:841.1px; width: 1065.4px; padding:0; margin :0;background-image:url("web/image/carte/map.svg");background-repeat: no-repeat' >
-        </canvas>
-        <form action="que_faire.php" method="post" >
-            <input type="range"value="" max="31" min="0" step="1"/>
+    <div id='filtreConcert' class='col-lg-2' style='border-top:black 2px solid'>
+        Choisissez un jour</p>
+        <h3><?php echo $vars['nomMois']; ?></h3>
+        <form action="que_faire.php" method="post" name='choixJour'>
+            <?php
+            $compteur = 0;
+            for ($i = 1; $i <= $vars['nombreDeJours']; $i++) {
+                echo '<input name="choixJour" type="radio" value="' . $i . '"/>' . $i;
+                $compteur++;
+                if ($compteur === 5) {
+                    echo '</br>';
+                    $compteur = 0;
+                }
+            }
+            ?>
+            </br>
+            <input type='submit' class='btn-success' value="Valider"/>
         </form>
+    </div>
+
+    <section id='carte'class="text-center col-lg-10" style='border-left:black 2px solid; border-top:black 2px solid '>
+        <input id="concertCarte" type="hidden" value="<?php echo htmlentities(json_encode($vars['concertCarte'])); ?>"/>
+        <div id='mapContainer' class=''>
+            <img id='map'src='web/image/carte/map.svg'/>
+        </div>
     </section>
 
-    <div id="queFaire">
+    <div id="queFaire" class='col-lg-12' style='border-top:black 2px solid'>
         <table class="table">
             <tbody>
                 <?php
@@ -47,6 +65,7 @@ if ($vars['estConnecte'] === false) {
                         echo "ou ? : <a href='salle.php?tmp=" . $concert['nSalle'] . "'>" . $concert['nomSalle'] . "</a>";
                         echo '</br>';
                         echo "qui ? : <a href='artiste.php?tmp=" . $concert['nArtiste'] . "'>" . $concert['nomArtiste'] . "</a>";
+                        echo '</br>';
                         echo '<a href="que_faire.php?nConcert=' . $concert['nConcert'] . '" class="btn-xs btn-default"> Participer </a>';
                         echo '</td>';
 
@@ -59,4 +78,3 @@ if ($vars['estConnecte'] === false) {
         </table>
     </div>
 
-</div>
