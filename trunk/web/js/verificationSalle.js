@@ -64,7 +64,7 @@ $(document).ready(function(){
     }
     
     function validateAdresse() {
-        if (!adresseSalle.val().match(/^[0-9,]{1,3}(?:(?:[,. ]){1}[-a-zA-Zàâäéèêëïîôöùûüç]+)+$/i)) {
+        if (!adresseSalle.val().match(/^[0-9,]{1,5}(?:(?:[,. ]){1}[-a-zA-Zàâäéèêëïîôöùûüç]+)+$/i)) {
             adresseSalleInfo.removeClass("glyphicon glyphicon-ok");
             adresseSalleInfo.addClass("glyphicon glyphicon-remove");
             return false;
