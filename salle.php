@@ -129,6 +129,9 @@ if (isset($nomArtiste)) {
     }
 }
 
+$estProprietaire = $model['GestionnaireProfil']->estProprietaireProfilSalle($noProfil, $id);
+
+
 /* fin de séquence */
 
 /* affichage de la vue */
@@ -147,6 +150,7 @@ $vue['adresse'] = $adresse;
 $vue['cp'] = $cp;
 $vue['ville'] = $ville;
 $vue['tel'] = $tel;
+$vue['estProprietaire'] = $estProprietaire;
 $vue['existeArtiste'] = $existeArtiste;
 $vue['nomArtiste'] = $nomArtiste;
 $vue['dateConcert'] = $dateConcert;
