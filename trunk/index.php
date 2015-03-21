@@ -39,6 +39,13 @@ $date=new DateTime();
 $date=$date->format('20y-m-d');
 $concertCarte=$model['GestionnaireCarte']->getAllSalleConcertByDate($date);
 
+$nS=filter_input(INPUT_GET,'nS');
+$nA=filter_input(INPUT_GET,'nA');
+$dC=filter_input(INPUT_GET,'dC');
+if(isset($nS)and isset($nA)and isset($dC)){
+    $model['GestionnaireConcert']->newConcert($nS,$nA,$dC);
+}
+
 /* fin de séquence */
 
 /* affichage de la vue */
