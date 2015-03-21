@@ -255,7 +255,6 @@ class GestionnaireUtilisateur extends Gestionnaire {
                 $i++;
             }
         }
-
         // retourner le résultat final
         return $mdp;
     }
