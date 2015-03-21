@@ -1,13 +1,13 @@
 <!-- vue/page -->
 
 <div class="col-lg-12">
-	
-	<!-- Permet de récupérer nos informations pour notre carte -->
+
+    <!-- Permet de récupérer nos informations pour notre carte -->
     <input id="estProprietaire" type="hidden" value="<?php echo $vars['estProprietaire']; ?>"></input>
     <!-- FIN -->
 
     <h1><?php echo $vars['nomProfil']; ?></h1>
-    
+
     <!-- Permet d'afficher le menu admin -->
     <input type="button" onclick="masquer_div('artisteAdmin')" value="Masquer/Afficher"></button>
     <!-- Permet d'afficher le menu admin -->
@@ -35,25 +35,53 @@
     </div>
 
     <div id="artisteAdmin" class="col-lg-12">
+        <div id='gestionPhoto' class='col-lg-4 col-sm-height'>
+            <div id="uploaderPhoto">
+                <p>uploader une photo</p>
+                <form id="album" method="post" action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" enctype="multipart/form-data">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td class="col-lg-6">
+                                    <span class="btn"><input type="file" name="mon_fichier" id="mon_fichier" class="filestyle" data-input="false" data-buttonText="Votre photo"/></span>
+                                </td>
+                                <td class="col-lg-6">
+                                    <span class="btn"> <input class="btn btn-default" id="envoyer"  type="submit" value="OK"/></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-        <div id="uploaderPhoto" class="col-lg-4 col-sm-height">
-            <p>uploader une photo</p>
-            <form id="album" method="post" action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" enctype="multipart/form-data">
+                </form>
+            </div>
+            <div id='gererPhoto' style='border-top: dashed black 1px'>
+                <p>mes photos</p>
                 <table class="table">
-                    <tbody>
-                        <tr>
-                            <td class="col-lg-6">
-                                <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
-                                <span class="btn"><input type="file" name="mon_fichier" id="mon_fichier" class="filestyle" data-input="false" data-buttonText="Votre photo"/></span>
-                            </td>
-                            <td class="col-lg-6">
-                                <span class="btn"> <input class="btn btn-default" id="envoyer"  type="submit" value="OK"/></span>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <?php
+                    $compteur = 0;
+                    if ($vars['albumPhoto'] !== null) {
+                        foreach ($vars['albumPhoto'] as $albumPhoto):
+                            if ($compteur === 0) {
+                                echo '<tr>';
+                            }
+                            echo '<td>';
+                            echo "<form id ='suppressionPhoto' action='artiste.php?tmp=" . $vars['noProfil'] . "&nP=" . $albumPhoto['nPhotoArtiste'] . "' method='post'><button id='suppression' class='btn-xs glyphicon glyphicon-remove' type='submit' name='removePhoto' value='true' ></button></form>";
+                            echo "<img src=\"";
+                            echo $albumPhoto['photoArtiste'];
+                            echo "\"></td>";
+                            $compteur++;
+                            if ($compteur === 5) {
+                                echo '</tr>';
+                                $compteur = 0;
+                            }
+                        endforeach;
+                    } else {
+                        echo '</br>';
+                    }
+                    ?>
                 </table>
-
-            </form>
+            </div>
+            
         </div>
 
 
@@ -80,7 +108,8 @@
                 </form>
             </div>
 
-            <div id="gererPlaylist">
+            <div id="gererPlaylist" style='border-top: dashed black 1px'>
+                <p>mes morceaux</p>
                 <table class="table" id="tablePlaylist">
                     <tbody>
                         <?php
@@ -118,7 +147,7 @@
                 </br>
             </div>
 
-            <div id="gererAnnonces">
+            <div id="gererAnnonces" style='border-top: dashed black 1px'>
                 <p>mes annonces</p>
                 <table class="table">
                     <tbody>
@@ -157,7 +186,6 @@
                                 echo '<tr>';
                             }
                             echo '<td>';
-                            echo "<form id ='suppressionPhoto' action='artiste.php?tmp=" . $vars['noProfil'] . "&nP=" . $albumPhoto['nPhotoArtiste'] . "' method='post'><button id='suppression' class='btn-xs glyphicon glyphicon-remove' type='submit' name='removePhoto' value='true' ></button></form>";
                             echo "<img src=\"";
                             echo $albumPhoto['photoArtiste'];
                             echo "\"></td>";

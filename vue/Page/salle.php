@@ -23,9 +23,9 @@
     <input id="codepostal" type="hidden" value="<?php echo $vars['cp']; ?>"></input>
     <input id="estProprietaire" type="hidden" value="<?php echo $vars['estProprietaire']; ?>"></input>
     <!-- FIN -->
-    
+
     <h1><?php echo $vars['nomProfil']; ?></h1>
-    
+
     <!-- Permet d'afficher le menu admin -->
     <input type="button" id="test" onclick="masquer_div('salleAdmin')" value="Masquer/Afficher"></button>
     <!-- Permet d'afficher le menu admin -->
@@ -53,11 +53,10 @@
     </div>
 
     <div id="salleAdmin" class="col-lg-12">
-        <div class="col-lg-4">
+        <div id="gestionPhoto" class="col-lg-4">
             <div id="uploaderPhoto">
                 <form id="album" method="post" action="salle.php?tmp=<?php echo $vars['noProfil']; ?>" enctype="multipart/form-data">
                     <div class="btn-group">
-                        <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
                         <span class="btn"><input type="file" name="mon_fichier" id="mon_fichier" class="filestyle" data-input="false" data-buttonText="Votre photo"/></span>
                         <span class="btn"> <input class="btn btn-default" id="envoyer"  type="submit" value="OK"/></span>
                     </div>
@@ -65,7 +64,35 @@
                 </form>
                 </br>
             </div>
-            <div id="interactionArtiste" style='border-top: dashed 1px black'>
+            <div id="gererPhoto" style='border-top: dashed black 1px'>
+                <p>mes photos</p>
+                <table class="table">
+                    <?php
+                    $compteur = 0;
+                    if ($vars['albumPhoto'] !== null) {
+                        foreach ($vars['albumPhoto'] as $albumPhoto):
+                            if ($compteur === 0) {
+                                echo '<tr>';
+                            }
+                            echo '<td>';
+                            echo "<form id ='suppressionPhoto' action='salle.php?tmp=" . $vars['noProfil'] . "&nP=" . $albumPhoto['nPhotoSalle'] . "' method='post'><button id='suppression' class='btn-xs glyphicon glyphicon-remove' type='submit' name='removePhoto' value='true' ></button></form>";
+                            echo "<img src=\"";
+                            echo $albumPhoto['photoSalle'];
+                            echo "\"></td>";
+                            $compteur++;
+                            if ($compteur === 5) {
+                                echo '</tr>';
+                                $compteur = 0;
+                            }
+                        endforeach;
+                    } else {
+                        echo '</br>';
+                    }
+                    ?>
+                </table>
+            </div>
+            
+            <div id="interactionArtiste" style='border-top: solid 2px black'>
                 <p>proposer un concert à un artiste</p>
                 <form action="salle.php?tmp=<?php echo $vars['noProfil'] ?>" method="post" id="proposerConcert">
                     <label for="nomArtiste">Nom de l'artiste</label>
@@ -74,8 +101,10 @@
                     <input id="datepicker" class="datepicker" type="text" placeholder="jj/mm/aa" name='dateConcert'/>
                     <input type="submit" name='proposerConcert' value='Valider'/>
                 </form>
-                <?php echo ($vars['ok']) ? "<script>document.location.href='f_message.php?destA=".$vars['nArtiste']."&dC=".$vars['dateConcert']."&nS=".$vars['noProfil']."'</script>" : null; ?>
-                <?php  if(($vars['existeArtiste']) ===false){  echo"<script>alert('nom incorrect');</script>";} ?>
+                <?php echo ($vars['ok']) ? "<script>document.location.href='f_message.php?destA=" . $vars['nArtiste'] . "&dC=" . $vars['dateConcert'] . "&nS=" . $vars['noProfil'] . "'</script>" : null; ?>
+                <?php if (($vars['existeArtiste']) === false) {
+                    echo"<script>alert('nom incorrect');</script>";
+                } ?>
             </div>
         </div>
 
@@ -158,7 +187,6 @@
         <aside id='parution'class="col-lg-4 col-sm-height">
             <div id="albumPhoto">
                 <h4>album photo de la salle : </h4>
-
                 <table class="table">
                     <?php
                     $compteur = 0;
@@ -168,7 +196,6 @@
                                 echo '<tr>';
                             }
                             echo '<td>';
-                            echo "<form id ='suppressionPhoto' action='salle.php?tmp=" . $vars['noProfil'] . "&nP=" . $albumPhoto['nPhotoSalle'] . "' method='post'><button id='suppression' class='btn-xs glyphicon glyphicon-remove' type='submit' name='removePhoto' value='true' ></button></form>";
                             echo "<img src=\"";
                             echo $albumPhoto['photoSalle'];
                             echo "\"></td>";
