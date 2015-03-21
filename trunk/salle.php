@@ -14,7 +14,7 @@ $infoProfil = $model['GestionnaireProfil']->getAllInfo_Salle($noProfil);
 $nomProfil = $infoProfil['nomSalle'];
 $photoProfil = $infoProfil['photoProfilSalle'];
 $descProfil = $infoProfil['descriptionSalle'];
-$genre=$infoProfil['genreMusicalSalle'];
+$genre = $infoProfil['genreMusicalSalle'];
 $adresse = $infoProfil['adresseSalle'];
 $cp = $infoProfil['cpSalle'];
 $ville = $infoProfil['villeSalle'];
@@ -113,6 +113,21 @@ if (isset($typeAnnonce)) {
     }
 }
 
+//proposition de concert
+$nomArtiste = filter_input(INPUT_POST, 'nomArtiste');
+$dateConcert = filter_input(INPUT_POST, 'dateConcert');
+$existeArtiste = true;
+$ok = false;
+$nArtiste = null;
+if (isset($nomArtiste)) {
+    $existeArtiste = $model['GestionnaireConcert']->existeArtiste($nomArtiste); //on recupere ici le numero de profil de l'artiste si il existe
+    if ($existeArtiste !== false) {
+        if (isset($dateConcert)) {
+            $ok = true;
+            $nArtiste = $existeArtiste;
+        }
+    }
+}
 
 /* fin de séquence */
 
@@ -132,6 +147,11 @@ $vue['adresse'] = $adresse;
 $vue['cp'] = $cp;
 $vue['ville'] = $ville;
 $vue['tel'] = $tel;
+$vue['existeArtiste'] = $existeArtiste;
+$vue['nomArtiste'] = $nomArtiste;
+$vue['dateConcert'] = $dateConcert;
+$vue['ok'] = $ok;
+$vue['nArtiste'] = $nArtiste;
 $view->render('salle', $vue);
 
 /* fin de l'affichage de la vue */

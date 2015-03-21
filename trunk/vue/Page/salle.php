@@ -56,6 +56,8 @@
                     <input data-format="dd/MM/yyyy" type="text" placeholder="jj/mm/aa" name='dateConcert'/>
                     <input type="submit" name='proposerConcert' value='Valider'/>
                 </form>
+                <?php echo ($vars['ok']) ? "<script>document.location.href='f_message.php?destA=".$vars['nArtiste']."&dC=".$vars['dateConcert']."&nS=".$vars['nomProfil']."'</script>" : null; ?>
+                <?php  if(($vars['existeArtiste']) ===false){  echo"<script>alert('nom incorrect');</script>";} ?>
             </div>
         </div>
 

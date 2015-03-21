@@ -13,6 +13,7 @@ $destA = filter_input(INPUT_GET, 'destA');
 $destS = filter_input(INPUT_GET, 'destS');
 $dest = null;
 $messageEnvoye = false;
+$txt='coucou';
 
 if (isset($destA)) {
     $destA = $model['GestionnaireProfil']->getProprietaireArtiste($destA);
@@ -55,6 +56,14 @@ if (isset($nAnnonce)) {
     $objet = "Votre annonce du " . $dateEdition;
 }
 
+$dateConcert= filter_input(INPUT_GET, 'dC');
+$nomSalle = filter_input(INPUT_GET, 'nS');
+if(isset($dateConcert)and isset($nomSalle)){
+    echo 'coucou';
+    $objet=$nomSalle." vous propose un concert le ".$dateConcert;
+//    $texte="<a href='index.php?nS=".$nomSalle."&nA=".$destA."&dC=".$dateConcert."'>Cliquez ici pour accepter</a>";
+    $texte='coucou';
+}
 
 /* fin de séquence */
 
@@ -64,6 +73,7 @@ $vue = array();
 $vue['destinataire'] = $dest['email'];
 $vue['expediteur'] = $exp['email'];
 $vue['objet'] = $objet;
+$vue['txt'] = $txt;
 $vue['messageEnvoye'] = $messageEnvoye;
 $view->render('f_message', $vue);
 

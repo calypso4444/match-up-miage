@@ -323,9 +323,7 @@ section#annonceEvenement, div#gestionAnnonce{
 
 
 #artisteAdmin, #salleAdmin{
-/*    visibility:hidden;
-    height:0;*/
+    /*display:none;*/
     border-bottom: solid black 2px;
 }
 
-   

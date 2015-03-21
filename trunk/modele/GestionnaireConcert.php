@@ -47,8 +47,8 @@ class GestionnaireConcert extends Gestionnaire {
     }
 
     public function getAllConcert() {
-        $date= new DateTime();
-        $date=$date->format('20y-m-d');
+        $date = new DateTime();
+        $date = $date->format('20y-m-d');
         $req = mysqli_query($this->link, " SELECT S.nSalle, nomSalle, A.nArtiste, A.nomArtiste, C.dateConcert, C.nConcert FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " S "
                 . " INNER JOIN " . $GLOBALS['DB_TABLE']['CONCERT'] . " C "
                 . " ON S.nSalle=C.nSalle "
@@ -66,7 +66,7 @@ class GestionnaireConcert extends Gestionnaire {
             return null;
         }
     }
-    
+
     public function getConcertByArtiste($noProfil) {
         $req = mysqli_query($this->link, " SELECT S.nSalle, nomSalle, A.nArtiste, A.nomArtiste, C.dateConcert, C.nConcert FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " S "
                 . " INNER JOIN " . $GLOBALS['DB_TABLE']['CONCERT'] . " C "
@@ -84,6 +84,16 @@ class GestionnaireConcert extends Gestionnaire {
             return $concert;
         } else {
             return null;
+        }
+    }
+
+    public function existeArtiste($nomArtiste) {
+        $reqm = mysqli_query($this->link, "SELECT nArtiste AS n FROM " . $GLOBALS['DB_TABLE']['ARTISTE'] . " WHERE nomArtiste='$nomArtiste'");
+        if ($reqm !== false) {
+            $row = mysqli_fetch_assoc($reqm);
+            return $row['n'] > 0 ? $row['n'] : false;
+        } else {
+            return false;
         }
     }
 
