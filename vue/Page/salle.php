@@ -3,25 +3,17 @@
 <div class="col-lg-12">
 
 
-	<script>
+<script>
 		$(document).ready(function() {
     $('#datepicker').datepicker({
-        onSelect: function(dateText, inst) {
-            //On récupère la date du jour
-            var today = new Date();
-            today = Date.parse(today.getMonth()+1+'/'+today.getDate()+'/'+today.getFullYear());
-            //On récupère la date qui va être selectionné
-            var selDate = Date.parse(dateText);
-
-            if(selDate < today) {
-                //On verrifie si c'est une date antérieur
-                $('#datepicker').val('');
-                $(inst).datepicker('show');
-            }
-        }
-    });
+	    dateFormat : 'dd/mm/yy',
+	    minDate : 0
+		
+				
+     });
 });
-	</script>
+</script>
+
 
     <!-- Permet de récupérer nos informations pour notre carte -->
     <input id="adresseE" type="hidden" value="<?php echo $vars['adresse'] . " " . $vars['cp'] . " " . $vars['ville']; ?>"></input>
@@ -79,7 +71,7 @@
                     <label for="nomArtiste">Nom de l'artiste</label>
                     <input class="form-control" id="nomArtiste" type="text" name="nomArtiste" placeholder="" value=""/>
                     la date que vous proposez : 
-                    <input id="datepicker" type="text" placeholder="jj/mm/aa" name='dateConcert'/>
+                    <input id="datepicker" class="datepicker" type="text" placeholder="jj/mm/aa" name='dateConcert'/>
                     <input type="submit" name='proposerConcert' value='Valider'/>
                 </form>
                 <?php echo ($vars['ok']) ? "<script>document.location.href='f_message.php?destA=".$vars['nArtiste']."&dC=".$vars['dateConcert']."&nS=".$vars['noProfil']."'</script>" : null; ?>
