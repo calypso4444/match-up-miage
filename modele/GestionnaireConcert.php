@@ -88,13 +88,22 @@ class GestionnaireConcert extends Gestionnaire {
     }
 
     public function existeArtiste($nomArtiste) {
-        $reqm = mysqli_query($this->link, "SELECT nArtiste AS n FROM " . $GLOBALS['DB_TABLE']['ARTISTE'] . " WHERE nomArtiste='$nomArtiste'");
+        $reqm = mysqli_query($this->link, "SELECT nArtiste FROM " . $GLOBALS['DB_TABLE']['ARTISTE'] . " WHERE nomArtiste='$nomArtiste'");
         if ($reqm !== false) {
             $row = mysqli_fetch_assoc($reqm);
-            return $row['n'] > 0 ? $row['n'] : false;
+            return $row['nArtiste'] > 0 ? $row['nArtiste'] : false;
         } else {
             return false;
         }
+    }
+
+    public function newConcert($nSalle, $nArtiste, $dateConcert) {
+        echo $dateConcert;
+        $dateConcert = new DateTime($dateConcert);
+        $dateConcert = $dateConcert->format('20y-m-d');
+        echo $dateConcert;
+        echo "INSERT INTO " . $GLOBALS['DB_TABLE']['CONCERT'] . " (nSalle,nArtiste,dateConcert) VALUES ($nSalle,$nArtiste,'$dateConcert')";
+        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['CONCERT'] . " (nSalle,nArtiste,dateConcert) VALUES ($nSalle,$nArtiste,'$dateConcert')");
     }
 
 }

@@ -10,10 +10,12 @@ include_once 'config/includeGlobal.php';
 /* séquence du controleur */
 
 $destA = filter_input(INPUT_GET, 'destA');
+$nA = filter_input(INPUT_GET, 'destA');//on sauvegarde le nArtiste pour plus tard
 $destS = filter_input(INPUT_GET, 'destS');
 $dest = null;
 $messageEnvoye = false;
-$txt='coucou';
+$txt = '';
+$lien='';
 
 if (isset($destA)) {
     $destA = $model['GestionnaireProfil']->getProprietaireArtiste($destA);
@@ -56,13 +58,14 @@ if (isset($nAnnonce)) {
     $objet = "Votre annonce du " . $dateEdition;
 }
 
-$dateConcert= filter_input(INPUT_GET, 'dC');
-$nomSalle = filter_input(INPUT_GET, 'nS');
-if(isset($dateConcert)and isset($nomSalle)){
-    echo 'coucou';
-    $objet=$nomSalle." vous propose un concert le ".$dateConcert;
-//    $texte="<a href='index.php?nS=".$nomSalle."&nA=".$destA."&dC=".$dateConcert."'>Cliquez ici pour accepter</a>";
-    $texte='coucou';
+$dateConcert = filter_input(INPUT_GET, 'dC');
+$nSalle = filter_input(INPUT_GET, 'nS');
+if (isset($dateConcert)and isset($nSalle)) {
+    $nomSalle=$model['GestionnaireProfil']->getAllInfo_Salle($nSalle);
+    $nomSalle=$nomSalle['nomSalle'];
+    $objet = $nomSalle . " vous propose un concert le " . $dateConcert;
+    $lien = "<a href='index.php?nS=" . $nSalle . "&nA=" . $nA . "&dC=" . $dateConcert . "'>Cliquez ici pour accepter</a>"; //on affiche provisoirement ce lien au dessus du corps de message pour pouvoir confirmer car on est en local et on ne peut pas envoyer de message...
+    $txt="Cliquez sur le lien ci-dessous pour accepter \n http://localhost/match-up-miage/index.php?nS=" . $nSalle . "&nA=" . $nA . "&dC=" . $dateConcert;
 }
 
 /* fin de séquence */
@@ -73,6 +76,7 @@ $vue = array();
 $vue['destinataire'] = $dest['email'];
 $vue['expediteur'] = $exp['email'];
 $vue['objet'] = $objet;
+$vue['lien'] = $lien;
 $vue['txt'] = $txt;
 $vue['messageEnvoye'] = $messageEnvoye;
 $view->render('f_message', $vue);
