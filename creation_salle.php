@@ -11,8 +11,10 @@ include_once 'config/includeGlobal.php';
 
 $id = $_SESSION['user']['id'];
 
+//on initialise la variable dont on se servira plus tard
 $noProfil = 0;
 
+//on recupere la valeur de tous les champs remplis dans le formulaire par l'utilisateur
 $nomSalle = filter_input(INPUT_POST, 'nomSalle');
 $descSalle = filter_input(INPUT_POST, 'descriptionSalle');
 $genreSalle = filter_input(INPUT_POST, 'genreMusical');
@@ -24,9 +26,12 @@ $contactGerant = filter_input(INPUT_POST, 'contactGerant');
 $cpSalle = filter_input(INPUT_POST, 'cpSalle');
 $villeSalle = filter_input(INPUT_POST, 'villeSalle');
 
+//on crée d'abord un profil salle avec les champs obligatoires (nom et adresse complete)
 if (!empty($nomSalle)and ! empty($adresseSalle) and ! empty($villeSalle)and ! empty($cpSalle)) {
-    $model['GestionnaireProfil']->newProfilSalle($id, $nomSalle, $adresseSalle, $cpSalle, $villeSalle);
+    //la fonction newProfil renvoit le dernier numéro de profil crée par l'utilisateur donc celui qu'on est en train de creer
+    $noProfil=$model['GestionnaireProfil']->newProfilSalle($id, $nomSalle, $adresseSalle, $cpSalle, $villeSalle);
 }
+//puis on remplit les autres attribut de la salle en bdd lorsqu'on trouve un champ rempli par l'utilisateur
 if (!empty($descSalle)) {
     $model['GestionnaireProfil']->setDescriptionSalle($noProfil, $descSalle);
 }
@@ -34,7 +39,7 @@ if (!empty($genreSalle)) {
     $model['GestionnaireProfil']->setGenreMusicalSalle($noProfil, $genreSalle);
 }
 
-//on insere une image par defaut
+//on insere une image par defaut au cas ou l'utilisateur n'en upload pas car on en a besoin pour l'affichage sur les pages du site
 $img_default = "web/image/salle.png";
 $model['GestionnaireProfil']->setphotoProfilSalle($noProfil, $img_default);
 if (isset($_FILES['mon_fichier'])) {
@@ -47,12 +52,6 @@ if (isset($_FILES['mon_fichier'])) {
     //2. substr(chaine,1) ignore le premier caractère de chaine.
     //3. strtolower met l'extension en minuscules.
     $extension_upload = strtolower(substr(strrchr($tab_img['name'], '.'), 1));
-//    $maxwidth = 0;
-//    $maxheight = 0;
-//    $image_sizes = getimagesize($tab_img['tmp_name']);
-//    if ($image_sizes[0] > $maxwidth OR $image_sizes[1] > $maxheight) {
-//        $erreur = "Image trop grande";
-//    }
     $chemin = "web/image/photoProfilSalle/{$noProfil}.{$extension_upload}";
     $resultat = move_uploaded_file($tab_img['tmp_name'], $chemin);
     if ($resultat) {
@@ -60,9 +59,6 @@ if (isset($_FILES['mon_fichier'])) {
     }
 }
 
-if (!empty($adresseSalle)) {
-    $model['GestionnaireProfil']->setAdresseSalle($noProfil, $adresseSalle);
-}
 if (!empty($telSalle)) {
     $model['GestionnaireProfil']->setTelSalle($noProfil, $telSalle);
 }
@@ -74,12 +70,6 @@ if (!empty($prenomGerant)) {
 }
 if (!empty($contactGerant)) {
     $model['GestionnaireProfil']->setContactGerant($noProfil, $contactGerant);
-}
-if (!empty($cpSalle)) {
-    $model['GestionnaireProfil']->setCpSalle($noProfil, $cpSalle);
-}
-if (!empty($villeSalle)) {
-    $model['GestionnaireProfil']->setVilleSalle($noProfil, $villeSalle);
 }
 
 /* fin de séquence */

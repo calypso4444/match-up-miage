@@ -225,18 +225,11 @@ class GestionnaireUtilisateur extends Gestionnaire {
     public function participer ($id,$nConcert){
         mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['EVENEMENT_SUIVI'] . " VALUES ($id ,$nConcert) ; ");
     }
-
-    public function test() {
-        return 'caca';
-    }
-
     
     private function genererMDP($longueur = 8) {
-        // initialiser la variable $mdp
         $mdp = "";
 
         // Définir tout les caractères possibles dans le mot de passe, 
-        // Il est possible de rajouter des voyelles ou bien des caractères spéciaux
         $possible = "2346789bcdfghjkmnpqrtvwxyzBCDFGHJKLMNPQRTVWXYZ";
 
         // obtenir le nombre de caractères dans la chaîne précédente
