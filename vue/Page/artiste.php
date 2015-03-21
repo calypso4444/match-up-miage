@@ -291,5 +291,5 @@
 </div>
 
 <!-- SCRIPT POUR CACHER/AFFICHER DIV -->
-<script id="cacher" type="text/javascript" src="web/js/menuCourant.js"></script>		
+<script id="cacher" type="text/javascript" src="web/js/menuAdmin.js"></script>		
 <!-- FIN SCRIPT POUR CACHER/AFFICHER DIV-->	
