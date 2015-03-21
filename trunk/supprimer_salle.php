@@ -1,7 +1,4 @@
-<!-- web -->
-
 <?php
-
 /* instanciation des fichiers de config + modele */
 
 include_once 'config/includeGlobal.php';
