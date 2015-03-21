@@ -1,10 +1,13 @@
 <!-- vue/page -->
 
+<!--si l'utilisateur n'est pas connecté, on le redirige vers la page d'inscription-->
+<?php echo $vars['estConnecte'] ? null : "<script>document.location.href='inscription.php'</script>" ?>
+
 <div class="col-lg-12">
     <h1>mes profils</h1>
     <div id="mesSalles" class="col-lg-6">
         <h2>salles</h2>
-        <a href='creation_salle.php'> Créer un nouveau profil salle</a>
+        <a href='creation_salle.php'> créer un nouveau profil salle</a>
         <table class="table">
             <thead>
                 <tr>
@@ -31,7 +34,7 @@
     </div>
     <div id="mesArtistes" class='col-lg-6'>
         <h2>artistes</h2>
-        <a href='creation_artiste.php'> Créer un nouveau profil artiste</a>
+        <a href='creation_artiste.php'> créer un nouveau profil artiste</a>
         <table class="table">
             <thead>
                 <tr>

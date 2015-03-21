@@ -1,7 +1,11 @@
 <!-- vue/page -->
+
+<!--si l'utilisateur n'est pas connecté, on le redirige vers la page d'inscription-->
+<?php echo $vars['estConnecte']? null: "<script>document.location.href='inscription.php'</script>"?>
+
 <div class="col-lg-12">	
 	
-	<h1> Création de votre salle </h1>
+	<h1> création de votre salle </h1>
 		
     <form id="formulaireModificationProfilSalle" method ="post" name="formulaireModificationProfilSalle" enctype="multipart/form-data">
 	    <div id="row">    
@@ -207,6 +211,3 @@
     </form>  
 </div>
 
-
-<div class="container col-lg-6">
-</div>
