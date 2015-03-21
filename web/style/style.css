@@ -321,9 +321,7 @@ section#annonceEvenement, div#gestionAnnonce{
 
 /* FIN DE HOVER PAGE INDEX */
 
-
 #artisteAdmin, #salleAdmin{
-    /*display:none;*/
     border-bottom: solid black 2px;
 }
 
