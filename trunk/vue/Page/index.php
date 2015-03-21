@@ -100,7 +100,7 @@
     <section id='carte'class="text-center col-lg-7 col-sm-height">
         <input id="concertCarte" type="hidden" value="<?php echo htmlentities(json_encode($vars['concertCarte'])); ?>"/>
         <h3>ce soir &agrave; Paris</h3>
-        <div id='mapContainer'>
+        <div id='mapContainer' class='col-lg-12'>
             <img id='map'src='web/image/carte/map.svg'/>
         </div>
     </section>
