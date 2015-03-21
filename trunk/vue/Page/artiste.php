@@ -1,9 +1,16 @@
 <!-- vue/page -->
 
 <div class="col-lg-12">
-
+	
+	<!-- Permet de récupérer nos informations pour notre carte -->
+    <input id="estProprietaire" type="hidden" value="<?php echo $vars['estProprietaire']; ?>"></input>
+    <!-- FIN -->
 
     <h1><?php echo $vars['nomProfil']; ?></h1>
+    
+    <!-- Permet d'afficher le menu admin -->
+    <input type="button" onclick="masquer_div('artisteAdmin')" value="Masquer/Afficher"></button>
+    <!-- Permet d'afficher le menu admin -->
 
     <div id="photoProfil" class="col-lg-12">
         <img src="<?php echo ($vars['photoProfil'] !== null) ? $vars['photoProfil'] : "web/image/artiste.png"; ?>">
@@ -283,3 +290,6 @@
     </div>       
 </div>
 
+<!-- SCRIPT POUR CACHER/AFFICHER DIV -->
+<script id="cacher" type="text/javascript" src="web/js/menuCourant.js"></script>		
+<!-- FIN SCRIPT POUR CACHER/AFFICHER DIV-->	
