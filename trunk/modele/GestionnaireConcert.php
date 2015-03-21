@@ -98,9 +98,7 @@ class GestionnaireConcert extends Gestionnaire {
     }
 
     public function newConcert($nSalle, $nArtiste, $dateConcert) {
-        $dateConcert = new DateTime($dateConcert);
-        $dateConcert = $dateConcert->format('20y-m-d');
-        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['CONCERT'] . " (nSalle,nArtiste,dateConcert) VALUES ($nSalle,$nArtiste,'$dateConcert')");
+        mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['CONCERT'] . " (nSalle,nArtiste,dateConcert) VALUES ($nSalle,$nArtiste,STR_TO_DATE('$dateConcert','%d/%m/%Y'));");
     }
 
 }
