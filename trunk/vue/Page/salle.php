@@ -272,6 +272,6 @@
 </div>
 
 <!-- SCRIPT POUR CACHER/AFFICHER DIV -->
-<script id="cacher" type="text/javascript" src="web/js/menuAdmin.js"></script>		
+<script id="cacher" type="text/javascript" src="web/js/salleAdmin.js"></script>		
 <!-- FIN SCRIPT POUR CACHER/AFFICHER DIV-->	
 
