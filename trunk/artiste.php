@@ -14,7 +14,7 @@ $infoProfil = $model['GestionnaireProfil']->getAllInfo_Artiste($noProfil);
 $nomProfil = $infoProfil['nomArtiste'];
 $photoProfil = $infoProfil['photoProfilArtiste'];
 $descProfil = $infoProfil['descriptionArtiste'];
-$genre=$infoProfil['genreMusicalArtiste'];
+$genre = $infoProfil['genreMusicalArtiste'];
 
 $id = $_SESSION['user']['id'];
 
@@ -61,15 +61,13 @@ if (isset($_FILES['mon_fichier'])) {
     //2. substr(chaine,1) ignore le premier caractère de chaine.
     //3. strtolower met l'extension en minuscules.
     $extension_upload = strtolower(substr(strrchr($tab_img['name'], '.'), 1));
-//    $maxwidth = 0;
-//    $maxheight = 0;
-//    $image_sizes = getimagesize($tab_img['tmp_name']);
-//    if ($image_sizes[0] > $maxwidth OR $image_sizes[1] > $maxheight) {
-//        $erreur = "Image trop grande";
-//    }
     $idmax = $model['GestionnaireProfil']->getNMaxPhotoArtiste($noProfil);
     $idmax++;
-    $chemin = "web/image/albumPhotoArtiste/{$noProfil}.{$idmax}.{$extension_upload}";
+    $dossier = "web/image/albumPhotoArtiste/{$noProfil}";
+    if (!is_dir($dossier)) {
+        mkdir($dossier);
+    }
+    $chemin = "web/image/albumPhotoArtiste/{$noProfil}/{$idmax}.{$extension_upload}";
     $resultat = move_uploaded_file($tab_img['tmp_name'], $chemin);
     if ($resultat) {
         $model['GestionnaireProfil']->ajouterPhotoArtiste($noProfil, $chemin);
@@ -116,7 +114,7 @@ $nMorceau = filter_input(INPUT_GET, 'nMorceau');
 $removeSong = filter_input(INPUT_POST, 'removeSong');
 if ($removeSong === "true") {
     if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
-        $model['GestionnaireProfil']->supprimerMorceau($noProfil,$nMorceau);
+        $model['GestionnaireProfil']->supprimerMorceau($noProfil, $nMorceau);
     }
 }
 
@@ -126,12 +124,12 @@ if (isset($piste)) {
     $piste = $model['GestionnaireProfil']->getMorceau($piste);
 }$commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdArtiste($noProfil);
 
-$concerAVenir=$model['GestionnaireConcert']->GetConcertByArtiste($noProfil);
+$concerAVenir = $model['GestionnaireConcert']->GetConcertByArtiste($noProfil);
 
-$participation=filter_input(INPUT_GET, 'nConcert');
-if(isset($participation)){
-    if(isset($id)){
-        $model['GestionnaireUtilisateur']->participer($id,$participation);
+$participation = filter_input(INPUT_GET, 'nConcert');
+if (isset($participation)) {
+    if (isset($id)) {
+        $model['GestionnaireUtilisateur']->participer($id, $participation);
     }
 }
 
@@ -149,7 +147,7 @@ $vue['descProfil'] = $descProfil;
 $vue['genre'] = $genre;
 $vue['albumPhoto'] = $albumPhoto;
 $vue['commentaire'] = $commentaires;
-$vue['aVenir']=$concerAVenir;
+$vue['aVenir'] = $concerAVenir;
 $vue['annonceEvenement'] = $annoncesEvenement;
 $vue['playlist'] = $playlist;
 $vue['piste'] = $piste;

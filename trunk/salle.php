@@ -67,15 +67,13 @@ if (isset($_FILES['mon_fichier'])) {
     //2. substr(chaine,1) ignore le premier caractère de chaine.
     //3. strtolower met l'extension en minuscules.
     $extension_upload = strtolower(substr(strrchr($tab_img['name'], '.'), 1));
-//    $maxwidth = 0;
-//    $maxheight = 0;
-//    $image_sizes = getimagesize($tab_img['tmp_name']);
-//    if ($image_sizes[0] > $maxwidth OR $image_sizes[1] > $maxheight) {
-//        $erreur = "Image trop grande";
-//    }
     $idmax = $model['GestionnaireProfil']->getNMaxPhotoSalle($noProfil);
     $idmax++;
-    $chemin = "web/image/albumPhotoSalle/{$noProfil}.{$idmax}.{$extension_upload}";
+    $dossier = "web/image/albumPhotoSalle/{$noProfil}";
+    if (!is_dir($dossier)) {
+        mkdir($dossier);
+    }
+    $chemin = "web/image/albumPhotoSalle/{$noProfil}/{$idmax}.{$extension_upload}";
     $resultat = move_uploaded_file($tab_img['tmp_name'], $chemin);
     if ($resultat) {
         $model['GestionnaireProfil']->ajouterPhotoSalle($noProfil, $chemin);
