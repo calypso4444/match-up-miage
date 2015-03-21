@@ -8,10 +8,10 @@ $(document).ready(function() {
     //   var context = canvas.getContext("2d");
 //    var img = new Image();   // Crée un nouvel objet Image
     //   img.src = 'web/image/carte/map.svg'; // Définit le chemin vers sa source
-    
-    var imageMap= document.getElementById("map");
-    var mapWidth=imageMap.clientWidth;
-    var mapHeight=imageMap.clientHeight;
+
+    var imageMap = document.getElementById("map");
+    var mapWidth = imageMap.clientWidth;
+    var mapHeight = imageMap.clientHeight;
 
 //    MAP_WIDTH = 532.7;
 //    MAP_HEIGHT = 420.7;
@@ -39,18 +39,21 @@ $(document).ready(function() {
     for (var i = 0; i < concertCarte.length; i++) {
         lat[i] = concertCarte[i].latitude;
         lon[i] = concertCarte[i].longitude;
+        salle = concertCarte[i].nomSalle;
+        adresse = concertCarte[i].adresseSalle;
+        artiste = concertCarte[i].nomArtiste;
 
         var tmp = gps2pixel(lat[i], lon[i]);
         lon[i] = tmp.x;
         lat[i] = tmp.y;
-        
-            var div = document.getElementById("mapContainer");
-    var img = document.createElement("img");
-    img.setAttribute("src", "web/image/carte/etoile.svg");
-    img.setAttribute("onmouseover", "alert('bite');");
-    img.setAttribute("style", "position:absolute; top:" + lat[i] + "px;left:" + lon[i] + "px; height:10%; width:10%;");
-    div.appendChild(img);
-        
+
+        var div = document.getElementById("mapContainer");
+        var img = document.createElement("img");
+        img.setAttribute("src", "web/image/carte/etoile.svg");
+        img.setAttribute("onmouseover", "alert('" + salle + adresse + artiste + "')");
+        img.setAttribute("style", "position:absolute; top:" + lat[i] + "px;left:" + lon[i] + "px; height:5%; width:5%;");
+        div.appendChild(img);
+
     }
 
 
