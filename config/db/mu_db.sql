@@ -12,7 +12,7 @@ CREATE TABLE`utilisateur` (
 `CP` varchar(5),
 `ville` varchar(30) DEFAULT NULL,
 `avatar` varchar(255),
-  KEY `id` (`id`)
+PRIMARY KEY `id` (`id`)
 );
 
 CREATE TABLE `validation` (
@@ -21,7 +21,7 @@ CREATE TABLE `validation` (
   `passe` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `dateValidation` timestamp NULL DEFAULT NULL,
-  KEY `idValidation` (`idValidation`)
+ PRIMARY KEY `idValidation` (`idValidation`)
 );
 
 CREATE TABLE `artiste` (
@@ -31,7 +31,7 @@ CREATE TABLE `artiste` (
 `descriptionArtiste` varchar(255),
 `genreMusicalArtiste` varchar(255),
 `proprietaireArtiste` int(255),
-KEY `nArtiste` (`nArtiste`),
+PRIMARY KEY `nArtiste` (`nArtiste`),
 FOREIGN KEY(proprietaireArtiste) REFERENCES utilisateur(id)
 );
 
@@ -51,7 +51,7 @@ CREATE TABLE `salle` (
 `nomGerant` varchar (50),
 `prenomGerant` varchar (50),
 `contactGerant` varchar (50),
-KEY `nSalle` (`nSalle`),
+PRIMARY KEY `nSalle` (`nSalle`),
 FOREIGN KEY(proprietaireSalle) REFERENCES utilisateur(id)
 );
 
@@ -60,7 +60,7 @@ CREATE TABLE `concert` (
 `nSalle` int(255) NOT NULL,
 `nArtiste` int(255) NOT NULL,
 `dateConcert` date NOT NULL,
-KEY `nConcert`(`nConcert`),
+PRIMARY KEY `nConcert`(`nConcert`),
 FOREIGN KEY(nSalle) REFERENCES salle (nSalle),
 FOREIGN KEY(nArtiste) REFERENCES artiste (nArtiste)
 );
@@ -72,7 +72,7 @@ CREATE TABLE `petiteAnnonce` (
 `dateDeb` DATE NOT NULL,
 `dateFin` DATE,
 `dateEditionPetiteAnnonce` timestamp,
-KEY `nPetiteAnnonce`(`nPetiteAnnonce`),
+PRIMARY KEY `nPetiteAnnonce`(`nPetiteAnnonce`),
 FOREIGN KEY(auteur) REFERENCES salle (nSalle)
 );
 
@@ -81,7 +81,7 @@ CREATE TABLE `annonceEvenementSalle` (
 `auteur` int(255) NOT NULL,
 `texteAnnonceEvenementSalle` varchar(255),
 `dateEditionAnnonceEvenementSalle` timestamp,
-KEY `nAnnonceEvenementSalle`(`nAnnonceEvenementSalle`),
+PRIMARY KEY `nAnnonceEvenementSalle`(`nAnnonceEvenementSalle`),
 FOREIGN KEY(auteur) REFERENCES salle (nSalle)
 );
 
@@ -90,7 +90,7 @@ CREATE TABLE `annonceEvenementArtiste` (
 `nAnnonceEvenementArtiste` int(255) NOT NULL AUTO_INCREMENT,
 `texteAnnonceEvenementArtiste` varchar(255),
 `dateEditionAnnonceEvenementArtiste` timestamp,
-KEY `nAnnonceEvenementArtiste`(`nAnnonceEvenementArtiste`),
+PRIMARY KEY `nAnnonceEvenementArtiste`(`nAnnonceEvenementArtiste`),
 FOREIGN KEY(auteur) REFERENCES artiste (nArtiste)
 );
 
@@ -100,7 +100,7 @@ CREATE TABLE `commentaireSalle` (
 `texteCommentaireSalle` varchar(255),
 `dateEditionCommentaireSalle` timestamp,
 `auteur` int(255)NOT NULL,
-KEY `nCommentaireSalle`(`nCommentaireSalle`),
+PRIMARY KEY `nCommentaireSalle`(`nCommentaireSalle`),
 FOREIGN KEY(cible) REFERENCES salle (nSalle),
 FOREIGN KEY(auteur) REFERENCES utilisateur (id)
 );
@@ -111,7 +111,7 @@ CREATE TABLE `commentaireArtiste` (
 `texteCommentaireArtiste` varchar(255),
 `dateEditionCommentaireArtiste` timestamp,
 `auteur` int(255) NOT NULL,
-KEY `nCommentaireArtiste`(`nCommentaireArtiste`),
+PRIMARY KEY `nCommentaireArtiste`(`nCommentaireArtiste`),
 FOREIGN KEY(cible) REFERENCES artiste (nArtiste),
 FOREIGN KEY(auteur) REFERENCES utilisateur (id)
 );
@@ -120,7 +120,7 @@ CREATE TABLE `albumPhotoArtiste` (
 `nPhotoArtiste` int(255) NOT NULL AUTO_INCREMENT,
 `proprietaire` int(255) NOT NULL,
 `photoArtiste` varchar(255),
-KEY `nPhotoArtiste`(`nPhotoArtiste`),
+PRIMARY KEY `nPhotoArtiste`(`nPhotoArtiste`),
 FOREIGN KEY(proprietaire) REFERENCES artiste (nArtiste)
 );
 
@@ -128,7 +128,7 @@ CREATE TABLE `albumPhotoSalle` (
 `nPhotoSalle` int(255) NOT NULL AUTO_INCREMENT,
 `proprietaire` int(255) NOT NULL,
 `photoSalle` varchar(255),
-KEY `nPhotoSalle`(`nPhotoSalle`),
+PRIMARY KEY `nPhotoSalle`(`nPhotoSalle`),
 FOREIGN KEY(proprietaire) REFERENCES salle (nSalle)
 );
 
@@ -138,7 +138,7 @@ CREATE TABLE `bibliothequeMusicale` (
 `morceau` varchar(255) NOT NULL,
   `titre` varchar(255) NOT NULL,
   `artiste` varchar(255) NOT NULL,
-KEY `nMorceau`(`nMorceau`),
+PRIMARY KEY `nMorceau`(`nMorceau`),
 FOREIGN KEY(proprietaire) REFERENCES artiste (nArtiste)
 );
 
