@@ -50,7 +50,7 @@ $(document).ready(function() {
         
         
         a.setAttribute("href", "salle.php?tmp=" + nsalle);
-		a.setAttribute("title", "La salle : " + salle + "\nL'adresse : " + adresse + "\nL'artiste qui y participe : "+ artiste + "\nCliquez pour voir la salle où se situe le concert");
+		a.setAttribute("title", "La salle : " + salle + "\nL'adresse : " + adresse + "\nL'artiste qui y participe : "+ artiste + "\nCliquez pour voir où se situe le concert");
 		
            
         img.setAttribute("src", "web/image/carte/etoile.svg");
