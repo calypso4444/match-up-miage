@@ -28,6 +28,7 @@ if ($vars['estConnecte'] === true) {
     <!-- FIN -->
 
     <h1><?php echo $vars['nomProfil']; ?></h1>
+    <p class="text-center"><?php echo $vars['genre']; ?></p>
 
     <!-- Permet d'afficher le menu admin -->
     <input type="button" onclick="masquer_div('artisteAdmin')" value="Masquer/Afficher"></button>

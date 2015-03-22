@@ -11,7 +11,6 @@
                 <table class="table">
                     <tbody>
 
-
                         <!-- Début champs pour entrer son nom d'artiste -->
 
                         <tr>
@@ -35,44 +34,44 @@
                                 <label class="control-label" for="genreMusical">Votre genre musical :</label>
                             </td>
                             <td style="">                                
-                        
-                        <select name="genreMusical">
-                        <option></option>
-                        <option> R&B </option>
-                        <option> Punk </option>
-                        <option> Classique</option>
-                        <option> Metal</option>
-                        <option> Pop</option>
-                        <option> Rap</option>
-                        <option> Reggae</option>
-                        <option> Dance </option>          
-                        </select>
-                        
-                        <select name="genreMusical" size="l">                        
-                        <option></option>
-                        <option> Punk </option>
-                        <option> Classique</option>
-                        <option> Metal</option>
-                        <option> Pop</option>
-                        <option> Rap</option>
-                        <option> Reggae</option>
-                        <option> Dance </option>          
-                        </select>
-                    
-						<select name="genreMusical3" size="l">                                                
-                        <option></option>
-                        <option> Classique</option>
-                        <option> Metal</option>
-                        <option> Pop</option>
-                        <option> Rap</option>
-                        <option> Reggae</option>
-                        <option> Dance </option>          
-                        </select>
-                            
-         
+
+                                <select name="genreMusical">
+                                    <option></option>
+                                    <option> R&B </option>
+                                    <option> Punk </option>
+                                    <option> Classique</option>
+                                    <option> Metal</option>
+                                    <option> Pop</option>
+                                    <option> Rap</option>
+                                    <option> Reggae</option>
+                                    <option> Dance </option>          
+                                </select>
+
+                                <select name="genreMusical2" size="l">                        
+                                    <option></option>
+                                    <option> Punk </option>
+                                    <option> Classique</option>
+                                    <option> Metal</option>
+                                    <option> Pop</option>
+                                    <option> Rap</option>
+                                    <option> Reggae</option>
+                                    <option> Dance </option>          
+                                </select>
+
+                                <select name="genreMusical3" size="l">                                                
+                                    <option></option>
+                                    <option> Classique</option>
+                                    <option> Metal</option>
+                                    <option> Pop</option>
+                                    <option> Rap</option>
+                                    <option> Reggae</option>
+                                    <option> Dance </option>          
+                                </select>
+
+
                             </td>
-                      <!-- Fin champs pour entrer son genre musical -->
-           
+                            <!-- Fin champs pour entrer son genre musical -->
+
                         </tr>
 
                         <tr>
