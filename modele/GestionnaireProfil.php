@@ -333,7 +333,7 @@ class GestionnaireProfil extends Gestionnaire {
         $max = $row['idmax'];
         $nRand = rand(1, $max);
         $trouve = false;
-        while ($trouve === false) {
+        while ($trouve == false) {
             $tmp = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['BIBLIOTHEQUE'] . " WHERE nMorceau=$nRand;");
             if ($tmp !== false) {
                 $row = mysqli_fetch_assoc($tmp);

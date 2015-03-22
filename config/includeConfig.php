@@ -24,6 +24,8 @@ $GLOBALS['DB_TABLE'] = array(
     'EVENEMENT_SUIVI' => 'evenementSuivi',
     'FAVORI_A' => 'favoriArtiste',
     'FAVORI_S' => 'favoriSalle',
+    'NOTE_S' => 'noteSalle',
+    'NOTE_A' => 'noteArtiste'
     
 );
 ?>
