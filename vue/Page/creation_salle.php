@@ -77,17 +77,47 @@
         
         <!-- Début champs pour modifier le genre musical --> 
         
-        <tr> 
-	        <td>
-            <label class="control-label" for="genreMusical">Votre genre musical :</label>
-	        </td>
-	        <td>
-                <input class="form-control" id="genreMusical" type="text" name="genreMusical" placeholder="" value=""/>
-	        </td>
-	        <td>
-                <span id="genreMusicalInfo"></span>
-            </td>
-        </tr>
+         <tr>
+                            <td> 
+                                <label class="control-label" for="genreMusical">Votre genre musical :</label>
+                            </td>
+                            <td>                                
+                        <select name="genreMusical" size="l">
+                        <option> R&B </option>
+                        <option> Punk </option>
+                        <option> Classique</option>
+                        <option> Metal</option>
+                        <option> Pop</option>
+                        <option> Rap</option>
+                        <option> Reggae</option>
+                        <option> Dance </option>          
+                        </select>
+                    
+                            </td>                            
+                            <td>
+                               <select name="genreMusical" size="l">                        
+                        <option> Punk </option>
+                        <option> Classique</option>
+                        <option> Metal</option>
+                        <option> Pop</option>
+                        <option> Rap</option>
+                        <option> Reggae</option>
+                        <option> Dance </option> 
+                        <option></option>
+                        </select>
+                            </td>
+                            <td>
+                                <select name="genreMusical3" size="l">                                                
+                        <option> Classique</option>
+                        <option> Metal</option>
+                        <option> Pop</option>
+                        <option> Rap</option>
+                        <option> Reggae</option>
+                        <option> Dance </option> 
+                        <option></option>
+                        </select>
+                            </td>
+                        </tr>
         
         <!-- Fin champs pour modifier le genre musical -->
        
