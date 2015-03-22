@@ -12,6 +12,9 @@ include_once 'config/includeGlobal.php';
 //on initialise une variable qui permettra d'indiquer si l'utilisateur est connecté, il pourra interagir avec le systeme si oui, si non il sera redirigé  
 $estConnecte = '';
 
+$participe = false;
+$metEnFavori = false;
+
 $noProfil = filter_input(INPUT_GET, 'tmp');
 $infoProfil = $model['GestionnaireProfil']->getAllInfo_Artiste($noProfil);
 $nomProfil = $infoProfil['nomArtiste'];
@@ -21,6 +24,13 @@ $genre = $infoProfil['genreMusicalArtiste'];
 
 $id = $_SESSION['user']['id'];
 
+//renvoit un boolean qui indique si l'utilisateur courant est le proprietaire du profil courant
+$estProprietaire = false;
+if (isset($id)) {
+    $estProprietaire = $model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id);
+}
+
+//ajout en favori
 $favori = filter_input(INPUT_GET, 'fav');
 if ($favori === "true") {
     if (!isset($id)) {
@@ -28,11 +38,11 @@ if ($favori === "true") {
     } else {
         $estConnecte = true;
         $model['GestionnaireUtilisateur']->ajouterEnFavoriArtiste($noProfil, $id);
+        $metEnFavori = true;
     }
 }
 
-$commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdArtiste($noProfil);
-
+//ajout de commentaire
 $texte = filter_input(INPUT_POST, 'commentaire');
 if (!empty($texte)) {
     if (!isset($id)) {
@@ -41,10 +51,9 @@ if (!empty($texte)) {
         $estConnecte = true;
         $texte = htmlspecialchars($texte);
         $model['GestionnaireCommentaire']->commenterArtiste($noProfil, $id, $texte);
-        $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdArtiste($noProfil);
     }
 }
-
+//suppression de commentaire
 $nCom = filter_input(INPUT_GET, 'nCom');
 $removeComment = filter_input(INPUT_POST, 'removeComment');
 if ($removeComment === "true") {
@@ -52,9 +61,10 @@ if ($removeComment === "true") {
         $model['GestionnaireCommentaire']->supprimerCommentaireArtiste($nCom);
     }
 }
+//recuperation de tous les commentaires pour l'affichage
 $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdArtiste($noProfil);
-$annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdArtiste($noProfil);
 
+//suppression d'une photo dans l'album photo
 $nPhoto = filter_input(INPUT_GET, 'nP');
 $removePhoto = filter_input(INPUT_POST, 'removePhoto');
 if ($removePhoto === "true") {
@@ -62,8 +72,7 @@ if ($removePhoto === "true") {
         $model['GestionnaireProfil']->supprimerPhotoArtiste($noProfil, $nPhoto);
     }
 }
-$albumPhoto = $model['GestionnaireProfil']->getAllPhotoArtisteById($noProfil);
-
+//ajout de photo dans l'album photo
 if (isset($_FILES['mon_fichier'])) {
     $tab_img = $_FILES['mon_fichier'];
     if ($_FILES['mon_fichier']['error'] > 0) {
@@ -87,6 +96,8 @@ if (isset($_FILES['mon_fichier'])) {
         $albumPhoto = $model['GestionnaireProfil']->getAllPhotoArtisteById($noProfil);
     }
 }
+//recuperation de toutes les photos de l'album pour l'affichage
+$albumPhoto = $model['GestionnaireProfil']->getAllPhotoArtisteById($noProfil);
 
 //creation d'annonce
 $texteAnnonce = filter_input(INPUT_POST, 'posterAnnonce');
@@ -95,12 +106,13 @@ if (!empty($texteAnnonce)) {
     $model['GestionnaireAnnonce']->creerAnnonceEvenementArtiste($noProfil, $texteAnnonce);
     $annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdArtiste($noProfil);
 }
-
 //suppression d'annonce
 $nAnnonceEvenement = filter_input(INPUT_GET, 'nAnnonceEvenement');
 $model['GestionnaireAnnonce']->supprimerAnnonceEvenementByIdArtiste($noProfil, $nAnnonceEvenement);
+//recuperation des annonces pour l'affichage
 $annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdArtiste($noProfil);
 
+//ajout de morceau
 $titre = filter_input(INPUT_POST, 'titre');
 if (isset($_FILES['morceau'])and ! empty($titre)) {
     if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
@@ -118,11 +130,10 @@ if (isset($_FILES['morceau'])and ! empty($titre)) {
         $resultat = move_uploaded_file($tab_son['tmp_name'], $chemin);
         if ($resultat) {
             $model['GestionnaireProfil']->ajouterMorceau($noProfil, $titre, $nomProfil, $chemin);
-            $playlist = $model['GestionnaireProfil']->getAllMorceau($noProfil);
         }
     }
 }
-
+//suppression de morceau 
 $nMorceau = filter_input(INPUT_GET, 'nMorceau');
 $removeSong = filter_input(INPUT_POST, 'removeSong');
 if ($removeSong === "true") {
@@ -130,23 +141,26 @@ if ($removeSong === "true") {
         $model['GestionnaireProfil']->supprimerMorceau($noProfil, $nMorceau);
     }
 }
-
+//recuperation de tous les morceaux de l'artiste
 $playlist = $model['GestionnaireProfil']->getAllMorceau($noProfil);
+
+//choix de la chanson a jouer dans le player
 $piste = filter_input(INPUT_GET, 'nPiste');
 if (isset($piste)) {
     $piste = $model['GestionnaireProfil']->getMorceau($piste);
-}$commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdArtiste($noProfil);
+}
 
+//recuperation des concerts futurs 
 $concerAVenir = $model['GestionnaireConcert']->GetConcertByArtiste($noProfil);
 
+//gestion de la participation d'un utilisateur a un concert
 $participation = filter_input(INPUT_GET, 'nConcert');
 if (isset($participation)) {
     if (isset($id)) {
         $model['GestionnaireUtilisateur']->participer($id, $participation);
+        $participe = true;
     }
 }
-
-$estProprietaire = $model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id);
 
 //les notes
 $note = filter_input(INPUT_GET, 'note');
@@ -154,24 +168,26 @@ if (isset($note)) {
     if (!isset($id)) {
         $estConnecte = false;
     } else {
-       $estConnecte=true; 
-       $model['GestionnaireUtilisateur']->noterArtiste($noProfil, $id,$note);
+        $estConnecte = true;
+        $model['GestionnaireUtilisateur']->noterArtiste($noProfil, $id, $note);
     }
 }
-$noteMoyenne=$model['GestionnaireUtilisateur']->getNoteArtiste($noProfil);
+$noteMoyenne = $model['GestionnaireUtilisateur']->getNoteArtiste($noProfil);
 
 /* fin de séquence */
 
 /* affichage de la vue */
 
 $vue = array();
-$vue['estConnecte']=$estConnecte;
+$vue['estConnecte'] = $estConnecte;
+$vue['participe'] = $participe;
+$vue['metEnFavori'] = $metEnFavori;
 $vue['noProfil'] = $noProfil;
 $vue['nomProfil'] = $nomProfil;
 $vue['photoProfil'] = $photoProfil;
 $vue['descProfil'] = $descProfil;
 $vue['genre'] = $genre;
-$vue['noteMoyenne']=$noteMoyenne;
+$vue['noteMoyenne'] = $noteMoyenne;
 $vue['albumPhoto'] = $albumPhoto;
 $vue['commentaire'] = $commentaires;
 $vue['aVenir'] = $concerAVenir;

@@ -12,6 +12,9 @@ include_once 'config/includeGlobal.php';
 //on initialise une variable qui permettra d'indiquer si l'utilisateur est connecté, il pourra interagir avec le systeme si oui, si non il sera redirigé  
 $estConnecte = '';
 
+$participe = false;
+$metEnFavori = false;
+
 $noProfil = filter_input(INPUT_GET, 'tmp');
 $infoProfil = $model['GestionnaireProfil']->getAllInfo_Salle($noProfil);
 $nomProfil = $infoProfil['nomSalle'];
@@ -26,6 +29,13 @@ $tel = $infoProfil['telSalle'];
 
 $id = $_SESSION['user']['id'];
 
+//renvoit un boolean qui indique si l'utilisateur courant est le proprietaire du profil courant
+$estProprietaire = false;
+if (isset($id)) {
+    $estProprietaire = $model['GestionnaireProfil']->estProprietaireProfilSalle($noProfil, $id);
+}
+
+//ajout du profil courant en favori
 $favori = filter_input(INPUT_GET, 'fav');
 if ($favori === "true") {
     if (!isset($id)) {
@@ -33,13 +43,11 @@ if ($favori === "true") {
     } else {
         $estConnecte = true;
         $model['GestionnaireUtilisateur']->ajouterEnFavoriSalle($noProfil, $id);
+        $metEnFavori = true;
     }
 }
 
-$petiteAnnonces = $model['GestionnaireAnnonce']->getAllPetiteAnnonceByIdSalle($noProfil);
-$annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdSalle($noProfil);
-$commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($noProfil);
-
+//ajout d'un commentaire
 $texte = filter_input(INPUT_POST, 'commentaire');
 if (!empty($texte)) {
     if (!isset($id)) {
@@ -48,10 +56,9 @@ if (!empty($texte)) {
         $estConnecte = true;
         $texte = htmlspecialchars($texte);
         $model['GestionnaireCommentaire']->commenterSalle($noProfil, $id, $texte);
-        $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($noProfil);
     }
 }
-
+//suppression d'un commentaire
 $nCom = filter_input(INPUT_GET, 'nCom');
 $remove = filter_input(INPUT_POST, 'remove');
 if ($remove === "true") {
@@ -59,8 +66,10 @@ if ($remove === "true") {
         $model['GestionnaireCommentaire']->supprimerCommentaireSalle($nCom);
     }
 }
+//recuperation de tous les commentaires pour l'affichage
 $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($noProfil);
 
+//suppression d'un photo de l'album
 $nPhoto = filter_input(INPUT_GET, 'nP');
 $removePhoto = filter_input(INPUT_POST, 'removePhoto');
 if ($removePhoto === "true") {
@@ -68,8 +77,7 @@ if ($removePhoto === "true") {
         $model['GestionnaireProfil']->supprimerPhotoSalle($noProfil, $nPhoto);
     }
 }
-$albumPhoto = $model['GestionnaireProfil']->getAllPhotoSalleById($noProfil);
-
+//ajout d'un photo a l'album
 if (isset($_FILES['mon_fichier'])) {
     $tab_img = $_FILES['mon_fichier'];
     if ($_FILES['mon_fichier']['error'] > 0) {
@@ -90,18 +98,17 @@ if (isset($_FILES['mon_fichier'])) {
     $resultat = move_uploaded_file($tab_img['tmp_name'], $chemin);
     if ($resultat) {
         $model['GestionnaireProfil']->ajouterPhotoSalle($noProfil, $chemin);
-        $albumPhoto = $model['GestionnaireProfil']->getAllPhotoSalleById($noProfil);
     }
 }
-//suppression d'annonce
+//recuperation de toutes les photos de l'album pour l'affichage
+$albumPhoto = $model['GestionnaireProfil']->getAllPhotoSalleById($noProfil);
+
+//suppression d'une petite annonce
 $nPetiteAnnonce = filter_input(INPUT_GET, 'nPetiteAnnonce');
 $model['GestionnaireAnnonce']->supprimerPetiteAnnonceByIdSalle($noProfil, $nPetiteAnnonce);
-$petiteAnnonces = $model['GestionnaireAnnonce']->getAllPetiteAnnonceByIdSalle($noProfil);
-
+//suppression d'une annonce evenement
 $nAnnonceEvenement = filter_input(INPUT_GET, 'nAnnonceEvenement');
 $model['GestionnaireAnnonce']->supprimerAnnonceEvenementByIdSalle($noProfil, $nAnnonceEvenement);
-$annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdSalle($noProfil);
-
 //creation d'annonce
 $typeAnnonce = filter_input(INPUT_POST, 'typeAnnonce');
 $texteAnnonce = filter_input(INPUT_POST, 'posterAnnonce');
@@ -123,6 +130,9 @@ if (isset($typeAnnonce)) {
         }
     }
 }
+//recuperation de toutes les annonces pour l'affichage
+$petiteAnnonces = $model['GestionnaireAnnonce']->getAllPetiteAnnonceByIdSalle($noProfil);
+$annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdSalle($noProfil);
 
 //proposition de concert
 $nomArtiste = filter_input(INPUT_POST, 'nomArtiste');
@@ -140,32 +150,32 @@ if (isset($nomArtiste)) {
     }
 }
 
-$estProprietaire = $model['GestionnaireProfil']->estProprietaireProfilSalle($noProfil, $id);
-
 //les notes
 $note = filter_input(INPUT_GET, 'note');
 if (isset($note)) {
     if (!isset($id)) {
         $estConnecte = false;
     } else {
-       $estConnecte=true; 
-       $model['GestionnaireUtilisateur']->noterSalle($noProfil, $id,$note);
+        $estConnecte = true;
+        $model['GestionnaireUtilisateur']->noterSalle($noProfil, $id, $note);
     }
 }
-$noteMoyenne=$model['GestionnaireUtilisateur']->getNoteSalle($noProfil);
+$noteMoyenne = $model['GestionnaireUtilisateur']->getNoteSalle($noProfil);
 
 /* fin de séquence */
 
 /* affichage de la vue */
 
 $vue = array();
-$vue['estConnecte']=$estConnecte;
+$vue['estConnecte'] = $estConnecte;
+$vue['participe'] = $participe;
+$vue['metEnFavori'] = $metEnFavori;
 $vue['noProfil'] = $noProfil;
 $vue['nomProfil'] = $nomProfil;
 $vue['photoProfil'] = $photoProfil;
 $vue['descProfil'] = $descProfil;
 $vue['genre'] = $genre;
-$vue['noteMoyenne']=$noteMoyenne;
+$vue['noteMoyenne'] = $noteMoyenne;
 $vue['albumPhoto'] = $albumPhoto;
 $vue['petiteAnnonce'] = $petiteAnnonces;
 $vue['annonceEvenement'] = $annoncesEvenement;
