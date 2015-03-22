@@ -7,6 +7,20 @@ if ($vars['estConnecte'] === false) {
 }
 ?>
 
+<!--si l'utilisateur clique sur le bouton je participe, on le redirige vers la page mes_particpations-->
+<?php
+if ($vars['participe'] === true) {
+    echo "<script>document.location.href='f_mes_participations.php'</script>";
+}
+?>
+
+<!--si l'utilisateur met le profil en favori, on le redirige vers la page mes favoris-->
+<?php
+if ($vars['estConnecte'] === true) {
+    echo "<script>document.location.href='f_mes_favoris.php'</script>";
+}
+?>
+
 <div class="col-lg-12">
 
     <!-- Permet de récupérer nos informations pour notre carte -->
@@ -92,7 +106,7 @@ if ($vars['estConnecte'] === false) {
                     ?>
                 </table>
             </div>
-            
+
             <div id="interactionArtiste" style='border-top: solid 2px black'>
                 <p>proposer un concert à un artiste</p>
                 <form action="salle.php?tmp=<?php echo $vars['noProfil'] ?>" method="post" id="proposerConcert">
@@ -103,9 +117,11 @@ if ($vars['estConnecte'] === false) {
                     <input type="submit" name='proposerConcert' value='Valider'/>
                 </form>
                 <?php echo ($vars['ok']) ? "<script>document.location.href='f_message.php?destA=" . $vars['nArtiste'] . "&dC=" . $vars['dateConcert'] . "&nS=" . $vars['noProfil'] . "'</script>" : null; ?>
-                <?php if (($vars['existeArtiste']) === false) {
+                <?php
+                if (($vars['existeArtiste']) === false) {
                     echo"<script>alert('nom incorrect');</script>";
-                } ?>
+                }
+                ?>
             </div>
         </div>
 

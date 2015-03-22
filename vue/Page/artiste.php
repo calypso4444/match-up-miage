@@ -7,6 +7,20 @@ if ($vars['estConnecte'] === false) {
 }
 ?>
 
+<!--si l'utilisateur clique sur le bouton je participe, on le redirige vers la page mes_particpations-->
+<?php
+if ($vars['participe'] === true) {
+    echo "<script>document.location.href='f_mes_participations.php'</script>";
+}
+?>
+
+<!--si l'utilisateur met le profil en favori, on le redirige vers la page mes favoris-->
+<?php
+if ($vars['estConnecte'] === true) {
+    echo "<script>document.location.href='f_mes_favoris.php'</script>";
+}
+?>
+
 <div class="col-lg-12">
 
     <!-- Permet de récupérer nos informations pour notre carte -->
