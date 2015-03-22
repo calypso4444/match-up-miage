@@ -4,6 +4,7 @@ $(document).ready(function() {
     var txt = $('#concertCarte').val();
     //comme c'est le format json_encode, on utilise la fonction JSON.parse afin d'obtenir un objet manipulable avec notre js
     var concertCarte = JSON.parse(txt);
+    alert(txt);
     //on initialise deux tableaux qui vont nous servir a stocker les coordonnees des salles qu'on a recuperées juste avant (celles où il y un concert)
     var lon = new Array();
     var lat = new Array();
@@ -37,6 +38,8 @@ $(document).ready(function() {
         adresse = concertCarte[i].adresseSalle;
         artiste = concertCarte[i].nomArtiste;
         nsalle = concertCarte[i].nSalle;
+        cpSalle = concertCarte[i].cpSalle;
+        villeSalle = concertCarte[i].villeSalle;
 		
         var tmp = gps2pixel(lat[i], lon[i]);
         lon[i] = tmp.x;
@@ -50,7 +53,7 @@ $(document).ready(function() {
         
         
         a.setAttribute("href", "salle.php?tmp=" + nsalle);
-		a.setAttribute("title", "La salle : " + salle + "\nL'adresse : " + adresse + "\nL'artiste qui y participe : "+ artiste + "\nCliquez pour voir où se situe le concert");
+		a.setAttribute("title", "La salle : " + salle + "\nL'adresse : " + adresse +", "+ cpSalle +", "+ villeSalle + "\nL'artiste qui y participe : "+ artiste + "\nCliquez pour voir où se situe le concert");
 		
            
         img.setAttribute("src", "web/image/carte/etoile.svg");
