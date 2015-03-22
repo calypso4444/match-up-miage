@@ -99,7 +99,7 @@
 	        <span id="descriptionSalleInfo"></span>
 	        </td>
 	        <td>
-                <textarea style="resize:none" class="form-control" id="descriptionSalle" rows="5" type="text" name="descriptionSalle" placeholder="" value=""></textarea>
+                <textarea class="form-control" id="descriptionSalle" rows="5" type="text" name="descriptionSalle" placeholder="" value=""></textarea>
             </td>
 
         </tr>

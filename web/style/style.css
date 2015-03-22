@@ -247,7 +247,7 @@ table#tablePlaylist tr{
     border-top: 1px grey dashed;
 }
 
-section#annonceEvenement, div#gestionAnnonce{
+section#annonceEvenement, div#gestionAnnonce, div#gestionMusique{
     border-left: black solid 2px;
     margin-left:-2px;
 }
@@ -329,3 +329,6 @@ div#gestionPhoto{
     border-bottom: solid black 2px;
 }
 
+textarea{
+    resize: none;
+}

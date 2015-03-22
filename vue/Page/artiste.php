@@ -99,7 +99,6 @@
                                     <input class="filestyle" type="file" id="morceau" accept="audio/*" name="morceau" placeholder="" value="" data-input="false" data-buttonText="Votre son"/>
                                 </td>
                                 <td class="col-lg-2">
-    <!--                                    <input type="hidden" name="MAX_FILE_SIZE" value="300000" />-->
                                     <input class="btn btn-default" type="submit" value="Upload">
                                 </td>
                             </tr>
@@ -140,7 +139,7 @@
             <div id="posterAnnonce">
                 <p>poster une annonce</p>
                 <form action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" method="post" id="posterAnnonce">
-                    <textarea class="form-control" rows="5" id="posterAnnonce" type="text" name="posterAnnonce" placeholder="" value=""/></textarea>
+                    <textarea  class="form-control" rows="5" id="posterAnnonce" type="text" name="posterAnnonce" placeholder="" value=""/></textarea>
                     </br>
                     <input class="btn btn-default" type="submit" value="Valider" id="envoyer"/>
                 </form>

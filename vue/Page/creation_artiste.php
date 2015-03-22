@@ -52,7 +52,7 @@
                                 <span id="descriptionArtisteInfo"></span>
                             </td>
                             <td>
-                                <textarea style="resize:none" class="form-control" rows="5" id="descriptionArtiste" type="text" name="descriptionArtiste" placeholder="" value=""/></textarea>
+                                <textarea class="form-control" rows="5" id="descriptionArtiste" type="text" name="descriptionArtiste" placeholder="" value=""/></textarea>
                             </td>
                         </tr>
 
@@ -66,7 +66,6 @@
                                 <label class="control-label" for="photoArtiste">Votre photo de profil :</label> 
                             </td>
                             <td>
-                                <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />	
                                 <input class="filestyle" type="file" name="mon_fichier" id="mon_fichier" data-input="false" data-buttonText="Votre photo"/><br/>
                             </td>
                         </tr>
