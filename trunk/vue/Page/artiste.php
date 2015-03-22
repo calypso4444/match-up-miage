@@ -16,7 +16,7 @@ if ($vars['participe'] === true) {
 
 <!--si l'utilisateur met le profil en favori, on le redirige vers la page mes favoris-->
 <?php
-if ($vars['estConnecte'] === true) {
+if ($vars['metEnFavori'] === true) {
     echo "<script>document.location.href='f_mes_favoris.php'</script>";
 }
 ?>
