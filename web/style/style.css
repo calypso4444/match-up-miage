@@ -338,23 +338,12 @@ textarea{
     resize: none;
 }
 
-/*les notes*/
-.rating a {
-   float: right;
-   color: black;
-   text-decoration: none;
-   /*font-size: 3em;*/
-   transition: color .4s;
-}
-.rating a:hover,
-.rating a:focus,
-.rating a:hover ~ a,
-.rating a:focus ~ a {
-   color: #DB2846;
-   cursor: pointer;
-}
 
-div#interaction div{
-   float: left;
+/*les notes*/
+
+/* Bouton Menu admin */
+#afficherMasquer{
+	bottom:0px; 
+	position:absolute; 
+	text-align:right; right:0px
 }
-/*fin notes*/
