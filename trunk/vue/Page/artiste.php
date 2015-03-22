@@ -171,10 +171,12 @@ if ($vars['metEnFavori'] === true) {
         <div id="gestionAnnonce" class="col-lg-4 ">
             <div id="posterAnnonce">
                 <h4>poster une annonce</h4>
-                <form action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" method="post" id="posterAnnonce">
-                    <textarea  class="form-control" rows="5" id="posterAnnonce" type="text" name="posterAnnonce" placeholder="" value=""/></textarea>
-                    </br>
-                    <input class="btn btn-default" type="submit" value="Valider" id="envoyer"/>
+                <form action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" method="post" id="posterAnnonceArtiste">
+	                
+                    <textarea class="form-control" rows="5" id="descriptionAnnonceArtiste" type="text" name="posterAnnonce" placeholder="" value=""/></textarea>
+                    <span id="descriptionArtisteInfo"></span>
+					<br/>
+                    <input class="btn btn-default" type="submit" value="Valider" id="envoyerAnnonce"/>
                 </form>
                 </br>
             </div>
