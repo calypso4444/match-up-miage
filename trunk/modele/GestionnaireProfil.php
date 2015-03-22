@@ -121,7 +121,7 @@ class GestionnaireProfil extends Gestionnaire {
     }
 
     public function setDescriptionArtiste($noprofil, $desc) {
-        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['ARTISTE'] . " SET descriptionArtiste='$desc' WHERE nArtiste = $noprofil;");
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['ARTISTE'] . " SET descriptionArtiste='".mysqli_real_escape_string($this->link, $desc)."' WHERE nArtiste = $noprofil;");
     }
 
     public function setphotoProfilArtiste($noprofil, $path) {
@@ -137,7 +137,7 @@ class GestionnaireProfil extends Gestionnaire {
     }
 
     public function setDescriptionSalle($noprofil, $desc) {
-        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET descriptionSalle='$desc' WHERE nSalle = $noprofil;");
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET descriptionSalle='".mysqli_real_escape_string($this->link, $desc)."' WHERE nSalle = $noprofil;");
     }
 
     public function setphotoProfilSalle($noprofil, $path) {

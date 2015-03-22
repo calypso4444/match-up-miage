@@ -33,39 +33,44 @@ if ($vars['estConnecte'] === true) {
     <div id="photoProfil" class="col-lg-12">
         <img src="<?php echo ($vars['photoProfil'] !== null) ? $vars['photoProfil'] : "web/image/artiste.png"; ?>">
         <!-- Permet d'afficher le menu admin -->
-		<input type="button" id="afficherMasquer" onclick="masquer_div('artisteAdmin')" value="Masquer/Afficher"></button>
-		<!-- Permet d'afficher le menu admin -->
+        <input type="button" id="afficherMasquer" onclick="masquer_div('artisteAdmin')" value="Masquer/Afficher"></button>
+        <!-- Permet d'afficher le menu admin -->
     </div>
 
-    <div id='bandeauProfil' class='col-lg-12 row-same-height'>
-        <div id="description" class="col-lg-6 col-sm-height">
-            <h4>description</h4>
+    <div id='bandeauProfil' class='col-lg-12'>
+        <div id="description" class="col-lg-6">
             <p><?php echo $vars['descProfil']; ?></p>
         </div>
 
-        <div id="genreMusical" class="col-lg-3 col-sm-height">
-            <h4>genre musical</h4>
-            <p><?php echo $vars['genre']; ?></p>
+        <div class="rating col-lg-3" style="border-right:2px solid black;border-left:2px solid black">
+            <table class="table">
+                <tbody>
+                    <tr><td>
+                            <a href="artiste.php?tmp=<?php echo $vars['noProfil']; ?>&note=5" title="Donner 5 étoiles" class=" glyphicon glyphicon-star"></a>
+                            <a href="artiste.php?tmp=<?php echo $vars['noProfil']; ?>&note=4" title="Donner 4 étoiles" class=" glyphicon glyphicon-star"></a>
+                            <a href="artiste.php?tmp=<?php echo $vars['noProfil']; ?>&note=3" title="Donner 3 étoiles" class=" glyphicon glyphicon-star"></a>
+                            <a href="artiste.php?tmp=<?php echo $vars['noProfil']; ?>&note=2" title="Donner 2 étoiles" class=" glyphicon glyphicon-star"></a>
+                            <a href="artiste.php?tmp=<?php echo $vars['noProfil']; ?>&note=1" title="Donner 1 étoile" class=" glyphicon glyphicon-star"></a>
+                        </td>
+                        <td>
+                            (<?php echo $vars['noteMoyenne']; ?>/5)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
-        <div id="interaction" class="col-lg-3 col-sm-height">
+        <div id="interaction" class="col-lg-3">
             <a href="artiste.php?tmp=<?php echo $vars['noProfil']; ?>&fav=true" class="glyphicon glyphicon-heart"> Ajouter en favori </a></br>
             <a href="f_message.php?destA=<?php echo $vars['noProfil']; ?>" class=" glyphicon glyphicon-envelope"> Contacter l'artiste </a></br>
-            (<?php echo $vars['noteMoyenne']; ?>/5)
-            <div class="rating"><!--
-                --><a href="artiste.php?tmp=<?php echo $vars['noProfil']; ?>&note=5" title="Donner 5 étoiles" class=" glyphicon glyphicon-star"></a><!--
-                --><a href="artiste.php?tmp=<?php echo $vars['noProfil']; ?>&note=4" title="Donner 4 étoiles" class=" glyphicon glyphicon-star"></a><!--
-                --><a href="artiste.php?tmp=<?php echo $vars['noProfil']; ?>&note=3" title="Donner 3 étoiles" class=" glyphicon glyphicon-star"></a><!--
-                --><a href="artiste.php?tmp=<?php echo $vars['noProfil']; ?>&note=2" title="Donner 2 étoiles" class=" glyphicon glyphicon-star"></a><!--
-                --><a href="artiste.php?tmp=<?php echo $vars['noProfil']; ?>&note=1" title="Donner 1 étoile" class=" glyphicon glyphicon-star"></a>
-            </div>
+
         </div>
     </div>
 
     <div id="artisteAdmin" class="col-lg-12">
         <div id='gestionPhoto' class='col-lg-4'>
             <div id="uploaderPhoto">
-                <p>uploader une photo</p>
+                <h4>uploader une photo</h4>
                 <form id="album" method="post" action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" enctype="multipart/form-data">
                     <table class="table">
                         <tbody>
@@ -83,7 +88,7 @@ if ($vars['estConnecte'] === true) {
                 </form>
             </div>
             <div id='gererPhoto' style='border-top: dashed black 1px'>
-                <p>mes photos</p>
+                <h4>mes photos</h4>
                 <table class="table">
                     <?php
                     $compteur = 0;
@@ -115,7 +120,7 @@ if ($vars['estConnecte'] === true) {
 
         <div id="gestionMusique" class="col-lg-4">
             <div id="uploaderMorceau">
-                <p>uploader un morceau</p>
+                <h4>uploader un morceau</h4>
                 <form id="formulaireAjoutMusique" name="formulaireAjoutMusique" action='artiste.php?tmp=<?php echo $vars['noProfil'] ?>' method="post" enctype="multipart/form-data">
                     <table class="table">
                         <tbody>
@@ -136,7 +141,7 @@ if ($vars['estConnecte'] === true) {
             </div>
 
             <div id="gererPlaylist" style='border-top: dashed black 1px'>
-                <p>mes morceaux</p>
+                <h4>mes morceaux</h4>
                 <table class="table" id="tablePlaylist">
                     <tbody>
                         <?php
@@ -165,7 +170,7 @@ if ($vars['estConnecte'] === true) {
 
         <div id="gestionAnnonce" class="col-lg-4 ">
             <div id="posterAnnonce">
-                <p>poster une annonce</p>
+                <h4>poster une annonce</h4>
                 <form action="artiste.php?tmp=<?php echo $vars['noProfil']; ?>" method="post" id="posterAnnonce">
                     <textarea  class="form-control" rows="5" id="posterAnnonce" type="text" name="posterAnnonce" placeholder="" value=""/></textarea>
                     </br>
@@ -175,7 +180,7 @@ if ($vars['estConnecte'] === true) {
             </div>
 
             <div id="gererAnnonces" style='border-top: dashed black 1px'>
-                <p>mes annonces</p>
+                <h4>mes annonces</h4>
                 <table class="table">
                     <tbody>
                         <?php
