@@ -251,7 +251,7 @@
 
             <table class="table" id="tablePlaylist">
                 <tbody>
-                    <tr>
+                    <tr style='border-top: transparent 1px solid;'>
                         <td style="color: whitesmoke">
                             <?php
                             if ($vars['piste'] !== null) {

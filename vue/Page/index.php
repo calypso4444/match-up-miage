@@ -52,7 +52,7 @@ if ($vars['estConnecte'] === false) {
                 <tbody>
                     <?php
                     if ($vars['selectionRandom'] !== null) {
-                        echo '<tr><td>';
+                        echo '<tr style="border-top: transparent 1px solid;"><td>';
                         echo'<a href="artiste.php?tmp=' . $vars['selectionRandom']['proprietaire'] . '">';
                         echo $vars['selectionRandom']['titre'];
                         echo ' - ';

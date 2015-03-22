@@ -6,30 +6,24 @@
 
     <div id="lesPetitesAnnonces">
         <table class="table">
-            <thead>
-                <tr>
-                    <th>Posté par</th>
-                    <th>Annonce</th>
-                    <th>Période</th>
-                    <th>Date de parution</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
             <tbody>
                 <?php
                 foreach ($vars['annonces'] as $annonces):
                     echo '<tr>';
-                    echo "<td class='col-lg-4'>" . $annonces['nomSalle'] . "</br><a href=salle.php?tmp=" . $annonces['auteur'] . "><img src='" . $annonces['photoProfilSalle'] . "'/></a></td>";
-                    echo '<td class="col-lg-4"></br>' . $annonces['textePetiteAnnonce'] . '</td>';
+                    echo "<td class='col-lg-3'>" . $annonces['nomSalle'] . "</br><a href=salle.php?tmp=" . $annonces['auteur'] . "><img src='" . $annonces['photoProfilSalle'] . "'/></a></td>";
+                    $dateEdition = new DateTime($annonces['dateEditionPetiteAnnonce']);
+                    echo '<td class="col-lg-8">';
                     $dateDeb = new DateTime($annonces['dateDeb']);
+                    echo '<div class="dateValidite">';
                     if ($annonces['dateFin'] === null) {
-                        echo '<td></br>à partir du </br> ' . $dateDeb->format('d/m/y') . '</td>';
+                        echo 'à partir du </br> ' . $dateDeb->format('d/m');
                     } else {
                         $dateFin = new DateTime($annonces['dateFin']);
-                        echo '<td></br>du </br> ' . $dateDeb->format('d/m/y') . '</br> au </br> ' . $dateFin->format('d/m/y ') . '</td>';
+                        echo 'du ' . $dateDeb->format('d/m') . ' au ' . $dateFin->format('d/m');
                     }
-                    $dateEdition = new DateTime($annonces['dateEditionPetiteAnnonce']);
-                    echo '<td></br>' . $dateEdition->format('d/m/y') . '</td>';
+                    echo'</div>';
+                    echo '<div class="date">' . $dateEdition->format('d/m') . '. </div>';
+                    echo $annonces['textePetiteAnnonce'] . '</td>';
                     echo '<td class="col-lg-1"></br>'
                     . '<a class="btn btn-default" href="f_message.php?destS=' . $annonces['auteur'] . '&nAnnonce=' . $annonces['nPetiteAnnonce'] . '">Postuler</a>'
                     . '</td>';
