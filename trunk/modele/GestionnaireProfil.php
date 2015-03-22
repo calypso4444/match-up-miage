@@ -327,27 +327,29 @@ class GestionnaireProfil extends Gestionnaire {
         mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['BIBLIOTHEQUE'] . " WHERE proprietaire=$noProfil AND nMorceau=$nMorceau");
     }
 
-//    public function getMorceauRandom() {
-//        $tmp = mysqli_query($this->link, "SELECT MAX(nMorceau)AS idmax FROM " . $GLOBALS['DB_TABLE']['BIBLIOTHEQUE'] . ";");
-//        $row = mysqli_fetch_assoc($tmp);
-//        $max = $row['idmax'];
-//        if($max===0){
-//            return null;
-//        }
-//        $nRand = rand(1, $max);
-//        $trouve = false;
-//        while ($trouve == false) {
-//            $tmp = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['BIBLIOTHEQUE'] . " WHERE nMorceau=$nRand;");
-//            if ($tmp !== false) {
-//                $row = mysqli_fetch_assoc($tmp);
-//                if (!empty($row)) {
-//                    $trouve = true;
-//                    return $row;
-//                }
-//                $nRand = rand(1, $max);
-//            }
-//        }
-//    }
+    public function getMorceauRandom() {
+        $tmp = mysqli_query($this->link, "SELECT COUNT(*)AS nLignes FROM " . $GLOBALS['DB_TABLE']['BIBLIOTHEQUE'] . ";");
+        $row = mysqli_fetch_assoc($tmp);
+        if ($row['nLignes'] !== '0') {
+            $tmp = mysqli_query($this->link, "SELECT MAX(nMorceau)AS idmax FROM " . $GLOBALS['DB_TABLE']['BIBLIOTHEQUE'] . ";");
+            $row = mysqli_fetch_assoc($tmp);
+            $max = $row['idmax'];
+            $nRand = rand(1, $max);
+            $trouve = false;
+            while ($trouve == false) {
+                $tmp = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['BIBLIOTHEQUE'] . " WHERE nMorceau=$nRand;");
+                if ($tmp !== false) {
+                    $row = mysqli_fetch_assoc($tmp);
+                    if (!empty($row)) {
+                        $trouve = true;
+                        return $row;
+                    }
+                    $nRand = rand(1, $max);
+                }
+            }
+        }
+        return null;
+    }
 
     private function getXmlCoordsFromAdress($address) {
         $coords = array();
