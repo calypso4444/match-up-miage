@@ -34,17 +34,23 @@
                             <td> 
                                 <label class="control-label" for="genreMusical">Votre genre musical :</label>
                             </td>
-                            <td>
-                                <input class="form-control" id="genreMusical" type="text" name="genreMusical" placeholder="" value=""/>
+                            <td>                                
+                        <select name="genreMusical" size="l">
+                        <option> R&B </option>
+                        <option> Punk </option>
+                        <option> Classique</option>
+                        <option> Metal</option>
+                        <option> Pop</option>
+                        <option> Rap</option>
+                        <option> Reggae</option>
+                        <option> Dance </option>          
+                        </select>
+                    </form>
                             </td>
                             <td>
                                 <span id="genreMusicalInfo"></span>
                             </td>
                         </tr>
-
-                        <!-- Fin champs pour entrer son genre musical -->          
-
-                        <!-- Début champs pour entrer sa description -->  
 
                         <tr>
                             <td>
