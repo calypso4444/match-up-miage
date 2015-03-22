@@ -13,23 +13,12 @@ if ($vars['estConnecte'] === false) {
 
 <div id='bloc1' class='col-lg-12'>
     <h1>que faire ?</h1>
-    <p class='text-center'>Concerts du <?php echo $vars['dateConcert'] . " " . $vars['nomMois']; ?>
+    <p class='text-center'>
 
     <div id='filtreConcert' class='col-lg-2' style='border-top:black 2px solid'>
-        Choisissez un jour</p>
-        <h3><?php echo $vars['nomMois']; ?></h3>
+       	Choisissez un jour</p>
         <form action="que_faire.php" method="post" name='choixJour'>
-            <?php
-            $compteur = 0;
-            for ($i = 1; $i <= $vars['nombreDeJours']; $i++) {
-                echo '<input name="choixJour" type="radio" value="' . $i . '"/>' . $i;
-                $compteur++;
-                if ($compteur === 5) {
-                    echo '</br>';
-                    $compteur = 0;
-                }
-            }
-            ?>
+            <div id="datepicker" class="datepicker"></div>
             </br>
             <input type='submit' class='btn-success' value="Valider"/>
         </form>
