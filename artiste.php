@@ -9,6 +9,9 @@ include_once 'config/includeGlobal.php';
 
 /* séquence du controleur */
 
+//on initialise une variable qui permettra d'indiquer si l'utilisateur est connecté, il pourra interagir avec le systeme si oui, si non il sera redirigé  
+$estConnecte = '';
+
 $noProfil = filter_input(INPUT_GET, 'tmp');
 $infoProfil = $model['GestionnaireProfil']->getAllInfo_Artiste($noProfil);
 $nomProfil = $infoProfil['nomArtiste'];
@@ -20,16 +23,26 @@ $id = $_SESSION['user']['id'];
 
 $favori = filter_input(INPUT_GET, 'fav');
 if ($favori === "true") {
-    $model['GestionnaireUtilisateur']->ajouterEnFavoriArtiste($noProfil, $id);
+    if (!isset($id)) {
+        $estConnecte = false;
+    } else {
+        $estConnecte = true;
+        $model['GestionnaireUtilisateur']->ajouterEnFavoriArtiste($noProfil, $id);
+    }
 }
 
 $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdArtiste($noProfil);
 
 $texte = filter_input(INPUT_POST, 'commentaire');
 if (!empty($texte)) {
-    $texte = htmlspecialchars($texte);
-    $model['GestionnaireCommentaire']->commenterArtiste($noProfil, $id, $texte);
-    $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdArtiste($noProfil);
+    if (!isset($id)) {
+        $estConnecte = false;
+    } else {
+        $estConnecte = true;
+        $texte = htmlspecialchars($texte);
+        $model['GestionnaireCommentaire']->commenterArtiste($noProfil, $id, $texte);
+        $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdArtiste($noProfil);
+    }
 }
 
 $nCom = filter_input(INPUT_GET, 'nCom');
@@ -140,6 +153,7 @@ $estProprietaire = $model['GestionnaireProfil']->estProprietaireProfilArtiste($n
 /* affichage de la vue */
 
 $vue = array();
+$vue['estConnecte']=$estConnecte;
 $vue['noProfil'] = $noProfil;
 $vue['nomProfil'] = $nomProfil;
 $vue['photoProfil'] = $photoProfil;

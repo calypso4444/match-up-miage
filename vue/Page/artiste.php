@@ -1,5 +1,12 @@
 <!-- vue/page -->
 
+<!--si l'utilisateur n'est pas connecté, on le redirige vers la page d'inscription-->
+<?php
+if ($vars['estConnecte'] === false) {
+    echo "<script>document.location.href='inscription.php'</script>";
+}
+?>
+
 <div class="col-lg-12">
 
     <!-- Permet de récupérer nos informations pour notre carte -->
