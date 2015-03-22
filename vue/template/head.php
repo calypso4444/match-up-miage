@@ -22,6 +22,7 @@
         <script type="text/javascript" language="Javascript" src="web/js/bootstrap.file-input.js"></script>
         <script type="text/javascript" src="web/js/verificationMusique.js"></script>
         <script type="text/javascript" src="web/js/verifierDate.js"></script>
+        <script type="text/javascript" src="web/js/intervalDate.js"></script>
         <script type="text/javascript" src="web/js/jquery-ui.min.js"></script>
 		
     </head>
