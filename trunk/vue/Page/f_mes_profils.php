@@ -9,13 +9,6 @@
         <h2>salles</h2>
         <a href='creation_salle.php'> créer un nouveau profil salle</a>
         <table class="table">
-            <thead>
-                <tr>
-                    <th>Snapshot</th>
-                    <th>Nom de la salle</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
             <tbody>
                 <?php
                 foreach ($vars['mesSalles'] as $salle):
