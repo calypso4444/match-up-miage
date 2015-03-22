@@ -4,7 +4,6 @@ $(document).ready(function() {
     var txt = $('#concertCarte').val();
     //comme c'est le format json_encode, on utilise la fonction JSON.parse afin d'obtenir un objet manipulable avec notre js
     var concertCarte = JSON.parse(txt);
-    alert(txt);
     //on initialise deux tableaux qui vont nous servir a stocker les coordonnees des salles qu'on a recuperées juste avant (celles où il y un concert)
     var lon = new Array();
     var lat = new Array();
