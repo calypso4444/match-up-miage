@@ -35,7 +35,7 @@
                             </td>
                             <td style="">                                
 
-                                <select name="genreMusical">
+                                <select name="genreMusical" class='form-control'>
                                     <option></option>
                                     <option> R&B </option>
                                     <option> Punk </option>
@@ -47,7 +47,7 @@
                                     <option> Dance </option>          
                                 </select>
 
-                                <select name="genreMusical2" size="l">                        
+                                <select name="genreMusical2" class='form-control' size="l">                        
                                     <option></option>
                                     <option> Punk </option>
                                     <option> Classique</option>
@@ -58,7 +58,7 @@
                                     <option> Dance </option>          
                                 </select>
 
-                                <select name="genreMusical3" size="l">                                                
+                                <select name="genreMusical3" class='form-control' size="l">                                                
                                     <option></option>
                                     <option> Classique</option>
                                     <option> Metal</option>

@@ -5,43 +5,56 @@
     <h1>petites annonces</h1>
 
     <div class="col-lg-2">
-        <form id="RechercheAvanceGenre" method="post" name="formRechercheAvanceGenre" enctype="multipart/form-data">
-            <tr>                
-            <select name="genreMusical" size="l">
-                        <option> R&B </option>
-                        <option> Punk </option>
-                        <option> Classique</option>
-                        <option> Metal</option>
-                        <option> Pop</option>
-                        <option> Rap</option>
-                        <option> Reggae</option>
-                        <option> Dance </option>          
-                        </select>
-        </tr>
-        <tr>
-            <select name="Arrondissements" size="l">
-                        <option> 1er Arrondissement </option>
-                        <option> 2e Arrondissement </option>
-                        <option> 3e Arrondissement</option>
-                        <option> 4e Arrondissement</option>
-                        <option> 5e Arrondissement</option>
-                        <option> 6e Arrondissement</option>
-                        <option> 7e Arrondissement</option>
-                        <option> 8e Arrondissement </option>          <option> 9e Arrondissement </option>
-                        <option> 10e Arrondissement </option>
-                        <option> 11e Arrondissement </option>
-                        <option> 12e Arrondissement </option>
-                        <option> 13e Arrondissement </option>
-                        <option> 14e Arrondissement </option>
-                        <option> 15e Arrondissement </option>
-                        <option> 16e Arrondissement </option>
-                        <option> 17e Arrondissement </option>
-                        <option> 18e Arrondissement </option>
-                        <option> 19e Arrondissement </option>
-                        <option> 20e Arrondissement </option>
-                        </select>
-        </tr>
+        <h4>Affiner votre recherche</h4>
+
+        <form action='petites_annonces.php' method="post" name="formRechercheAvanceGenre" >
+            <table class="table">
+                <tbody>
+                    <tr> <td> 
+                            <p>Par genre musical</p>
+                            <select class='form-control' name="genreMusical" size="l">
+                                <option></option>
+                                <option> R&B </option>
+                                <option> Punk </option>
+                                <option> Classique</option>
+                                <option> Metal</option>
+                                <option> Pop</option>
+                                <option> Rap</option>
+                                <option> Reggae</option>
+                                <option> Dance </option>          
+                            </select>
+                        </td></tr>
+                    <tr><td>
+                            <p>Par arrondissement</p>
+                            <select class='form-control' name="arrondissement" size="l">
+                                <option></option>
+                                <option> 1er Arrondissement </option>
+                                <option> 2e Arrondissement </option>
+                                <option> 3e Arrondissement</option>
+                                <option> 4e Arrondissement</option>
+                                <option> 5e Arrondissement</option>
+                                <option> 6e Arrondissement</option>
+                                <option> 7e Arrondissement</option>
+                                <option> 8e Arrondissement </option>          
+                                <option> 9e Arrondissement </option>
+                                <option> 10e Arrondissement </option>
+                                <option> 11e Arrondissement </option>
+                                <option> 12e Arrondissement </option>
+                                <option> 13e Arrondissement </option>
+                                <option> 14e Arrondissement </option>
+                                <option> 15e Arrondissement </option>
+                                <option> 16e Arrondissement </option>
+                                <option> 17e Arrondissement </option>
+                                <option> 18e Arrondissement </option>
+                                <option> 19e Arrondissement </option>
+                                <option> 20e Arrondissement </option>
+                            </select>
+                        </td></tr>
+                </tbody>
+            </table>
+            <input type='submit' class="btn btn-default"></input>
         </form>
+        </br>
     </div>
     <div id="lesPetitesAnnonces" class="col-lg-10">
         <table class="table">

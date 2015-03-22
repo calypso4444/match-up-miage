@@ -111,7 +111,7 @@ if ($vars['estConnecte'] === false) {
 <div id="bloc2" class="col-lg-12 row-same-height">
     <section id='carte'class="text-center col-lg-7 col-sm-height">
         <input id="concertCarte" type="hidden" value="<?php echo htmlentities(json_encode($vars['concertCarte'])); ?>"/>
-        <h3>aujourdh'hui &agrave; Paris</h3>
+        <h3>aujourd'hui &agrave; Paris</h3>
         <div id='mapContainer' class='col-lg-12'>
             <img id='map'src='web/image/carte/map.svg'/>
         </div>

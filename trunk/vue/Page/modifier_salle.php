@@ -85,7 +85,7 @@
                         </tr>
 
                         <!-- Fin champs pour modifier le genre musical -->
-                        
+
                         <!-- Début champs pour entrer son genre musical -->
 
                         <tr>
@@ -94,7 +94,7 @@
                             </td>
                             <td style="">                                
 
-                                <select name="genreMusical" placeholder="" >
+                                <select name="genreMusical" class='form-control' placeholder="" >
                                     <option></option>
                                     <option> R&B </option>
                                     <option> Punk </option>
@@ -106,7 +106,7 @@
                                     <option> Dance </option>          
                                 </select>
 
-                                <select name="genreMusical2" size="l">                        
+                                <select name="genreMusical2" class='form-control' size="l">                        
                                     <option></option>
                                     <option> Punk </option>
                                     <option> Classique</option>
@@ -117,7 +117,7 @@
                                     <option> Dance </option>          
                                 </select>
 
-                                <select name="genreMusical3" size="l">                                                
+                                <select name="genreMusical3" class='form-control' size="l">                                                
                                     <option></option>
                                     <option> Classique</option>
                                     <option> Metal</option>
