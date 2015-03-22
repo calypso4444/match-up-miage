@@ -1,4 +1,12 @@
 <!-- vue/page -->
+
+<!--si l'utilisateur n'est pas connecté, on le redirige vers la page d'inscription-->
+<?php
+if ($vars['estConnecte'] === false) {
+    echo "<script>document.location.href='inscription.php'</script>";
+}
+?>
+
 <div id="bloc1" class="col-lg-12 row-same-height">
     <div id="musique" class="col-lg-4 col-sm-height">
         <section id="evenementAttendus">
@@ -99,7 +107,7 @@
 <div id="bloc2" class="col-lg-12 row-same-height">
     <section id='carte'class="text-center col-lg-7 col-sm-height">
         <input id="concertCarte" type="hidden" value="<?php echo htmlentities(json_encode($vars['concertCarte'])); ?>"/>
-        <h3>ce soir &agrave; Paris</h3>
+        <h3>aujourdh'hui &agrave; Paris</h3>
         <div id='mapContainer' class='col-lg-12'>
             <img id='map'src='web/image/carte/map.svg'/>
         </div>
@@ -124,7 +132,7 @@
                     echo "<img src=\"";
                     echo $vars['dernierCommentaireSalle']['avatar'];
                     echo "\">";
-                    echo " ".$vars ['dernierCommentaireSalle'] ['pseudo'] . ""
+                    echo " " . $vars ['dernierCommentaireSalle'] ['pseudo'] . ""
                     . " ("
                     . "<a href='salle.php?tmp=" . $vars['dernierCommentaireSalle']['cible'] . "'>" . $vars['dernierCommentaireSalle'] ['nomSalle'] . "</a>) : </br>";
                     echo $vars ['dernierCommentaireSalle']['texteCommentaireSalle'];
