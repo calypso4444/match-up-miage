@@ -42,7 +42,7 @@ if ($vars['metEnFavori'] === true) {
             <p><?php echo $vars['descProfil']; ?></p>
         </div>
 
-        <div class="rating col-lg-3" style="border-right:2px solid black;border-left:2px solid black">
+        <div class="rating col-lg-3">
             <table class="table">
                 <tbody>
                     <tr><td>

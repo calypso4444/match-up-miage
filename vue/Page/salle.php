@@ -33,37 +33,41 @@ if ($vars['metEnFavori'] === true) {
     <!-- FIN -->
 
     <h1><?php echo $vars['nomProfil']; ?></h1>
+    <p class="text-center"><?php echo $vars['genre']; ?></p>
 
-    
+
     <div id="photoProfil" class="col-lg-12">
         <img src="<?php echo ($vars['photoProfil'] !== null) ? $vars['photoProfil'] : "web/image/salle.png"; ?>">
         <!-- Permet d'afficher le menu admin -->
-		<input type="button" id="afficherMasquer" onclick="masquer_div('salleAdmin')" value="Masquer/Afficher"></button>
-		<!-- Permet d'afficher le menu admin -->
+        <input type="button" id="afficherMasquer" onclick="masquer_div('salleAdmin')" value="Masquer/Afficher"></button>
+        <!-- Permet d'afficher le menu admin -->
     </div>
 
-    <div id="bandeauProfil" class="row-same-height">
-        <div id="description" class="col-lg-6 col-sm-height">
-            <h4>description : </h4>
+    <div id="bandeauProfil" class="col-lg-12">
+        <div id="description" class="col-lg-6">
             <p><?php echo $vars['descProfil']; ?></p>
         </div>
 
-        <div id="genreMusical" class="col-lg-3 col-sm-height">
-            <h4>genre musical : </h4>
-            <p><?php echo $vars['genre']; ?></p>
+        <div class="rating col-lg-3">
+            <table class="table">
+                <tbody>
+                    <tr><td>
+                            <a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&note=5" title="Donner 5 étoiles" class=" glyphicon glyphicon-star"></a>
+                            <a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&note=4" title="Donner 4 étoiles" class=" glyphicon glyphicon-star"></a>
+                            <a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&note=3" title="Donner 3 étoiles" class=" glyphicon glyphicon-star"></a>
+                            <a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&note=2" title="Donner 2 étoiles" class=" glyphicon glyphicon-star"></a>
+                            <a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&note=1" title="Donner 1 étoile" class=" glyphicon glyphicon-star"></a>
+                        </td>
+                        <td>
+                            (<?php echo $vars['noteMoyenne']; ?>/5)
+                        </td>
+                </tbody>
+            </table>
         </div>
 
-        <div id="interaction" class="col-lg-3 col-sm-height">
+        <div id="interaction" class="col-lg-3">
             <a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&fav=true" class="glyphicon glyphicon-heart"> Ajouter en favori </a></br>
             <a href="f_message.php?destS=<?php echo $vars['noProfil']; ?>" class="glyphicon glyphicon-envelope"> Contacter la salle </a></br>
-            (<?php echo $vars['noteMoyenne']; ?>/5)
-            <div class="rating"><!--
-                --><a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&note=5" title="Donner 5 étoiles" class=" glyphicon glyphicon-star"></a><!--
-                --><a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&note=4" title="Donner 4 étoiles" class=" glyphicon glyphicon-star"></a><!--
-                --><a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&note=3" title="Donner 3 étoiles" class=" glyphicon glyphicon-star"></a><!--
-                --><a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&note=2" title="Donner 2 étoiles" class=" glyphicon glyphicon-star"></a><!--
-                --><a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&note=1" title="Donner 1 étoile" class=" glyphicon glyphicon-star"></a>
-            </div>
         </div>
     </div>
 
@@ -80,7 +84,7 @@ if ($vars['metEnFavori'] === true) {
                 </br>
             </div>
             <div id="gererPhoto" style='border-top: dashed black 1px'>
-                <p>mes photos</p>
+                <h4>mes photos</h4>
                 <table class="table">
                     <?php
                     $compteur = 0;
@@ -108,7 +112,7 @@ if ($vars['metEnFavori'] === true) {
             </div>
 
             <div id="interactionArtiste" style='border-top: solid 2px black'>
-                <p>proposer un concert à un artiste</p>
+                <h4>proposer un concert à un artiste</h4>
                 <form action="salle.php?tmp=<?php echo $vars['noProfil'] ?>" method="post" id="proposerConcert">
                     <label for="nomArtiste">Nom de l'artiste</label>
                     <input class="form-control" id="nomArtiste" type="text" name="nomArtiste" placeholder="" value=""/>
@@ -127,15 +131,15 @@ if ($vars['metEnFavori'] === true) {
 
         <div id="gestionAnnonce" class="col-lg-8">
             <div id="posterAnnonce" style="border-bottom: dashed black 1px">
-                <p>poster une annonce</p>
+                <h4>poster une annonce</h4>
                 <form action="salle.php?tmp=<?php echo $vars['noProfil']; ?>" method="post" id="posterAnnonce">
                     <input type="radio" name="typeAnnonce" value="petiteAnnonce"> une petite annonce</input>
                     <input type="radio" name="typeAnnonce" value="annonceEvenement"> une annonce évènementielle</input>
                     </br>                  
                     <label for="dateDebut"> Offre valable du </label>
-					<input type="text" id="from" name="dateDebut">
-					<label for="dateFin">au</label>
-					<input type="text" id="to" name="dateFin">
+                    <input type="text" id="from" name="dateDebut">
+                    <label for="dateFin">au</label>
+                    <input type="text" id="to" name="dateFin">
                     </br></br>
                     <textarea class="form-control" rows="5" id="posterAnnonce" type="text" name="posterAnnonce" placeholder="" value=""/></textarea>
                     </br>
@@ -147,7 +151,7 @@ if ($vars['metEnFavori'] === true) {
 
             <div id="gererAnnonces">
                 <div id="annonceEvenement">
-                    <p>mes annonces évènement</p>
+                    <h4>mes annonces évènement</h4>
                     <table class="table">
                         <tbody>
                             <?php
@@ -168,7 +172,7 @@ if ($vars['metEnFavori'] === true) {
                     </table>
                 </div>
                 <div id="petiteAnnonce" style="border-top: dashed black 1px;">
-                    <p>mes petites annonces</p>
+                    <h4>mes petites annonces</h4>
                     <table class="table">
                         <tbody>
                             <?php
