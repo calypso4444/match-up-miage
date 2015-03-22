@@ -34,8 +34,10 @@
                             <td> 
                                 <label class="control-label" for="genreMusical">Votre genre musical :</label>
                             </td>
-                            <td>                                
-                        <select name="genreMusical" size="l">
+                            <td style="">                                
+                        
+                        <select name="genreMusical">
+                        <option></option>
                         <option> R&B </option>
                         <option> Punk </option>
                         <option> Classique</option>
@@ -45,10 +47,9 @@
                         <option> Reggae</option>
                         <option> Dance </option>          
                         </select>
-                    
-                            </td>                            
-                            <td>
-                               <select name="genreMusical" size="l">                        
+                        
+                        <select name="genreMusical" size="l">                        
+                        <option></option>
                         <option> Punk </option>
                         <option> Classique</option>
                         <option> Metal</option>
@@ -57,9 +58,9 @@
                         <option> Reggae</option>
                         <option> Dance </option>          
                         </select>
-                            </td>
-                            <td>
-                                <select name="genreMusical3" size="l">                                                
+                    
+						<select name="genreMusical3" size="l">                                                
+                        <option></option>
                         <option> Classique</option>
                         <option> Metal</option>
                         <option> Pop</option>
@@ -67,7 +68,11 @@
                         <option> Reggae</option>
                         <option> Dance </option>          
                         </select>
+                            
+         
                             </td>
+                      <!-- Fin champs pour entrer son genre musical -->
+           
                         </tr>
 
                         <tr>
