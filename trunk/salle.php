@@ -9,6 +9,9 @@ include_once 'config/includeGlobal.php';
 
 /* séquence du controleur */
 
+//on initialise une variable qui permettra d'indiquer si l'utilisateur est connecté, il pourra interagir avec le systeme si oui, si non il sera redirigé  
+$estConnecte = '';
+
 $noProfil = filter_input(INPUT_GET, 'tmp');
 $infoProfil = $model['GestionnaireProfil']->getAllInfo_Salle($noProfil);
 $nomProfil = $infoProfil['nomSalle'];
@@ -25,7 +28,12 @@ $id = $_SESSION['user']['id'];
 
 $favori = filter_input(INPUT_GET, 'fav');
 if ($favori === "true") {
-    $model['GestionnaireUtilisateur']->ajouterEnFavoriSalle($noProfil, $id);
+    if (!isset($id)) {
+        $estConnecte = false;
+    } else {
+        $estConnecte = true;
+        $model['GestionnaireUtilisateur']->ajouterEnFavoriSalle($noProfil, $id);
+    }
 }
 
 $petiteAnnonces = $model['GestionnaireAnnonce']->getAllPetiteAnnonceByIdSalle($noProfil);
@@ -34,9 +42,14 @@ $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($
 
 $texte = filter_input(INPUT_POST, 'commentaire');
 if (!empty($texte)) {
-    $texte = htmlspecialchars($texte);
-    $model['GestionnaireCommentaire']->commenterSalle($noProfil, $id, $texte);
-    $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($noProfil);
+    if (!isset($id)) {
+        $estConnecte = false;
+    } else {
+        $estConnecte = true;
+        $texte = htmlspecialchars($texte);
+        $model['GestionnaireCommentaire']->commenterSalle($noProfil, $id, $texte);
+        $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($noProfil);
+    }
 }
 
 $nCom = filter_input(INPUT_GET, 'nCom');
@@ -135,6 +148,7 @@ $estProprietaire = $model['GestionnaireProfil']->estProprietaireProfilSalle($noP
 /* affichage de la vue */
 
 $vue = array();
+$vue['estConnecte']=$estConnecte;
 $vue['noProfil'] = $noProfil;
 $vue['nomProfil'] = $nomProfil;
 $vue['photoProfil'] = $photoProfil;
