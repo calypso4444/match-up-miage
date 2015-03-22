@@ -24,6 +24,8 @@
         <script type="text/javascript" src="web/js/verifierDate.js"></script>
         <script type="text/javascript" src="web/js/intervalDate.js"></script>
         <script type="text/javascript" src="web/js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="web/js/verificationAnnonceArtiste.js"></script>
+        <script type="text/javascript" src="web/js/verificationAnnonceSalle.js"></script>
 		
     </head>
 <body>
