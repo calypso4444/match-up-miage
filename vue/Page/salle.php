@@ -34,12 +34,12 @@ if ($vars['estConnecte'] === true) {
 
     <h1><?php echo $vars['nomProfil']; ?></h1>
 
-    <!-- Permet d'afficher le menu admin -->
-    <input type="button" id="test" onclick="masquer_div('salleAdmin')" value="Masquer/Afficher"></button>
-    <!-- Permet d'afficher le menu admin -->
-
+    
     <div id="photoProfil" class="col-lg-12">
         <img src="<?php echo ($vars['photoProfil'] !== null) ? $vars['photoProfil'] : "web/image/salle.png"; ?>">
+        <!-- Permet d'afficher le menu admin -->
+		<input type="button" id="afficherMasquer" onclick="masquer_div('salleAdmin')" value="Masquer/Afficher"></button>
+		<!-- Permet d'afficher le menu admin -->
     </div>
 
     <div id="bandeauProfil" class="row-same-height">
@@ -133,9 +133,9 @@ if ($vars['estConnecte'] === true) {
                     <input type="radio" name="typeAnnonce" value="annonceEvenement"> une annonce évènementielle</input>
                     </br>
                     offre valable du : 
-                    <input data-format="dd/MM/yyyy" type="text" placeholder="jj/mm/aa" name='dateDeb'/>
+                    <input id="datepicker" class="datepicker" type="text" placeholder="jj/mm/aaaa" name='dateDeb'/>
                     au : 
-                    <input data-format="dd/MM/yyyy" type="text" placeholder="jj/mm/aa" name='dateFin'/>
+                    <input id="datepicker" class="datepicker" type="text" placeholder="jj/mm/aaaa" name='dateFin'/>
                     </br></br>
                     <textarea class="form-control" rows="5" id="posterAnnonce" type="text" name="posterAnnonce" placeholder="" value=""/></textarea>
                     </br>
