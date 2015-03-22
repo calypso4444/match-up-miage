@@ -45,10 +45,28 @@
                         <option> Reggae</option>
                         <option> Dance </option>          
                         </select>
-                    </form>
+                    
+                            </td>                            
+                            <td>
+                               <select name="genreMusical" size="l">                        
+                        <option> Punk </option>
+                        <option> Classique</option>
+                        <option> Metal</option>
+                        <option> Pop</option>
+                        <option> Rap</option>
+                        <option> Reggae</option>
+                        <option> Dance </option>          
+                        </select>
                             </td>
                             <td>
-                                <span id="genreMusicalInfo"></span>
+                                <select name="genreMusical3" size="l">                                                
+                        <option> Classique</option>
+                        <option> Metal</option>
+                        <option> Pop</option>
+                        <option> Rap</option>
+                        <option> Reggae</option>
+                        <option> Dance </option>          
+                        </select>
                             </td>
                         </tr>
 
