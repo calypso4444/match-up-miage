@@ -43,7 +43,7 @@ $artisteFavori = $model['GestionnaireProfil']->getClassementFavoriArtiste();
 $selectionRandom = $model['GestionnaireProfil']->getMorceauRandom();
 
 $date = new DateTime();
-$date = $date->format('20y-m-d');
+$date = $date->format('d/m/20y');
 $concertCarte = $model['GestionnaireCarte']->getAllSalleConcertByDate($date);
 
 $nS = filter_input(INPUT_GET, 'nS');

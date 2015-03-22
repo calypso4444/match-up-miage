@@ -9,13 +9,6 @@
     <div id="mesFavorisSalles" class='col-lg-6'>
         <h2>salles</h2>
         <table class="table">
-            <thead>
-                <tr>
-                    <th>Snapshot</th>
-                    <th>Nom</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
             <tbody>
                 <?php
                 foreach ($vars['mesFavoris_S'] as $fav_s):
@@ -34,13 +27,6 @@
     <div id="mesFavorisArtistes" class='col-lg-6'>
         <h2>artistes</h2>
         <table class="table">
-            <thead>
-                <tr>
-                    <th>Snapshot</th>
-                    <th>Nom</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
             <tbody>
                 <?php
                 foreach ($vars['mesFavoris_A'] as $fav_a):
