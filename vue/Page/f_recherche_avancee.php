@@ -5,7 +5,43 @@
     <h1>recherche avancée</h1>
 
     <div id="optionAvancee" class="col-lg-2" style="border-right : solid black 1px; border-top: solid black 1px; margin-right: -1px">
-        options avancées 
+        <form id="RechercheAvanceGenre" method="post" name="formRechercheAvanceGenre" enctype="multipart/form-data">
+            <tr>                
+            <select name="genreMusical" size="l">
+                        <option> R&B </option>
+                        <option> Punk </option>
+                        <option> Classique</option>
+                        <option> Metal</option>
+                        <option> Pop</option>
+                        <option> Rap</option>
+                        <option> Reggae</option>
+                        <option> Dance </option>          
+                        </select>
+        </tr>
+        <tr>
+            <select name="Arrondissements" size="l">
+                        <option> 1er Arrondissement </option>
+                        <option> 2e Arrondissement </option>
+                        <option> 3e Arrondissement</option>
+                        <option> 4e Arrondissement</option>
+                        <option> 5e Arrondissement</option>
+                        <option> 6e Arrondissement</option>
+                        <option> 7e Arrondissement</option>
+                        <option> 8e Arrondissement </option>          <option> 9e Arrondissement </option>
+                        <option> 10e Arrondissement </option>
+                        <option> 11e Arrondissement </option>
+                        <option> 12e Arrondissement </option>
+                        <option> 13e Arrondissement </option>
+                        <option> 14e Arrondissement </option>
+                        <option> 15e Arrondissement </option>
+                        <option> 16e Arrondissement </option>
+                        <option> 17e Arrondissement </option>
+                        <option> 18e Arrondissement </option>
+                        <option> 19e Arrondissement </option>
+                        <option> 20e Arrondissement </option>
+                        </select>
+        </tr>
+        </form>
         </br>
     </div>
 
