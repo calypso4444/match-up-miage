@@ -15,6 +15,7 @@ body {
     border-top:solid black 2px;
     padding-left: 0;
     padding-right: 0;
+    border-bottom:solid black 2px;
 }
 
 div#photoProfil{
