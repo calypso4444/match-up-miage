@@ -148,6 +148,18 @@ if (isset($participation)) {
 
 $estProprietaire = $model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id);
 
+//les notes
+$note = filter_input(INPUT_GET, 'note');
+if (isset($note)) {
+    if (!isset($id)) {
+        $estConnecte = false;
+    } else {
+       $estConnecte=true; 
+       $model['GestionnaireUtilisateur']->noterArtiste($noProfil, $id,$note);
+    }
+}
+$noteMoyenne=$model['GestionnaireUtilisateur']->getNoteArtiste($noProfil);
+
 /* fin de séquence */
 
 /* affichage de la vue */
@@ -159,6 +171,7 @@ $vue['nomProfil'] = $nomProfil;
 $vue['photoProfil'] = $photoProfil;
 $vue['descProfil'] = $descProfil;
 $vue['genre'] = $genre;
+$vue['noteMoyenne']=$noteMoyenne;
 $vue['albumPhoto'] = $albumPhoto;
 $vue['commentaire'] = $commentaires;
 $vue['aVenir'] = $concerAVenir;
