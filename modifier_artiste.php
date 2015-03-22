@@ -15,6 +15,8 @@ $infoProfil = $model['GestionnaireProfil']->getAllInfo_Artiste($noProfil);
 $nomArtiste = filter_input(INPUT_POST, 'nomArtiste');
 $descArtiste = filter_input(INPUT_POST, 'descriptionArtiste');
 $genreArtiste = filter_input(INPUT_POST, 'genreMusical');
+$genreArtiste2 = filter_input(INPUT_POST, 'genreMusical2');
+$genreArtiste3 = filter_input(INPUT_POST, 'genreMusical3');
 
 if (!empty($nomArtiste)and $nomArtiste !== $infoProfil['nomArtiste']) {
     $model['GestionnaireProfil']->setNomArtiste($noProfil, $nomArtiste);
@@ -26,10 +28,17 @@ if (!empty($descArtiste)and $descArtiste !== $infoProfil['descriptionArtiste']) 
     $infoProfil['descriptionArtiste'] = $descArtiste;
 }
 
-if (!empty($genreArtiste)and $genreArtiste !== $infoProfil['genreMusicalArtiste']) {
+if (!empty($genreArtiste)) {
+    if (!empty($genreArtiste2)) {
+        $genreArtiste = $genreArtiste . " - " . $genreArtiste2;
+    }
+    if (!empty($genreArtiste3)) {
+        $genreArtiste = $genreArtiste . " - " . $genreArtiste3;
+    }
     $model['GestionnaireProfil']->setGenreMusicalArtiste($noProfil, $genreArtiste);
     $infoProfil['genreMusicalArtiste'] = $genreArtiste;
 }
+
 if (isset($_FILES['mon_fichier'])) {
     $tab_img = $_FILES['mon_fichier'];
     if ($_FILES['mon_fichier']['error'] > 0) {
