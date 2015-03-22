@@ -15,6 +15,8 @@ $infoProfil = $model['GestionnaireProfil']->getAllInfo_Salle($noProfil);
 $nomSalle = filter_input(INPUT_POST, 'nomSalle');
 $descSalle = filter_input(INPUT_POST, 'descriptionSalle');
 $genreSalle = filter_input(INPUT_POST, 'genreMusical');
+$genreSalle2 = filter_input(INPUT_POST, 'genreMusical2');
+$genreSalle3 = filter_input(INPUT_POST, 'genreMusical3');
 $adresseSalle = filter_input(INPUT_POST, 'adresseSalle');
 $cpSalle = filter_input(INPUT_POST, 'cpSalle');
 $villeSalle = filter_input(INPUT_POST, 'villeSalle');
@@ -31,10 +33,17 @@ if (!empty($descSalle)and $descSalle !== $infoProfil['descriptionSalle']) {
     $model['GestionnaireProfil']->setDescriptionSalle($noProfil, $descSalle);
     $infoProfil['descSalle'] = $descSalle;
 }
-if (!empty($genreSalle)and $genreSalle !== $infoProfil['genreMusicalSalle']) {
+if (!empty($genreSalle)) {
+    if (!empty($genreSalle2)) {
+        $genreSalle = $genreSalle . " - " . $genreSalle2;
+    }
+    if (!empty($genreSalle3)) {
+        $genreSalle = $genreSalle . " - " . $genreSalle3;
+    }
     $model['GestionnaireProfil']->setGenreMusicalSalle($noProfil, $genreSalle);
     $infoProfil['genreMusicalSalle'] = $genreSalle;
 }
+
 if (isset($_FILES['mon_fichier'])) {
     $tab_img = $_FILES['mon_fichier'];
     if ($_FILES['mon_fichier']['error'] > 0) {
@@ -78,11 +87,11 @@ if (!empty($contactGerant)and $contactGerant !== $infoProfil['contactGerant']) {
     $model['GestionnaireProfil']->setContactGerant($noProfil, $contactGerant);
     $infoProfil['contactGerant'] = $contactGerant;
 }
-if (!empty($cpSalle)and $cpSalle!== $infoProfil['cpSalle']) {
+if (!empty($cpSalle)and $cpSalle !== $infoProfil['cpSalle']) {
     $model['GestionnaireProfil']->setCpSalle($noProfil, $cpSalle);
     $infoProfil['cpSalle'] = $cpSalle;
 }
-if (!empty($villeSalle)and $villeSalle!==$infoProfil['villeSalle']) {
+if (!empty($villeSalle)and $villeSalle !== $infoProfil['villeSalle']) {
     $model['GestionnaireProfil']->setVilleSalle($noProfil, $villeSalle);
     $infoProfil['villeSalle'] = $villeSalle;
 }
