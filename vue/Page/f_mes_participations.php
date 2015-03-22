@@ -17,12 +17,14 @@
                         echo '<tr>';
                     }
                     echo '<td class="col-lg-2">';
-                    echo "ou ? : <a href='salle.php?tmp=" . $concert['nSalle'] . "'>" . $concert['nomSalle'] . "</a>";
-                    echo '</br>';
-                    echo "qui ? : <a href='artiste.php?tmp=" . $concert['nArtiste'] . "'>" . $concert['nomArtiste'] . "</a>";
-                    echo '</br>';
+                    echo'<div class="date">';
                     $date = new DateTime($concert['dateConcert']);
-                    echo "quand? : " . $date->format('d/m/y');
+                    echo $date->format('d/m');
+                    echo '. </div>';
+                    echo "<a href='salle.php?tmp=" . $concert['nSalle'] . "'>" . $concert['nomSalle'] . "</a>";
+                    echo ' - ';
+                    echo "<a href='artiste.php?tmp=" . $concert['nArtiste'] . "'>" . $concert['nomArtiste'] . "</a>";
+                    echo '</br>';
                     echo '</td>';
                     $compteur++;
                     if ($compteur === 5) {

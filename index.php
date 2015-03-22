@@ -9,6 +9,9 @@ include_once 'config/includeGlobal.php';
 
 /* séquence du controleur */
 
+//on initialise une variable qui permettra d'indiquer si l'utilisateur est connecté, il pourra interagir avec le systeme si oui, si non il sera redirigé  
+$estConnecte = '';
+
 //on recupere le dernier commentaire posté a propos d'une salle et le dernier commentaire posté a propos d'un artiste
 $lastA = $model['GestionnaireCommentaire']->getLastCommentaireArtiste();
 $lastS = $model['GestionnaireCommentaire']->getLastCommentaireSalle();
@@ -21,29 +24,33 @@ if ($lastA != null and $lastS !== null) {
     }
 }
 
-$evenements=$model['GestionnaireConcert']->getEvenementsLesPlusSuivis();
+$evenements = $model['GestionnaireConcert']->getEvenementsLesPlusSuivis();
 
-$participation=filter_input(INPUT_GET, 'nConcert');
-if(isset($participation)){
-    if(isset($id)){
-        $model['GestionnaireUtilisateur']->participer($id,$participation);
+$participation = filter_input(INPUT_GET, 'nConcert');
+if (isset($participation)) {
+    $id = $_SESSION['user']['id'];
+    if (!isset($id)) {
+        $estConnecte = false;
+    } else {
+        $estConnecte = true;
+        $model['GestionnaireUtilisateur']->participer($id, $participation);
     }
 }
 
-$salleFavorite=$model['GestionnaireProfil']->getClassementFavoriSalle();
-$artisteFavori=$model['GestionnaireProfil']->getClassementFavoriArtiste();
+$salleFavorite = $model['GestionnaireProfil']->getClassementFavoriSalle();
+$artisteFavori = $model['GestionnaireProfil']->getClassementFavoriArtiste();
 
-$selectionRandom=$model['GestionnaireProfil']->getMorceauRandom();
+$selectionRandom = $model['GestionnaireProfil']->getMorceauRandom();
 
-$date=new DateTime();
-$date=$date->format('20y-m-d');
-$concertCarte=$model['GestionnaireCarte']->getAllSalleConcertByDate($date);
+$date = new DateTime();
+$date = $date->format('20y-m-d');
+$concertCarte = $model['GestionnaireCarte']->getAllSalleConcertByDate($date);
 
-$nS=filter_input(INPUT_GET,'nS');
-$nA=filter_input(INPUT_GET,'nA');
-$dC=filter_input(INPUT_GET,'dC');
-if(isset($nS)and isset($nA)and isset($dC)){
-    $model['GestionnaireConcert']->newConcert($nS,$nA,$dC);
+$nS = filter_input(INPUT_GET, 'nS');
+$nA = filter_input(INPUT_GET, 'nA');
+$dC = filter_input(INPUT_GET, 'dC');
+if (isset($nS)and isset($nA)and isset($dC)) {
+    $model['GestionnaireConcert']->newConcert($nS, $nA, $dC);
 }
 
 /* fin de séquence */
@@ -51,13 +58,14 @@ if(isset($nS)and isset($nA)and isset($dC)){
 /* affichage de la vue */
 
 $vue = array();
+$vue['estConnecte'] = $estConnecte;
 $vue['dernierCommentaireArtiste'] = $lastA;
 $vue['dernierCommentaireSalle'] = $lastS;
-$vue['evenements']=$evenements;
-$vue['salleFavorite']=$salleFavorite;
-$vue['artisteFavori']=$artisteFavori;
-$vue['selectionRandom']=$selectionRandom;
-$vue['concertCarte']=$concertCarte;
+$vue['evenements'] = $evenements;
+$vue['salleFavorite'] = $salleFavorite;
+$vue['artisteFavori'] = $artisteFavori;
+$vue['selectionRandom'] = $selectionRandom;
+$vue['concertCarte'] = $concertCarte;
 $view->render('index', $vue);
 
 /* fin de l'affichage de la vue */
