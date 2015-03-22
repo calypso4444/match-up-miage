@@ -204,7 +204,7 @@ class GestionnaireUtilisateur extends Gestionnaire {
 
     public function getAll_EvenementsSuivis($id) {
         $req = mysqli_query(
-                $this->link, "SELECT A.nArtiste,nomArtiste, S.nSalle, nomSalle, dateConcert "
+                $this->link, "SELECT A.nArtiste,nomArtiste, S.nSalle, nomSalle, dateConcert, nConcert "
                 . " FROM " . $GLOBALS['DB_TABLE']['EVENEMENT_SUIVI'] . " E "
                 . " INNER JOIN " . $GLOBALS['DB_TABLE']['CONCERT'] . " C  ON E.cible=C.nConcert "
                 . " INNER JOIN " . $GLOBALS['DB_TABLE']['SALLE'] . " S  ON S.nSalle=C.nSalle "
@@ -224,6 +224,10 @@ class GestionnaireUtilisateur extends Gestionnaire {
 
     public function participer($id, $nConcert) {
         mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['EVENEMENT_SUIVI'] . " VALUES ($id ,$nConcert) ; ");
+    }
+    
+    public function annulerParticipation($id, $nConcert) {
+        mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['EVENEMENT_SUIVI'] . " WHERE proprietaire=$id AND cible=$nConcert ; ");
     }
 
     private function genererMDP($longueur = 8) {

@@ -24,6 +24,7 @@
                     echo "<a href='salle.php?tmp=" . $concert['nSalle'] . "'>" . $concert['nomSalle'] . "</a>";
                     echo ' - ';
                     echo "<a href='artiste.php?tmp=" . $concert['nArtiste'] . "'>" . $concert['nomArtiste'] . "</a>";
+                    echo "<form id ='suppressionParticipation' action='f_mes_participations.php?nC=" . $concert['nConcert'] . "' method='post'><button id='suppression' class='btn-xs glyphicon glyphicon-remove' type='submit' name='removePhoto' value='true' ></button></form>";
                     echo '</br>';
                     echo '</td>';
                     $compteur++;
