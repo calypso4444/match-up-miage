@@ -23,6 +23,8 @@ if (isset($id)) {
     $nomSalle = filter_input(INPUT_POST, 'nomSalle');
     $descSalle = filter_input(INPUT_POST, 'descriptionSalle');
     $genreSalle = filter_input(INPUT_POST, 'genreMusical');
+    $genreSalle2 = filter_input(INPUT_POST, 'genreMusical2');
+    $genreSalle3 = filter_input(INPUT_POST, 'genreMusical3');
     $adresseSalle = filter_input(INPUT_POST, 'adresseSalle');
     $telSalle = filter_input(INPUT_POST, 'telSalle');
     $nomGerant = filter_input(INPUT_POST, 'nomGerant');
@@ -41,6 +43,12 @@ if (isset($id)) {
         $model['GestionnaireProfil']->setDescriptionSalle($noProfil, $descSalle);
     }
     if (!empty($genreSalle)) {
+        if (!empty($genreSalle2)) {
+            $genreSalle = $genreSalle . " - " . $genreSalle2;
+        }
+        if (!empty($genreSalle3)) {
+            $genreSalle = $genreSalle . " - " . $genreSalle3;
+        }
         $model['GestionnaireProfil']->setGenreMusicalSalle($noProfil, $genreSalle);
     }
 
@@ -76,7 +84,6 @@ if (isset($id)) {
     if (!empty($contactGerant)) {
         $model['GestionnaireProfil']->setContactGerant($noProfil, $contactGerant);
     }
-    
 } else {
     $estConnecte = false;
 }
@@ -86,7 +93,7 @@ if (isset($id)) {
 /* affichage de la vue */
 
 $vue = array();
-$vue['estConnecte']=$estConnecte;
+$vue['estConnecte'] = $estConnecte;
 $view->render('creation_salle', $vue);
 
 /* fin de l'affichage de la vue */

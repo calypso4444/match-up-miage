@@ -49,7 +49,7 @@
                             </td>
                             <td style="">                                
 
-                                <select name="genreMusical" placeholder="<?php echo $vars['genreArtiste']; ?>" >
+                                <select name="genreMusical" placeholder="" >
                                     <option></option>
                                     <option> R&B </option>
                                     <option> Punk </option>
@@ -84,9 +84,10 @@
 
 
                             </td>
-                            <!-- Fin champs pour entrer son genre musical -->         
+                        </tr>
+                        <!-- Fin champs pour entrer son genre musical -->         
 
-                            <!-- Début champs pour entrer sa description -->  
+                        <!-- Début champs pour entrer sa description -->  
 
                         <tr>
                             <td>
