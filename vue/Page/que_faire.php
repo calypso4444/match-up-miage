@@ -16,7 +16,7 @@ if ($vars['estConnecte'] === false) {
     <p class='text-center'>Concerts du <?php echo $vars['dateConcert'] . " " . $vars['nomMois']; ?>
 
     <div id='filtreConcert' class='col-lg-2' style='border-top:black 2px solid'>
-       	Choisissez un jour pour lequel vous voulez un affichage sur ma carte</p>
+       	Choisissez un jour pour lequel vous voulez un affichage sur la carte</p>
         <form action="que_faire.php" method="post" name='choixJour'>
             <input id="datepicker" class="datepicker form-control" name="choixJour"></input>
             </br>
