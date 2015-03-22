@@ -14,18 +14,18 @@ class GestionnaireProfil extends Gestionnaire {
         return $row['id'];
     }
 
-    public function newProfilArtiste($id,$nom) {
+    public function newProfilArtiste($id, $nom) {
         mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['ARTISTE'] . " (proprietaireArtiste,nomArtiste) VALUES($id,'$nom');");
         $tmp = mysqli_query($this->link, "SELECT MAX(nArtiste)AS idmax FROM " . $GLOBALS['DB_TABLE']['ARTISTE'] . " WHERE proprietaireArtiste=$id");
         $row = mysqli_fetch_assoc($tmp);
         return $row['idmax'];
     }
 
-    public function newProfilSalle($id,$nom, $adresse, $cp, $ville) {
+    public function newProfilSalle($id, $nom, $adresse, $cp, $ville) {
         $address = $adresse . ' ' . $cp . ' ' . $ville;
-        $coords =$this->getXmlCoordsFromAdress($address);
-        $latitude=$coords['lat'];
-        $longitude=$coords['lon'];
+        $coords = $this->getXmlCoordsFromAdress($address);
+        $latitude = $coords['lat'];
+        $longitude = $coords['lon'];
         mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['SALLE'] . " (proprietaireSalle,nomSalle,adresseSalle,cpSalle, villeSalle,latitude, longitude) VALUES($id,'$nom','$adresse','$cp','$ville','$latitude','$longitude');");
         $tmp = mysqli_query($this->link, "SELECT MAX(nSalle)AS idmax FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " WHERE proprietaireSalle=$id");
         $row = mysqli_fetch_assoc($tmp);
@@ -333,12 +333,15 @@ class GestionnaireProfil extends Gestionnaire {
         $max = $row['idmax'];
         $nRand = rand(1, $max);
         $trouve = false;
-        while ($trouve == false) {
+        while ($trouve === false) {
             $tmp = mysqli_query($this->link, "SELECT * FROM " . $GLOBALS['DB_TABLE']['BIBLIOTHEQUE'] . " WHERE nMorceau=$nRand;");
             if ($tmp !== false) {
                 $row = mysqli_fetch_assoc($tmp);
-                $trouve = true;
-                return $row;
+                if (!empty($row)) {
+                    $trouve = true;
+                    return $row;
+                }
+                $nRand = rand(1, $max);
             }
         }
     }
