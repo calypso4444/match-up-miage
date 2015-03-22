@@ -41,7 +41,7 @@ $(document).ready(function(){
 	function validateDescriptionArtiste(){
 		
 	var nombreCaractere = $(descriptionArtiste).val().length;
-    var nombreCaractere = 300 - nombreCaractere;
+    var nombreCaractere = 255 - nombreCaractere;
     
     var msg = nombreCaractere + ' caractère(s) restant(s)';
 	descriptionArtisteInfo.text(msg);
