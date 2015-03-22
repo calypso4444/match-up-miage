@@ -9,19 +9,6 @@ if ($vars['estConnecte'] === false) {
 
 <div class="col-lg-12">
 
-
-<script>
-		$(document).ready(function() {
-    $('#datepicker').datepicker({
-	    dateFormat : 'dd/mm/yy',
-	    minDate : 0
-		
-				
-     });
-});
-</script>
-
-
     <!-- Permet de récupérer nos informations pour notre carte -->
     <input id="adresseE" type="hidden" value="<?php echo $vars['adresse'] . " " . $vars['cp'] . " " . $vars['ville']; ?>"></input>
     <input id="nomSalle" type="hidden" value="<?php echo $vars['nomProfil']; ?>"></input>
