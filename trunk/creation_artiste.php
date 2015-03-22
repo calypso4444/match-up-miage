@@ -23,6 +23,8 @@ if (isset($id)) {
     $nomArtiste = filter_input(INPUT_POST, 'nomArtiste');
     $descArtiste = filter_input(INPUT_POST, 'descriptionArtiste');
     $genreArtiste = filter_input(INPUT_POST, 'genreMusical');
+    $genreArtiste2 = filter_input(INPUT_POST, 'genreMusical2');
+    $genreArtiste3 = filter_input(INPUT_POST, 'genreMusical3');
 
     //on commence par cree un profil artiste avec les champs obligatoires si bien rempli par l'utilisateur
     if (!empty($nomArtiste)) {
@@ -34,6 +36,12 @@ if (isset($id)) {
         $model['GestionnaireProfil']->setDescriptionArtiste($noProfil, $descArtiste);
     }
     if (!empty($genreArtiste)) {
+        if (!empty($genreArtiste2)) {
+            $genreArtiste = $genreArtiste . " - " . $genreArtiste2;
+        }
+        if (!empty($genreArtiste3)) {
+            $genreArtiste = $genreArtiste . " - " . $genreArtiste3;
+        }
         $model['GestionnaireProfil']->setGenreMusicalArtiste($noProfil, $genreArtiste);
     }
 
