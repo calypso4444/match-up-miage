@@ -1,5 +1,9 @@
 <!-- vue/page -->
 
+<!-- SCRIPT POUR LA MAP -->
+<script type="text/javascript" src="web/js/carteConcert.js"></script>
+<!-- SCRIPT POUR LA MAP -->
+
 <!--si l'utilisateur n'est pas connecté, on le redirige vers la page d'inscription-->
 <?php
 if ($vars['estConnecte'] === false) {
