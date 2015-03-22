@@ -133,7 +133,11 @@ div#gestionPhoto form#suppressionPhoto{
     position: absolute;
 }
 
-div#texteCommentaire button, div#gestionPhoto button, div#gestionMusique button {
+div#suivi form{
+    display: inline-block;
+}
+
+div#texteCommentaire button, div#gestionPhoto button, div#gestionMusique button, #suivi button {
     background-color: transparent;
 }
 

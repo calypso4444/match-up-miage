@@ -17,6 +17,12 @@ if (!isset($id)) {
 } else {
     $estConnecte = true;
 
+    //annulation de participation
+    $nConcert = filter_input(INPUT_GET, 'nC');
+    if (isset($nConcert)) {
+        $model['GestionnaireUtilisateur']->annulerParticipation($id, $nConcert);
+    }
+
 //recuperation des evenements suivis par l'utilisateur via son id
     $suivis = $model['GestionnaireUtilisateur']->getAll_EvenementsSuivis($id);
 }
