@@ -54,7 +54,6 @@ $(document).ready(function() {
 		
            
         img.setAttribute("src", "web/image/carte/etoile.svg");
-        //img.setAttribute("onmouseover", "alert('" + salle + adresse + artiste + "')");
         img.setAttribute("style", "position:absolute; top:" + lat[i] + "px;left:" + lon[i] + "px; height:4%; width:4%;");
         div.appendChild(a);
         a.appendChild(img);
