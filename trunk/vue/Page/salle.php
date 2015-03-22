@@ -92,7 +92,7 @@ if ($vars['estConnecte'] === false) {
                     <label for="nomArtiste">Nom de l'artiste</label>
                     <input class="form-control" id="nomArtiste" type="text" name="nomArtiste" placeholder="" value=""/>
                     la date que vous proposez : 
-                    <input id="datepicker" class="datepicker" type="text" placeholder="jj/mm/aa" name='dateConcert'/>
+                    <input id="datepicker" class="datepicker" type="text" placeholder="jj/mm/aaaa" name='dateConcert'/>
                     <input type="submit" name='proposerConcert' value='Valider'/>
                 </form>
                 <?php echo ($vars['ok']) ? "<script>document.location.href='f_message.php?destA=" . $vars['nArtiste'] . "&dC=" . $vars['dateConcert'] . "&nS=" . $vars['noProfil'] . "'</script>" : null; ?>

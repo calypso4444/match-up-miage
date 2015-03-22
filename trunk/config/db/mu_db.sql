@@ -1,11 +1,9 @@
--- db en cours de creation
-
 CREATE TABLE`utilisateur` (
   `id` int(255) NOT NULL AUTO_INCREMENT ,
   `pseudo` varchar(30) NOT NULL,
   `passe` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-`dateInscription` timestamp NULL DEFAULT NULL,
+`dateInscription` timestamp NOT NULL,
 `nom` varchar(50),
 `prenom` varchar(50),
 `adresse` varchar(50),
@@ -20,7 +18,7 @@ CREATE TABLE `validation` (
   `pseudo` varchar(30) NOT NULL,
   `passe` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `dateValidation` timestamp NULL DEFAULT NULL,
+  `dateValidation` timestamp NOT NULL,
  PRIMARY KEY `idValidation` (`idValidation`)
 );
 
@@ -33,6 +31,7 @@ CREATE TABLE `artiste` (
 `proprietaireArtiste` int(255),
 PRIMARY KEY `nArtiste` (`nArtiste`),
 FOREIGN KEY(proprietaireArtiste) REFERENCES utilisateur(id)
+ON DELETE CASCADE
 );
 
 CREATE TABLE `salle` (
@@ -53,6 +52,7 @@ CREATE TABLE `salle` (
 `contactGerant` varchar (50),
 PRIMARY KEY `nSalle` (`nSalle`),
 FOREIGN KEY(proprietaireSalle) REFERENCES utilisateur(id)
+ON DELETE CASCADE
 );
 
 CREATE TABLE `concert` (
@@ -61,8 +61,10 @@ CREATE TABLE `concert` (
 `nArtiste` int(255) NOT NULL,
 `dateConcert` date NOT NULL,
 PRIMARY KEY `nConcert`(`nConcert`),
-FOREIGN KEY(nSalle) REFERENCES salle (nSalle),
+FOREIGN KEY(nSalle) REFERENCES salle (nSalle)
+ON DELETE CASCADE,
 FOREIGN KEY(nArtiste) REFERENCES artiste (nArtiste)
+ON DELETE CASCADE
 );
 
 CREATE TABLE `petiteAnnonce` (
@@ -74,6 +76,7 @@ CREATE TABLE `petiteAnnonce` (
 `dateEditionPetiteAnnonce` timestamp,
 PRIMARY KEY `nPetiteAnnonce`(`nPetiteAnnonce`),
 FOREIGN KEY(auteur) REFERENCES salle (nSalle)
+ON DELETE CASCADE
 );
 
 CREATE TABLE `annonceEvenementSalle` (
@@ -83,6 +86,7 @@ CREATE TABLE `annonceEvenementSalle` (
 `dateEditionAnnonceEvenementSalle` timestamp,
 PRIMARY KEY `nAnnonceEvenementSalle`(`nAnnonceEvenementSalle`),
 FOREIGN KEY(auteur) REFERENCES salle (nSalle)
+ON DELETE CASCADE
 );
 
 CREATE TABLE `annonceEvenementArtiste` (
@@ -92,6 +96,7 @@ CREATE TABLE `annonceEvenementArtiste` (
 `dateEditionAnnonceEvenementArtiste` timestamp,
 PRIMARY KEY `nAnnonceEvenementArtiste`(`nAnnonceEvenementArtiste`),
 FOREIGN KEY(auteur) REFERENCES artiste (nArtiste)
+ON DELETE CASCADE
 );
 
 CREATE TABLE `commentaireSalle` (
@@ -101,8 +106,10 @@ CREATE TABLE `commentaireSalle` (
 `dateEditionCommentaireSalle` timestamp,
 `auteur` int(255)NOT NULL,
 PRIMARY KEY `nCommentaireSalle`(`nCommentaireSalle`),
-FOREIGN KEY(cible) REFERENCES salle (nSalle),
+FOREIGN KEY(cible) REFERENCES salle (nSalle)
+ON DELETE CASCADE,
 FOREIGN KEY(auteur) REFERENCES utilisateur (id)
+ON DELETE CASCADE
 );
 
 CREATE TABLE `commentaireArtiste` (
@@ -112,8 +119,10 @@ CREATE TABLE `commentaireArtiste` (
 `dateEditionCommentaireArtiste` timestamp,
 `auteur` int(255) NOT NULL,
 PRIMARY KEY `nCommentaireArtiste`(`nCommentaireArtiste`),
-FOREIGN KEY(cible) REFERENCES artiste (nArtiste),
+FOREIGN KEY(cible) REFERENCES artiste (nArtiste)
+ON DELETE CASCADE,
 FOREIGN KEY(auteur) REFERENCES utilisateur (id)
+ON DELETE CASCADE
 );
 
 CREATE TABLE `albumPhotoArtiste` (
@@ -122,6 +131,7 @@ CREATE TABLE `albumPhotoArtiste` (
 `photoArtiste` varchar(255),
 PRIMARY KEY `nPhotoArtiste`(`nPhotoArtiste`),
 FOREIGN KEY(proprietaire) REFERENCES artiste (nArtiste)
+ON DELETE CASCADE
 );
 
 CREATE TABLE `albumPhotoSalle` (
@@ -130,6 +140,7 @@ CREATE TABLE `albumPhotoSalle` (
 `photoSalle` varchar(255),
 PRIMARY KEY `nPhotoSalle`(`nPhotoSalle`),
 FOREIGN KEY(proprietaire) REFERENCES salle (nSalle)
+ON DELETE CASCADE
 );
 
 CREATE TABLE `bibliothequeMusicale` (
@@ -140,6 +151,7 @@ CREATE TABLE `bibliothequeMusicale` (
   `artiste` varchar(255) NOT NULL,
 PRIMARY KEY `nMorceau`(`nMorceau`),
 FOREIGN KEY(proprietaire) REFERENCES artiste (nArtiste)
+ON DELETE CASCADE
 );
 
 CREATE TABLE `favoriArtiste`(
@@ -148,22 +160,27 @@ CREATE TABLE `favoriArtiste`(
 PRIMARY KEY(`proprietaire`,`cible`),
 FOREIGN KEY(cible) REFERENCES artiste (nArtiste),
 FOREIGN KEY(proprietaire) REFERENCES utilisateur (id)
+ON DELETE CASCADE
 );
 
 CREATE TABLE `favoriSalle`(
 `proprietaire` int(255) NOT NULL,
 `cible` int(255) NOT NULL,
 PRIMARY KEY(`proprietaire`,`cible`),
-FOREIGN KEY(cible) REFERENCES salle (nSalle),
+FOREIGN KEY(cible) REFERENCES salle (nSalle)
+ON DELETE CASCADE,
 FOREIGN KEY(proprietaire) REFERENCES utilisateur (id)
+ON DELETE CASCADE
 );
 
 CREATE TABLE `evenementSuivi`(
 `proprietaire` int(255) NOT NULL,
 `cible` int(255) NOT NULL,
 PRIMARY KEY(`proprietaire`,`cible`),
-FOREIGN KEY(cible) REFERENCES concert (nConcert),
+FOREIGN KEY(cible) REFERENCES concert (nConcert)
+ON DELETE CASCADE,
 FOREIGN KEY(proprietaire) REFERENCES utilisateur (id)
+ON DELETE CASCADE
 );
 
 CREATE TABLE `noteSalle`(
@@ -171,8 +188,10 @@ CREATE TABLE `noteSalle`(
 `cible` int(255) NOT NULL,
 `noteS` float(10),
 PRIMARY KEY(`proprietaire`,`cible`),
-FOREIGN KEY(cible) REFERENCES salle (nSalle),
+FOREIGN KEY(cible) REFERENCES salle (nSalle)
+ON DELETE CASCADE,
 FOREIGN KEY(proprietaire) REFERENCES utilisateur (id)
+ON DELETE CASCADE
 );
 
 CREATE TABLE `noteArtiste`(
@@ -180,7 +199,8 @@ CREATE TABLE `noteArtiste`(
 `cible` int(255) NOT NULL,
 `noteA` float(10),
 PRIMARY KEY(`proprietaire`,`cible`),
-FOREIGN KEY(cible) REFERENCES artiste (nArtiste),
+FOREIGN KEY(cible) REFERENCES artiste (nArtiste)
+ON DELETE CASCADE,
 FOREIGN KEY(proprietaire) REFERENCES utilisateur (id)
+ON DELETE CASCADE
 );
--- mq table gestion des notes salle et artiste
