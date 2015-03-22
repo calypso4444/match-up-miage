@@ -42,7 +42,14 @@ if ($vars['estConnecte'] === false) {
         <div id="interaction" class="col-lg-3 col-sm-height">
             <a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&fav=true" class="glyphicon glyphicon-heart"> Ajouter en favori </a></br>
             <a href="f_message.php?destS=<?php echo $vars['noProfil']; ?>" class="glyphicon glyphicon-envelope"> Contacter la salle </a></br>
-            <a href="" class="glyphicon glyphicon-star-empty"> Noter la salle </a>
+            (<?php echo $vars['noteMoyenne']; ?>/5)
+            <div class="rating"><!--
+                --><a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&note=5" title="Donner 5 étoiles" class=" glyphicon glyphicon-star"></a><!--
+                --><a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&note=4" title="Donner 4 étoiles" class=" glyphicon glyphicon-star"></a><!--
+                --><a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&note=3" title="Donner 3 étoiles" class=" glyphicon glyphicon-star"></a><!--
+                --><a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&note=2" title="Donner 2 étoiles" class=" glyphicon glyphicon-star"></a><!--
+                --><a href="salle.php?tmp=<?php echo $vars['noProfil']; ?>&note=1" title="Donner 1 étoile" class=" glyphicon glyphicon-star"></a>
+            </div>
         </div>
     </div>
 

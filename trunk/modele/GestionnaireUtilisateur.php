@@ -284,7 +284,7 @@ class GestionnaireUtilisateur extends Gestionnaire {
     }
 
     public function getNoteSalle($nSalle) {
-        $tmp = mysqli_query($this->link, "SELECT AVG(noteSalle) AS note FROM  " . $GLOBALS['DB_TABLE']['NOTE_S'] . " WHERE cible=$nSalle ;");
+        $tmp = mysqli_query($this->link, "SELECT AVG(noteS) AS note FROM  " . $GLOBALS['DB_TABLE']['NOTE_S'] . " WHERE cible=$nSalle ;");
         if ($tmp !== false) {
             $row = mysqli_fetch_assoc($tmp);
             return $row['note'];
