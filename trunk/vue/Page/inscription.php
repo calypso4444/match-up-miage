@@ -1,5 +1,8 @@
 <!-- vue/page -->
 
+<!--si l'utilisateur a reussi son inscription, on le redirige vers la page inscription reussie-->
+<?php echo $vars['inscriptionReussie'] ? "<script>document.location.href='inscription_reussie.php'</script>" : null ?>
+
 <div class="col-lg-12" id="formulaireI">
     <h1> formulaire d'inscription </h1>
 

@@ -10,6 +10,8 @@ include_once 'config/includeGlobal.php';
 
 /* séquence du controleur */
 
+$inscriptionReussie=false;
+
 $pseudo = filter_input(INPUT_POST, 'pseudo');
 $email = filter_input(INPUT_POST, 'email');
 $passe = filter_input(INPUT_POST, 'passe');
@@ -35,6 +37,7 @@ if ((!empty($pseudo)) and
            
            $model['GestionnaireUtilisateur']->inscription($email, $pseudo, $passe);
             $problemeMdp = false;
+            $inscriptionReussie=true;
         } 
     }
 }
@@ -46,7 +49,7 @@ if ((!empty($pseudo)) and
 $vue = array();
 $vue['existeDeja'] = $existeDeja;
 $vue['problemeMdp'] = $problemeMdp;
-
+$vue['inscriptionReussie']=$inscriptionReussie;
 $view->render('inscription', $vue);
 
 /* fin de l'affichage de la vue */
