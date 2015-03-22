@@ -10,7 +10,7 @@ class GestionnaireCarte extends Gestionnaire {
                 . " INNER JOIN "
                 . $GLOBALS['DB_TABLE']['ARTISTE'] . " A"
                 . " ON A.nArtiste=C.nArtiste "
-                . " WHERE C.dateConcert='$date';");
+                . " WHERE C.dateConcert=STR_TO_DATE('$date','%d/%m/%Y');");
         if ($req !== false) {
             $salle = array();
             while ($row = mysqli_fetch_assoc($req)) {
