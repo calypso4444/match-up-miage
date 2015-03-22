@@ -225,7 +225,7 @@ class GestionnaireUtilisateur extends Gestionnaire {
     public function participer($id, $nConcert) {
         mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['EVENEMENT_SUIVI'] . " VALUES ($id ,$nConcert) ; ");
     }
-    
+
     public function annulerParticipation($id, $nConcert) {
         mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['EVENEMENT_SUIVI'] . " WHERE proprietaire=$id AND cible=$nConcert ; ");
     }
@@ -261,6 +261,22 @@ class GestionnaireUtilisateur extends Gestionnaire {
         }
         // retourner le résultat final
         return $mdp;
+    }
+
+    public function noterArtiste($nSalle, $idProprietaire) {
+        $tmp = mysqli_query($this->link, "SELECT COUNT(*) AS nb FROM  " . $GLOBALS['DB_TABLE']['NOTE_S'] . " WHERE proprietaire=$idProprietaire AND cible=$nSalle;");
+        $row = mysqli_fetch_assoc($tmp);
+        if ($row['nb'] === '0') {
+            mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['NOTE_S'] . "  (proprietaire,cible) VALUES('$idProprietaire','$nSalle'); ");
+        }
+    }
+
+    public function noterSalle($nArtiste, $idProprietaire) {
+        $tmp = mysqli_query($this->link, "SELECT COUNT(*) AS nb FROM  " . $GLOBALS['DB_TABLE']['NOTE_A'] . " WHERE proprietaire=$idProprietaire AND cible=$nArtiste;");
+        $row = mysqli_fetch_assoc($tmp);
+        if ($row['nb'] === '0') {
+            mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['NOTE_A'] . "  (proprietaire,cible) VALUES('$idProprietaire','$nArtiste'); ");
+        }
     }
 
 }
