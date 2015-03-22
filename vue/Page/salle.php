@@ -113,7 +113,7 @@ if ($vars['estConnecte'] === true) {
                     <label for="nomArtiste">Nom de l'artiste</label>
                     <input class="form-control" id="nomArtiste" type="text" name="nomArtiste" placeholder="" value=""/>
                     la date que vous proposez : 
-                    <input id="datepicker" class="datepicker" type="text" placeholder="jj/mm/aaaa" name='dateConcert'/>
+                    <input id="datepicker" class="datepicker" type="text" placeholder="jj/mm/aaaa" name='dateConcert'></input>
                     <input type="submit" name='proposerConcert' value='Valider'/>
                 </form>
                 <?php echo ($vars['ok']) ? "<script>document.location.href='f_message.php?destA=" . $vars['nArtiste'] . "&dC=" . $vars['dateConcert'] . "&nS=" . $vars['noProfil'] . "'</script>" : null; ?>
@@ -131,11 +131,11 @@ if ($vars['estConnecte'] === true) {
                 <form action="salle.php?tmp=<?php echo $vars['noProfil']; ?>" method="post" id="posterAnnonce">
                     <input type="radio" name="typeAnnonce" value="petiteAnnonce"> une petite annonce</input>
                     <input type="radio" name="typeAnnonce" value="annonceEvenement"> une annonce évènementielle</input>
-                    </br>
-                    offre valable du : 
-                    <input id="datepicker" class="datepicker" type="text" placeholder="jj/mm/aaaa" name='dateDeb'/>
-                    au : 
-                    <input id="datepicker" class="datepicker" type="text" placeholder="jj/mm/aaaa" name='dateFin'/>
+                    </br>                  
+                    <label for="dateDebut"> Offre valable du </label>
+					<input type="text" id="from" name="dateDebut">
+					<label for="dateFin">au</label>
+					<input type="text" id="to" name="dateFin">
                     </br></br>
                     <textarea class="form-control" rows="5" id="posterAnnonce" type="text" name="posterAnnonce" placeholder="" value=""/></textarea>
                     </br>
