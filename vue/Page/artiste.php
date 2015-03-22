@@ -30,12 +30,11 @@ if ($vars['estConnecte'] === true) {
     <h1><?php echo $vars['nomProfil']; ?></h1>
     <p class="text-center"><?php echo $vars['genre']; ?></p>
 
-    <!-- Permet d'afficher le menu admin -->
-    <input type="button" onclick="masquer_div('artisteAdmin')" value="Masquer/Afficher"></button>
-    <!-- Permet d'afficher le menu admin -->
-
     <div id="photoProfil" class="col-lg-12">
         <img src="<?php echo ($vars['photoProfil'] !== null) ? $vars['photoProfil'] : "web/image/artiste.png"; ?>">
+        <!-- Permet d'afficher le menu admin -->
+		<input type="button" id="afficherMasquer" onclick="masquer_div('artisteAdmin')" value="Masquer/Afficher"></button>
+		<!-- Permet d'afficher le menu admin -->
     </div>
 
     <div id='bandeauProfil' class='col-lg-12 row-same-height'>
