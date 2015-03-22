@@ -7,7 +7,7 @@
     <h1>mes profils</h1>
     <div id="mesSalles" class="col-lg-6">
         <h2>salles</h2>
-        <a href='creation_salle.php'> créer un nouveau profil salle</a>
+        <a href='creation_salle.php' class="btn btn-default"> créer un nouveau profil salle</a>
         <table class="table">
             <tbody>
                 <?php
@@ -27,15 +27,8 @@
     </div>
     <div id="mesArtistes" class='col-lg-6'>
         <h2>artistes</h2>
-        <a href='creation_artiste.php'> créer un nouveau profil artiste</a>
+        <a href='creation_artiste.php'class="btn btn-default"> créer un nouveau profil artiste</a>
         <table class="table">
-            <thead>
-                <tr>
-                    <th>Snapshot</th>
-                    <th>Nom de l'artiste</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
             <tbody>
                 <?php
                 foreach ($vars['mesArtistes'] as $artiste):
