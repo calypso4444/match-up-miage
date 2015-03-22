@@ -166,5 +166,21 @@ FOREIGN KEY(cible) REFERENCES concert (nConcert),
 FOREIGN KEY(proprietaire) REFERENCES utilisateur (id)
 );
 
+CREATE TABLE `noteSalle`(
+`proprietaire` int(255) NOT NULL,
+`cible` int(255) NOT NULL,
+`noteS` float(10),
+PRIMARY KEY(`proprietaire`,`cible`),
+FOREIGN KEY(cible) REFERENCES salle (nSalle),
+FOREIGN KEY(proprietaire) REFERENCES utilisateur (id)
+);
 
+CREATE TABLE `noteArtiste`(
+`proprietaire` int(255) NOT NULL,
+`cible` int(255) NOT NULL,
+`noteA` float(10),
+PRIMARY KEY(`proprietaire`,`cible`),
+FOREIGN KEY(cible) REFERENCES artiste (nArtiste),
+FOREIGN KEY(proprietaire) REFERENCES utilisateur (id)
+);
 -- mq table gestion des notes salle et artiste
