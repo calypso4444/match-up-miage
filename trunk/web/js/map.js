@@ -1,3 +1,7 @@
+/* Cette fonction a pour but d'afficher une petite map au niveau de la page d'une salle
+	Les informations seront récupérées au préalable pour ensuite être afficher directement
+	dans une info bulle */
+
 $(document).ready(function() {
 
     var adresseE = $("#adresseE").val();
