@@ -247,6 +247,7 @@ button#suppression{
 table#tablePlaylist{
     background-color: #494949;
     border-radius: 10px ;
+    margin-bottom: 4%;
 }
 table#tablePlaylist tr{
     border-top: 1px grey dashed;
