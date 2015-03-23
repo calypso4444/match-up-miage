@@ -1,4 +1,4 @@
-/* Cette fonction a pour but de vérifier les champs lors de la création et la modification d'un profil */ 
+/* Ce JS a pour but de vérifier les champs lors de la création et la modification d'un profil */ 
 
 $(document).ready(function() {
 
