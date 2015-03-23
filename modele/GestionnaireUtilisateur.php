@@ -276,7 +276,7 @@ class GestionnaireUtilisateur extends Gestionnaire {
     public function noterArtiste($nArtiste, $idProprietaire, $note) {
         $tmp = mysqli_query($this->link, "SELECT COUNT(*) AS nb FROM  " . $GLOBALS['DB_TABLE']['NOTE_A'] . " WHERE proprietaire=$idProprietaire AND cible=$nArtiste;");
         $row = mysqli_fetch_assoc($tmp);
-        if ($row['nb'] === 0) {
+        if ($row['nb'] === '0') {
             mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['NOTE_A'] . "  (proprietaire,cible,noteA) VALUES($idProprietaire,$nArtiste,$note); ");
         } else {
             mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['NOTE_A'] . " SET noteA=$note WHERE proprietaire=$idProprietaire AND cible=$nArtiste; ");
