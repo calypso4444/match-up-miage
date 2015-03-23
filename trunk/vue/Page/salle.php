@@ -137,14 +137,14 @@ if ($vars['metEnFavori'] === true) {
                     <input type="radio" name="typeAnnonce" value="annonceEvenement"> une annonce évènementielle</input>
                     </br>                  
                     <label for="dateDebut"> Offre valable du </label>
-                    <input type="text" id="from" name="dateDebut">
+                    <input type="text" id="from" name="dateDeb">
                     <label for="dateFin">au</label>
                     <input type="text" id="to" name="dateFin">
                     </br></br>
                     <textarea class="form-control" rows="5" id="descriptionAnnonceSalle" type="text" name="posterAnnonce" placeholder="" value=""/></textarea>
                     <span id="descriptionSalleInfo"></span>
                     </br>
-                    <input class="btn btn-default" type="submit" value="Valider" id="envoyer"/>
+                    <input class="btn btn-default" type="submit" value="Valider" id="envoyerAnnonce"/>
                     </br>
                 </form>
                 </br>
