@@ -33,7 +33,7 @@ class GestionnaireAnnonce extends Gestionnaire {
     }
 
     public function creerPetiteAnnonce($noProfil, $texteAnnonce, $dateDeb, $dateFin) {
-        $texteAnnonce=mysqli_real_escape_string($this->link, $texteAnnonce);
+        $texteAnnonce = mysqli_real_escape_string($this->link, $texteAnnonce);
         if (empty($dateDeb)) {
             if (empty($dateFin)) {
                 mysqli_query($this->link, " INSERT INTO " . $GLOBALS['DB_TABLE']['PETITE_ANNONCE'] . " (auteur,textePetiteAnnonce, dateEditionPetiteAnnonce, dateDeb) VALUES ($noProfil,'$texteAnnonce',NOW(), NOW());");
@@ -84,12 +84,12 @@ class GestionnaireAnnonce extends Gestionnaire {
     }
 
     public function creerAnnonceEvenementSalle($noProfil, $texteAnnonce) {
-        $texteAnnonce=mysqli_real_escape_string($this->link, $texteAnnonce);
+        $texteAnnonce = mysqli_real_escape_string($this->link, $texteAnnonce);
         mysqli_query($this->link, " INSERT INTO " . $GLOBALS['DB_TABLE']['ANNONCE_EVENEMENT_S'] . " (auteur,texteAnnonceEvenementSalle, dateEditionAnnonceEvenementSalle) VALUES ($noProfil,'$texteAnnonce',NOW());");
     }
 
     public function creerAnnonceEvenementArtiste($noProfil, $texteAnnonce) {
-        $texteAnnonce=mysqli_real_escape_string($this->link, $texteAnnonce);
+        $texteAnnonce = mysqli_real_escape_string($this->link, $texteAnnonce);
         mysqli_query($this->link, " INSERT INTO " . $GLOBALS['DB_TABLE']['ANNONCE_EVENEMENT_A'] . " (auteur,texteAnnonceEvenementArtiste, dateEditionAnnonceEvenementArtiste) VALUES ($noProfil,'$texteAnnonce',NOW())");
     }
 
@@ -98,6 +98,42 @@ class GestionnaireAnnonce extends Gestionnaire {
         if ($reqm !== false) {
             $row = mysqli_fetch_assoc($reqm);
             return $row;
+        } else {
+            return null;
+        }
+    }
+
+    public function getAllPetiteAnnonceByGenre($genre) {
+        $reqm = mysqli_query($this->link, " SELECT nPetiteAnnonce, auteur,textePetiteAnnonce, dateDeb, dateFin,dateEditionPetiteAnnonce, nomSalle, photoProfilSalle "
+                . " FROM " . $GLOBALS['DB_TABLE']['PETITE_ANNONCE'] . " P "
+                . " INNER JOIN " . $GLOBALS['DB_TABLE']['SALLE'] . " S "
+                . " ON S.nSalle=auteur "
+                . " WHERE genreMusicalSalle LIKE '%$genre%' "
+                . " ORDER BY dateEditionPetiteAnnonce DESC; ");
+        if ($reqm !== false) {
+            $annonces = array();
+            while ($row = mysqli_fetch_assoc($reqm)) {
+                $annonces[] = $row;
+            }
+            return $annonces;
+        } else {
+            return null;
+        }
+    }
+
+    public function getAllPetiteAnnonceByArrondissement($arrondissement) {
+        $reqm = mysqli_query($this->link, " SELECT nPetiteAnnonce, auteur,textePetiteAnnonce, dateDeb, dateFin,dateEditionPetiteAnnonce, nomSalle, photoProfilSalle "
+                . " FROM " . $GLOBALS['DB_TABLE']['PETITE_ANNONCE'] . " P "
+                . " INNER JOIN " . $GLOBALS['DB_TABLE']['SALLE'] . " S "
+                . " ON S.nSalle=auteur "
+                . " WHERE cpSalle=750$arrondissement "
+                . " ORDER BY dateEditionPetiteAnnonce DESC; ");
+        if ($reqm !== false) {
+            $annonces = array();
+            while ($row = mysqli_fetch_assoc($reqm)) {
+                $annonces[] = $row;
+            }
+            return $annonces;
         } else {
             return null;
         }

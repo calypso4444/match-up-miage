@@ -28,15 +28,15 @@
                             <p>Par arrondissement</p>
                             <select class='form-control' name="arrondissement" size="l">
                                 <option></option>
-                                <option> 1er Arrondissement </option>
-                                <option> 2e Arrondissement </option>
-                                <option> 3e Arrondissement</option>
-                                <option> 4e Arrondissement</option>
-                                <option> 5e Arrondissement</option>
-                                <option> 6e Arrondissement</option>
-                                <option> 7e Arrondissement</option>
-                                <option> 8e Arrondissement </option>          
-                                <option> 9e Arrondissement </option>
+                                <option> 01er Arrondissement </option>
+                                <option> 02e Arrondissement </option>
+                                <option> 03e Arrondissement</option>
+                                <option> 04e Arrondissement</option>
+                                <option> 05e Arrondissement</option>
+                                <option> 06e Arrondissement</option>
+                                <option> 07e Arrondissement</option>
+                                <option> 08e Arrondissement </option>          
+                                <option> 09e Arrondissement </option>
                                 <option> 10e Arrondissement </option>
                                 <option> 11e Arrondissement </option>
                                 <option> 12e Arrondissement </option>
