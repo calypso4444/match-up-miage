@@ -1,5 +1,8 @@
+/* Cette fonction a pour but de vérifier les champs lors de la création et la modification d'un profil */ 
+
 $(document).ready(function() {
 
+/* On va récupérer l'ensemble des attributs  */
     var form = $('#formulaireGestionProfil');
 
     var cpasse = $('#cpasse');
@@ -24,6 +27,8 @@ $(document).ready(function() {
     var prenomInfo = $('#prenomInfo');
     var villeInfo = $('#villeInfo');
 
+	/* La fonction blur permet de déclencher l'évènement qui se produit lorsque l'élément perd le focus */
+
     email.blur(validateEmail);
     cpasse.blur(validateCPasse);
     npasse.blur(validateNouveau);
@@ -33,6 +38,8 @@ $(document).ready(function() {
     nom.blur(validateNom);
     prenom.blur(validatePrenom);
     ville.keyup(validateVille);
+
+	/* La fonction keyup permet de déclencher l'évènement qui se produit lorsque l'on tape sur une touche */
 
     email.keyup(validateEmail);
     cpasse.keyup(validateCPasse);
@@ -44,6 +51,10 @@ $(document).ready(function() {
     prenom.keyup(validatePrenom);
     ville.keyup(validateVille);
 
+	/* Lors de la validation, on verrifie si l'ensemble des fonctions ci-dessous retourn une valeur vraie ou faux. 
+	En effet si c'est faut, alors on envoit un message d'erreur et on demande à l'utilisateur de rentrer correctement
+	l'ensemble des champs indiqué */
+	 
     form.submit(function() {
         if (validateEmail() & validateNouveau() & validateNouveau2() & validateCPasse()) {
             return true;
@@ -53,6 +64,7 @@ $(document).ready(function() {
         }
     });
 
+	/* Fonction pour vérifier et valider un email */
     function validateEmail() {
         if (!email.val().match(/^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/i)) {
             emailInfo.removeClass("glyphicon glyphicon-ok");
@@ -64,7 +76,8 @@ $(document).ready(function() {
             return true;
         }
     }
-
+	
+	/* Fonction pour vérifier et valider le mot de passe courant */
     function validateCPasse() {
         if (cpasse.val() == "") {
             return false;
@@ -72,7 +85,8 @@ $(document).ready(function() {
             return true;
         }
     }
-
+	
+	/* Fonction pour vérifier et valider le nouveau mot de passe */
     function validateNouveau() {
         if (npasse.val() == "") {
             return true;
@@ -88,6 +102,7 @@ $(document).ready(function() {
         }
     }
 
+	/* Fonction pour vérifier et valider la vérification du nouveau mot de passe */
     function validateNouveau2() {
         if ((npasse.val() == "") && (npasse2.val() == "")) {
             return true;
@@ -106,7 +121,8 @@ $(document).ready(function() {
             return true;
         }
     }
-
+	
+	/* Fonction pour vérifier et valider le code postal */
     function validateCP() {
         if (!cp.val().match(/^[0-9]{5,5}$/i)) {
             cpInfo.removeClass("glyphicon glyphicon-ok");
@@ -118,7 +134,8 @@ $(document).ready(function() {
             return true;
         }
     }
-
+	
+	/* Fonction pour vérifier et valider l'adresse */
     function validateAdresse() {
         if (!adresse.val().match(/^[0-9]{1,3}(?:(?:[,. ]){1}[-a-zA-Zàâäéèêëïîôöùûüç]+)+$/i)) {
             adresseInfo.removeClass("glyphicon glyphicon-ok");
@@ -131,6 +148,7 @@ $(document).ready(function() {
         }
     }
 
+	/* Fonction pour vérifier et valider le prénom */
     function validatePrenom() {
         if (!prenom.val().match(/^[A-Z][a-zàéèêëîïôöûüùç.]+([ -][A-Z][a-zàéèêëîïôöûüùç.]{1,})*$/i)) {
             prenomInfo.removeClass("glyphicon glyphicon-ok");
@@ -143,6 +161,7 @@ $(document).ready(function() {
         }
     }
 
+	/* Fonction pour vérifier et valider le nom */
     function validateNom() {
         if (!nom.val().match(/^[A-Z][a-zàéèêëîïôöûüùç.]+([ -][A-Z][a-zàéèêëîïôöûüùç.]{1,})*$/i)) {
             nomInfo.removeClass("glyphicon glyphicon-ok");
@@ -155,6 +174,7 @@ $(document).ready(function() {
         }
     }
 
+	/* Fonction pour vérifier et valider la ville */
     function validateVille() {
         if (!ville.val().match(/^[A-Z][a-zàéèêëîïôöûüùç.]+([ -][A-Z][a-zàéèêëîïôöûüùç.]{1,})*$/i)) {
             villeInfo.removeClass("glyphicon glyphicon-ok");
