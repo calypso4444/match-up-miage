@@ -17,7 +17,7 @@
         <script type="text/javascript" language="Javascript" src="web/js/verificationArtiste.js"></script>
         <script type="text/javascript" language="Javascript" src="web/js/verificationSalle.js"></script>
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=fr"></script>
-        <script type="text/javascript" language="Javascript" src="web/js/gmap3.js"></script>
+        <script type="text/javascript" language="Javascript" src="web/js/gmap3.min.js"></script>
         <script type="text/javascript" language="Javascript" src="web/js/map.js"></script>
         <script type="text/javascript" language="Javascript" src="web/js/bootstrap.file-input.js"></script>
         <script type="text/javascript" src="web/js/verificationMusique.js"></script>
