@@ -1,4 +1,4 @@
-  /*Cette fonction a pour but d'afficher un calendrier en français. 
+  /* Ce JS a pour but d'afficher un calendrier en français. 
 	L'utilisateur pourra alors indiqué la date de début ainsi que 
 	la date de fin. Il y aura alors une vérification avec l'interval
 	entre la date de début et de fin.*/ 
