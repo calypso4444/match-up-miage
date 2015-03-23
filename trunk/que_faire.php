@@ -11,6 +11,7 @@ include_once 'config/includeGlobal.php';
 
 //on initialise une variable qui permettra d'indiquer si l'utilisateur est connecté, il pourra interagir avec le systeme si oui, si non il sera redirigé  
 $estConnecte = '';
+$participe=false;
 
 //recupere tous les concerts qui se deroulent à partir de la date courante
 $concert = $model['GestionnaireConcert']->getAllConcert();
@@ -23,6 +24,7 @@ if (isset($participation)) {
         $estConnecte = false;
     } else {
         $estConnecte = true;
+        $participe=true;
         $model['GestionnaireUtilisateur']->participer($id, $participation);
     }
 }
@@ -72,6 +74,7 @@ if(!empty($filtreGenre)){
 
 $vue = array();
 $vue['estConnecte'] = $estConnecte;
+$vue['participe']=$participe;
 $vue['concert'] = $concert;
 $vue['concertCarte'] = $concertCarte;
 $vue['nomMois'] = $nomMois;

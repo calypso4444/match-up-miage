@@ -11,6 +11,7 @@ include_once 'config/includeGlobal.php';
 
 //on initialise une variable qui permettra d'indiquer si l'utilisateur est connecté, il pourra interagir avec le systeme si oui, si non il sera redirigé  
 $estConnecte = '';
+$participe=false;
 
 //on recupere le dernier commentaire posté a propos d'une salle et le dernier commentaire posté a propos d'un artiste
 $lastA = $model['GestionnaireCommentaire']->getLastCommentaireArtiste();
@@ -33,6 +34,7 @@ if (isset($participation)) {
         $estConnecte = false;
     } else {
         $estConnecte = true;
+        $participe=true;
         $model['GestionnaireUtilisateur']->participer($id, $participation);
     }
 }
@@ -59,6 +61,7 @@ if (isset($nS)and isset($nA)and isset($dC)) {
 
 $vue = array();
 $vue['estConnecte'] = $estConnecte;
+$vue['participe']=$participe;
 $vue['dernierCommentaireArtiste'] = $lastA;
 $vue['dernierCommentaireSalle'] = $lastS;
 $vue['evenements'] = $evenements;
