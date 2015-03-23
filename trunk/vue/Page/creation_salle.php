@@ -83,7 +83,7 @@
                             </td>
                             <td style="">                                
 
-                                <select name="genreMusical" class='form-control'>
+                                <select name="genreMusical">
                                     <option></option>
                                     <option> R&B </option>
                                     <option> Punk </option>
@@ -95,7 +95,7 @@
                                     <option> Dance </option>          
                                 </select>
 
-                                <select name="genreMusical2" class='form-control' size="l">                        
+                                <select name="genreMusical2">                        
                                     <option></option>
                                     <option> Punk </option>
                                     <option> Classique</option>
@@ -106,7 +106,7 @@
                                     <option> Dance </option>          
                                 </select>
 
-                                <select name="genreMusical3" class='form-control' size="l">                                                
+                                <select name="genreMusical3">                                                
                                     <option></option>
                                     <option> Classique</option>
                                     <option> Metal</option>
@@ -117,6 +117,21 @@
                                 </select>
 
 
+                            </td>
+
+                        </tr>
+
+                        <!-- Fin champs pour modifier la description -->
+                        
+                        <!-- Début champs pour modifier la description --> 
+
+                        <tr> 
+                            <td>
+                                <label class="control-label" for="descriptionSalle">Description :</label><br/>
+                                <span id="descriptionSalleInfo"></span>
+                            </td>
+                            <td>
+                                <textarea style="resize:none" class="form-control" id="descriptionSalle" rows="5" type="text" name="descriptionSalle" placeholder="" value=""></textarea>
                             </td>
 
                         </tr>
