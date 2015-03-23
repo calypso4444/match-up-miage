@@ -368,9 +368,29 @@ div#interaction div{
 /*fin note*/
 
 
-/* Bouton Menu admin */
+/* Début Bouton Menu admin */
 #afficherMasquer{
     bottom:0px; 
     position:absolute; 
     text-align:right; right:0px
 }
+/* Fin Bouton Menu admin */
+
+
+/* Permet de donner un petit effet de zoom sur les images des albums */
+.img-zoom {
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+   z-index: 3;
+}
+ 
+.transition {
+    -webkit-transform: scale(2); 
+    -moz-transform: scale(2);
+    -o-transform: scale(2);
+    transform: scale(2);
+    
+}
+/* Fin de l'effet de zoom sur les images des albums */
