@@ -154,8 +154,8 @@ class GestionnaireProfil extends Gestionnaire {
         $latitude = $coords['lat'];
         $longitude = $coords['lon'];
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET adresseSalle='$adresse'  WHERE nSalle = $noprofil;");
-        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET cpSalle='$adresse'  WHERE nSalle = $noprofil;");
-        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET villeSalle='$adresse'  WHERE nSalle = $noprofil;");
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET cpSalle='$cp'  WHERE nSalle = $noprofil;");
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET villeSalle='$ville'  WHERE nSalle = $noprofil;");
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET latitude='$latitude'  WHERE nSalle = $noprofil;");
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET longitude='$longitude'  WHERE nSalle = $noprofil;");
     }
