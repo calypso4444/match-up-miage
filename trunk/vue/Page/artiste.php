@@ -76,7 +76,7 @@ if ($vars['metEnFavori'] === true) {
                         <tbody>
                             <tr>
                                 <td class="col-lg-6">
-                                    <span class="btn"><input type="file" name="mon_fichier" id="mon_fichier" class="filestyle" data-input="false" data-buttonText="Votre photo"/></span>
+                                    <span class="btn"><input type="file" name="mon_fichier" id="mon_fichier" class="filestyle" data-input="false" data-buttonText="Ma photo"/></span>
                                 </td>
                                 <td class="col-lg-6">
                                     <span class="btn"> <input class="btn btn-default" id="envoyer"  type="submit" value="OK"/></span>
@@ -84,7 +84,6 @@ if ($vars['metEnFavori'] === true) {
                             </tr>
                         </tbody>
                     </table>
-
                 </form>
             </div>
             <div id='gererPhoto' style='border-top: dashed black 1px'>
@@ -129,7 +128,7 @@ if ($vars['metEnFavori'] === true) {
                                     <input class="form-control" id="titre" type="text" name="titre" placeholder="Titre" value=""/>
                                 </td>
                                 <td class="col-xs-1">
-                                    <input class="filestyle" type="file" id="morceau" accept="audio/*" name="morceau" placeholder="" value="" data-input="false" data-buttonText="Votre son"/>
+                                    <input class="filestyle" type="file" id="morceau" accept="audio/*" name="morceau" placeholder="" value="" data-input="false" data-buttonText="Mon son"/>
                                 </td>
                                 <td class="col-lg-2">
                                     <input class="btn btn-default" type="submit" value="Upload">
@@ -259,7 +258,7 @@ if ($vars['metEnFavori'] === true) {
                     </br>
                 </div>
                 <div id="agenda">
-                    <h4>l'agenda</h4></br>
+                    <h4>mon agenda</h4></br>
                     <table class="table">
                         <tbody>
                             <?php
