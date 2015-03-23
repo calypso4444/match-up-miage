@@ -81,8 +81,8 @@ class GestionnaireUtilisateur extends Gestionnaire {
         return $mdpP;
     }
 
-    public function desinscription($mail) {
-        
+    public function desinscription($id) {
+        mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE id=$id ;");
     }
 
     public function validation($id) {
