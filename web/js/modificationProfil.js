@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
 
-/* On va récupérer l'ensemble des attributs  */
+	/* On va récupérer l'ensemble des attributs  */
     var form = $('#formulaireGestionProfil');
 
     var cpasse = $('#cpasse');
@@ -51,7 +51,7 @@ $(document).ready(function() {
     prenom.keyup(validatePrenom);
     ville.keyup(validateVille);
 
-	/* Lors de la validation, on verrifie si l'ensemble des fonctions ci-dessous retourn une valeur vraie ou faux. 
+	/* Lors de la validation, on verrifie si l'ensemble des fonctions ci-dessous retourne une valeur vraie ou fausse. 
 	En effet si c'est faut, alors on envoit un message d'erreur et on demande à l'utilisateur de rentrer correctement
 	l'ensemble des champs indiqué */
 	 
