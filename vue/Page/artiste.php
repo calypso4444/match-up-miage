@@ -220,7 +220,7 @@ if ($vars['metEnFavori'] === true) {
                                 echo '<tr>';
                             }
                             echo '<td>';
-                            echo "<img src=\"";
+                            echo "<img class='img-zoom' src=\"";
                             echo $albumPhoto['photoArtiste'];
                             echo "\"></td>";
                             $compteur++;
