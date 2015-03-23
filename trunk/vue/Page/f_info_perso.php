@@ -130,6 +130,26 @@
                                 <input class="btn btn-default center-block" type="submit" value="Valider " id="envoyer">
                             </td>
                         </tr>
+                        
+                        <tr></tr>
+                        <tr>
+	                        <td>
+	                        </td>
+	                        <td>
+	                     <form class="form-horizontal" action="desinscription.php" method="post" enctype="multipart/form-data">
+        	<div class="row">
+				<table class="table">
+					<tr>
+						<td>
+							<a href="desinscription.php?id=<?php echo $_SESSION['user']['id']; ?>" class="btn btn-danger">Me désinscrire</a>
+						</td>
+					</tr>
+				</table>
+        	</div>
+        </form>
+
+	                        </td>
+                        </tr>
 
                         <!-- Fin du bouton -->
 
@@ -141,18 +161,6 @@
         </table>
     </form>
 </div>
-
-        <form class="form-horizontal" action="desinscription.php" method="post" enctype="multipart/form-data">
-        	<div class="row">
-				<table class="table">
-					<tr>
-						<td>
-							<input class="btn btn-default center-block" type="submit" value="Valider " id="envoyer">
-						</td>
-					</tr>
-				</table>
-        	</div>
-        </form>
 
 <div class="container col-lg-6">
     <?php
