@@ -11,6 +11,13 @@ if ($vars['estConnecte'] === false) {
 }
 ?>
 
+<!--si l'utilisateur clique sur le bouton je participe, on le redirige vers la page mes_particpations-->
+<?php
+if ($vars['participe'] === true) {
+    echo "<script>document.location.href='f_mes_participations.php'</script>";
+}
+?>
+
 <div id="bloc1" class="col-lg-12 row-same-height">
     <div id="musique" class="col-lg-4 col-sm-height">
         <section id="evenementAttendus">
