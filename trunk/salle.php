@@ -84,9 +84,9 @@ if (isset($_FILES['mon_fichier'])) {
         $erreur = "Erreur lors du transfert";
     }
     $extensions_valides = array('jpg', 'jpeg', 'gif', 'png');
-    //1. strrchr renvoie l'extension avec le point (« . »).
-    //2. substr(chaine,1) ignore le premier caractère de chaine.
-    //3. strtolower met l'extension en minuscules.
+//1. strrchr renvoie l'extension avec le point (« . »).
+//2. substr(chaine,1) ignore le premier caractère de chaine.
+//3. strtolower met l'extension en minuscules.
     $extension_upload = strtolower(substr(strrchr($tab_img['name'], '.'), 1));
     $idmax = $model['GestionnaireProfil']->getNMaxPhotoSalle($noProfil);
     $idmax++;
@@ -162,6 +162,22 @@ if (isset($note)) {
 }
 $noteMoyenne = $model['GestionnaireUtilisateur']->getNoteSalle($noProfil);
 
+//annulation d'un concert
+$nConcertSup = filter_input(INPUT_GET, 'nConcertSup');
+if (isset($nConcertSup)) {
+    $confirm = filter_input(INPUT_GET, 'confirm');
+    if (isset($confirm)) {
+        if ($confirm === "true") {
+            $model['GestionnaireConcert']->annulerConcert($nConcertSup);
+        }
+    } else {
+        echo "<script>var tmp=confirm('Voulez vous vraiment annuler ce concert ?'); if(tmp){document.location.href='salle.php?tmp=".$noProfil."&nConcertSup=" . $nConcertSup . "&confirm=true';}</script>";
+    }
+}
+
+//recuperation des concerts à venir
+$aVenir = $model['GestionnaireConcert']->getConcertBySalle($noProfil);
+
 /* fin de séquence */
 
 /* affichage de la vue */
@@ -190,6 +206,7 @@ $vue['nomArtiste'] = $nomArtiste;
 $vue['dateConcert'] = $dateConcert;
 $vue['ok'] = $ok;
 $vue['nArtiste'] = $nArtiste;
+$vue['aVenir'] = $aVenir;
 $view->render('salle', $vue);
 
 /* fin de l'affichage de la vue */
