@@ -18,6 +18,13 @@ if ($vars['participe'] === true) {
 }
 ?>
 
+<!--apres la creation d'un concert, on recharge la page-->
+<?php
+if ($vars['creationConcertOk'] === true) {
+    echo "<script>document.location.href='index.php'</script>";
+}
+?>
+
 <div id="bloc1" class="col-lg-12 row-same-height">
     <div id="musique" class="col-lg-4 col-sm-height">
         <section id="evenementAttendus">

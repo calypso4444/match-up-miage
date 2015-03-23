@@ -121,7 +121,7 @@ class GestionnaireProfil extends Gestionnaire {
     }
 
     public function setDescriptionArtiste($noprofil, $desc) {
-        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['ARTISTE'] . " SET descriptionArtiste='".mysqli_real_escape_string($this->link, $desc)."' WHERE nArtiste = $noprofil;");
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['ARTISTE'] . " SET descriptionArtiste='" . mysqli_real_escape_string($this->link, $desc) . "' WHERE nArtiste = $noprofil;");
     }
 
     public function setphotoProfilArtiste($noprofil, $path) {
@@ -137,7 +137,7 @@ class GestionnaireProfil extends Gestionnaire {
     }
 
     public function setDescriptionSalle($noprofil, $desc) {
-        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET descriptionSalle='".mysqli_real_escape_string($this->link, $desc)."' WHERE nSalle = $noprofil;");
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET descriptionSalle='" . mysqli_real_escape_string($this->link, $desc) . "' WHERE nSalle = $noprofil;");
     }
 
     public function setphotoProfilSalle($noprofil, $path) {
@@ -148,8 +148,16 @@ class GestionnaireProfil extends Gestionnaire {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET genreMusicalSalle='$genre' WHERE nSalle = $noprofil;");
     }
 
-    public function setAdresseSalle($noprofil, $adresse) {
-        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET adresseSalle='$adresse' WHERE nSalle = $noprofil;");
+    public function setAdresseSalle($noprofil, $adresse, $cp, $ville) {
+        $address = $adresse . ' ' . $cp . ' ' . $ville;
+        $coords = $this->getXmlCoordsFromAdress($address);
+        $latitude = $coords['lat'];
+        $longitude = $coords['lon'];
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET adresseSalle='$adresse'  WHERE nSalle = $noprofil;");
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET cpSalle='$adresse'  WHERE nSalle = $noprofil;");
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET villeSalle='$adresse'  WHERE nSalle = $noprofil;");
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET latitude='$latitude'  WHERE nSalle = $noprofil;");
+        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET longitude='$longitude'  WHERE nSalle = $noprofil;");
     }
 
     public function settelSalle($noprofil, $tel) {
@@ -166,14 +174,6 @@ class GestionnaireProfil extends Gestionnaire {
 
     public function setContactGerant($noprofil, $contact) {
         mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET contactGerant='$contact' WHERE nSalle = $noprofil;");
-    }
-
-    public function setCpSalle($noprofil, $cpSalle) {
-        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET cpSalle='$cpSalle' WHERE nSalle = $noprofil;");
-    }
-
-    public function setVilleSalle($noprofil, $villeSalle) {
-        mysqli_query($this->link, "UPDATE " . $GLOBALS['DB_TABLE']['SALLE'] . " SET villeSalle='$villeSalle' WHERE nSalle = $noprofil;");
     }
 
     public function estProprietaireProfilSalle($nProfil, $id) {

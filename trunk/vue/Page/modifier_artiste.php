@@ -1,5 +1,8 @@
 <!-- vue/page -->
 
+<!--si l'utilisateur n'est pas connecté, on le redirige vers la page d'inscription-->
+<?php echo $vars['estConnecte'] ? null : "<script>document.location.href='inscription.php'</script>" ?>
+
 <div class="col-lg-12">
     <h1>infos de mon profil <?php echo $vars['nomArtiste']; ?></h1>
     <form id="formulaireModificationProfilArtiste" method ="post" name="formulaireModificationProfilArtiste" enctype="multipart/form-data">
