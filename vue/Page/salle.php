@@ -132,7 +132,7 @@ if ($vars['metEnFavori'] === true) {
         <div id="gestionAnnonce" class="col-lg-8">
             <div id="posterAnnonce" style="border-bottom: dashed black 1px">
                 <h4>poster une annonce</h4>
-                <form action="salle.php?tmp=<?php echo $vars['noProfil']; ?>" method="post" id="posterAnnonce">
+                <form action="salle.php?tmp=<?php echo $vars['noProfil']; ?>" method="post" id="posterAnnonceSalle">
                     <input type="radio" name="typeAnnonce" value="petiteAnnonce"> une petite annonce</input>
                     <input type="radio" name="typeAnnonce" value="annonceEvenement"> une annonce évènementielle</input>
                     </br>                  
@@ -141,7 +141,8 @@ if ($vars['metEnFavori'] === true) {
                     <label for="dateFin">au</label>
                     <input type="text" id="to" name="dateFin">
                     </br></br>
-                    <textarea class="form-control" rows="5" id="posterAnnonce" type="text" name="posterAnnonce" placeholder="" value=""/></textarea>
+                    <textarea class="form-control" rows="5" id="descriptionAnnonceSalle" type="text" name="posterAnnonce" placeholder="" value=""/></textarea>
+                    <span id="descriptionSalleInfo"></span>
                     </br>
                     <input class="btn btn-default" type="submit" value="Valider" id="envoyer"/>
                     </br>
