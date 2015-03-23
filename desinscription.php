@@ -16,7 +16,7 @@ include_once 'config/includeGlobal.php';
             if ($confirm === "true") {
                 $model['GestionnaireUtilisateur']->desinscription($id);
                 $_SESSION['user'] = null;
-                echo "<script>document.location.href='indexdesinscription.php</script>";
+                echo "<script>document.location.href='index.php</script>";
             }
         } else {
             echo "<script>var tmp=confirm('Voulez vous vraiment vous desinscrire ?'); if(tmp){document.location.href='desinscription.php?id=" . $id . "&confirm=true';}</script>";
