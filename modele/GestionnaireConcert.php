@@ -86,6 +86,26 @@ class GestionnaireConcert extends Gestionnaire {
             return null;
         }
     }
+    
+    public function getConcertBySalle($noProfil) {
+        $req = mysqli_query($this->link, " SELECT S.nSalle, nomSalle, A.nArtiste, A.nomArtiste, C.dateConcert, C.nConcert FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " S "
+                . " INNER JOIN " . $GLOBALS['DB_TABLE']['CONCERT'] . " C "
+                . " ON S.nSalle=C.nSalle "
+                . " INNER JOIN " . $GLOBALS['DB_TABLE']['ARTISTE'] . " A "
+                . " ON A.nArtiste=C.nArtiste"
+                . " WHERE C.dateConcert>=CURDATE()"
+                . " AND S.nSalle=$noProfil "
+                . " ORDER BY C.dateConcert DESC;");
+        if ($req !== false) {
+            $concert = array();
+            while ($row = mysqli_fetch_assoc($req)) {
+                $concert[] = $row;
+            }
+            return $concert;
+        } else {
+            return null;
+        }
+    }
 
     public function existeArtiste($nomArtiste) {
         $reqm = mysqli_query($this->link, "SELECT nArtiste FROM " . $GLOBALS['DB_TABLE']['ARTISTE'] . " WHERE nomArtiste='$nomArtiste'");
@@ -99,6 +119,10 @@ class GestionnaireConcert extends Gestionnaire {
 
     public function newConcert($nSalle, $nArtiste, $dateConcert) {
         mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['CONCERT'] . " (nSalle,nArtiste,dateConcert) VALUES ($nSalle,$nArtiste,STR_TO_DATE('$dateConcert','%d/%m/%Y'));");
+    }
+    
+    public function annulerConcert($nConcert){
+        mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['CONCERT'] . " WHERE nConcert=$nConcert ;");
     }
 
 }

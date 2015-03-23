@@ -111,21 +111,43 @@ if ($vars['metEnFavori'] === true) {
                 </table>
             </div>
 
-            <div id="interactionArtiste" style='border-top: solid 2px black'>
-                <h4>proposer un concert à un artiste</h4>
-                <form action="salle.php?tmp=<?php echo $vars['noProfil'] ?>" method="post" id="proposerConcert">
-                    <label for="nomArtiste">Nom de l'artiste</label>
-                    <input class="form-control" id="nomArtiste" type="text" name="nomArtiste" placeholder="" value=""/>
-                    la date que vous proposez : 
-                    <input id="datepicker" class="datepicker" type="text" placeholder="jj/mm/aaaa" name='dateConcert'></input>
-                    <input type="submit" name='proposerConcert' value='Valider'/>
-                </form>
-                <?php echo ($vars['ok']) ? "<script>document.location.href='f_message.php?destA=" . $vars['nArtiste'] . "&dC=" . $vars['dateConcert'] . "&nS=" . $vars['noProfil'] . "'</script>" : null; ?>
-                <?php
-                if (($vars['existeArtiste']) === false) {
-                    echo"<script>alert('nom incorrect');</script>";
-                }
-                ?>
+            <div id="interactionArtiste">
+                <div id='creerConcert' style='border-top: solid 2px black'>
+                    <h4>proposer un concert à un artiste</h4>
+                    <form action="salle.php?tmp=<?php echo $vars['noProfil'] ?>" method="post" id="proposerConcert">
+                        <label for="nomArtiste">Nom de l'artiste</label>
+                        <input class="form-control" id="nomArtiste" type="text" name="nomArtiste" placeholder="" value=""/>
+                        la date que vous proposez : 
+                        <input id="datepicker" class="datepicker" type="text" placeholder="jj/mm/aaaa" name='dateConcert'></input>
+                        <input type="submit" name='proposerConcert' value='Valider'/>
+                    </form>
+                    <?php echo ($vars['ok']) ? "<script>document.location.href='f_message.php?destA=" . $vars['nArtiste'] . "&dC=" . $vars['dateConcert'] . "&nS=" . $vars['noProfil'] . "'</script>" : null; ?>
+                    <?php
+                    if (($vars['existeArtiste']) === false) {
+                        echo"<script>alert('nom incorrect');</script>";
+                    }
+                    ?>
+                    </br>
+                </div>
+                <div id="annulerUnConcert"style='border-top: solid 2px black'>
+                    <h4>annuler un concert</h4>
+                    <table class="table">
+                        <tbody>
+                            <?php
+                            if ($vars['aVenir'] !== null) {
+                                foreach ($vars['aVenir'] as $aVenir):
+                                    $date = new DateTime($aVenir['dateConcert']);
+                                    $dateConcert = $date->format('d/m');
+                                    echo '<tr>';
+                                    echo '<td> <div class="date"> ' . $dateConcert . '. </div>' . $aVenir['nomArtiste'] . '</td>';
+                                    echo '<td> <a href="salle.php?tmp=' . $vars['noProfil'] . '&nConcertSup=' . $aVenir['nConcert'] . '" class=" btn-sm btn-danger"> Annuler </a></td>';
+                                    echo'</tr>';
+                                endforeach;
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
