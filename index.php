@@ -25,8 +25,10 @@ if ($lastA != null and $lastS !== null) {
     }
 }
 
+//on recupere un classement des evenements les plus suivis pour l'affichage
 $evenements = $model['GestionnaireConcert']->getEvenementsLesPlusSuivis();
 
+//gestion de la fonction participer à un evenement (depuis le bouton je participe)
 $participation = filter_input(INPUT_GET, 'nConcert');
 if (isset($participation)) {
     $id = $_SESSION['user']['id'];
@@ -39,20 +41,26 @@ if (isset($participation)) {
     }
 }
 
+//recuperation des infos concernant la salle et l'artise favoris du moment pour l'affichage
 $salleFavorite = $model['GestionnaireProfil']->getClassementFavoriSalle();
 $artisteFavori = $model['GestionnaireProfil']->getClassementFavoriArtiste();
 
+//recuperation d'un morceau de façon aleatoire pour l'afficher
 $selectionRandom = $model['GestionnaireProfil']->getMorceauRandom();
 
+//grace à new DateTime on recupere la date courante pour recuperer les concert du jour à afficher sur la map
 $date = new DateTime();
 $date = $date->format('d/m/20y');
 $concertCarte = $model['GestionnaireCarte']->getAllSalleConcertByDate($date);
 
+//creation d'un concert
+$creationConcertOk=false;
 $nS = filter_input(INPUT_GET, 'nS');
 $nA = filter_input(INPUT_GET, 'nA');
 $dC = filter_input(INPUT_GET, 'dC');
 if (isset($nS)and isset($nA)and isset($dC)) {
     $model['GestionnaireConcert']->newConcert($nS, $nA, $dC);
+    $creationConcertOk=true;
 }
 
 /* fin de séquence */
@@ -69,6 +77,7 @@ $vue['salleFavorite'] = $salleFavorite;
 $vue['artisteFavori'] = $artisteFavori;
 $vue['selectionRandom'] = $selectionRandom;
 $vue['concertCarte'] = $concertCarte;
+$vue['creationConcertOk']=$creationConcertOk;
 $view->render('index', $vue);
 
 /* fin de l'affichage de la vue */
