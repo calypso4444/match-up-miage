@@ -1,3 +1,7 @@
+  /* Ce JS a pour but d'afficher un calendrier en français. 
+	Le gérant de la salle pourra alors indiqué la date à 
+	laquelle il souhaite proposer un concert à l'artiste .*/
+
 $(document).ready(function() {
     $('#datepicker').datepicker({
 	    dateFormat : 'dd/mm/yy',
