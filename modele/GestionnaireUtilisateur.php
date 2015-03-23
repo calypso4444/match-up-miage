@@ -82,7 +82,7 @@ class GestionnaireUtilisateur extends Gestionnaire {
     }
 
     public function desinscription($id) {
-        mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE id=$id ;");
+        mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " WHERE id='$id' ;");
     }
 
     public function validation($id) {
