@@ -39,7 +39,7 @@ $(document).ready(function() {
         nsalle = concertCarte[i].nSalle;
         cpSalle = concertCarte[i].cpSalle;
         villeSalle = concertCarte[i].villeSalle;
-		
+
         var tmp = gps2pixel(lat[i], lon[i]);
         lon[i] = tmp.x;
         lat[i] = tmp.y;
@@ -48,19 +48,14 @@ $(document).ready(function() {
         var div = document.getElementById("mapContainer");
         var img = document.createElement("img");
         var a = document.createElement("a");
-        var span = document.createElement("span");
-        
-        
+
         a.setAttribute("href", "salle.php?tmp=" + nsalle);
-		a.setAttribute("title", "La salle : " + salle + "\nL'adresse : " + adresse +", "+ cpSalle +", "+ villeSalle + "\nL'artiste qui y participe : "+ artiste + "\nCliquez pour voir où se situe le concert");
-		
-           
+        a.setAttribute("title", "La salle : " + salle + "\nL'adresse : " + adresse + ", " + cpSalle + ", " + villeSalle + "\nL'artiste qui y participe : " + artiste + "\nCliquez pour voir où se situe le concert");
+
         img.setAttribute("src", "web/image/carte/etoile.svg");
         img.setAttribute("style", "position:absolute; top:" + lat[i] + "px;left:" + lon[i] + "px; height:4%; width:4%;");
         div.appendChild(a);
         a.appendChild(img);
-
-        
 
     }
 
