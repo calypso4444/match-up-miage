@@ -5,7 +5,7 @@
 
 <div class="col-lg-12">	
 
-    <h1> création de votre salle </h1>
+    <h1>la création de la salle</h1>
 
     <form id="formulaireModificationProfilSalle" method ="post" name="formulaireModificationProfilSalle" enctype="multipart/form-data">
         <div id="row">    
@@ -17,7 +17,7 @@
 
                         <tr>
                             <td>
-                                <label class="control-label" for="nomSalle">Votre nom de salle : *</label> 
+                                <label class="control-label" for="nomSalle">Le nom de la salle : *</label> 
                             </td>
                             <td>
                                 <input class="form-control" id="nomSalle" type="text" name="nomSalle" placeholder="" value=""/>
@@ -33,7 +33,7 @@
 
                         <tr> 
                             <td>  
-                                <label class="control-label" for="adresseSalle">Adresse de la salle : *</label>
+                                <label class="control-label" for="adresseSalle">L'adresse de la salle : *</label>
                             </td>
                             <td>
                                 <input class="form-control" id="adresseSalle" type="text" name="adresseSalle" placeholder="" value=""/>
@@ -49,7 +49,7 @@
 
                         <tr>  
                             <td> 
-                                <label class="control-label" for="cpSalle">CP Salle : *</label>
+                                <label class="control-label" for="cpSalle">Le code postal : *</label>
                             </td>
                             <td>
                                 <input class="form-control" id="cpSalle" type="text" name="cpSalle" placeholder="" value=""/>
@@ -65,7 +65,7 @@
 
                         <tr> 
                             <td>
-                                <label class="control-label" for="villeSalle">Ville : *</label>
+                                <label class="control-label" for="villeSalle">La ville : *</label>
                             </td>
                             <td>
                                 <input class="form-control" id="villeSalle" type="text" name="villeSalle" placeholder="" value=""/>
@@ -81,7 +81,7 @@
 
                         <tr>
                             <td> 
-                                <label class="control-label" for="genreMusical">Votre genre musical :</label>
+                                <label class="control-label" for="genreMusical">Le genre musical :</label>
                             </td>
                             <td style="">                                
 
@@ -129,7 +129,7 @@
 
                         <tr> 
                             <td>
-                                <label class="control-label" for="descriptionSalle">Description :</label><br/>
+                                <label class="control-label" for="descriptionSalle">La description :</label><br/>
                                 <span id="descriptionSalleInfo"></span>
                             </td>
                             <td>
@@ -144,7 +144,7 @@
 
                         <tr>
                             <td>
-                                <label class="control-label" for="photoSalle">Votre photo de profil :</label> 
+                                <label class="control-label" for="photoSalle">La photo de la salle :</label> 
                             </td>
                             <td>
                                 <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />	
@@ -167,7 +167,7 @@
 
                         <tr>
                             <td>
-                                <label class="control-label" for="telSalle">Numéro de téléphone de la salle :</label>
+                                <label class="control-label" for="telSalle">Le numéro de téléphone :</label>
                             </td>
                             <td>
                                 <input class="form-control" id="telSalle" type="text" name="telSalle" placeholder="" value=""/>
@@ -183,7 +183,7 @@
 
                         <tr>  
                             <td> 
-                                <label class="control-label" for="nomGerant">Nom du gérant de la salle :</label>
+                                <label class="control-label" for="nomGerant">Le nom du gérant :</label>
                             </td>
                             <td>      
                                 <input class="form-control" id="nomGerant" type="text" name="nomGerant" placeholder=""/>
@@ -199,7 +199,7 @@
 
                         <tr>
                             <td>
-                                <label class="control-label" for="nomGerant">Prénom du gérant de la salle :</label>
+                                <label class="control-label" for="nomGerant">Le prénom du gérant :</label>
                             </td>
                             <td>
                                 <input class="form-control" id="prenomGerant" type="text" name="prenomGerant" placeholder="" value=""/>
@@ -230,7 +230,7 @@
 
                         <tr>
                             <td>
-                                <a class="btn btn-default" href="f_mes_profils.php">Retour à mes profils</a>
+                                <a class="btn btn-default" href="f_mes_profils.php">Retour aux profils</a>
 
                             </td>
                             <td>

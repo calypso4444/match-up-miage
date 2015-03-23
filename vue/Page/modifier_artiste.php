@@ -4,7 +4,7 @@
 <?php echo $vars['estConnecte'] ? null : "<script>document.location.href='inscription.php'</script>" ?>
 
 <div class="col-lg-12">
-    <h1>infos de mon profil <?php echo $vars['nomArtiste']; ?></h1>
+    <h1>les infos du profil <?php echo $vars['nomArtiste']; ?></h1>
     <form id="formulaireModificationProfilArtiste" method ="post" name="formulaireModificationProfilArtiste" enctype="multipart/form-data">
         <div id="row">    
             <div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
@@ -16,7 +16,7 @@
 
                         <tr>
                             <td>
-                                <label class="control-label" for="nomArtiste">Votre nom de scène :</label> 
+                                <label class="control-label" for="nomArtiste">Le nom de scène :</label> 
                             </td>
                             <td>
                                 <input class="form-control" id="nomArtiste" type="text" name="nomArtiste" placeholder="<?php echo $vars['nomArtiste']; ?>" value="<?php echo $vars['nomArtiste']; ?>"/>
@@ -94,7 +94,7 @@
 
                         <tr>
                             <td>
-                                <label class="control-label" for="descriptionArtiste">Description :</label><br/>
+                                <label class="control-label" for="descriptionArtiste">La description :</label><br/>
                                 <span id="descriptionArtisteInfo"></span>
                             </td>
                             <td>
@@ -109,7 +109,7 @@
 
                         <tr>
                             <td>
-                                <label class="control-label" for="photoArtiste">Votre photo de profil :</label> 
+                                <label class="control-label" for="photoArtiste">La photo de profil :</label> 
                             </td>
                             <td>
                                 <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />	
@@ -121,7 +121,7 @@
 
                         <tr>
                             <td>
-                                <a class="btn btn-default" href="f_mes_profils.php">Retour à mes profils</a>  
+                                <a class="btn btn-default" href="f_mes_profils.php">Retour aux profils</a>  
                             </td>
                             <td>
                                 <input id="envoyer" class="btn btn-default" type="submit" value="Valider"/>

@@ -195,7 +195,7 @@
 
                         <tr>  
                             <td> 
-                                <label class="control-label" for="nomGerant">Nom du gérant de la salle :</label>
+                                <label class="control-label" for="nomGerant">Le nom du gérant :</label>
                             </td>
                             <td>      
                                 <input class="form-control" id="nomGerant" type="text" name="nomGerant" placeholder="<?php echo $vars['nomGerant']; ?>" value="<?php echo $vars['nomGerant']; ?>"/>
@@ -211,7 +211,7 @@
 
                         <tr>
                             <td>
-                                <label class="control-label" for="nomGerant">Prénom du gérant de la salle :</label>
+                                <label class="control-label" for="nomGerant">Le prénom du gérant :</label>
                             </td>
                             <td>
                                 <input class="form-control" id="prenomGerant" type="text" name="prenomGerant" placeholder="<?php echo $vars['prenomGerant']; ?>" value="<?php echo $vars['prenomGerant']; ?>"/>
@@ -242,7 +242,7 @@
 
                         <tr>
                             <td>
-                                <a class="btn btn-default" href="f_mes_profils.php">Retour à mes profils</a>
+                                <a class="btn btn-default" href="f_mes_profils.php">Retour aux profils</a>
 
                             </td>
                             <td>
