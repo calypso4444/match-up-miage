@@ -29,6 +29,7 @@ if ($vars['metEnFavori'] === true) {
     <input id="adresse" type="hidden" value="<?php echo $vars['adresse']; ?>"></input>
     <input id="ville" type="hidden" value="<?php echo $vars['ville']; ?>"></input>
     <input id="codepostal" type="hidden" value="<?php echo $vars['cp']; ?>"></input>
+    <input id="tel" type="hidden" value="<?php echo $vars['tel']; ?>"></input>
     <input id="estProprietaire" type="hidden" value="<?php echo $vars['estProprietaire']; ?>"></input>
     <!-- FIN -->
 
@@ -74,17 +75,22 @@ if ($vars['metEnFavori'] === true) {
     <div id="salleAdmin" class="col-lg-12">
         <div id="gestionPhoto" class="col-lg-4">
             <div id="uploaderPhoto">
+	            <h4>uploader une photo</h4>
                 <form id="album" method="post" action="salle.php?tmp=<?php echo $vars['noProfil']; ?>" enctype="multipart/form-data">
-                    <div class="btn-group">
-                        <span class="btn"><input type="file" name="mon_fichier" id="mon_fichier" class="filestyle" data-input="false" data-buttonText="Votre photo"/></span>
-                        <span class="btn"> <input class="btn btn-default" id="envoyer"  type="submit" value="OK"/></span>
-                    </div>
-                    </br>
+                    <table class="table">
+	                    <tr>
+		                    <td class="col-lg-6">
+								<span class="btn"><input type="file" name="mon_fichier" id="mon_fichier" class="filestyle" data-input="false" data-buttonText="Votre photo"/></span>
+		                    </td>
+		                    <td class="col-lg-6">
+								<span class="btn"> <input class="btn btn-default" id="envoyer"  type="submit" value="OK"/></span>
+		                    </td>
+	                    </tr>
+                    </table>
                 </form>
-                </br>
             </div>
             <div id="gererPhoto" style='border-top: dashed black 1px'>
-                <h4>mes photos</h4>
+                <h4>nos photos</h4>
                 <table class="table">
                     <?php
                     $compteur = 0;
@@ -174,7 +180,7 @@ if ($vars['metEnFavori'] === true) {
 
             <div id="gererAnnonces">
                 <div id="annonceEvenement">
-                    <h4>mes annonces évènement</h4>
+                    <h4>nos annonces évènement</h4>
                     <table class="table">
                         <tbody>
                             <?php
@@ -195,7 +201,7 @@ if ($vars['metEnFavori'] === true) {
                     </table>
                 </div>
                 <div id="petiteAnnonce" style="border-top: dashed black 1px;">
-                    <h4>mes petites annonces</h4>
+                    <h4>nos petites annonces</h4>
                     <table class="table">
                         <tbody>
                             <?php
@@ -286,16 +292,11 @@ if ($vars['metEnFavori'] === true) {
             <div id="acces">
                 <h4>l'accès : </h4>
                 <div id="map-canvas"></div>
-                <?php
-                if ($vars['tel'] !== null) {
-                    echo 'tel :' . $vars['tel'];
-                }
-                ?>
             </div>
         </aside>
 
         <section id="petiteAnnonce" class="col-lg-4 col-sm-height">
-            <h4>mes petites annonces</h4>
+            <h4>nos petites annonces</h4>
             <div id="annonce">
                 <table class="table">
                     <tbody>
@@ -331,7 +332,7 @@ if ($vars['metEnFavori'] === true) {
         </section>
 
         <section id="annonceEvenement" class="col-lg-4 col-sm-height">
-            <h4>mes annonces évènement</h4>
+            <h4>nos annonces évènement</h4>
             <div id="annonce">
                 <table class="table">
                     <tbody>
