@@ -14,7 +14,7 @@
                         <!-- Début champs pour entrer son email -->
 
                         <tr>
-                            <td><label class="control-label" for="email">Votre mail :</label></td>
+                            <td><label class="control-label" for="email">Mon mail :</label></td>
 
                             <td><input class="form-control" id="email" type="text" name="email" placeholder="<?php echo $vars['userMail']; ?>" value="<?php echo $vars['userMail']; ?>"></td>
 
@@ -23,7 +23,7 @@
                         <!-- Début champs affichant son pseudo -->
 
                         <tr>
-                            <td><label class="control-label" for="pseudo">Votre Pseudo :</label></td>
+                            <td><label class="control-label" for="pseudo">Mon Pseudo :</label></td>
 
                             <td>
                                 <fieldset disabled="disabled">
@@ -36,7 +36,7 @@
                         <!-- Début champs pour modifier son nom -->
 
                         <tr>
-                            <td><label class="control-label" for="nom">Votre nom :</label></td>
+                            <td><label class="control-label" for="nom">Mon nom :</label></td>
 
                             <td><input class="form-control" id="nom" type="text" name="nom" placeholder="<?php echo $vars['userNom']; ?>" value="<?php echo $vars['userNom']; ?>"></td>
 
@@ -45,7 +45,7 @@
                         <!-- Début champs pour modifier son prénom -->
 
                         <tr>
-                            <td><label class="control-label" for="prenom">Votre prenom :</label></td>
+                            <td><label class="control-label" for="prenom">Mon prénom :</label></td>
 
                             <td><input class="form-control" id="prenom" type="text" name="prenom" placeholder="<?php echo $vars['userPrenom']; ?>" value="<?php echo $vars['userPrenom']; ?>"></td>
 
@@ -54,7 +54,7 @@
                         <!-- Début champs pour modifier votre adresse -->
 
                         <tr>
-                            <td><label class="control-label" for="adresse">Votre adresse :</label></td>
+                            <td><label class="control-label" for="adresse">Mon adresse :</label></td>
 
                             <td><input class="form-control" id="adresse" type="text" name="adresse" placeholder="<?php echo $vars['userAdresse']; ?>" value="<?php echo $vars['userAdresse']; ?>"></td>
 
@@ -63,7 +63,7 @@
                         <!-- Début champs pour modifier son code postal -->
 
                         <tr>
-                            <td><label class="control-label" for="CP">Votre code postal :</label></td>
+                            <td><label class="control-label" for="CP">Mon code postal :</label></td>
 
                             <td><input class="form-control" id="CP" type="text" name="CP" placeholder="<?php echo $vars['userCP']; ?>" value="<?php echo $vars['userCP']; ?>"></td>
 
@@ -74,7 +74,7 @@
                         <!-- Début champs pour modifier votre ville -->
 
                         <tr>
-                            <td><label class="control-label" for="ville">Votre ville :</label></td>
+                            <td><label class="control-label" for="ville">Ma ville :</label></td>
 
                             <td><input class="form-control" id="ville" type="text" name="ville" placeholder="<?php echo $vars['userVille']; ?>" value="<?php echo $vars['userVille']; ?>"></td>
 
@@ -92,7 +92,7 @@
                         <!-- Début champs pour entrer son mot de passe actuel (Nécessaire pour la validation des modifications) -->
 
                         <tr>
-                            <td><label class="control-label" for="cpasse">Mot de passe : *</label></td>
+                            <td><label class="control-label" for="cpasse">Mon mot de passe : *</label></td>
 
                             <td><input class="form-control" id="cpasse" type="password" name="cpasse" value=""></td>
 
@@ -101,7 +101,7 @@
                         <!-- Début champs pour changer son mot de passe (nouveau mot de passe)-->
 
                         <tr>
-                            <td><label class="control-label" for="npasse">Nouveau mdp :</label></td>
+                            <td><label class="control-label" for="npasse">Mon nouveau mot de passe :</label></td>
 
                             <td><input class="form-control" id="npasse" type="password" name="npasse" value=""></td>
 
@@ -110,7 +110,7 @@
                         <!-- Début champs pour vérifier son nouveau mot de passe -->
 
                         <tr>
-                            <td><label class="control-label" for="npasse2">V&eacute;rification mdp :</label></td>
+                            <td><label class="control-label" for="npasse2">Vérification nouveau mot de passe :</label></td>
 
                             <td><input class="form-control" id="npasse2" type="password" name="npasse2" value=""></td>
 
@@ -138,9 +138,21 @@
                 </table>
             </div><!-- Fin de notre div de la colonne avec les mots de passe -->
         </div><!-- Fin de notre row -->
-
+        </table>
     </form>
 </div>
+
+        <form class="form-horizontal" action="desinscription.php" method="post" enctype="multipart/form-data">
+        	<div class="row">
+				<table class="table">
+					<tr>
+						<td>
+							<input class="btn btn-default center-block" type="submit" value="Valider " id="envoyer">
+						</td>
+					</tr>
+				</table>
+        	</div>
+        </form>
 
 <div class="container col-lg-6">
     <?php
