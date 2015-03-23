@@ -4,7 +4,7 @@
 <?php echo $vars['estConnecte'] ? null : "<script>document.location.href='inscription.php'</script>" ?>
 
 <div class="col-lg-12">	
-    <h1>infos de ma salle <?php echo $vars['nomSalle']; ?></h1>
+    <h1>les infos de la salle <?php echo $vars['nomSalle']; ?></h1>
 
     <form id="formulaireModificationProfilSalle" method ="post" name="formulaireModificationProfilSalle" enctype="multipart/form-data">
         <div id="row">    
@@ -16,7 +16,7 @@
 
                         <tr>
                             <td>
-                                <label class="control-label" for="nomSalle">Votre nom de salle : *</label> 
+                                <label class="control-label" for="nomSalle">Le nom de la salle : *</label> 
                             </td>
                             <td>
                                 <input class="form-control" id="nomSalle" type="text" name="nomSalle" placeholder="<?php echo $vars['nomSalle']; ?>" value="<?php echo $vars['nomSalle']; ?>"/>
@@ -32,7 +32,7 @@
 
                         <tr> 
                             <td>  
-                                <label class="control-label" for="adresseSalle">Adresse de la salle : *</label>
+                                <label class="control-label" for="adresseSalle">L'adresse de la salle : *</label>
                             </td>
                             <td>
                                 <input class="form-control" id="adresseSalle" type="text" name="adresseSalle" placeholder="<?php echo $vars['adresseSalle']; ?>" value="<?php echo $vars['adresseSalle']; ?>"/>
@@ -48,7 +48,7 @@
 
                         <tr>  
                             <td> 
-                                <label class="control-label" for="cpSalle">CP Salle : *</label>
+                                <label class="control-label" for="cpSalle">Le code postal : *</label>
                             </td>
                             <td>
                                 <input class="form-control" id="cpSalle" type="text" name="cpSalle" placeholder="<?php echo $vars['cpSalle']; ?>" value="<?php echo $vars['cpSalle']; ?>"/>
@@ -64,7 +64,7 @@
 
                         <tr> 
                             <td>
-                                <label class="control-label" for="villeSalle">Ville : *</label>
+                                <label class="control-label" for="villeSalle">La ville : *</label>
                             </td>
                             <td>
                                 <input class="form-control" id="villeSalle" type="text" name="villeSalle" placeholder="<?php echo $vars['villeSalle']; ?>" value="<?php echo $vars['villeSalle']; ?>"/>
@@ -80,7 +80,7 @@
 
                         <tr> 
                             <td>
-                                <label class="control-label" for="genreMusical">Votre genre musical :</label>
+                                <label class="control-label" for="genreMusical">Le genre musical :</label>
                             </td>
                             <td>
                                 <input class="form-control" id="genreMusical" type="text" name="genreMusical" placeholder="<?php echo $vars['genreSalle']; ?>" value="<?php echo $vars['genreSalle']; ?>"/>
@@ -96,7 +96,7 @@
 
                         <tr>
                             <td> 
-                                <label class="control-label" for="genreMusical">Votre genre musical :</label>
+                                <label class="control-label" for="genreMusical">Le genre musical :</label>
                             </td>
                             <td style="">                                
 
@@ -141,7 +141,7 @@
 
                         <tr> 
                             <td>
-                                <label class="control-label" for="descriptionSalle">Description :</label><br/>
+                                <label class="control-label" for="descriptionSalle">La description :</label><br/>
                                 <span id="descriptionSalleInfo"></span>
                             </td>
                             <td>
@@ -156,7 +156,7 @@
 
                         <tr>
                             <td>
-                                <label class="control-label" for="photoSalle">Votre photo de profil :</label> 
+                                <label class="control-label" for="photoSalle">La photo de la salle :</label> 
                             </td>
                             <td>
                                 <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />	
@@ -179,7 +179,7 @@
 
                         <tr>
                             <td>
-                                <label class="control-label" for="telSalle">Numéro de téléphone de la salle :</label>
+                                <label class="control-label" for="telSalle">Le numéro de téléphone :</label>
                             </td>
                             <td>
                                 <input class="form-control" id="telSalle" type="text" name="telSalle" placeholder="<?php echo $vars['telSalle']; ?>" value="<?php echo $vars['telSalle']; ?>"/>
