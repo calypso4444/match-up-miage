@@ -43,6 +43,22 @@
                         </tr>
 
                         <!-- Fin champs pour modifier son adresse -->
+                        
+						<!-- Début champs pour modifier le code postal de la salle -->
+
+                        <tr>  
+                            <td> 
+                                <label class="control-label" for="cpSalle">CP Salle : *</label>
+                            </td>
+                            <td>
+                                <input class="form-control" id="cpSalle" type="text" name="cpSalle" placeholder="<?php echo $vars['cpSalle']; ?>" value="<?php echo $vars['cpSalle']; ?>"/>
+                            </td>
+                            <td>
+                                <span id="cpSalleInfo"></span>
+                            </td>
+                        </tr>
+                        
+                        <!-- Fin champs pour la modification du code postal de la salle --> 
 
                         <!-- Début champs pour modifier la ville de la salle -->
 
@@ -59,20 +75,6 @@
                         </tr>
 
                         <!-- Fin champs pour modifier la ville de la salle -->
-
-                        <!-- Début champs pour modifier le code postal de la salle -->
-
-                        <tr>  
-                            <td> 
-                                <label class="control-label" for="cpSalle">CP Salle : *</label>
-                            </td>
-                            <td>
-                                <input class="form-control" id="cpSalle" type="text" name="cpSalle" placeholder="<?php echo $vars['cpSalle']; ?>" value="<?php echo $vars['cpSalle']; ?>"/>
-                            </td>
-                            <td>
-                                <span id="cpSalleInfo"></span>
-                            </td>
-                        </tr>
 
                         <!-- Début champs pour visualiser votre genre musical --> 
 
