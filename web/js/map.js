@@ -9,12 +9,13 @@ $(document).ready(function() {
     var adresse = $("#adresse").val();
     var ville = $("#ville").val();
     var codepostal = $("#codepostal").val();
+    var tel = $("#tel").val();
 
 
     $("#map-canvas").gmap3({
         marker: {
             values: [
-                {address: adresseE, data: nomSalle + "<br/>" + adresse + "<br/>" + codepostal + "<br/>" + ville}
+                {address: adresseE, data: nomSalle + "<br/>" + adresse + "<br/>" + codepostal + "<br/>" + ville + "<br/>" + tel}
             ],
             options: {
                 draggable: false
