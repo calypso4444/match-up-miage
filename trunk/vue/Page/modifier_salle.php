@@ -70,7 +70,7 @@
                             </td>
                         </tr>
 
-                        <!-- Début champs pour modifier le genre musical --> 
+                        <!-- Début champs pour visualiser votre genre musical --> 
 
                         <tr> 
                             <td>
@@ -84,7 +84,7 @@
                             </td>
                         </tr>
 
-                        <!-- Fin champs pour modifier le genre musical -->
+                        <!-- Fin champs pour visualiser votre genre musical -->
 
                         <!-- Début champs pour entrer son genre musical -->
 
@@ -94,7 +94,7 @@
                             </td>
                             <td style="">                                
 
-                                <select name="genreMusical" class='form-control' placeholder="" >
+                                <select name="genreMusical" placeholder="" >
                                     <option></option>
                                     <option> R&B </option>
                                     <option> Punk </option>
@@ -106,7 +106,7 @@
                                     <option> Dance </option>          
                                 </select>
 
-                                <select name="genreMusical2" class='form-control' size="l">                        
+                                <select name="genreMusical2"  size="l">                        
                                     <option></option>
                                     <option> Punk </option>
                                     <option> Classique</option>
@@ -117,7 +117,7 @@
                                     <option> Dance </option>          
                                 </select>
 
-                                <select name="genreMusical3" class='form-control' size="l">                                                
+                                <select name="genreMusical3"  size="l">                                                
                                     <option></option>
                                     <option> Classique</option>
                                     <option> Metal</option>
