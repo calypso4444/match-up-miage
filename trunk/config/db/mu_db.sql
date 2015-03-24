@@ -158,7 +158,8 @@ CREATE TABLE `favoriArtiste`(
 `proprietaire` int(255) NOT NULL,
 `cible` int(255) NOT NULL,
 PRIMARY KEY(`proprietaire`,`cible`),
-FOREIGN KEY(cible) REFERENCES artiste (nArtiste),
+FOREIGN KEY(cible) REFERENCES artiste (nArtiste)
+ON DELETE CASCADE,
 FOREIGN KEY(proprietaire) REFERENCES utilisateur (id)
 ON DELETE CASCADE
 );
