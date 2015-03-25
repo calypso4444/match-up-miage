@@ -22,7 +22,9 @@ $photoProfil = $infoProfil['photoProfilArtiste'];
 $descProfil = $infoProfil['descriptionArtiste'];
 $genre = $infoProfil['genreMusicalArtiste'];
 
-$id = $_SESSION['user']['id'];
+if (isset($_SESSION['user']['id'])) {
+    $id = $_SESSION['user']['id'];
+}
 
 //renvoit un boolean qui indique si l'utilisateur courant est le proprietaire du profil courant
 $estProprietaire = false;
@@ -57,8 +59,10 @@ if (!empty($texte)) {
 $nCom = filter_input(INPUT_GET, 'nCom');
 $removeComment = filter_input(INPUT_POST, 'removeComment');
 if ($removeComment === "true") {
-    if ($model['GestionnaireCommentaire']->estProprietaireCommentaireArtiste($nCom, $id)) {
-        $model['GestionnaireCommentaire']->supprimerCommentaireArtiste($nCom);
+    if (isset($id)) {
+        if ($model['GestionnaireCommentaire']->estProprietaireCommentaireArtiste($nCom, $id)or $model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
+            $model['GestionnaireCommentaire']->supprimerCommentaireArtiste($nCom);
+        }
     }
 }
 //recuperation de tous les commentaires pour l'affichage
@@ -68,32 +72,38 @@ $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdArtiste
 $nPhoto = filter_input(INPUT_GET, 'nP');
 $removePhoto = filter_input(INPUT_POST, 'removePhoto');
 if ($removePhoto === "true") {
-    if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
-        $model['GestionnaireProfil']->supprimerPhotoArtiste($noProfil, $nPhoto);
+    if (isset($id)) {
+        if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
+            $model['GestionnaireProfil']->supprimerPhotoArtiste($noProfil, $nPhoto);
+        }
     }
 }
 //ajout de photo dans l'album photo
 if (isset($_FILES['mon_fichier'])) {
-    $tab_img = $_FILES['mon_fichier'];
-    if ($_FILES['mon_fichier']['error'] > 0) {
-        $erreur = "Erreur lors du transfert";
-    }
-    $extensions_valides = array('jpg', 'jpeg', 'gif', 'png');
-    //1. strrchr renvoie l'extension avec le point (« . »).
-    //2. substr(chaine,1) ignore le premier caractère de chaine.
-    //3. strtolower met l'extension en minuscules.
-    $extension_upload = strtolower(substr(strrchr($tab_img['name'], '.'), 1));
-    $idmax = $model['GestionnaireProfil']->getNMaxPhotoArtiste($noProfil);
-    $idmax++;
-    $dossier = "web/image/albumPhotoArtiste/{$noProfil}";
-    if (!is_dir($dossier)) {
-        mkdir($dossier);
-    }
-    $chemin = "web/image/albumPhotoArtiste/{$noProfil}/{$idmax}.{$extension_upload}";
-    $resultat = move_uploaded_file($tab_img['tmp_name'], $chemin);
-    if ($resultat) {
-        $model['GestionnaireProfil']->ajouterPhotoArtiste($noProfil, $chemin);
-        $albumPhoto = $model['GestionnaireProfil']->getAllPhotoArtisteById($noProfil);
+    if (isset($id)) {
+        if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
+            $tab_img = $_FILES['mon_fichier'];
+            if ($_FILES['mon_fichier']['error'] > 0) {
+                $erreur = "Erreur lors du transfert";
+            }
+            $extensions_valides = array('jpg', 'jpeg', 'gif', 'png');
+            //1. strrchr renvoie l'extension avec le point (« . »).
+            //2. substr(chaine,1) ignore le premier caractère de chaine.
+            //3. strtolower met l'extension en minuscules.
+            $extension_upload = strtolower(substr(strrchr($tab_img['name'], '.'), 1));
+            $idmax = $model['GestionnaireProfil']->getNMaxPhotoArtiste($noProfil);
+            $idmax++;
+            $dossier = "web/image/albumPhotoArtiste/{$noProfil}";
+            if (!is_dir($dossier)) {
+                mkdir($dossier);
+            }
+            $chemin = "web/image/albumPhotoArtiste/{$noProfil}/{$idmax}.{$extension_upload}";
+            $resultat = move_uploaded_file($tab_img['tmp_name'], $chemin);
+            if ($resultat) {
+                $model['GestionnaireProfil']->ajouterPhotoArtiste($noProfil, $chemin);
+                $albumPhoto = $model['GestionnaireProfil']->getAllPhotoArtisteById($noProfil);
+            }
+        }
     }
 }
 //recuperation de toutes les photos de l'album pour l'affichage
@@ -102,34 +112,44 @@ $albumPhoto = $model['GestionnaireProfil']->getAllPhotoArtisteById($noProfil);
 //creation d'annonce
 $texteAnnonce = filter_input(INPUT_POST, 'posterAnnonce');
 if (!empty($texteAnnonce)) {
-    $texteAnnonce = htmlspecialchars($texteAnnonce);
-    $model['GestionnaireAnnonce']->creerAnnonceEvenementArtiste($noProfil, $texteAnnonce);
-    $annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdArtiste($noProfil);
+    if (isset($id)) {
+        if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
+            $texteAnnonce = htmlspecialchars($texteAnnonce);
+            $model['GestionnaireAnnonce']->creerAnnonceEvenementArtiste($noProfil, $texteAnnonce);
+            $annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdArtiste($noProfil);
+        }
+    }
 }
 //suppression d'annonce
 $nAnnonceEvenement = filter_input(INPUT_GET, 'nAnnonceEvenement');
-$model['GestionnaireAnnonce']->supprimerAnnonceEvenementByIdArtiste($noProfil, $nAnnonceEvenement);
+if (isset($id)) {
+    if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
+        $model['GestionnaireAnnonce']->supprimerAnnonceEvenementByIdArtiste($noProfil, $nAnnonceEvenement);
+    }
+}
 //recuperation des annonces pour l'affichage
 $annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdArtiste($noProfil);
 
 //ajout de morceau
 $titre = filter_input(INPUT_POST, 'titre');
 if (isset($_FILES['morceau'])and ! empty($titre)) {
-    if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
-        $tab_son = $_FILES['morceau'];
-        if ($_FILES['morceau']['error'] > 0) {
-            $erreur = "Erreur lors du transfert";
-        }
-        $extensions_valides = array('mp3', 'wav');
-        $extension_upload = strtolower(substr(strrchr($tab_son['name'], '.'), 1));
-        $dossier = "web/musique/{$nomProfil}";
-        if (!is_dir($dossier)) {
-            mkdir($dossier);
-        }
-        $chemin = "web/musique/{$nomProfil}/{$titre}.{$extension_upload}";
-        $resultat = move_uploaded_file($tab_son['tmp_name'], $chemin);
-        if ($resultat) {
-            $model['GestionnaireProfil']->ajouterMorceau($noProfil, $titre, $nomProfil, $chemin);
+    if (isset($id)) {
+        if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
+            $tab_son = $_FILES['morceau'];
+            if ($_FILES['morceau']['error'] > 0) {
+                $erreur = "Erreur lors du transfert";
+            }
+            $extensions_valides = array('mp3', 'wav');
+            $extension_upload = strtolower(substr(strrchr($tab_son['name'], '.'), 1));
+            $dossier = "web/musique/{$nomProfil}";
+            if (!is_dir($dossier)) {
+                mkdir($dossier);
+            }
+            $chemin = "web/musique/{$nomProfil}/{$titre}.{$extension_upload}";
+            $resultat = move_uploaded_file($tab_son['tmp_name'], $chemin);
+            if ($resultat) {
+                $model['GestionnaireProfil']->ajouterMorceau($noProfil, $titre, $nomProfil, $chemin);
+            }
         }
     }
 }
@@ -137,8 +157,12 @@ if (isset($_FILES['morceau'])and ! empty($titre)) {
 $nMorceau = filter_input(INPUT_GET, 'nMorceau');
 $removeSong = filter_input(INPUT_POST, 'removeSong');
 if ($removeSong === "true") {
-    if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
-        $model['GestionnaireProfil']->supprimerMorceau($noProfil, $nMorceau);
+    if (isset($id)) {
+        if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
+            if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
+                $model['GestionnaireProfil']->supprimerMorceau($noProfil, $nMorceau);
+            }
+        }
     }
 }
 //recuperation de tous les morceaux de l'artiste
