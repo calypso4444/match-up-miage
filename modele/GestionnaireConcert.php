@@ -86,7 +86,7 @@ class GestionnaireConcert extends Gestionnaire {
             return null;
         }
     }
-    
+
     public function getConcertBySalle($noProfil) {
         $req = mysqli_query($this->link, " SELECT S.nSalle, nomSalle, A.nArtiste, A.nomArtiste, C.dateConcert, C.nConcert FROM " . $GLOBALS['DB_TABLE']['SALLE'] . " S "
                 . " INNER JOIN " . $GLOBALS['DB_TABLE']['CONCERT'] . " C "
@@ -120,9 +120,30 @@ class GestionnaireConcert extends Gestionnaire {
     public function newConcert($nSalle, $nArtiste, $dateConcert) {
         mysqli_query($this->link, "INSERT INTO " . $GLOBALS['DB_TABLE']['CONCERT'] . " (nSalle,nArtiste,dateConcert) VALUES ($nSalle,$nArtiste,STR_TO_DATE('$dateConcert','%d/%m/%Y'));");
     }
-    
-    public function annulerConcert($nConcert){
+
+    public function annulerConcert($nConcert) {
         mysqli_query($this->link, "DELETE FROM " . $GLOBALS['DB_TABLE']['CONCERT'] . " WHERE nConcert=$nConcert ;");
+    }
+
+    public function getListeParticipant($nConcert) {
+        $req = mysqli_query($this->link, " SELECT id, pseudo, avatar FROM " . $GLOBALS['DB_TABLE']['CONNEXION'] . " C "
+                . " INNER JOIN " . $GLOBALS['DB_TABLE']['EVENEMENT_SUIVI'] . " E "
+                . " ON C.id=E.proprietaire "
+                . " WHERE E.cible=$nConcert");
+        if ($req !== false) {
+            $liste = array();
+            while ($row = mysqli_fetch_assoc($req)) {
+                $liste[] = $row;
+            }
+            return $liste;
+        } else {
+            return null;
+        }
+    }
+
+    public function getNombreParticipant($nConcert) {
+        $nb=$this->getListeParticipant($nConcert);
+        $nb=  count($nb);
     }
 
 }
