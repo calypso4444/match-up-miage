@@ -26,9 +26,9 @@ $cp = $infoProfil['cpSalle'];
 $ville = $infoProfil['villeSalle'];
 $tel = $infoProfil['telSalle'];
 
-
-$id = $_SESSION['user']['id'];
-
+if (isset($_SESSION['user']['id'])) {
+    $id = $_SESSION['user']['id'];
+}
 //renvoit un boolean qui indique si l'utilisateur courant est le proprietaire du profil courant
 $estProprietaire = false;
 if (isset($id)) {
@@ -62,8 +62,10 @@ if (!empty($texte)) {
 $nCom = filter_input(INPUT_GET, 'nCom');
 $remove = filter_input(INPUT_POST, 'remove');
 if ($remove === "true") {
-    if ($model['GestionnaireCommentaire']->estProprietaireCommentaireSalle($nCom, $id)or ( $model['GestionnaireProfil']->estProprietaireProfilSalle($noProfil, $id))) {
-        $model['GestionnaireCommentaire']->supprimerCommentaireSalle($nCom);
+    if (isset($id)) {
+        if ($model['GestionnaireCommentaire']->estProprietaireCommentaireSalle($nCom, $id)or ( $model['GestionnaireProfil']->estProprietaireProfilSalle($noProfil, $id))) {
+            $model['GestionnaireCommentaire']->supprimerCommentaireSalle($nCom);
+        }
     }
 }
 //recuperation de tous les commentaires pour l'affichage
@@ -72,32 +74,40 @@ $commentaires = $model['GestionnaireCommentaire']->getAllCommentairesByIdSalle($
 //suppression d'un photo de l'album
 $nPhoto = filter_input(INPUT_GET, 'nP');
 $removePhoto = filter_input(INPUT_POST, 'removePhoto');
-if ($removePhoto === "true") {
-    if ($model['GestionnaireProfil']->estProprietaireProfilSalle($noProfil, $id)) {
-        $model['GestionnaireProfil']->supprimerPhotoSalle($noProfil, $nPhoto);
+if (isset($id)) {
+    if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
+        if ($removePhoto === "true") {
+            if ($model['GestionnaireProfil']->estProprietaireProfilSalle($noProfil, $id)) {
+                $model['GestionnaireProfil']->supprimerPhotoSalle($noProfil, $nPhoto);
+            }
+        }
     }
 }
 //ajout d'un photo a l'album
 if (isset($_FILES['mon_fichier'])) {
-    $tab_img = $_FILES['mon_fichier'];
-    if ($_FILES['mon_fichier']['error'] > 0) {
-        $erreur = "Erreur lors du transfert";
-    }
-    $extensions_valides = array('jpg', 'jpeg', 'gif', 'png');
+    if (isset($id)) {
+        if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
+            $tab_img = $_FILES['mon_fichier'];
+            if ($_FILES['mon_fichier']['error'] > 0) {
+                $erreur = "Erreur lors du transfert";
+            }
+            $extensions_valides = array('jpg', 'jpeg', 'gif', 'png');
 //1. strrchr renvoie l'extension avec le point (« . »).
 //2. substr(chaine,1) ignore le premier caractère de chaine.
 //3. strtolower met l'extension en minuscules.
-    $extension_upload = strtolower(substr(strrchr($tab_img['name'], '.'), 1));
-    $idmax = $model['GestionnaireProfil']->getNMaxPhotoSalle($noProfil);
-    $idmax++;
-    $dossier = "web/image/albumPhotoSalle/{$noProfil}";
-    if (!is_dir($dossier)) {
-        mkdir($dossier);
-    }
-    $chemin = "web/image/albumPhotoSalle/{$noProfil}/{$idmax}.{$extension_upload}";
-    $resultat = move_uploaded_file($tab_img['tmp_name'], $chemin);
-    if ($resultat) {
-        $model['GestionnaireProfil']->ajouterPhotoSalle($noProfil, $chemin);
+            $extension_upload = strtolower(substr(strrchr($tab_img['name'], '.'), 1));
+            $idmax = $model['GestionnaireProfil']->getNMaxPhotoSalle($noProfil);
+            $idmax++;
+            $dossier = "web/image/albumPhotoSalle/{$noProfil}";
+            if (!is_dir($dossier)) {
+                mkdir($dossier);
+            }
+            $chemin = "web/image/albumPhotoSalle/{$noProfil}/{$idmax}.{$extension_upload}";
+            $resultat = move_uploaded_file($tab_img['tmp_name'], $chemin);
+            if ($resultat) {
+                $model['GestionnaireProfil']->ajouterPhotoSalle($noProfil, $chemin);
+            }
+        }
     }
 }
 //recuperation de toutes les photos de l'album pour l'affichage
@@ -105,28 +115,40 @@ $albumPhoto = $model['GestionnaireProfil']->getAllPhotoSalleById($noProfil);
 
 //suppression d'une petite annonce
 $nPetiteAnnonce = filter_input(INPUT_GET, 'nPetiteAnnonce');
-$model['GestionnaireAnnonce']->supprimerPetiteAnnonceByIdSalle($noProfil, $nPetiteAnnonce);
+if (isset($id)) {
+    if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
+        $model['GestionnaireAnnonce']->supprimerPetiteAnnonceByIdSalle($noProfil, $nPetiteAnnonce);
+    }
+}
 //suppression d'une annonce evenement
 $nAnnonceEvenement = filter_input(INPUT_GET, 'nAnnonceEvenement');
-$model['GestionnaireAnnonce']->supprimerAnnonceEvenementByIdSalle($noProfil, $nAnnonceEvenement);
+if (isset($id)) {
+    if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
+        $model['GestionnaireAnnonce']->supprimerAnnonceEvenementByIdSalle($noProfil, $nAnnonceEvenement);
+    }
+}
 //creation d'annonce
 $typeAnnonce = filter_input(INPUT_POST, 'typeAnnonce');
 $texteAnnonce = filter_input(INPUT_POST, 'posterAnnonce');
 $dateDeb = filter_input(INPUT_POST, 'dateDeb');
 $dateFin = filter_input(INPUT_POST, 'dateFin');
 if (isset($typeAnnonce)) {
-    if ($typeAnnonce === 'petiteAnnonce') {
-        if (!empty($texteAnnonce)) {
-            $texteAnnonce = htmlspecialchars($texteAnnonce);
-            $model['GestionnaireAnnonce']->creerPetiteAnnonce($noProfil, $texteAnnonce, $dateDeb, $dateFin);
-            $petiteAnnonces = $model['GestionnaireAnnonce']->getAllPetiteAnnonceByIdSalle($noProfil);
-        }
-    }
-    if ($typeAnnonce === 'annonceEvenement') {
-        if (!empty($texteAnnonce)) {
-            $texteAnnonce = htmlspecialchars($texteAnnonce);
-            $model['GestionnaireAnnonce']->creerAnnonceEvenementSalle($noProfil, $texteAnnonce);
-            $annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdSalle($noProfil);
+    if (isset($id)) {
+        if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
+            if ($typeAnnonce === 'petiteAnnonce') {
+                if (!empty($texteAnnonce)) {
+                    $texteAnnonce = htmlspecialchars($texteAnnonce);
+                    $model['GestionnaireAnnonce']->creerPetiteAnnonce($noProfil, $texteAnnonce, $dateDeb, $dateFin);
+                    $petiteAnnonces = $model['GestionnaireAnnonce']->getAllPetiteAnnonceByIdSalle($noProfil);
+                }
+            }
+            if ($typeAnnonce === 'annonceEvenement') {
+                if (!empty($texteAnnonce)) {
+                    $texteAnnonce = htmlspecialchars($texteAnnonce);
+                    $model['GestionnaireAnnonce']->creerAnnonceEvenementSalle($noProfil, $texteAnnonce);
+                    $annoncesEvenement = $model['GestionnaireAnnonce']->getAllAnnonceEvenementByIdSalle($noProfil);
+                }
+            }
         }
     }
 }
@@ -141,11 +163,15 @@ $existeArtiste = true;
 $ok = false;
 $nArtiste = null;
 if (isset($nomArtiste)) {
-    $existeArtiste = $model['GestionnaireConcert']->existeArtiste($nomArtiste); //on recupere ici le numero de profil de l'artiste si il existe
-    if ($existeArtiste !== false) {
-        if (isset($dateConcert)) {
-            $ok = true;
-            $nArtiste = $existeArtiste;
+    if (isset($id)) {
+        if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
+            $existeArtiste = $model['GestionnaireConcert']->existeArtiste($nomArtiste); //on recupere ici le numero de profil de l'artiste si il existe
+            if ($existeArtiste !== false) {
+                if (isset($dateConcert)) {
+                    $ok = true;
+                    $nArtiste = $existeArtiste;
+                }
+            }
         }
     }
 }
@@ -165,13 +191,17 @@ $noteMoyenne = $model['GestionnaireUtilisateur']->getNoteSalle($noProfil);
 //annulation d'un concert
 $nConcertSup = filter_input(INPUT_GET, 'nConcertSup');
 if (isset($nConcertSup)) {
-    $confirm = filter_input(INPUT_GET, 'confirm');
-    if (isset($confirm)) {
-        if ($confirm === "true") {
-            $model['GestionnaireConcert']->annulerConcert($nConcertSup);
+    if (isset($id)) {
+        if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
+            $confirm = filter_input(INPUT_GET, 'confirm');
+            if (isset($confirm)) {
+                if ($confirm === "true") {
+                    $model['GestionnaireConcert']->annulerConcert($nConcertSup);
+                }
+            } else {
+                echo "<script>var tmp=confirm('Voulez vous vraiment annuler ce concert ?'); if(tmp){document.location.href='salle.php?tmp=" . $noProfil . "&nConcertSup=" . $nConcertSup . "&confirm=true';}</script>";
+            }
         }
-    } else {
-        echo "<script>var tmp=confirm('Voulez vous vraiment annuler ce concert ?'); if(tmp){document.location.href='salle.php?tmp=".$noProfil."&nConcertSup=" . $nConcertSup . "&confirm=true';}</script>";
     }
 }
 
