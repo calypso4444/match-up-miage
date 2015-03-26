@@ -86,7 +86,7 @@ if ($vars['metEnFavori'] === true) {
                     </table>
                 </form>
             </div>
-            <div id='gererPhoto' style='border-top: dashed black 1px'>
+            <div id='gererPhoto'>
                 <h4>mes photos</h4>
                 <table class="table">
                     <?php
@@ -139,7 +139,7 @@ if ($vars['metEnFavori'] === true) {
                 </form>
             </div>
 
-            <div id="gererPlaylist" style='border-top: dashed black 1px'>
+            <div id="gererPlaylist">
                 <h4>mes morceaux</h4>
                 <table class="table" id="tablePlaylist">
                     <tbody>
@@ -180,7 +180,7 @@ if ($vars['metEnFavori'] === true) {
                 </br>
             </div>
 
-            <div id="gererAnnonces" style='border-top: dashed black 1px'>
+            <div id="gererAnnonces">
                 <h4>mes annonces</h4>
                 <table class="table">
                     <tbody>
@@ -285,8 +285,8 @@ if ($vars['metEnFavori'] === true) {
 
             <table class="table" id="tablePlaylist">
                 <tbody>
-                    <tr style='border-top: transparent 1px solid;'>
-                        <td style="color: whitesmoke">
+                    <tr>
+                        <td>
                             <?php
                             if ($vars['piste'] !== null) {
                                 echo'<p>';
