@@ -70,7 +70,7 @@ if ($vars['creationConcertOk'] === true) {
                 <tbody>
                     <?php
                     if ($vars['selectionRandom'] !== null) {
-                        echo '<tr style="border-top: transparent 1px solid;"><td>';
+                        echo '<tr><td>';
                         echo'<a href="artiste.php?tmp=' . $vars['selectionRandom']['proprietaire'] . '">';
                         echo $vars['selectionRandom']['titre'];
                         echo ' - ';
