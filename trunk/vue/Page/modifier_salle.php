@@ -98,7 +98,7 @@
                             <td> 
                                 <label class="control-label" for="genreMusical">Le genre musical :</label>
                             </td>
-                            <td style="">                                
+                            <td>                                
 
                                 <select name="genreMusical" placeholder="" >
                                     <option></option>
@@ -145,7 +145,7 @@
                                 <span id="descriptionSalleInfo"></span>
                             </td>
                             <td>
-                                <textarea style="resize:none" class="form-control" id="descriptionSalle" rows="5" type="text" name="descriptionSalle" placeholder="<?php echo $vars['descriptionSalle']; ?>" value="<?php echo $vars['descriptionSalle']; ?>"></textarea>
+                                <textarea class="form-control" id="descriptionSalle" rows="5" type="text" name="descriptionSalle" placeholder="<?php echo $vars['descriptionSalle']; ?>" value="<?php echo $vars['descriptionSalle']; ?>"></textarea>
                             </td>
 
                         </tr>
