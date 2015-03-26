@@ -22,7 +22,7 @@ if ($vars['participe'] === true) {
     <h1>que faire ?</h1>
     <p class='text-center'>Concerts du <?php echo $vars['dateConcert'] . " " . $vars['nomMois']; ?>
 
-    <div id='filtreConcert' class='col-lg-2' style='border-top:black 2px solid'>
+    <div id='filtreConcert' class='col-lg-2'>
         <h4>Affiner votre recherche</h4>
        	Choisissez un jour pour lequel vous voulez un affichage sur la carte</p>
         <form action="que_faire.php" method="post" name='choixJour'>
@@ -36,7 +36,7 @@ if ($vars['participe'] === true) {
                 <tbody>
                     <tr> <td> 
                             <p>Par genre musical</p>
-                            <select class='form-control' name="genreMusical" size="l">
+                            <select class='form-control' name="genreMusical">
                                 <option></option>
                                 <option> R&B </option>
                                 <option> Punk </option>
@@ -50,7 +50,7 @@ if ($vars['participe'] === true) {
                         </td></tr>
                     <tr><td>
                             <p>Par arrondissement</p>
-                            <select class='form-control' name="arrondissement" size="l">
+                            <select class='form-control' name="arrondissement">
                                 <option></option>
                                 <option> 01er Arrondissement </option>
                                 <option> 02e Arrondissement </option>
@@ -82,14 +82,14 @@ if ($vars['participe'] === true) {
 
     </div>
 
-    <section id='carte'class="text-center col-lg-10" style='border-left:black 2px solid; border-top:black 2px solid '>
+    <section id='carte' class="text-center col-lg-10">
         <input id="concertCarte" type="hidden" value="<?php echo htmlentities(json_encode($vars['concertCarte'])); ?>"/>
         <div id='mapContainer' class=''>
             <img id='map'src='web/image/carte/map.svg'/>
         </div>
     </section>
 
-    <div id="queFaire" class='col-lg-12' style='border-top:black 2px solid'>
+    <div id="queFaire" class='col-lg-12'>
         <table class="table">
             <tbody>
                 <?php
