@@ -4,7 +4,7 @@
 
     <h1>recherche avancée</h1>
 
-    <div id="optionAvancee" class="col-lg-2" style="border-right : solid black 1px; border-top: solid black 1px; margin-right: -1px">
+    <div id="optionAvancee" class="col-lg-2">
         <h4>Affiner votre recherche</h4>
 
         <form action='f_recherche_avancee.php' method="post" name="formRechercheAvanceGenre" >
@@ -57,7 +57,7 @@
         </br>
     </div>
 
-    <div id='resultat' class="col-lg-10" style="border-top: solid black 1px; border-left : solid black 1px;">
+    <div id='resultat' class="col-lg-10">
         <p> Voici les résultats correspondant à votre recherche : <?php echo "'" . $vars['mot'] . "'"; ?></p>
         <?php
         if (!empty($vars['resultat'])) {
