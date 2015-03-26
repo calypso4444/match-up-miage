@@ -83,7 +83,7 @@
                             <td> 
                                 <label class="control-label" for="genreMusical">Le genre musical :</label>
                             </td>
-                            <td style="">                                
+                            <td>                                
 
                                 <select name="genreMusical">
                                     <option></option>
@@ -133,7 +133,7 @@
                                 <span id="descriptionSalleInfo"></span>
                             </td>
                             <td>
-                                <textarea style="resize:none" class="form-control" id="descriptionSalle" rows="5" type="text" name="descriptionSalle" placeholder="" value=""></textarea>
+                                <textarea class="form-control" id="descriptionSalle" rows="5" type="text" name="descriptionSalle" placeholder="" value=""></textarea>
                             </td>
 
                         </tr>
