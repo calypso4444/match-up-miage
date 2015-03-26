@@ -12,7 +12,7 @@
                 <tbody>
                     <tr> <td> 
                             <p>Par genre musical</p>
-                            <select class='form-control' name="genreMusical" size="l">
+                            <select class='form-control' name="genreMusical">
                                 <option></option>
                                 <option> R&B </option>
                                 <option> Punk </option>
@@ -26,7 +26,7 @@
                         </td></tr>
                     <tr><td>
                             <p>Par arrondissement</p>
-                            <select class='form-control' name="arrondissement" size="l">
+                            <select class='form-control' name="arrondissement">
                                 <option></option>
                                 <option> 01er Arrondissement </option>
                                 <option> 02e Arrondissement </option>
