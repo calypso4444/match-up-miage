@@ -2,11 +2,10 @@
     font-family: 'amatic';
     src : url('../fonts/AmaticSC-Regular.ttf') format('truetype');
     font-style: normal;
-
 }
 
 body {
-    background-color: #fff0d9;
+    background-color: #fff0d9; /*#6052e2*/
     margin :auto; /*a virer des que possible (bootstrap)*/
     width: 80%; /*a virer des que possible (bootstrap)*/
 }
@@ -251,6 +250,7 @@ table#tablePlaylist{
 }
 table#tablePlaylist tr{
     border-top: 1px grey dashed;
+    border-top: transparent 1px solid;
 }
 
 section#annonceEvenement, div#gestionAnnonce, div#gestionMusique{
@@ -394,3 +394,75 @@ div#interaction div{
     
 }
 /* Fin de l'effet de zoom sur les images des albums */
+
+/*page Artiste*/
+
+#gererPhoto{
+	border-top: dashed black 1px;
+}
+
+#gererPlaylist{
+	border-top: dashed black 1px;
+}
+
+table#tablePlaylist tr td{
+	color: whitesmoke;
+}
+
+#gererAnnonces{
+	border-top: dashed black 1px;
+}
+
+/* Page recherche avancée */
+
+#optionAvancee {
+	border-right : solid black 1px; 
+	border-top: solid black 1px; 
+	margin-right: -1px;
+}
+
+#resultat{
+	border-top: solid black 1px;
+	 border-left : solid black 1px;
+}
+
+/* Page index */
+
+#tablePlaylist tbody tr{
+	border-top: transparent 1px solid;
+}
+
+/* Page Que faire ? */ 
+#filtreConcert{
+	border-top:black 2px solid;
+}
+
+#carte{
+	border-left:black 2px solid;
+	border-top:black 2px solid;
+}
+
+#queFaire{
+	border-top:black 2px solid;
+}
+
+/* Page Salle */
+#gererPhoto{
+	border-top: dashed black 1px;
+}
+
+#creerConcert{
+	border-top: solid 2px black;
+}
+
+#annulerUnConcert{
+	border-top: solid 2px black;
+}
+
+#posterAnnonce{
+	border-bottom: dashed black 1px;
+}
+
+#petiteAnnonce{
+	border-top: dashed black 1px;
+}
