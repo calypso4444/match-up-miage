@@ -89,7 +89,7 @@ if ($vars['metEnFavori'] === true) {
                     </table>
                 </form>
             </div>
-            <div id="gererPhoto" style='border-top: dashed black 1px'>
+            <div id="gererPhoto">
                 <h4>nos photos</h4>
                 <table class="table">
                     <?php
@@ -118,7 +118,7 @@ if ($vars['metEnFavori'] === true) {
             </div>
 
             <div id="interactionArtiste">
-                <div id='creerConcert' style='border-top: solid 2px black'>
+                <div id='creerConcert'>
                     <h4>proposer un concert à un artiste</h4>
                     <form action="salle.php?tmp=<?php echo $vars['noProfil'] ?>" method="post" id="proposerConcert">
                         <label for="nomArtiste">Nom de l'artiste</label>
@@ -135,7 +135,7 @@ if ($vars['metEnFavori'] === true) {
                     ?>
                     </br>
                 </div>
-                <div id="annulerUnConcert"style='border-top: solid 2px black'>
+                <div id="annulerUnConcert">
                     <h4>annuler un concert</h4>
                     <table class="table">
                         <tbody>
@@ -158,7 +158,7 @@ if ($vars['metEnFavori'] === true) {
         </div>
 
         <div id="gestionAnnonce" class="col-lg-8">
-            <div id="posterAnnonce" style="border-bottom: dashed black 1px">
+            <div id="posterAnnonce">
                 <h4>poster une annonce</h4>
                 <form action="salle.php?tmp=<?php echo $vars['noProfil']; ?>" method="post" id="posterAnnonceSalle">
                     <input type="radio" name="typeAnnonce" value="petiteAnnonce"> une petite annonce</input>
@@ -200,7 +200,7 @@ if ($vars['metEnFavori'] === true) {
                         </tbody>
                     </table>
                 </div>
-                <div id="petiteAnnonce" style="border-top: dashed black 1px;">
+                <div id="petiteAnnonce">
                     <h4>nos petites annonces</h4>
                     <table class="table">
                         <tbody>
