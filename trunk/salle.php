@@ -163,8 +163,8 @@ $existeArtiste = true;
 $ok = false;
 $nArtiste = null;
 if (isset($nomArtiste)) {
-    if (isset($id)) {
-        if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
+//    if (isset($id)) {
+//        if ($model['GestionnaireProfil']->estProprietaireProfilArtiste($noProfil, $id)) {
             $existeArtiste = $model['GestionnaireConcert']->existeArtiste($nomArtiste); //on recupere ici le numero de profil de l'artiste si il existe
             if ($existeArtiste !== false) {
                 if (isset($dateConcert)) {
@@ -172,8 +172,8 @@ if (isset($nomArtiste)) {
                     $nArtiste = $existeArtiste;
                 }
             }
-        }
-    }
+//        }
+//    }
 }
 
 //les notes
