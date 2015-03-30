@@ -50,6 +50,7 @@ if ($mois < 10) {
 $choixJour = filter_input(INPUT_POST, 'choixJour');
 if (isset($choixJour)) {
     $dateConcert = $choixJour;
+    $concertCarte = $model['GestionnaireCarte']->getAllSalleConcertByDate($dateConcert);
 }
 
 // gestion de l'input choix du genre musical et choix de l'arrondissement (filtres)
@@ -63,8 +64,9 @@ if(!empty($filtreGenre)){
     $concertCarte=$model['GestionnaireCarte']->getAllSalleConcertByDateGenre($dateConcert,$filtreGenre);
 }
 
-//recuperation de tous les concerts à afficher selon la date
-$concertCarte = $model['GestionnaireCarte']->getAllSalleConcertByDate($dateConcert);
+if(!isset($concertCarte)){
+    $concertCarte = $model['GestionnaireCarte']->getAllSalleConcertByDate($dateConcert);
+}
 
 /* fin de séquence */
 

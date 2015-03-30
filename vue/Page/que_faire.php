@@ -26,7 +26,7 @@ if ($vars['participe'] === true) {
         <h4>Affiner votre recherche</h4>
        	Choisissez un jour pour lequel vous voulez un affichage sur la carte</p>
         <form action="que_faire.php" method="post" name='choixJour'>
-            <input id="datepicker" class="datepicker form-control" name="choixJour"></input>
+            <input id="datepicker" class="datepicker form-control" name="choixJour" placeholder="jj/mm/aaaa"></input>
             </br>
             <input type='submit' class='btn-success' value="Valider"/>
         </form>
